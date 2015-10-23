@@ -1,0 +1,12 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken')
+  %body
+    .container#main-container
+      .row#main-row
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new)
+        .col-md-9
+          .starter-template
+            %h1 Mathias Soeken
+            %p.lead Researcher, EPFL, Switzerland

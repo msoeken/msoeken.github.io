@@ -1,0 +1,77 @@
+body {
+}
+
+#main-container {
+  background-color: #f7f7f7;
+}
+
+#main-row {
+  display: flex;
+}
+
+#left-column {
+  background-color: #e7e7e7;
+  flex-flow: column;
+  padding-top: 30px;
+}
+
+#nav-picture {
+  width: 150px;
+}
+
+#left-column ul.nav {
+  margin-top: 20px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.pitems .item {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.pitems .pubmain {
+    background-color: #fefefe;
+    padding: 25px 25px 35px 25px;
+    min-height: 200px;
+    position: relative;
+    box-shadow: 0px 3px 3px -3px #ccc;
+    cursor: pointer;
+}
+
+.pubthumb {
+    position: relative;
+    float: left;
+    padding-right: 20px;
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    max-height: 130;
+    text-align: center;
+}
+
+.pitems .pubmain .pubassets {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #fafafa;
+    text-align: center;
+    border-top: 2px solid #9b9b9b;
+}
+
+.pitems .pubmain .pubassets a {
+    color: #9b9b9b;
+    padding: 5px 15px;
+    float: right;
+    font-size: 18px;
+}
+
+.pitems .pubtitle {
+    margin: 0;
+    padding: 0 0 15px 0;
+    font-size: 20px;
+    font-weight: 300;
+}
