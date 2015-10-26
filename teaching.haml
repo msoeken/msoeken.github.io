@@ -1,0 +1,56 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / Teaching')
+  %body
+    .container#main-container
+      .row#main-row
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "teaching")
+        .col-md-9
+          %h1 Teaching
+          %h3 Past Courses
+          %ul.list-group
+            %li.list-group-item
+              %b Summer 2015
+              Computer Architecture (University of Freiburg, Germany)
+              %span.badge lecture
+            %li.list-group-item
+              %b Summer 2015
+              Quantum Computing and Reversible Logic (University of Freiburg, Germany)
+              %span.badge lecture
+            %li.list-group-item
+              %b Winter 2014/15
+              Student project Deep Game (University of Bremen, Germany)
+              %span.badge project
+            %li.list-group-item
+              %b Summer 2014
+              Advisor for DAAD RISE student exchange project
+              %span.badge exchange
+            %li.list-group-item
+              %b Summer 2014
+              Design of Emerging Technologies: Reversible Logic (University of Bremen, Germany)
+              %span.badge lecture
+            %li.list-group-item
+              %b Winter 2013/14
+              Concepts of Emerging Technologies
+              %span.badge lecture
+            %li.list-group-item
+              %b Summer 2013
+              Rerversible Logic and Quantum Computers (University of Bremen, Germany)
+              %span.badge lecture
+            %li.list-group-item
+              %b Summer 2013 &ndash; Summer 2014
+              Student project iTac (University of Bremen, Germany)
+              %span.badge project
+            %li.list-group-item
+              %b Summer 2012
+              Rerversible Logic and Quantum Computers (University of Bremen, Germany)
+              %span.badge lecture
+            %li.list-group-item
+              %b Winter 2011/12 &ndash; Summer 2013
+              Student project Chip4U (University of Bremen, Germany)
+              %span.badge project
+            %li.list-group-item
+              %b Winter 2009/10 &ndash; Summer 2011
+              Student project QBit (University of Bremen, Germany)
+              %span.badge project

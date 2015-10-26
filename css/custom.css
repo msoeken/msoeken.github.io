@@ -75,3 +75,18 @@ body {
     font-size: 20px;
     font-weight: 300;
 }
+
+.project-thumb {
+    position: relative;
+    float: right;
+    padding-right: 0px;
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    max-height: 130;
+    text-align: center;
+}
+
+.project-description {
+    margin-bottom: 10px;
+}

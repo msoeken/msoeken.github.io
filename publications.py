@@ -19,7 +19,7 @@ def make_conference( data ):
     return d
 
 def make_journal( data ):
-    return dict_from_tuple( ['key', 'name', 'publisher'], data )
+    return dict_from_tuple( ['key', 'name', 'publisher', 'webpage'], data )
 
 def make_author( data ):
     return dict_from_tuple( ['key', 'firstname', 'lastname'], data )
@@ -75,33 +75,41 @@ def format_bibtex_incollection( paper ):
     print( "  pages     = {%s}"      % paper['pages'] )
     print( "}" )
 
-def format_haml_incollection( paper ):
+def format_haml_incollection( paper, id ):
     conf  = paper['conf']
     venue = conf['venues'][paper['year']]
 
     env = Environment()
     template = env.from_string('''
-            .item
-              .pubmain
-                .pubassets
-                  %a(href="#")
-                    %span.glyphicon.glyphicon-new-window
-                  %a(href="#")
-                    %span.glyphicon.glyphicon-cloud-download
-                %img.pubthumb(src="images/thumbs/{{filename}}.png")
-                %h4.pubtitle
-                  {{title}}
-                .pubauthor
-                  {{authors}}
-                .pubcite
-                  %span.label.label-warning Conference Paper
-                  In {{conf}} ({{shortname}}) | {{city}}, {{country}}, {{month}} {{year}} | Pages {{pages}} | Publisher: {{publisher}}''')
+.item
+  .pubmain
+    .pubassets
+      {{external}}
+      %a(href="papers/{{filename}}.pdf" data-toggle="tooltip" data-placement="top" title="View PDF")
+        %span.glyphicon.glyphicon-cloud-download
+    %img.pubthumb(src="images/{{image}}.png")
+    %h4.pubtitle
+      {{title}}
+    .pubauthor
+      {{authors}}
+    .pubcite
+      %span.label.label-warning Conference Paper {{id}}
+      In {{conf}} ({{shortname}}) | {{city}}, {{country}}, {{month}} {{year}}{{pages}} | Publisher: {{publisher}}''')
 
-    authors = ",\n                  ".join( "%s %s" % ( a['firstname'], a['lastname'] ) for a in paper['authors'] )
-    authors.replace( "Mathias Soeken", "%strong Mathias Soeken" )
+    authors = ",\n      ".join( "%s %s" % ( a['firstname'], a['lastname'] ) for a in paper['authors'] )
+    authors = authors.replace( "Mathias Soeken", "%strong Mathias Soeken" )
+
+    filename = make_filename( paper )
+    image = "thumbs/" + filename if os.path.exists( "images/thumbs/%s.png" % filename ) else "nothumb"
+
+    external = ""
+    if paper['doi'] != "":
+        external = "%%a(href=\"%s\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open paper\")\n        %%span.glyphicon.glyphicon-new-window" % paper['doi']
 
     print( template.render( {'title': paper['title'],
-                             'filename': make_filename( paper ),
+                             'id': id,
+                             'filename': filename,
+                             'image': image,
                              'authors': authors,
                              'conf': conf['name'],
                              'shortname': conf['shortname'],
@@ -109,8 +117,52 @@ def format_haml_incollection( paper ):
                              'country': venue['country'],
                              'month': monthnames[venue['month']],
                              'year': venue['year'],
-                             'pages': paper['pages'],
+                             'external': external,
+                             'pages': " | Pages %s" % paper['pages'].replace( "--", "&ndash;" ) if paper['pages'] != "XXXX" else "",
                              'publisher': conf['publisher']} )[1:] )
+
+def format_haml_article( paper, id ):
+    journal = paper['journal']
+
+    env = Environment()
+    template = env.from_string('''
+.item
+  .pubmain
+    .pubassets
+      {{external}}
+      %a(href="papers/{{filename}}.pdf" data-toggle="tooltip" data-placement="top" title="View PDF")
+        %span.glyphicon.glyphicon-cloud-download
+    %a(href="{{webpage}}" target="_blank" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open journal homepage\")
+      %img.pubthumb(src="images/covers/{{key}}.png")
+    %h4.pubtitle
+      {{title}}
+    .pubauthor
+      {{authors}}
+    .pubcite
+      %span.label.label-info Journal Article {{id}}
+      In {{journal}} {{volume}}{{number}}, {{year}}{{pages}} | Publisher: {{publisher}}''')
+
+    authors = ",\n      ".join( "%s %s" % ( a['firstname'], a['lastname'] ) for a in paper['authors'] )
+    authors = authors.replace( "Mathias Soeken", "%strong Mathias Soeken" )
+
+    number = "(%s)" % paper['number'] if paper['number'] != "" else ""
+
+    external = ""
+    if paper['doi'] != "":
+        external = "%%a(href=\"%s\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open paper\")\n        %%span.glyphicon.glyphicon-new-window" % paper['doi']
+
+    print( template.render( {'title': paper['title'],
+                             'id': id,
+                             'key': journal['key'],
+                             'filename': "",
+                             'webpage': paper['journal']['webpage'],
+                             'authors': authors,
+                             'journal': paper['journal']['name'],
+                             'volume': paper['volume'],
+                             'year': paper['year'],
+                             'pages': " | Pages %s" % paper['pages'].replace( "--", "&ndash;" ) if paper['pages'] != "XXXX" else "",
+                             'external': external,
+                             'publisher': journal['publisher']} )[1:] )
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Hadamard", "Industrie", "metaSMT", "NCV", "OCL", "RevKit", "RISC", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
@@ -212,14 +264,14 @@ conferences_data = [
 ]
 
 journals_data = [
-    ( 'integration', 'Integration', 'Elsevier' ),
-    ( 'ipl', 'Information Processing Letters', 'Elsevier' ),
-    ( 'jetc', 'Journal on Emerging Technologies in Computing Systems', 'ACM' ),
-    ( 'jsc', 'Journal of Symbolic Computation', 'Elsevier' ),
-    ( 'mvl', 'Multiple-Valued Logic and Soft Computing', 'Old City Publishing' ),
-    ( 'pra', 'Physical Review A', 'American Physical Society' ),
-    ( 'sosym', 'Software and System Modeling', 'Springer' ),
-    ( 'zk', 'Zeitschrift für Kristallographie - Crystalline Materials' )
+    ( 'integration', 'Integration', 'Elsevier', 'http://www.journals.elsevier.com/integration-the-vlsi-journal/' ),
+    ( 'ipl', 'Information Processing Letters', 'Elsevier', 'http://www.journals.elsevier.com/information-processing-letters/' ),
+    ( 'jetc', 'Journal on Emerging Technologies in Computing Systems', 'ACM', 'http://jetc.acm.org/' ),
+    ( 'jsc', 'Journal of Symbolic Computation', 'Elsevier', 'http://www.journals.elsevier.com/journal-of-symbolic-computation/' ),
+    ( 'mvl', 'Multiple-Valued Logic and Soft Computing', 'Old City Publishing', 'http://www.oldcitypublishing.com/journals/mvlsc-home/' ),
+    ( 'pra', 'Physical Review A', 'American Physical Society', 'http://journals.aps.org/pra/' ),
+    ( 'sosym', 'Software and System Modeling', 'Springer', 'http://www.sosym.org/' ),
+    ( 'zk', 'Zeitschrift für Kristallographie - Crystalline Materials', 'De Gruyter', 'http://www.degruyter.com/view/j/zkri' )
 ]
 
 authors_data = [
@@ -254,6 +306,7 @@ authors_data = [
     ( 'ms',  'Mathias', 'Soeken' ),
     ( 'na',  'Nabila', 'Abdessaied' ),
     ( 'np',  'Nils', 'Przigoda' ),
+    ( 'ok',  'Oliver', 'Keszocze' ),
     ( 'rkb', 'Robert K.', 'Brayton' ),
     ( 'rkj', 'Robin Kaasgaard', 'Jensen' ),
     ( 'rd',  'Rolf', 'Drechsler' ),
@@ -332,15 +385,17 @@ article_data = [
     ( ['na', 'ms', 'mkt', 'rd'],       'ipl',         114, "6",      2014, 'Upper bounds for reversible circuits based on Young subgroups',                                     '282--286', 'http://dx.doi.org/10.1016/j.ipl.2014.01.003' ),
     ( ['eg', 'ms'],                    'sosym',       14,  "2",      2015, 'Specification-driven model transformation testing',                                                 '623--644', 'http://dx.doi.org/10.1007/s10270-013-0369-x' ),
     ( ['ms', 'lt', 'gwd', 'rd'],       'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',               '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
-    ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        -1,  "",          0, 'Embedding of large Boolean functions for reversible logic',                                         '',         '' ),
-    ( ['rw', 'es', 'ms', 'rd'],        'integration', -1,  "",          0, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', '',         '' ),
-    ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            '',         '' )
+    ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        -1,  "",          0, 'Embedding of large Boolean functions for reversible logic',                                         'XXXX',     '' ),
+    ( ['rw', 'es', 'ms', 'rd'],        'integration', -1,  "",          0, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', 'XXXX',     '' ),
+    ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     '' )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
 conferences = make_dict( 'key', conferences_data, make_conference )
+journals = make_dict( 'key', journals_data, make_journal )
 
 confpapers = list( map( make_conference_paper, confpapers_data ) )
+articles = list( map( make_article, article_data ) )
 
 
 def cmd_bibtex():
@@ -349,8 +404,20 @@ def cmd_bibtex():
         print()
 
 def cmd_haml():
-    for c in confpapers:
-        format_haml_incollection( c )
+    year = ""
+    for index, c in enumerate( reversed( confpapers ) ):
+        if c['year'] != year:
+            year = c['year']
+            print( "%%h4 %s" % year )
+        format_haml_incollection( c, len( confpapers ) - index )
+
+def cmd_haml_article():
+    year = ""
+    for index, c in enumerate( reversed( articles ) ):
+        if c['year'] != year:
+            year = c['year']
+            print( "%%h4 %s" % ( "Recently accepted" if year == 0 else year ) )
+        format_haml_article( c, len( articles ) - index )
 
 def cmd_stats():
     num_countries = len( set( [p['conf']['venues'][p['year']]['country'] for p in confpapers] ) )

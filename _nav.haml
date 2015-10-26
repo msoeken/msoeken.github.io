@@ -2,9 +2,15 @@
   %center
     %img#nav-picture(src="images/nav-picture.png")
   %ul.nav.nav-pills.nav-stacked
+    %li(role="presentation"){:class => ("active" if page == "index" )}
+      %a(href="index.html") About me
+    %li(role="presentation"){:class => ("active" if page == "research" )}
+      %a(href="research.html") Research
+    %li(role="presentation"){:class => ("active" if page == "teaching" )}
+      %a(href="teaching.html") Teaching
+    %li(role="presentation"){:class => ("active" if page == "publications" )}
+      %a(href="publications.html") Publications
+    %li(role="presentation"){:class => ("active" if page == "cirkit" )}
+      %a(href="cirkit.html") CirKit
     %li(role="presentation")
-      %a(href="#") About me
-      %a(href="#") Research
-      %a(href="#") Teaching
-      %a(href="#") Publications
-      %a(href="#") CirKit
+      %a(href="#") RevKit

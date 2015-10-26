@@ -1,0 +1,42 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / CirKit')
+  %body
+    .container#main-container
+      .row#main-row
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "cirkit")
+        .col-md-9
+          %a(href="https://github.com/msoeken/cirkit" target="_blank")
+            %img(style="position: absolute; top: 0; right: 0; border: 0" src="images/ribbon.png" alt="Fork me on GitHub")
+          %h1 CirKit
+          %p(style="width:95%")
+            CirKit is an open source C++ logic synthesis framework.
+            Besides a powerful API it offers a command line interface application similar to SIS or ABC.
+            The main underlying logic data structure is an AND-inverter graph.
+            Further, it consists of a simple BDD and ZDD package, a generic interface to for SAT solvers, several useful helper functions, and an API to create commands for the command line interface.
+          %h3 Installation
+          %pre
+            :preserve
+              git clone https://github.com/msoeken/cirkit.git
+              mkdir build
+              cd build
+              cmake ..
+              make external
+              make
+              cd ..
+          %h3 Run cirkit
+          After a successful compilation, run
+          %pre
+            :preserve
+              ./build/programs/cirkit
+          from the main directory.
+          %h3 Requirements
+          %ul
+            %li git
+            %li cmake (at least version 3.0.0)
+            %li g++ (at least version 4.9.0) or clang++ (at least version 3.5.0)
+            %li boost (at least version 1.56.0)
+            %li GNU MP, and its C++ interface GMP++
+            %li GNU readline
+

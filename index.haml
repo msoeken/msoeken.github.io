@@ -5,8 +5,47 @@
   %body
     .container#main-container
       .row#main-row
-        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new)
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => 'index')
         .col-md-9
           .starter-template
-            %h1 Mathias Soeken
-            %p.lead Researcher, EPFL, Switzerland
+            %h1 Dr. Mathias Soeken
+            %p.lead Researcher, University of Bremen, Germany
+          .row
+            .col-md-8
+              %p(style="text-align: justify")
+                Mathias Soeken works as a researcher at University of Bremen, Germany in the Computer Architecture group of Rolf Drechsler.
+                Starting from November, he will work as a researcher at EPFL, Lausanne, Switzerland in the ISL group of Giovanni De Micheli.
+                He holds a Ph.D. degree (Dr.-Ing.) in Computer Science from University of Bremen, Germany (2013).
+                His research interests are logic synthesis, formal verification, and quantum computing.
+            .col-md-4
+              Bibliothekstr. 1
+              %br
+              MZH 4200
+              %br
+              28359 Bremen
+              %br
+              %span.glyphicon.glyphicon-phone-alt
+              +49 (421) 218 63955
+              %br
+              %span.glyphicon.glyphicon-envelope
+              %a(href="mailto:mathias.soeken@gmail.com") mathias.soeken@gmail.com
+          %h3 News
+          %ul.list-group
+            %li.list-group-item
+              The proposal for the
+              %b 3rd Workshop on Design Automation for Understanding Hardware Designs
+              got accepted as DATE Friday workshop,
+              %a(href="http://www.informatik.uni-bremen.de/duhde/2016/") submit now!
+              %span.badge conference
+            %li.list-group-item
+              Article
+              %b Atomic distributions in crystal structures solved by Boolean satisfiability techniques
+              got accepted for publication in
+              %i Zeitschrift für Kristallographie - Crystalline Materials
+              %span.badge publication
+            %li.list-group-item
+              Article
+              %b SyReC: A Hardware Description Language for the Specification and Synthesis of Reversible Circuits
+              got accepted for publication in
+              %i INTEGRATION
+              %span.badge publication

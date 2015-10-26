@@ -1,0 +1,36 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / Research')
+  %body
+    .container#main-container
+      .row#main-row
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => 'research')
+        .col-md-9
+          %h1 Research
+          %h3 Research Interests
+          %ul.list-group
+            %li.list-group-item Logic Synthesis
+            %li.list-group-item Design Understanding
+            %li.list-group-item Formal Verification
+            %li.list-group-item Reversible Logic
+            %li.list-group-item Quantum Computing
+          %h3 Projects
+          .pitems
+            .pitem
+              .pubmain(style="min-height:0px")
+                %img.project-thumb(src="images/daad.gif")
+                %h4.pubtitle Faster Formal Verification with Reverse Engineering
+                .project-description
+                  The project develops new methods for reverse engineering a circuit aiming at increasing the efficiency of formal verification.
+                %span.glyphicon.glyphicon-calendar
+                %b Runtime:
+                January 2015 &ndash; December 2016
+                %br
+                %span.glyphicon.glyphicon-certificate
+                %b Role:
+                Principal Investigator
+                %br
+                %span.glyphicon.glyphicon-user
+                %b Collaborator:
+                Prof. Robert K. Brayton, UC Berkeley, CA, USA
