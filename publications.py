@@ -104,7 +104,7 @@ def format_haml_incollection( paper, id ):
 
     external = ""
     if paper['doi'] != "":
-        external = "%%a(href=\"%s\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open paper\")\n        %%span.glyphicon.glyphicon-new-window" % paper['doi']
+        external = "%%a(href=\"%s\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open paper\" target=\"_blank\")\n        %%span.glyphicon.glyphicon-new-window" % paper['doi']
 
     print( template.render( {'title': paper['title'],
                              'id': id,
@@ -132,8 +132,8 @@ def format_haml_article( paper, id ):
       {{external}}
       %a(href="papers/{{filename}}.pdf" data-toggle="tooltip" data-placement="top" title="View PDF")
         %span.glyphicon.glyphicon-cloud-download
-    %a(href="{{webpage}}" target="_blank" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open journal homepage\")
-      %img.pubthumb(src="images/covers/{{key}}.png")
+    %a(href="{{webpage}}" target="_blank")
+      %img.pubthumb(src="images/covers/{{key}}.png" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open journal homepage\")
     %h4.pubtitle
       {{title}}
     .pubauthor
@@ -149,7 +149,7 @@ def format_haml_article( paper, id ):
 
     external = ""
     if paper['doi'] != "":
-        external = "%%a(href=\"%s\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open paper\")\n        %%span.glyphicon.glyphicon-new-window" % paper['doi']
+        external = "%%a(href=\"%s\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open paper\" target=\"_blank\")\n        %%span.glyphicon.glyphicon-new-window" % paper['doi']
 
     print( template.render( {'title': paper['title'],
                              'id': id,
@@ -165,7 +165,7 @@ def format_haml_article( paper, id ):
                              'publisher': journal['publisher']} )[1:] )
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
-capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Hadamard", "Industrie", "metaSMT", "NCV", "OCL", "RevKit", "RISC", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "metaSMT", "NCV", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
 
 conferences_data = [
     ( 'apms', 'APMS', 'Advances in Production Management Systems', 'IFIP', [
@@ -278,6 +278,7 @@ authors_data = [
     ( 'aaa', 'Arman', 'Allahyari-Abhari' ),
     ( 'ac',  'Anupam', 'Chattopadhyay' ),
     ( 'ac2', 'Arun', 'Chandrasekharan' ),
+    ( 'asa', 'Amr', 'Sayed Ahmed' ),
     ( 'bs',  'Baruch', 'Sterin' ),
     ( 'cbh', 'Christopher B.', 'Harris' ),
     ( 'cg',  'Christian', 'Gorldt' ),
@@ -288,6 +289,7 @@ authors_data = [
     ( 'dmm', 'D. Michael', 'Miller' ),
     ( 'eg',  'Esther', 'Guerra' ),
     ( 'es',  'Eleonora', 'Schönborn' ),
+    ( 'gdm', 'Giovanni', 'De Micheli' ),
     ( 'gf',  'Görschwin', 'Fey' ),
     ( 'gwd', 'Gerhard W.', 'Dueck' ),
     ( 'hml', 'Hoang M.', 'Le' ),
@@ -296,6 +298,7 @@ authors_data = [
     ( 'jp',  'Judith', 'Peters' ),
     ( 'js',  'Julia', 'Seiter' ),
     ( 'kdt', 'Klaus-Dieter', 'Thoben' ),
+    ( 'la',  'Luca Gaetano', 'Amarù' ),
     ( 'lt',  'Laura', 'Tague' ),
     ( 'md',  'Melanie', 'Diepenbeck' ),
     ( 'mf',  'Martin', 'Freibothe' ),
@@ -307,6 +310,7 @@ authors_data = [
     ( 'na',  'Nabila', 'Abdessaied' ),
     ( 'np',  'Nils', 'Przigoda' ),
     ( 'ok',  'Oliver', 'Keszocze' ),
+    ( 'peg', 'Pierre-Emmanuel', 'Gaillardon' ),
     ( 'rkb', 'Robert K.', 'Brayton' ),
     ( 'rkj', 'Robin Kaasgaard', 'Jensen' ),
     ( 'rd',  'Rolf', 'Drechsler' ),
@@ -371,10 +375,13 @@ confpapers_data = [
     ( ['ms', 'bs', 'rd', 'rkb'],                         'fmcad',   2015, 'Simulation Graphs for Reverse Engineering', 'XXXX', '' ),
     ( ['na', 'ms', 'rd'],                                'rc',      2015, 'Technology mapping for quantum circuits using Boolean functional decomposition', '219--232', 'http://dx.doi.org/10.1007/978-3-319-20860-2_14' ),
     ( ['mkt', 'rkj', 'ms'],                              'rc',      2015, 'Ricercar: A language for describing and rewriting reversible circuits with ancillae and its permutation semantics', '200--215', 'http://dx.doi.org/10.1007/978-3-319-20860-2_13' ),
-    ( ['na', 'ms', 'gwd', 'rd'],                         'vlsisoc', 2015, 'Reversible circuit rewriting with simulated annealing', 'XXXX', '' ),
+    ( ['na', 'ms', 'gwd', 'rd'],                         'vlsisoc', 2015, 'Reversible circuit rewriting with simulated annealing', '286-291', 'http://dx.doi.org/10.1109/VLSI-SoC.2015.7314431' ),
     ( ['ms', 'js', 'rd'],                                'tap',     2015, 'Coverage of OCL operation specifications and invariants', '191--207', 'http://dx.doi.org/10.1007/978-3-319-21215-9_12' ),
     ( ['np', 'jp', 'ms', 'rw', 'rd'],                    'modevva', 2015, 'Towards an automatic approach for restricting UML/OCL invariability clauses', 'XXXX', '' ),
-    ( ['ms', 'dg', 'ac2', 'rd'],                         'aspdac',  2016, 'BDD minimization for approximate computing', 'XXXX', '' )
+    ( ['ms', 'dg', 'ac2', 'rd'],                         'aspdac',  2016, 'BDD minimization for approximate computing', 'XXXX', '' ),
+    ( ['asa', 'dg', 'uk', 'ms', 'rd'],                   'date',    2016, 'Formal verification of integer multipliers by combining Gröbner basis with logic reduction', 'XXXX', '' ),
+    ( ['ss', 'ms', 'peg', 'rd'],                         'date',    2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', 'XXXX', '' ),
+    ( ['ms', 'peg', 'la', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' )
 ]
 
 article_data = [
@@ -387,7 +394,7 @@ article_data = [
     ( ['ms', 'lt', 'gwd', 'rd'],       'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',               '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
     ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        -1,  "",          0, 'Embedding of large Boolean functions for reversible logic',                                         'XXXX',     '' ),
     ( ['rw', 'es', 'ms', 'rd'],        'integration', -1,  "",          0, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', 'XXXX',     '' ),
-    ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     '' )
+    ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     'http://dx.doi.org/10.1515/zkri-2015-1887' )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
@@ -429,11 +436,11 @@ def cmd_pdfs():
 
         if os.path.exists( "papers/%s.pdf" % filename ):
             if not os.path.exists( "images/thumbs/%s.png" % filename ):
-                print( "[i] creating thumbnail for \"%s\" (%s %d)" % ( c['title'], c['conf']['shortname'], year ) )
+                print( "[i] creating thumbnail for \"%s\" (%s %d)" % ( c['title'], c['conf']['shortname'], c['year'] ) )
                 os.system( "convert papers/%s.pdf /tmp/%s.png" % ( filename, filename ) )
                 os.system( "convert -trim -resize x130 /tmp/%s-0.png images/thumbs/%s.png" % ( filename, filename ) )
         else:
-            print( "[w] no PDF for \"%s\" (%s %d)" % ( c['title'], c['conf']['shortname'], year ) )
+            print( "[w] no PDF for \"%s\" (%s %d)" % ( c['title'], c['conf']['shortname'], c['year'] ) )
 
 if len( sys.argv ) == 2:
     globals()['cmd_%s' % sys.argv[1]]()

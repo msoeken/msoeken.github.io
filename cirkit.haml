@@ -13,9 +13,18 @@
           %p(style="width:95%")
             CirKit is an open source C++ logic synthesis framework.
             Besides a powerful API it offers a command line interface application similar to SIS or ABC.
-            The main underlying logic data structure is an AND-inverter graph.
-            Further, it consists of a simple BDD and ZDD package, a generic interface to for SAT solvers, several useful helper functions, and an API to create commands for the command line interface.
-          %h3 Installation
+            The main underlying logic data structure is an
+            %a(href="https://github.com/msoeken/cirkit/blob/master/src/classical/aig.hpp" target="_blank") AND-inverter graph.
+            Further, it consists of a
+            %a(href="https://github.com/msoeken/cirkit/tree/master/src/classical/dd" target="_blank") simple BDD and ZDD package,
+            a
+            %a(href="https://github.com/msoeken/cirkit/tree/master/addons/cirkit-addon-formal/src/formal/sat" target="_blank") generic interface to SAT solvers,
+            %a(href="https://github.com/msoeken/cirkit/tree/master/src/core/utils" target="_blank") several useful helper functions,
+            and an
+            %a(href="https://github.com/msoeken/cirkit/tree/master/src/core/cli" target="_blank") API to create commands for the command line interface.
+          %h3 Download CitKit
+          %a(href="http://github.com/msoeken/cirkit" target="_blank") github.com/msoeken/cirkit
+          %h3 Install CirKit
           %pre
             :preserve
               git clone https://github.com/msoeken/cirkit.git
@@ -25,7 +34,7 @@
               make external
               make
               cd ..
-          %h3 Run cirkit
+          %h3 Run CirKit
           After a successful compilation, run
           %pre
             :preserve
@@ -33,10 +42,11 @@
           from the main directory.
           %h3 Requirements
           %ul
+            %li Linux
             %li git
             %li cmake (at least version 3.0.0)
             %li g++ (at least version 4.9.0) or clang++ (at least version 3.5.0)
             %li boost (at least version 1.56.0)
             %li GNU MP, and its C++ interface GMP++
-            %li GNU readline
+            %li GNU readline (optional)
 

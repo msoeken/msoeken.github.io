@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <title>Mathias Soeken / CirKit</title>
+    <link href='css/bootstrap.min.css' rel='stylesheet'>
+    <link href='css/custom.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class='container' id='main-container'>
+      <div class='row' id='main-row'>
+        <div class='col-md-3' id='left-column'>
+          <center>
+            <img id='nav-picture' src='images/nav-picture2.jpg'>
+          </center>
+          <ul class='nav nav-pills nav-stacked'>
+            <li role='presentation'>
+              <a href='index.html'>About me</a>
+            </li>
+            <li role='presentation'>
+              <a href='research.html'>Research</a>
+            </li>
+            <li role='presentation'>
+              <a href='teaching.html'>Teaching</a>
+            </li>
+            <li role='presentation'>
+              <a href='publications.html'>Publications</a>
+              
+            </li>
+            <li class='active' role='presentation'>
+              <a href='cirkit.html'>CirKit</a>
+            </li>
+            <li role='presentation'>
+              <a href='#'>RevKit</a>
+            </li>
+          </ul>
+          <center>
+            <img id='epfl-logo' src='images/epfl.svg'>
+          </center>
+        </div>
+        <div class='col-md-9'>
+          <a href='https://github.com/msoeken/cirkit' target='_blank'>
+            <img alt='Fork me on GitHub' src='images/ribbon.png' style='position: absolute; top: 0; right: 0; border: 0'>
+          </a>
+          <h1>CirKit</h1>
+          <p style='width:95%'>
+            CirKit is an open source C++ logic synthesis framework.
+            Besides a powerful API it offers a command line interface application similar to SIS or ABC.
+            The main underlying logic data structure is an
+            <a href='https://github.com/msoeken/cirkit/blob/master/src/classical/aig.hpp' target='_blank'>AND-inverter graph.</a>
+            Further, it consists of a
+            <a href='https://github.com/msoeken/cirkit/tree/master/src/classical/dd' target='_blank'>simple BDD and ZDD package,</a>
+            a
+            <a href='https://github.com/msoeken/cirkit/tree/master/addons/cirkit-addon-formal/src/formal/sat' target='_blank'>generic interface to SAT solvers,</a>
+            <a href='https://github.com/msoeken/cirkit/tree/master/src/core/utils' target='_blank'>several useful helper functions,</a>
+            and an
+            <a href='https://github.com/msoeken/cirkit/tree/master/src/core/cli' target='_blank'>API to create commands for the command line interface.</a>
+          </p>
+          <h3>Download CitKit</h3>
+          <a href='http://github.com/msoeken/cirkit' target='_blank'>github.com/msoeken/cirkit</a>
+          <h3>Install CirKit</h3>
+          <pre>git clone https://github.com/msoeken/cirkit.git&#x000A;mkdir build&#x000A;cd build&#x000A;cmake ..&#x000A;make external&#x000A;make&#x000A;cd ..</pre>
+          <h3>Run CirKit</h3>
+          After a successful compilation, run
+          <pre>./build/programs/cirkit</pre>
+          from the main directory.
+          <h3>Requirements</h3>
+          <ul>
+            <li>Linux</li>
+            <li>git</li>
+            <li>cmake (at least version 3.0.0)</li>
+            <li>g++ (at least version 4.9.0) or clang++ (at least version 3.5.0)</li>
+            <li>boost (at least version 1.56.0)</li>
+            <li>GNU MP, and its C++ interface GMP++</li>
+            <li>GNU readline (optional)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

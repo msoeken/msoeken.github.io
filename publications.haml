@@ -22,11 +22,17 @@
             %script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLj6O9WmvcmmEzbEbQ_rOsViTirPaacJ8&region=US&callback=initMap")
           %ul.nav.nav-pills(role="tablist")
             %li.active(role="presentation")
-              %a(href="#journals" aria-controls="journals" role="tab" data-toggle="tab") Journal Articles
+              %a(href="#journals" aria-controls="journals" role="tab" data-toggle="tab")
+                Journal Articles
+                / %span.badge 10
             %li(role="presentation")
-              %a(href="#conferences" aria-controls="conferences" role="tab" data-toggle="tab") Conference Papers
+              %a(href="#conferences" aria-controls="conferences" role="tab" data-toggle="tab")
+                Conference Papers
+                / %span.badge 54
             %li(role="presentation")
-              %a(href="#books" aria-controls="books" role="tab" data-toggle="tab") Books
+              %a(href="#books" aria-controls="books" role="tab" data-toggle="tab")
+                Books
+                / %span.badge 2
           .tab-content
             .tab-pane.active#journals
               .pitems
@@ -36,7 +42,35 @@
                 = Haml::Engine.new(File.read('_conferences.haml')).render(Object.new)
             .tab-pane#books
               .pitems
-                NO
+                .item
+                  .pubmain
+                    .pubassets
+                      %a(href="https://books.google.ch/books?id=hvVWBQAAQBAJ" data-toggle="tooltip" data-placement="top" title="Open book" target="_blank")
+                        %span.glyphicon.glyphicon-new-window
+                    %img.pubthumb(src="images/covers/book_fsl.jpg")
+                    %h4.pubtitle
+                      Formal Specification Level
+                    .pubauthor
+                      %strong Mathias Soeken,
+                      Rolf Drechsler
+                    .pubcite
+                      %span.label.label-success Book 2
+                      3319086987 | 138 pages | 2014 | Publisher: Springer
+                .item
+                  .pubmain
+                    .pubassets
+                      %a(href="http://www.shaker.de/de/content/catalogue/index.asp?lang=de&ID=8&ISBN=978-3-8440-1199-9" data-toggle="tooltip" data-placement="top" title="Open book" target="_blank")
+                        %span.glyphicon.glyphicon-new-window
+                    %img.pubthumb(src="images/covers/book_qbit.jpg")
+                    %h4.pubtitle
+                      Auf dem Weg zum Quantencomputer: Entwurf reversibler Logik (Technische Informatik)
+                    .pubauthor
+                      Rolf Drechsler,
+                      %strong Mathias Soeken,
+                      Robert Wille (Eds.)
+                    .pubcite
+                      %span.label.label-success Book 1
+                      3844011994 | 226 pages (in German) | 2012 | Publisher: Shaker
           %h3 Copyright Notice
           %p
             This material is presented to ensure timely dissemination of scholarly and technical work. Copyright and all rights therein are retained by authors or by other copyright holders. All persons copying this information are expected to adhere to the terms and constraints invoked by each author's copyright. In most cases, these works may not be reposted without the explicit permission of the copyright holder.
@@ -45,6 +79,11 @@
             %br
             %span.glyphicon.glyphicon-copyright-mark
             IEEE. Personal use of this material is permitted. However, permission to reprint/republish this material for advertising or promotional purposes or for creating new collective works for resale or redistribution to servers or lists, or to reuse any copyrighted component of this work in other works must be obtained from the IEEE.
+          %p
+            %i The following copyright notice applies to all papers published in the Lecture Notes in Computer Science by Springer-Verlag, as mentionned in the Copyright Form:
+            %br
+            %span.glyphicon.glyphicon-copyright-mark
+            The Author may publish his/her contribution on his/her personal Web page provided that he/she creates a link to the above mentioned volume of LNCS at the Springer-Verlag server or to the LNCS series Homepage (URL: http://www.springer.de/comp/lncs/index.html) and that together with this electronic version it is clearly pointed out, by prominently adding "© Springer-Verlag", that the copyright for this contribution is held by Springer.
     %script(src="js/jquery.min.js")
     %script(src="js/bootstrap.min.js")
     :javascript
