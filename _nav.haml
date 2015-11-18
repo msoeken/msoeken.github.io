@@ -13,7 +13,8 @@
       = Haml::Engine.new(File.read( '_nav_publications.haml' )).render( Object.new ) if page == "publications"
     %li(role="presentation"){:class => ("active" if page == "cirkit" )}
       %a(href="cirkit.html") CirKit
-    %li(role="presentation")
-      %a(href="#") RevKit
+    /
+      %li(role="presentation")
+        %a(href="#") RevKit
   %center
     %img#epfl-logo(src="images/epfl.svg")

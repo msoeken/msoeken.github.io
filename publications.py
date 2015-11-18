@@ -130,8 +130,9 @@ def format_haml_article( paper, id ):
   .pubmain
     .pubassets
       {{external}}
-      %a(href="papers/{{filename}}.pdf" data-toggle="tooltip" data-placement="top" title="View PDF")
-        %span.glyphicon.glyphicon-cloud-download
+      /
+        %a(href="papers/{{filename}}.pdf" data-toggle="tooltip" data-placement="top" title="View PDF")
+          %span.glyphicon.glyphicon-cloud-download
     %a(href="{{webpage}}" target="_blank")
       %img.pubthumb(src="images/covers/{{key}}.png" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open journal homepage\")
     %h4.pubtitle
