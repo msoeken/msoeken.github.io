@@ -394,7 +394,7 @@ article_data = [
     ( ['eg', 'ms'],                    'sosym',       14,  "2",      2015, 'Specification-driven model transformation testing',                                                 '623--644', 'http://dx.doi.org/10.1007/s10270-013-0369-x' ),
     ( ['ms', 'lt', 'gwd', 'rd'],       'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',               '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
     ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        -1,  "",          0, 'Embedding of large Boolean functions for reversible logic',                                         'XXXX',     '' ),
-    ( ['rw', 'es', 'ms', 'rd'],        'integration', -1,  "",          0, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', 'XXXX',     '' ),
+    ( ['rw', 'es', 'ms', 'rd'],        'integration', -1,  "",          0, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', 'XXXX',     'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
     ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     'http://dx.doi.org/10.1515/zkri-2015-1887' )
 ]
 
