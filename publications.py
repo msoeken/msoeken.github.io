@@ -1,4 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import os
 import sys
 
@@ -382,7 +384,7 @@ confpapers_data = [
     ( ['ms', 'dg', 'ac2', 'rd'],                         'aspdac',  2016, 'BDD minimization for approximate computing', 'XXXX', '' ),
     ( ['asa', 'dg', 'uk', 'ms', 'rd'],                   'date',    2016, 'Formal verification of integer multipliers by combining Gröbner basis with logic reduction', 'XXXX', '' ),
     ( ['ss', 'ms', 'peg', 'rd'],                         'date',    2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', 'XXXX', '' ),
-    ( ['ms', 'peg', 'la', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' )
+    ( ['ms', 'la', 'peg', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' )
 ]
 
 article_data = [
