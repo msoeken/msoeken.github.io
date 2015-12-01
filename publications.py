@@ -87,9 +87,9 @@ def format_haml_incollection( paper, id ):
   .pubmain
     .pubassets
       {{external}}
-      %a(href="papers/{{filename}}.pdf" data-toggle="tooltip" data-placement="top" title="View PDF")
+      %a.paper(href="papers/{{filename}}.pdf" data-toggle="tooltip" data-placement="top" title="View PDF")
         %span.glyphicon.glyphicon-cloud-download
-    %a(href="papers/{{filename}}.pdf")
+    %a.paper(href="papers/{{filename}}.pdf")
       %img.pubthumb(src="images/{{image}}.png")
     %h4.pubtitle
       {{title}}
