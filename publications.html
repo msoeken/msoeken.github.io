@@ -36,13 +36,15 @@
             </li>
             <li class='active' role='presentation'>
               <a href='publications.html'>Publications</a>
-              <div class='subnav'>
-                <a aria-controls='journals' data-toggle='tab' href='#journals' role='tab'>Journal Articles</a>
-                <br>
-                <a aria-controls='conferences' data-toggle='tab' href='#conferences' role='tab'>Conference Papers</a>
-                <br>
-                <a aria-controls='books' data-toggle='tab' href='#books' role='tab'>Books</a>
-              </div>
+              <!--
+                <div class='subnav'>
+                  <a aria-controls='journals' data-toggle='tab' href='#journals' role='tab'>Journal Articles</a>
+                  <br>
+                  <a aria-controls='conferences' data-toggle='tab' href='#conferences' role='tab'>Conference Papers</a>
+                  <br>
+                  <a aria-controls='books' data-toggle='tab' href='#books' role='tab'>Books</a>
+                </div>
+              -->
             </li>
             <li role='presentation'>
               <a href='cirkit.html'>CirKit</a>
@@ -73,23 +75,20 @@
             </script>
             <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCLj6O9WmvcmmEzbEbQ_rOsViTirPaacJ8&amp;region=US&amp;callback=initMap' type='text/javascript'></script>
           -->
-          <ul class='nav nav-pills' role='tablist'>
-            <li class='active' role='presentation'>
-              <a aria-controls='journals' data-toggle='tab' href='#journals' role='tab'>
+          <ul class='nav nav-pills' id='myTab'>
+            <li class='active'>
+              <a href='#journals'>
                 Journal Articles
-                <!-- %span.badge 10 -->
               </a>
             </li>
             <li role='presentation'>
-              <a aria-controls='conferences' data-toggle='tab' href='#conferences' role='tab'>
+              <a href='#conferences'>
                 Conference Papers
-                <!-- %span.badge 54 -->
               </a>
             </li>
             <li role='presentation'>
-              <a aria-controls='books' data-toggle='tab' href='#books' role='tab'>
+              <a href='#books'>
                 Books
-                <!-- %span.badge 2 -->
               </a>
             </li>
           </ul>
@@ -122,13 +121,16 @@
                     </div>
                     <div class='pubcite'>
                       <span class='label label-info'>Journal Article 10</span>
-                      In Zeitschrift für Kristallographie - Crystalline Materials -1, 0 | Publisher: De Gruyter
+                      In Zeitschrift für Kristallographie - Crystalline Materials  | Publisher: De Gruyter
                     </div>
                   </div>
                 </div>
                 <div class='item'>
                   <div class='pubmain'>
                     <div class='pubassets'>
+                      <a data-placement='top' data-toggle='tooltip' href='http://dx.doi.org/10.1016/j.vlsi.2015.10.001' target='_blank' title='Open paper'>
+                        <span class='glyphicon glyphicon-new-window'></span>
+                      </a>
                       <!--
                         <a data-placement='top' data-toggle='tooltip' href='papers/.pdf' title='View PDF'>
                           <span class='glyphicon glyphicon-cloud-download'></span>
@@ -149,7 +151,7 @@
                     </div>
                     <div class='pubcite'>
                       <span class='label label-info'>Journal Article 9</span>
-                      In Integration -1, 0 | Publisher: Elsevier
+                      In Integration  | Publisher: Elsevier
                     </div>
                   </div>
                 </div>
@@ -177,7 +179,7 @@
                     </div>
                     <div class='pubcite'>
                       <span class='label label-info'>Journal Article 8</span>
-                      In Journal on Emerging Technologies in Computing Systems -1, 0 | Publisher: ACM
+                      In Journal on Emerging Technologies in Computing Systems  | Publisher: ACM
                     </div>
                   </div>
                 </div>
@@ -237,7 +239,7 @@
                     </div>
                     <div class='pubcite'>
                       <span class='label label-info'>Journal Article 6</span>
-                      In Software and System Modeling 14, 2015 | Pages 623&ndash;644 | Publisher: Springer
+                      In Software and System Modeling 14(2), 2015 | Pages 623&ndash;644 | Publisher: Springer
                     </div>
                   </div>
                 </div>
@@ -268,7 +270,7 @@
                     </div>
                     <div class='pubcite'>
                       <span class='label label-info'>Journal Article 5</span>
-                      In Information Processing Letters 114, 2014 | Pages 282&ndash;286 | Publisher: Elsevier
+                      In Information Processing Letters 114(6), 2014 | Pages 282&ndash;286 | Publisher: Elsevier
                     </div>
                   </div>
                 </div>
@@ -298,7 +300,7 @@
                     </div>
                     <div class='pubcite'>
                       <span class='label label-info'>Journal Article 4</span>
-                      In Integration 47, 2014 | Pages 284&ndash;294 | Publisher: Elsevier
+                      In Integration 47(2), 2014 | Pages 284&ndash;294 | Publisher: Elsevier
                     </div>
                   </div>
                 </div>
@@ -328,7 +330,7 @@
                     </div>
                     <div class='pubcite'>
                       <span class='label label-info'>Journal Article 3</span>
-                      In Physical Review A 88, 2013 | Pages 042322 | Publisher: American Physical Society
+                      In Physical Review A 88(042322), 2013 | Pages 042322 | Publisher: American Physical Society
                     </div>
                   </div>
                 </div>
@@ -358,7 +360,7 @@
                     </div>
                     <div class='pubcite'>
                       <span class='label label-info'>Journal Article 2</span>
-                      In Multiple-Valued Logic and Soft Computing 21, 2013 | Pages 627&ndash;640 | Publisher: Old City Publishing
+                      In Multiple-Valued Logic and Soft Computing 21(5--6), 2013 | Pages 627&ndash;640 | Publisher: Old City Publishing
                     </div>
                   </div>
                 </div>
@@ -389,7 +391,7 @@
                     </div>
                     <div class='pubcite'>
                       <span class='label label-info'>Journal Article 1</span>
-                      In Multiple-Valued Logic and Soft Computing 18, 2012 | Pages 55&ndash;65 | Publisher: Old City Publishing
+                      In Multiple-Valued Logic and Soft Computing 18(1), 2012 | Pages 55&ndash;65 | Publisher: Old City Publishing
                     </div>
                   </div>
                 </div>
@@ -1928,6 +1930,20 @@
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
       })
+    </script>
+    <script>
+      $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+      });
+      
+      $('ul.nav-pills > li > a').on('shown.bs.tab', function (e) {
+        var id = $(e.target).attr('href').substr(1);
+        window.location.hash = id;
+      });
+      
+      var hash = window.location.hash;
+      $('#myTab a[href="' + hash + '"]').tab('show');
     </script>
   </body>
 </html>

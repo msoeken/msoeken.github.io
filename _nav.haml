@@ -10,7 +10,8 @@
       %a(href="teaching.html") Teaching
     %li(role="presentation"){:class => ("active" if page == "publications" )}
       %a(href="publications.html") Publications
-      = Haml::Engine.new(File.read( '_nav_publications.haml' )).render( Object.new ) if page == "publications"
+      /
+        = Haml::Engine.new(File.read( '_nav_publications.haml' )).render( Object.new ) if page == "publications"
     %li(role="presentation"){:class => ("active" if page == "cirkit" )}
       %a(href="cirkit.html") CirKit
     /

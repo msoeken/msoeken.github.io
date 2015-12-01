@@ -20,19 +20,16 @@
                 var map = new google.maps.Map(document.getElementById("map"), mapOptions);
               }
             %script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLj6O9WmvcmmEzbEbQ_rOsViTirPaacJ8&region=US&callback=initMap")
-          %ul.nav.nav-pills(role="tablist")
-            %li.active(role="presentation")
-              %a(href="#journals" aria-controls="journals" role="tab" data-toggle="tab")
+          %ul.nav.nav-pills#myTab
+            %li.active
+              %a(href="#journals")
                 Journal Articles
-                / %span.badge 10
             %li(role="presentation")
-              %a(href="#conferences" aria-controls="conferences" role="tab" data-toggle="tab")
+              %a(href="#conferences")
                 Conference Papers
-                / %span.badge 54
             %li(role="presentation")
-              %a(href="#books" aria-controls="books" role="tab" data-toggle="tab")
+              %a(href="#books")
                 Books
-                / %span.badge 2
           .tab-content
             .tab-pane.active#journals
               .pitems
@@ -90,3 +87,17 @@
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
       })
+    :javascript
+      $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+      });
+
+      $('ul.nav-pills > li > a').on('shown.bs.tab', function (e) {
+        var id = $(e.target).attr('href').substr(1);
+        window.location.hash = id;
+      });
+
+      var hash = window.location.hash;
+      $('#myTab a[href="' + hash + '"]').tab('show');
+

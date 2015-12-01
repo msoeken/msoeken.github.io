@@ -143,7 +143,7 @@ def format_haml_article( paper, id ):
       {{authors}}
     .pubcite
       %span.label.label-info Journal Article {{id}}
-      In {{journal}} {{volume}}{{number}}, {{year}}{{pages}} | Publisher: {{publisher}}''')
+      In {{journal}} {{info}}{{pages}} | Publisher: {{publisher}}''')
 
     authors = ",\n      ".join( "%s %s" % ( a['firstname'], a['lastname'] ) for a in paper['authors'] )
     authors = authors.replace( "Mathias Soeken", "%strong Mathias Soeken" )
@@ -154,6 +154,11 @@ def format_haml_article( paper, id ):
     if paper['doi'] != "":
         external = "%%a(href=\"%s\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open paper\" target=\"_blank\")\n        %%span.glyphicon.glyphicon-new-window" % paper['doi']
 
+    if paper['volume'] == -1:
+        info = ""
+    else:
+        info = "%s%s, %s" % ( paper['volume'], number, paper['year'] )
+
     print( template.render( {'title': paper['title'],
                              'id': id,
                              'key': journal['key'],
@@ -161,8 +166,7 @@ def format_haml_article( paper, id ):
                              'webpage': paper['journal']['webpage'],
                              'authors': authors,
                              'journal': paper['journal']['name'],
-                             'volume': paper['volume'],
-                             'year': paper['year'],
+                             'info': info,
                              'pages': " | Pages %s" % paper['pages'].replace( "--", "&ndash;" ) if paper['pages'] != "XXXX" else "",
                              'external': external,
                              'publisher': journal['publisher']} )[1:] )
