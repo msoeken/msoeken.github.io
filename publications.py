@@ -89,7 +89,8 @@ def format_haml_incollection( paper, id ):
       {{external}}
       %a(href="papers/{{filename}}.pdf" data-toggle="tooltip" data-placement="top" title="View PDF")
         %span.glyphicon.glyphicon-cloud-download
-    %img.pubthumb(src="images/{{image}}.png")
+    %a(href="papers/{{filename}}.pdf")
+      %img.pubthumb(src="images/{{image}}.png")
     %h4.pubtitle
       {{title}}
     .pubauthor
@@ -384,7 +385,7 @@ confpapers_data = [
     ( ['mkt', 'rkj', 'ms'],                              'rc',      2015, 'Ricercar: A language for describing and rewriting reversible circuits with ancillae and its permutation semantics', '200--215', 'http://dx.doi.org/10.1007/978-3-319-20860-2_13' ),
     ( ['na', 'ms', 'gwd', 'rd'],                         'vlsisoc', 2015, 'Reversible circuit rewriting with simulated annealing', '286-291', 'http://dx.doi.org/10.1109/VLSI-SoC.2015.7314431' ),
     ( ['ms', 'js', 'rd'],                                'tap',     2015, 'Coverage of OCL operation specifications and invariants', '191--207', 'http://dx.doi.org/10.1007/978-3-319-21215-9_12' ),
-    ( ['np', 'jp', 'ms', 'rw', 'rd'],                    'modevva', 2015, 'Towards an automatic approach for restricting UML/OCL invariability clauses', 'XXXX', '' ),
+    ( ['np', 'jp', 'ms', 'rw', 'rd'],                    'modevva', 2015, 'Towards an automatic approach for restricting UML/OCL invariability clauses', '44-47', 'http://ceur-ws.org/Vol-1514/paper6.pdf' ),
     ( ['ms', 'dg', 'ac2', 'rd'],                         'aspdac',  2016, 'BDD minimization for approximate computing', 'XXXX', '' ),
     ( ['asa', 'dg', 'uk', 'ms', 'rd'],                   'date',    2016, 'Formal verification of integer multipliers by combining Gröbner basis with logic reduction', 'XXXX', '' ),
     ( ['ss', 'ms', 'peg', 'rd'],                         'date',    2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', 'XXXX', '' ),
