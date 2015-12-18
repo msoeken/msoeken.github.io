@@ -399,8 +399,8 @@ article_data = [
     ( ['rw', 'ms', 'dmm', 'rd'],       'integration', 47,  "2",      2014, 'Trading off circuit lines and gate costs in the synthesis of reversible logic',                     '284--294', 'http://dx.doi.org/10.1016/j.vlsi.2013.08.002' ),
     ( ['na', 'ms', 'mkt', 'rd'],       'ipl',         114, "6",      2014, 'Upper bounds for reversible circuits based on Young subgroups',                                     '282--286', 'http://dx.doi.org/10.1016/j.ipl.2014.01.003' ),
     ( ['eg', 'ms'],                    'sosym',       14,  "2",      2015, 'Specification-driven model transformation testing',                                                 '623--644', 'http://dx.doi.org/10.1007/s10270-013-0369-x' ),
+    ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        12,  "4",      2015, 'Embedding of large Boolean functions for reversible logic',                                         '41',       'http://dx.doi.org/10.1145/2786982' ),
     ( ['ms', 'lt', 'gwd', 'rd'],       'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',               '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
-    ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        -1,  "",          0, 'Embedding of large Boolean functions for reversible logic',                                         'XXXX',     '' ),
     ( ['rw', 'es', 'ms', 'rd'],        'integration', -1,  "",          0, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', 'XXXX',     'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
     ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     'http://dx.doi.org/10.1515/zkri-2015-1887' )
 ]
