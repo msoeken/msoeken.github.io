@@ -173,7 +173,7 @@ def format_haml_article( paper, id ):
                              'publisher': journal['publisher']} )[1:] )
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
-capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "metaSMT", "NCV", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "metaSMT", "MPSoC", "NCV", "NoC", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
 
 conferences_data = [
     ( 'apms', 'APMS', 'Advances in Production Management Systems', 'IFIP', [
@@ -244,6 +244,9 @@ conferences_data = [
         ( 2008, 'apr', 'Montpellier', 'France' ),
         ( 2012, 'aug', 'Armherst, CA', 'USA' )
     ] ),
+    ( 'lascas', 'LASCAS', 'IEEE Latin Amarican Symposium on Circuits and Systems', 'IEEE', [
+        ( 2016, 'feb', 'Florianopolis', 'Brazil' )
+    ] ),
     ( 'modevva', 'MoDeVVa', 'Model-Driven Engineering, Verification, And Validation', 'ACM', [
         ( 2011, 'oct', 'Wellington', 'New Zealand' ),
         ( 2015, 'oct', 'Ottawa, ON', 'Canada' )
@@ -293,18 +296,22 @@ authors_data = [
     ( 'ch',  'Christoph', 'Hilken' ),
     ( 'co',  'Christian', 'Otterstedt' ),
     ( 'cw',  'Clemens', 'Werther' ),
+    ( 'df',  'Daniel', 'Florez' ),
     ( 'dg',  'Daniel', 'Große' ),
     ( 'dmm', 'D. Michael', 'Miller' ),
     ( 'eg',  'Esther', 'Guerra' ),
     ( 'es',  'Eleonora', 'Schönborn' ),
     ( 'gdm', 'Giovanni', 'De Micheli' ),
     ( 'gf',  'Görschwin', 'Fey' ),
+    ( 'gg',  'Guy', 'Gogniat' ),
     ( 'gwd', 'Gerhard W.', 'Dueck' ),
     ( 'hml', 'Hoang M.', 'Le' ),
     ( 'hr',  'Heinz', 'Riener' ),
     ( 'igh', 'Ian G.', 'Harris' ),
     ( 'jp',  'Judith', 'Peters' ),
+    ( 'jpd', 'Jean-Philippe', 'Diguet' ),
     ( 'js',  'Julia', 'Seiter' ),
+    ( 'js2', 'Johanna', 'Sepulveda' ),
     ( 'kdt', 'Klaus-Dieter', 'Thoben' ),
     ( 'la',  'Luca Gaetano', 'Amarù' ),
     ( 'lt',  'Laura', 'Tague' ),
@@ -389,7 +396,8 @@ confpapers_data = [
     ( ['ms', 'dg', 'ac2', 'rd'],                         'aspdac',  2016, 'BDD minimization for approximate computing', 'XXXX', '' ),
     ( ['asa', 'dg', 'uk', 'ms', 'rd'],                   'date',    2016, 'Formal verification of integer multipliers by combining Gröbner basis with logic reduction', 'XXXX', '' ),
     ( ['ss', 'ms', 'peg', 'rd'],                         'date',    2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', 'XXXX', '' ),
-    ( ['ms', 'la', 'peg', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' )
+    ( ['ms', 'la', 'peg', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' ),
+    ( ['js2', 'ms', 'df', 'gg', 'jpd'],                  'lascas',  2016, 'Dynamic NoC buffer allocation for MPSoC timing side channel attack protection', 'XXXX', '' )
 ]
 
 article_data = [
@@ -401,7 +409,7 @@ article_data = [
     ( ['eg', 'ms'],                    'sosym',       14,  "2",      2015, 'Specification-driven model transformation testing',                                                 '623--644', 'http://dx.doi.org/10.1007/s10270-013-0369-x' ),
     ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        12,  "4",      2015, 'Embedding of large Boolean functions for reversible logic',                                         '41',       'http://dx.doi.org/10.1145/2786982' ),
     ( ['ms', 'lt', 'gwd', 'rd'],       'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',               '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
-    ( ['rw', 'es', 'ms', 'rd'],        'integration', -1,  "",          0, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', 'XXXX',     'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
+    ( ['rw', 'es', 'ms', 'rd'],        'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
     ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     'http://dx.doi.org/10.1515/zkri-2015-1887' )
 ]
 
