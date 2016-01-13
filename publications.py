@@ -234,6 +234,9 @@ conferences_data = [
         ( 2010, 'dec', 'Abu Dhabi', 'United Arab Emirates' ),
         ( 2013, 'dec', 'Marrakesh', 'Marocco' )
     ] ),
+    ( 'iscas', 'ISCAS', 'International Symposium on Circuits and Systems', 'IEEE', [
+        ( 2016, 'may', 'Montreal, QC', 'Canada' )
+    ] ),
     ( 'ismvl', 'ISMVL', 'International Symposium on Multiple-Valued Logic', 'IEEE', [
         ( 2011, 'may', 'Tuusula', 'Finland' ),
         ( 2012, 'may', 'Victoria, BC', 'Canada' ),
@@ -282,6 +285,7 @@ journals_data = [
     ( 'mvl', 'Multiple-Valued Logic and Soft Computing', 'Old City Publishing', 'http://www.oldcitypublishing.com/journals/mvlsc-home/' ),
     ( 'pra', 'Physical Review A', 'American Physical Society', 'http://journals.aps.org/pra/' ),
     ( 'sosym', 'Software and System Modeling', 'Springer', 'http://www.sosym.org/' ),
+    ( 'tcs', 'Theoretical Computer Science', 'Elsevier', 'http://www.journals.elsevier.com/theoretical-computer-science/' ),
     ( 'zk', 'Zeitschrift für Kristallographie - Crystalline Materials', 'De Gruyter', 'http://www.degruyter.com/view/j/zkri' )
 ]
 
@@ -315,6 +319,7 @@ authors_data = [
     ( 'kdt', 'Klaus-Dieter', 'Thoben' ),
     ( 'la',  'Luca Gaetano', 'Amarù' ),
     ( 'lt',  'Laura', 'Tague' ),
+    ( 'ma',  'Matthew', 'Amy' ),
     ( 'md',  'Melanie', 'Diepenbeck' ),
     ( 'mf',  'Martin', 'Freibothe' ),
     ( 'mg',  'Martin', 'Gogolla' ),
@@ -397,7 +402,8 @@ confpapers_data = [
     ( ['asa', 'dg', 'uk', 'ms', 'rd'],                   'date',    2016, 'Formal verification of integer multipliers by combining Gröbner basis with logic reduction', 'XXXX', '' ),
     ( ['ss', 'ms', 'peg', 'rd'],                         'date',    2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', 'XXXX', '' ),
     ( ['ms', 'la', 'peg', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' ),
-    ( ['js2', 'ms', 'df', 'gg', 'jpd'],                  'lascas',  2016, 'Dynamic NoC buffer allocation for MPSoC timing side channel attack protection', 'XXXX', '' )
+    ( ['js2', 'ms', 'df', 'gg', 'jpd'],                  'lascas',  2016, 'Dynamic NoC buffer allocation for MPSoC timing side channel attack protection', 'XXXX', '' ),
+    ( ['ms', 'gwd', 'mmr', 'dmm'],                       'iscas',   2016, 'An extension of transformation-based reversible and quantum circuit synthesis', 'XXXX', '' )
 ]
 
 article_data = [
@@ -410,7 +416,8 @@ article_data = [
     ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        12,  "4",      2015, 'Embedding of large Boolean functions for reversible logic',                                         '41',       'http://dx.doi.org/10.1145/2786982' ),
     ( ['ms', 'lt', 'gwd', 'rd'],       'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',               '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
     ( ['rw', 'es', 'ms', 'rd'],        'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
-    ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     'http://dx.doi.org/10.1515/zkri-2015-1887' )
+    ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     'http://dx.doi.org/10.1515/zkri-2015-1887' ),
+    ( ['na', 'ma', 'rd', 'ms'],        'tcs',         -1,  "",          0, 'Complexity of reversible circuits and their quantum implementations',                               'XXXX',     '' )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
