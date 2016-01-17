@@ -417,7 +417,7 @@ article_data = [
     ( ['ms', 'lt', 'gwd', 'rd'],       'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',               '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
     ( ['rw', 'es', 'ms', 'rd'],        'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
     ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     'http://dx.doi.org/10.1515/zkri-2015-1887' ),
-    ( ['na', 'ma', 'rd', 'ms'],        'tcs',         -1,  "",          0, 'Complexity of reversible circuits and their quantum implementations',                               'XXXX',     '' )
+    ( ['na', 'ma', 'rd', 'ms'],        'tcs',         -1,  "",          0, 'Complexity of reversible circuits and their quantum implementations',                               'XXXX',     'http://dx.doi.org/10.1016/j.tcs.2016.01.011' )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
@@ -446,7 +446,7 @@ def cmd_haml_article():
     for index, c in enumerate( reversed( articles ) ):
         if c['year'] != year:
             year = c['year']
-            print( "%%h4 %s" % ( "Recently accepted" if year == 0 else year ) )
+            print( "%%h4 %s" % ( "In press" if year == 0 else year ) )
         format_haml_article( c, len( articles ) - index )
 
 def cmd_stats():

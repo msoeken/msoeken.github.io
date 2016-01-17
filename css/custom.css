@@ -104,3 +104,20 @@ body {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+ul.list-group#commits {
+    margin-bottom: 0px;
+}
+
+a#showcommits {
+    font-size: 12px;
+}
+
+ul.list-group#commits li.list-group-item {
+    font-size: 12px;
+    padding: 5px;
+}
+
+ul.list-group#commits li.list-group-item p {
+    margin-bottom: 0px;
+}
