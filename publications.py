@@ -398,7 +398,7 @@ confpapers_data = [
     ( ['na', 'ms', 'gwd', 'rd'],                         'vlsisoc', 2015, 'Reversible circuit rewriting with simulated annealing', '286-291', 'http://dx.doi.org/10.1109/VLSI-SoC.2015.7314431' ),
     ( ['ms', 'js', 'rd'],                                'tap',     2015, 'Coverage of OCL operation specifications and invariants', '191--207', 'http://dx.doi.org/10.1007/978-3-319-21215-9_12' ),
     ( ['np', 'jp', 'ms', 'rw', 'rd'],                    'modevva', 2015, 'Towards an automatic approach for restricting UML/OCL invariability clauses', '44-47', 'http://ceur-ws.org/Vol-1514/paper6.pdf' ),
-    ( ['ms', 'dg', 'ac2', 'rd'],                         'aspdac',  2016, 'BDD minimization for approximate computing', 'XXXX', '' ),
+    ( ['ms', 'dg', 'ac2', 'rd'],                         'aspdac',  2016, 'BDD minimization for approximate computing', '474--479', '' ),
     ( ['asa', 'dg', 'uk', 'ms', 'rd'],                   'date',    2016, 'Formal verification of integer multipliers by combining Gröbner basis with logic reduction', 'XXXX', '' ),
     ( ['ss', 'ms', 'peg', 'rd'],                         'date',    2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', 'XXXX', '' ),
     ( ['ms', 'la', 'peg', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' ),
