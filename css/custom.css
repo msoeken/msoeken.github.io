@@ -121,3 +121,21 @@ ul.list-group#commits li.list-group-item {
 ul.list-group#commits li.list-group-item p {
     margin-bottom: 0px;
 }
+
+td.number {
+    text-align: right;
+}
+
+.revclass-grid .grid-item {
+    float: left;
+    margin: 2px;
+    width: 200px;
+    height: 100px;
+    border: solid 1px #c7c7c7;
+    text-align: center;
+    padding: 10px;
+}
+
+.revclass-grid .grid-item .perm {
+    margin-top: 10px;
+}
