@@ -241,7 +241,8 @@ conferences_data = [
         ( 2011, 'may', 'Tuusula', 'Finland' ),
         ( 2012, 'may', 'Victoria, BC', 'Canada' ),
         ( 2013, 'may', 'Toyama', 'Japan' ),
-        ( 2015, 'may', 'Waterloo, ON', 'Canada' )
+        ( 2015, 'may', 'Waterloo, ON', 'Canada' ),
+        ( 2016, 'may', 'Sapporo', 'Japan' )
     ] ),
     ( 'isvlsi', 'ISVLSI', 'IEEE Computer Society Annual Symposium on VLSI', 'IEEE', [
         ( 2008, 'apr', 'Montpellier', 'France' ),
@@ -403,7 +404,8 @@ confpapers_data = [
     ( ['ss', 'ms', 'peg', 'rd'],                         'date',    2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', 'XXXX', '' ),
     ( ['ms', 'la', 'peg', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' ),
     ( ['js2', 'ms', 'df', 'gg', 'jpd'],                  'lascas',  2016, 'Dynamic NoC buffer allocation for MPSoC timing side channel attack protection', 'XXXX', '' ),
-    ( ['ms', 'gwd', 'mmr', 'dmm'],                       'iscas',   2016, 'An extension of transformation-based reversible and quantum circuit synthesis', 'XXXX', '' )
+    ( ['ms', 'gwd', 'mmr', 'dmm'],                       'iscas',   2016, 'An extension of transformation-based reversible and quantum circuit synthesis', 'XXXX', '' ),
+    ( ['na', 'ma', 'ms', 'rd'],                          'ismvl',   2016, 'Technology mapping of reversible circuits to Clifford+T quantum circuits', 'XXXX', '' )
 ]
 
 article_data = [
