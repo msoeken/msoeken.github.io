@@ -405,6 +405,7 @@ confpapers_data = [
     ( ['ms', 'la', 'peg', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' ),
     ( ['js2', 'ms', 'df', 'gg', 'jpd'],                  'lascas',  2016, 'Dynamic NoC buffer allocation for MPSoC timing side channel attack protection', 'XXXX', '' ),
     ( ['ms', 'gwd', 'mmr', 'dmm'],                       'iscas',   2016, 'An extension of transformation-based reversible and quantum circuit synthesis', 'XXXX', '' ),
+    ( ['ac', 'la', 'ms', 'peg', 'gdm'],                  'ismvl',   2016, 'Notes on majority Boolean algebra', 'XXXX', '' ),
     ( ['na', 'ma', 'ms', 'rd'],                          'ismvl',   2016, 'Technology mapping of reversible circuits to Clifford+T quantum circuits', 'XXXX', '' )
 ]
 
