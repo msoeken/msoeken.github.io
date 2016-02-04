@@ -419,8 +419,8 @@ article_data = [
     ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        12,  "4",      2015, 'Embedding of large Boolean functions for reversible logic',                                         '41',       'http://dx.doi.org/10.1145/2786982' ),
     ( ['ms', 'lt', 'gwd', 'rd'],       'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',               '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
     ( ['rw', 'es', 'ms', 'rd'],        'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
-    ( ['ms', 'rd', 'rxf'],             'zk',          -1,  "",          0, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            'XXXX',     'http://dx.doi.org/10.1515/zkri-2015-1887' ),
-    ( ['na', 'ma', 'rd', 'ms'],        'tcs',         -1,  "",          0, 'Complexity of reversible circuits and their quantum implementations',                               'XXXX',     'http://dx.doi.org/10.1016/j.tcs.2016.01.011' )
+    ( ['ms', 'rd', 'rxf'],             'zk',          231, "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            '107--111', 'http://dx.doi.org/10.1515/zkri-2015-1887' ),
+    ( ['na', 'ma', 'rd', 'ms'],        'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                               '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
