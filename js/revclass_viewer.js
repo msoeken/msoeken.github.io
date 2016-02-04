@@ -13,6 +13,6 @@ $.getJSON( "json/revclass.json", function( data ) {
     var repr = getUrlVars()["repr"];
     var ecls = _.select( data[vars][cls], function( c ) { return c["repr"] == repr; } )[0];
     _.each( ecls["circuits"], function( c ) {
-        $(".revclass-grid").append( '<div class="grid-item"><a href="http://www.informatik.uni-bremen.de/~msoeken/revclass/' + c["perm"] + '.real"><img src="http://www.informatik.uni-bremen.de/~msoeken/revclass/' + c["perm"] + '.png" border=""/></a><div class="perm">' + c["perm"] + '</div></div>' );
+        $(".revclass-grid").append( '<div class="grid-item"><a href="https://documents.epfl.ch/users/s/so/soeken/www/revclass/' + c["perm"] + '.real"><img src="https://documents.epfl.ch/users/s/so/soeken/www/revclass/' + c["perm"] + '.png" border=""/></a><div class="perm">' + c["perm"] + '</div></div>' );
     } );
 } );
