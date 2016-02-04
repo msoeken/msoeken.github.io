@@ -99,7 +99,14 @@
       });
 
       var hash = window.location.hash;
-      $('#myTab a[href="' + hash + '"]').tab('show');
+      var orig = "";
+      if ( hash.length > 1 && hash[1] == 'c' ) { orig = hash; hash = "#conferences"; }
+      if ( hash.length > 1 && hash[1] == 'j' ) { orig = hash; hash = "#journals"; }
+      console.log( hash );
+      if ( hash.length > 0 ) {
+        $('#myTab a[href="' + hash + '"]').tab('show');
+        window.location = orig;
+      }
 
       $('a.paper').click(function (e) {
         e.preventDefault();

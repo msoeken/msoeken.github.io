@@ -44,6 +44,23 @@ def make_article( data ):
     d['journal'] = journals[d['journal']]
     return d
 
+def make_news( data ):
+    global conferences
+    global journals
+    global confpapers
+    global articles
+
+    d = dict_from_tuple( ['name', 'year'], data )
+
+    if d['name'] in conferences:
+        d['type'] = 'conf'
+        d['papers'] = list( reversed( [p for p in confpapers if p['conf']['key'] == d['name'] and p['year'] == d['year']] ) )
+    else:
+        d['type'] = 'journal'
+        d['papers'] = list( reversed( [a for a in articles if a['journal']['key'] == d['name'] and a['volume'] == d['year']] ) )
+
+    return d
+
 def make_filename( c ):
     conf = c['conf']['key']
     year = c['year']
@@ -91,7 +108,7 @@ def format_haml_incollection( paper, id ):
         %span.glyphicon.glyphicon-cloud-download
     %a.paper(href="papers/{{filename}}.pdf")
       %img.pubthumb(src="images/{{image}}.png")
-    %h4.pubtitle
+    %h4.pubtitle#c{{id}}
       {{title}}
     .pubauthor
       {{authors}}
@@ -138,8 +155,7 @@ def format_haml_article( paper, id ):
           %span.glyphicon.glyphicon-cloud-download
     %a(href="{{webpage}}" target="_blank")
       %img.pubthumb(src="images/covers/{{key}}.png" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open journal homepage\")
-    %h4.pubtitle
-      {{title}}
+    %h4.pubtitle#j{{id}} {{title}}
     .pubauthor
       {{authors}}
     .pubcite
@@ -172,8 +188,32 @@ def format_haml_article( paper, id ):
                              'external': external,
                              'publisher': journal['publisher']} )[1:] )
 
+def format_haml_news( news ):
+    print( "%li.list-group-item" )
+
+    if news['type'] == "conf":
+        papers = news['papers']
+
+        if len( papers ) == 1:
+            article = "  %%a(href=\"publications.html#c%i\") %s\n" % ( confpapers.index( papers[0] ) + 1, papers[0]["title"] )
+        else:
+            article = "  %ul\n"
+            for p in papers:
+                article += "    %%li\n      %%a(href=\"publications.html#c%i\") %s\n" % ( confpapers.index( p) + 1, p["title"] )
+        print( "  The paper%s\n%s  %s been accepted by the %s conference.\n  %%a.badge(href=\"publications.html#conferences\") publication" % ( "s" if len( papers ) > 1 else "", article, "have" if len( papers ) > 1 else "has", papers[0]["conf"]["shortname"] ) )
+    if news['type'] == "journal":
+        papers = news['papers']
+
+        if len( papers ) == 1:
+            article = "  %%a(href=\"publications.html#j%i\") %s\n" % ( articles.index( papers[0] ) + 1, papers[0]["title"] )
+        else:
+            article = "  %ul\n"
+            for p in papers:
+                article += "    %%li\n      %%a(href=\"publications.html#j%i\") %s\n" % ( articles.index( p) + 1, p["title"] )
+        print( "  The article%s\n%s  got accepted for publication in\n  %%i %s.\n  %%a.badge(href=\"publications.html\") publication" % ( "s" if len( papers ) > 1 else "", article, papers[0]["journal"]["name"] ) )
+
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
-capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "metaSMT", "MPSoC", "NCV", "NoC", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "metaSMT", "MIG", "MPSoC", "NCV", "NoC", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
 
 conferences_data = [
     ( 'apms', 'APMS', 'Advances in Production Management Systems', 'IFIP', [
@@ -188,7 +228,8 @@ conferences_data = [
         ( 2013, 'may', 'San Francisco, CA', 'USA' )
     ] ),
     ( 'dac', 'DAC', 'Design Automation Conference', 'ACM/IEEE', [
-        ( 2010, 'jun', 'Anaheim, CA', 'USA' )
+        ( 2010, 'jun', 'Anaheim, CA', 'USA' ),
+        ( 2016, 'jun', 'Austin, TX', 'USA' )
     ] ),
     ( 'date', 'DATE', 'Design, Automation and Test in Europe', 'IEEE', [
         ( 2010, 'mar', 'Dresden', 'Germany' ),
@@ -406,7 +447,10 @@ confpapers_data = [
     ( ['js2', 'ms', 'df', 'gg', 'jpd'],                  'lascas',  2016, 'Dynamic NoC buffer allocation for MPSoC timing side channel attack protection', 'XXXX', '' ),
     ( ['ms', 'gwd', 'mmr', 'dmm'],                       'iscas',   2016, 'An extension of transformation-based reversible and quantum circuit synthesis', 'XXXX', '' ),
     ( ['ac', 'la', 'ms', 'peg', 'gdm'],                  'ismvl',   2016, 'Notes on majority Boolean algebra', 'XXXX', '' ),
-    ( ['na', 'ma', 'ms', 'rd'],                          'ismvl',   2016, 'Technology mapping of reversible circuits to Clifford+T quantum circuits', 'XXXX', '' )
+    ( ['na', 'ma', 'ms', 'rd'],                          'ismvl',   2016, 'Technology mapping of reversible circuits to Clifford+T quantum circuits', 'XXXX', '' ),
+    ( ['ac2', 'ms', 'dg', 'rd'],                         'dac',     2016, 'Precise error determination of approximated components in sequential circuits with model checking', 'XXXX', '' ),
+    ( ['ms', 'ac'],                                      'dac',     2016, 'Unlocking efficiency and scalability of reversible logic synthesis using conventional logic synthesis', 'XXXX', '' ),
+    ( ['ms', 'ss', 'peg', 'la', 'rd', 'gdm'],            'dac',     2016, 'An MIG-based compiler for programmable logic-in-memory architectures', 'XXXX', '' )
 ]
 
 article_data = [
@@ -423,6 +467,16 @@ article_data = [
     ( ['na', 'ma', 'rd', 'ms'],        'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                               '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' )
 ]
 
+news_data = [
+    ( 'zk', 231 ),
+    ( 'lascas', 2016 ),
+    ( 'date', 2016 ),
+    ( 'iscas', 2016 ),
+    ( 'tcs', 618 ),
+    ( 'ismvl', 2016 ),
+    ( 'dac', 2016 )
+]
+
 authors = make_dict( 'key', authors_data, make_author )
 conferences = make_dict( 'key', conferences_data, make_conference )
 journals = make_dict( 'key', journals_data, make_journal )
@@ -430,6 +484,7 @@ journals = make_dict( 'key', journals_data, make_journal )
 confpapers = list( map( make_conference_paper, confpapers_data ) )
 articles = list( map( make_article, article_data ) )
 
+news = list( map( make_news, news_data ) )
 
 def cmd_bibtex():
     for c in confpapers:
@@ -451,6 +506,10 @@ def cmd_haml_article():
             year = c['year']
             print( "%%h4 %s" % ( "In press" if year == 0 else year ) )
         format_haml_article( c, len( articles ) - index )
+
+def cmd_haml_news():
+    for n in reversed( news ):
+        format_haml_news( n )
 
 def cmd_stats():
     num_countries = len( set( [p['conf']['venues'][p['year']]['country'] for p in confpapers] ) )

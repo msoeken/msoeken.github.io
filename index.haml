@@ -28,59 +28,7 @@
                 His research interests are logic synthesis, reverse engineering, formal verification, and quantum computing.
               %h3 News
               %ul.list-group
-                %li.list-group-item
-                  Paper
-                  %b Technology mapping of reversible circuits to Clifford+T quantum circuits
-                  has been accepted by the ISMVL conference &ndash; congratulations to Nabila!
-                  %span.badge publication
-                %li.list-group-item
-                  Paper
-                  %b Notes on majority Boolean algebra
-                  has been accepted by the ISMVL conference
-                  %span.badge publication
-                %li.list-group-item
-                  Article
-                  %b Complexity of reversible circuits and their quantum implementations
-                  got accepted for publication in
-                  %i Theoretical Computer Science
-                  %span.badge publication
-                %li.list-group-item
-                  Paper
-                  %b An extension of transformation-based reversible and quantum circuit synthesis
-                  has been accepted by the ISCAS conference
-                  %span.badge publication
-                %li.list-group-item
-                  Paper
-                  %b Dynamic NoC buffer allocation for MPSoC timing side channel attack protection
-                  has been accepted by the LASCAS conference
-                  %span.badge publication
-                %li.list-group-item
-                  Paper
-                  %b Optimizing majority-inverter graphs with functional hashing
-                  has been accepted by the DATE conference
-                  %span.badge publication
-                %li.list-group-item
-                  Paper
-                  %b Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs
-                  has been accepted by the DATE conference &ndash; congratulations to Saeideh!
-                  %span.badge publication
-                %li.list-group-item
-                  Paper
-                  %b Formal verification of integer multipliers by combining Gröbner basis with logic reduction
-                  has been accepted by the DATE conference &ndash; congratulations to Amr!
-                  %span.badge publication
-                %li.list-group-item
-                  Article
-                  %b Atomic distributions in crystal structures solved by Boolean satisfiability techniques
-                  got accepted for publication in
-                  %i Zeitschrift für Kristallographie &ndash; Crystalline Materials
-                  %span.badge publication
-                %li.list-group-item
-                  Article
-                  %b SyReC: A Hardware Description Language for the Specification and Synthesis of Reversible Circuits
-                  got accepted for publication in
-                  %i INTEGRATION, the VLSI Journal
-                  %span.badge publication
+                = Haml::Engine.new(File.read('_news.haml')).render(Object.new)
             .col-md-4
               %h4(style="margin-top: 0px") Contact
               EPFL IC ISIM LSI1

@@ -33,4 +33,16 @@
 
 guard :haml do
   watch(/^[^\._].+(\.haml)$/)
+
+  watch("_conferences.haml") { "publications.haml" }
+  watch("_journals.haml") { "publications.haml" }
+  watch("_news.haml") { "index.haml" }
+end
+
+guard :shell do
+  watch "publications.py" do
+    `./publications.py haml > _conferences.haml`
+    `./publications.py haml_article > _journals.haml`
+    `./publications.py haml_news > _news.haml`
+  end
 end
