@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta content='IE=edge' http-equiv='X-UA-Compatible'>
     <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <title>Mathias Soeken / CirKit</title>
+    <title>Mathias Soeken / RevKit</title>
     <link href='css/bootstrap.min.css' rel='stylesheet'>
     <link href='css/custom.css' rel='stylesheet'>
     <script>
@@ -43,11 +43,11 @@
             <!--
               <div class='nav-sep'>Software</div>
             -->
-            <li class='active' role='presentation'>
+            <li role='presentation'>
               <a href='cirkit.html'>CirKit</a>
             </li>
             <!--
-              <li role='presentation'>
+              <li class='active' role='presentation'>
                 <a href='revkit.html'>RevKit</a>
               </li>
             -->
@@ -62,30 +62,45 @@
           <a href='https://github.com/msoeken/cirkit' target='_blank'>
             <img alt='Fork me on GitHub' src='images/ribbon.png' style='position: absolute; top: 0; right: 0; border: 0'>
           </a>
-          <h1>CirKit</h1>
+          <h1>RevKit</h1>
           <p style='width:95%'>
-            CirKit is an open source C++ logic synthesis framework.
-            Besides a powerful API it offers a command line interface application similar to SIS or ABC.
-            The main underlying logic data structure is an
-            <a href='https://github.com/msoeken/cirkit/blob/master/src/classical/aig.hpp' target='_blank'>AND-inverter graph.</a>
-            Further, it consists of a
-            <a href='https://github.com/msoeken/cirkit/tree/master/src/classical/dd' target='_blank'>simple BDD and ZDD package,</a>
-            a
-            <a href='https://github.com/msoeken/cirkit/tree/master/addons/cirkit-addon-formal/src/formal/sat' target='_blank'>generic interface to SAT solvers,</a>
-            <a href='https://github.com/msoeken/cirkit/tree/master/src/core/utils' target='_blank'>several useful helper functions,</a>
-            and an
-            <a href='https://github.com/msoeken/cirkit/tree/master/src/core/cli' target='_blank'>API to create commands for the command line interface.</a>
+            RevKit is an open source C++ logic synthesis framework for reversibe logic.
+            Many
+            <a href='https://github.com/msoeken/cirkit/tree/master/addons/cirkit-addon-reversible/src/reversible/synthesis' target='_blank'>synthesis</a>
+            and
+            <a href='https://github.com/msoeken/cirkit/tree/master/addons/cirkit-addon-reversible/src/reversible/optimization' target='_blank'>optimization</a>
+            algorithms for reversible logic have been implemented or re-implemented in RevKit.
+            Being part of
+            <a href='cirkit.html'>CirKit</a>
+            it now has a command line interface similar to SIS or ABC.
+            The main underlying logic data structures are
+            <a href='https://github.com/msoeken/cirkit/blob/master/addons/cirkit-addon-reversible/src/reversible/circuit.hpp' target='_blank'>reversible circuits,</a>
+            <a href='https://github.com/msoeken/cirkit/blob/master/addons/cirkit-addon-reversible/src/reversible/truth_table.hpp' target='_blank'>truth tables,</a>
+            and
+            <a href='https://github.com/msoeken/cirkit/blob/master/addons/cirkit-addon-reversible/src/reversible/rcbdd.hpp' target='_blank'>RCBDDs.</a>
           </p>
-          <h3>Download CirKit</h3>
-          <a href='http://github.com/msoeken/cirkit' target='_blank'>github.com/msoeken/cirkit</a>
-          <h3>Install CirKit</h3>
-          <pre>git clone https://github.com/msoeken/cirkit.git&#x000A;mkdir build&#x000A;cd build&#x000A;cmake ..&#x000A;make external&#x000A;make&#x000A;cd ..</pre>
-          <h3>Run CirKit</h3>
+          <h3>Download RevKit</h3>
+          <p>
+            The newest RevKit version is availabe as an addon for
+            <a href='cirkit.html'>CirKit</a>
+            and can be downloaded from
+            <a href='http://github.com/msoeken/cirkit' target='_blank'>github.com/msoeken/cirkit.</a>
+          </p>
+          <p>
+            Previous versions of RevKit can be downloaded from
+            <a href='http://www.revkit.org/' target='_blank'>www.revkit.org.</a>
+            The older versions also contain a Python interface and a graphical user interface.
+            These features are no longer maintained and are replaced by the command line interface.
+          </p>
+          <h3>Install RevKit</h3>
+          <pre>git clone https://github.com/msoeken/cirkit.git&#x000A;mkdir build&#x000A;cd build&#x000A;cmake -Denable_cirkit-addon-reversible ..&#x000A;make external&#x000A;make&#x000A;cd ..</pre>
+          <h3>Run RevKit</h3>
           After a successful compilation, run
-          <pre>./build/programs/cirkit</pre>
+          <pre>./build/programs/revkit</pre>
           from the main directory.
-          Information on how to use CirKit can be found in the project's
+          Information on how to use RevKit can be found in the project's
           <a href='https://github.com/msoeken/cirkit/wiki' target='_blank'>wiki.</a>
+          The core concepts of the CirKit CLI also apply to RevKit.
           <h3>Requirements</h3>
           <ul>
             <li>Linux or Mac</li>
