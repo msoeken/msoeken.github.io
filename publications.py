@@ -200,7 +200,7 @@ def format_haml_news( news ):
             article = "  %ul\n"
             for p in papers:
                 article += "    %%li\n      %%a(href=\"publications.html#c%i\") %s\n" % ( confpapers.index( p) + 1, p["title"] )
-        print( "  The paper%s\n%s  %s been accepted by the %s conference.\n  %%a.badge(href=\"publications.html#conferences\") publication" % ( "s" if len( papers ) > 1 else "", article, "have" if len( papers ) > 1 else "has", papers[0]["conf"]["shortname"] ) )
+        print( "  The paper%s\n%s  %s been accepted by the %s %d conference.\n  %%a.badge(href=\"publications.html#conferences\") publication" % ( "s" if len( papers ) > 1 else "", article, "have" if len( papers ) > 1 else "has", papers[0]["conf"]["shortname"], papers[0]["year"] ) )
     if news['type'] == "journal":
         papers = news['papers']
 
