@@ -12,13 +12,11 @@
       %a(href="publications.html") Publications
       /
         = Haml::Engine.new(File.read( '_nav_publications.haml' )).render( Object.new ) if page == "publications"
-    /
-      .nav-sep Software
+    .nav-sep Software
     %li(role="presentation"){:class => ("active" if page == "cirkit" )}
       %a(href="cirkit.html") CirKit
-    /
-      %li(role="presentation"){:class => ("active" if page == "revkit" )}
-        %a(href="revkit.html") RevKit
+    %li(role="presentation"){:class => ("active" if page == "revkit" )}
+      %a(href="revkit.html") RevKit
     %center
       %a(href="http://www.epfl.ch" target="_blank")
         %img#epfl-logo(src="images/epfl.svg")
