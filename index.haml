@@ -8,6 +8,7 @@
         = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => 'index')
         .col-md-9
           .starter-template
+            %img#nav-picture(src="images/nav-picture2.jpg" align="right")
             %h1 Dr. Mathias Soeken
             %p.lead Researcher, EPFL, Lausanne, Switzerland
           .row
