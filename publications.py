@@ -434,7 +434,7 @@ confpapers_data = [
     ( ['ms', 'ac'],                                      'ismvl',   2015, 'Fredkin-enabled transformation-based reversible logic synthesis', '60--65', 'http://dx.doi.org/10.1109/ISMVL.2015.37' ),
     ( ['aaa', 'ms', 'rd'],                               'ddecs',   2015, 'Sentence quality assessment based on natural language processing and artificial ingelligence', '183--188', 'http://dx.doi.org/10.1109/DDECS.2015.19' ),
     ( ['ss', 'ms', 'rd'],                                'gecco',   2015, 'Multi-objective BDD optimization with evolutionary algorithms', '751--758', 'http://doi.acm.org/10.1145/2739480.2754718' ),
-    ( ['ms', 'bs', 'rd', 'rkb'],                         'fmcad',   2015, 'Simulation Graphs for Reverse Engineering', 'XXXX', '' ),
+    ( ['ms', 'bs', 'rd', 'rkb'],                         'fmcad',   2015, 'Reverse engineering with simulation graphs', '152--159', '' ),
     ( ['na', 'ms', 'rd'],                                'rc',      2015, 'Technology mapping for quantum circuits using Boolean functional decomposition', '219--232', 'http://dx.doi.org/10.1007/978-3-319-20860-2_14' ),
     ( ['mkt', 'rkj', 'ms'],                              'rc',      2015, 'Ricercar: A language for describing and rewriting reversible circuits with ancillae and its permutation semantics', '200--215', 'http://dx.doi.org/10.1007/978-3-319-20860-2_13' ),
     ( ['na', 'ms', 'gwd', 'rd'],                         'vlsisoc', 2015, 'Reversible circuit rewriting with simulated annealing', '286-291', 'http://dx.doi.org/10.1109/VLSI-SoC.2015.7314431' ),
