@@ -320,6 +320,7 @@ conferences_data = [
 ]
 
 journals_data = [
+    ( 'cnf', 'Combustion and Flame', 'Elsevier', 'http://www.journals.elsevier.com/combustion-and-flame/' ),
     ( 'integration', 'Integration', 'Elsevier', 'http://www.journals.elsevier.com/integration-the-vlsi-journal/' ),
     ( 'ipl', 'Information Processing Letters', 'Elsevier', 'http://www.journals.elsevier.com/information-processing-letters/' ),
     ( 'jetc', 'Journal on Emerging Technologies in Computing Systems', 'ACM', 'http://jetc.acm.org/' ),
@@ -341,6 +342,7 @@ authors_data = [
     ( 'cg',  'Christian', 'Gorldt' ),
     ( 'ch',  'Christoph', 'Hilken' ),
     ( 'co',  'Christian', 'Otterstedt' ),
+    ( 'cr',  'Christoph', 'Rosebrock' ),
     ( 'cw',  'Clemens', 'Werther' ),
     ( 'df',  'Daniel', 'Florez' ),
     ( 'dg',  'Daniel', 'Große' ),
@@ -360,6 +362,7 @@ authors_data = [
     ( 'js2', 'Johanna', 'Sepulveda' ),
     ( 'kdt', 'Klaus-Dieter', 'Thoben' ),
     ( 'la',  'Luca Gaetano', 'Amarù' ),
+    ( 'lm',  'Lutz', 'Mädler' ),
     ( 'lt',  'Laura', 'Tague' ),
     ( 'ma',  'Matthew', 'Amy' ),
     ( 'md',  'Melanie', 'Diepenbeck' ),
@@ -371,6 +374,7 @@ authors_data = [
     ( 'ms',  'Mathias', 'Soeken' ),
     ( 'na',  'Nabila', 'Abdessaied' ),
     ( 'np',  'Nils', 'Przigoda' ),
+    ( 'nr',  'Norbert', 'Riefler' ),
     ( 'ok',  'Oliver', 'Keszocze' ),
     ( 'peg', 'Pierre-Emmanuel', 'Gaillardon' ),
     ( 'rkb', 'Robert K.', 'Brayton' ),
@@ -382,6 +386,7 @@ authors_data = [
     ( 'sim', 'Shin-ichi', 'Minato' ),
     ( 'ss',  'Saeideh', 'Shirinzadeh' ),
     ( 'sw',  'Stefan', 'Wiesner' ),
+    ( 'tw',  'Thomas', 'Wriedt' ),
     ( 'uk',  'Ulrich', 'Kühne' ),
     ( 'zs',  'Zahra', 'Sasanian' )
 ]
@@ -454,27 +459,30 @@ confpapers_data = [
 ]
 
 article_data = [
-    ( ['ms', 'sf', 'rw', 'rd'],        'mvl',         18,  "1",      2012, 'RevKit: A toolkit for reversible circuit design',                                                   '55--65',   'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC18.1abstracts/MVLSCv18n1p55-65Soeken.html' ),
-    ( ['rw', 'ms', 'np', 'rd'],        'mvl',         21,  "5--6",   2013, 'Effect of negative control lines on the exact synthesis of reversible circuits',                    '627--640', 'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC21.5-6abstracts/MVLSCv21n5-6p627-640Wille.html' ),
-    ( ['ms', 'dmm', 'rd'],             'pra',         88,  "042322", 2013, 'Quantum circuits employing roots of the Pauli matrices',                                            '042322',   'http://dx.doi.org/10.1103/PhysRevA.88.042322' ),
-    ( ['rw', 'ms', 'dmm', 'rd'],       'integration', 47,  "2",      2014, 'Trading off circuit lines and gate costs in the synthesis of reversible logic',                     '284--294', 'http://dx.doi.org/10.1016/j.vlsi.2013.08.002' ),
-    ( ['na', 'ms', 'mkt', 'rd'],       'ipl',         114, "6",      2014, 'Upper bounds for reversible circuits based on Young subgroups',                                     '282--286', 'http://dx.doi.org/10.1016/j.ipl.2014.01.003' ),
-    ( ['eg', 'ms'],                    'sosym',       14,  "2",      2015, 'Specification-driven model transformation testing',                                                 '623--644', 'http://dx.doi.org/10.1007/s10270-013-0369-x' ),
-    ( ['ms', 'rw', 'ok', 'dmm', 'rd'], 'jetc',        12,  "4",      2015, 'Embedding of large Boolean functions for reversible logic',                                         '41',       'http://dx.doi.org/10.1145/2786982' ),
-    ( ['ms', 'lt', 'gwd', 'rd'],       'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',               '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
-    ( ['rw', 'es', 'ms', 'rd'],        'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits', '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
-    ( ['ms', 'rd', 'rxf'],             'zk',          231, "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',            '107--111', 'http://dx.doi.org/10.1515/zkri-2015-1887' ),
-    ( ['na', 'ma', 'rd', 'ms'],        'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                               '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' )
+    ( ['ms', 'sf', 'rw', 'rd'],                   'mvl',         18,  "1",      2012, 'RevKit: A toolkit for reversible circuit design',                                                                                        '55--65',   'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC18.1abstracts/MVLSCv18n1p55-65Soeken.html' ),
+    ( ['rw', 'ms', 'np', 'rd'],                   'mvl',         21,  "5--6",   2013, 'Effect of negative control lines on the exact synthesis of reversible circuits',                                                         '627--640', 'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC21.5-6abstracts/MVLSCv21n5-6p627-640Wille.html' ),
+    ( ['ms', 'dmm', 'rd'],                        'pra',         88,  "042322", 2013, 'Quantum circuits employing roots of the Pauli matrices',                                                                                 '042322',   'http://dx.doi.org/10.1103/PhysRevA.88.042322' ),
+    ( ['rw', 'ms', 'dmm', 'rd'],                  'integration', 47,  "2",      2014, 'Trading off circuit lines and gate costs in the synthesis of reversible logic',                                                          '284--294', 'http://dx.doi.org/10.1016/j.vlsi.2013.08.002' ),
+    ( ['na', 'ms', 'mkt', 'rd'],                  'ipl',         114, "6",      2014, 'Upper bounds for reversible circuits based on Young subgroups',                                                                          '282--286', 'http://dx.doi.org/10.1016/j.ipl.2014.01.003' ),
+    ( ['eg', 'ms'],                               'sosym',       14,  "2",      2015, 'Specification-driven model transformation testing',                                                                                      '623--644', 'http://dx.doi.org/10.1007/s10270-013-0369-x' ),
+    ( ['ms', 'rw', 'ok', 'dmm', 'rd'],            'jetc',        12,  "4",      2015, 'Embedding of large Boolean functions for reversible logic',                                                                              '41',       'http://dx.doi.org/10.1145/2786982' ),
+    ( ['ms', 'lt', 'gwd', 'rd'],                  'jsc',         73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',                                                    '1--26',    'http://dx.doi.org/10.1016/j.jsc.2015.03.002' ),
+    ( ['rw', 'es', 'ms', 'rd'],                   'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits',                                      '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
+    ( ['ms', 'rd', 'rxf'],                        'zk',          231, "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',                                                 '107--111', 'http://dx.doi.org/10.1515/zkri-2015-1887' ),
+    ( ['na', 'ma', 'rd', 'ms'],                   'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                                                                    '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' ),
+    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',          -1, "",          0, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using Rainbow Refractometry', 'XXXX',     '' )
 ]
 
 news_data = [
+    ( 'aspdac', 2016 ),
     ( 'zk', 231 ),
     ( 'lascas', 2016 ),
     ( 'date', 2016 ),
     ( 'iscas', 2016 ),
     ( 'tcs', 618 ),
     ( 'ismvl', 2016 ),
-    ( 'dac', 2016 )
+    ( 'dac', 2016 ),
+    ( 'cnf', -1 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
