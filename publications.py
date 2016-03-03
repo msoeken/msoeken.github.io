@@ -537,4 +537,3 @@ def cmd_pdfs():
 
 if len( sys.argv ) == 2:
     globals()['cmd_%s' % sys.argv[1]]()
-
