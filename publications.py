@@ -244,7 +244,8 @@ conferences_data = [
         ( 2010, 'apr', 'Vienna', 'Austria' ),
         ( 2011, 'apr', 'Cottbus', 'Germany' ),
         ( 2013, 'apr', 'Karlovy Vary', 'Czech Republic' ),
-        ( 2015, 'apr', 'Belgrad', 'Serbia' )
+        ( 2015, 'apr', 'Belgrad', 'Serbia' ),
+        ( 2016, 'apr', 'Košice', 'Slovakia' )
     ] ),
     ( 'dgk', 'DGK', 'Annual Conference of the German Crystallographic Society', '', [
         ( 2013, 'mar', 'Freiberg', 'Germany' )
@@ -446,16 +447,17 @@ confpapers_data = [
     ( ['ms', 'js', 'rd'],                                'tap',     2015, 'Coverage of OCL operation specifications and invariants', '191--207', 'http://dx.doi.org/10.1007/978-3-319-21215-9_12' ),
     ( ['np', 'jp', 'ms', 'rw', 'rd'],                    'modevva', 2015, 'Towards an automatic approach for restricting UML/OCL invariability clauses', '44-47', 'http://ceur-ws.org/Vol-1514/paper6.pdf' ),
     ( ['ms', 'dg', 'ac2', 'rd'],                         'aspdac',  2016, 'BDD minimization for approximate computing', '474--479', '' ),
+    ( ['js2', 'df', 'ms', 'jpd', 'gg'],                  'lascas',  2016, 'Dynamic NoC buffer allocation for MPSoC timing side channel attack protection', 'XXXX', '' ),
     ( ['asa', 'dg', 'uk', 'ms', 'rd'],                   'date',    2016, 'Formal verification of integer multipliers by combining Gröbner basis with logic reduction', 'XXXX', '' ),
     ( ['ss', 'ms', 'peg', 'rd'],                         'date',    2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', 'XXXX', '' ),
     ( ['ms', 'la', 'peg', 'gdm'],                        'date',    2016, 'Optimizing majority-inverter graphs with functional hashing', 'XXXX', '' ),
-    ( ['js2', 'df', 'ms', 'jpd', 'gg'],                  'lascas',  2016, 'Dynamic NoC buffer allocation for MPSoC timing side channel attack protection', 'XXXX', '' ),
+    ( ['ss', 'ms', 'rd'],                                'ddecs',   2016, 'Multi-objective BDD optimization for RRAM based circuit design', 'XXXX', ''),
     ( ['ms', 'gwd', 'mmr', 'dmm'],                       'iscas',   2016, 'An extension of transformation-based reversible and quantum circuit synthesis', 'XXXX', '' ),
     ( ['ac', 'la', 'ms', 'peg', 'gdm'],                  'ismvl',   2016, 'Notes on majority Boolean algebra', 'XXXX', '' ),
     ( ['na', 'ma', 'ms', 'rd'],                          'ismvl',   2016, 'Technology mapping of reversible circuits to Clifford+T quantum circuits', 'XXXX', '' ),
     ( ['ac2', 'ms', 'dg', 'rd'],                         'dac',     2016, 'Precise error determination of approximated components in sequential circuits with model checking', 'XXXX', '' ),
     ( ['ms', 'ac'],                                      'dac',     2016, 'Unlocking efficiency and scalability of reversible logic synthesis using conventional logic synthesis', 'XXXX', '' ),
-    ( ['ms', 'ss', 'peg', 'la', 'rd', 'gdm'],            'dac',     2016, 'An MIG-based compiler for programmable logic-in-memory architectures', 'XXXX', '' )
+    ( ['ms', 'ss', 'peg', 'la', 'rd', 'gdm'],            'dac',     2016, 'An MIG-based compiler for programmable logic-in-memory architectures', 'XXXX', '' ),
 ]
 
 article_data = [
@@ -478,6 +480,7 @@ news_data = [
     ( 'zk', 231 ),
     ( 'lascas', 2016 ),
     ( 'date', 2016 ),
+    ( 'ddecs', 2016 ),
     ( 'iscas', 2016 ),
     ( 'tcs', 618 ),
     ( 'ismvl', 2016 ),
