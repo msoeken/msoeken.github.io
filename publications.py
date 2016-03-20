@@ -258,7 +258,8 @@ conferences_data = [
         ( 2015, 'sep', 'Austin, TX', 'USA' )
     ] ),
     ( 'gecco', 'GECCO', 'Genetic and Evolutionary Computation Conference', 'ACM', [
-        ( 2015, 'jul', 'Madrid', 'Spain' )
+        ( 2015, 'jul', 'Madrid', 'Spain' ),
+        ( 2016, 'jul', 'Denver, CO', 'USA' )
     ] ),
     ( 'gi', 'GI', 'Jahrestagung der Gesellschaft für Informatik', 'GI', [
         ( 2013, 'sep', 'Koblenz', 'Germany' )
@@ -458,6 +459,7 @@ confpapers_data = [
     ( ['ac2', 'ms', 'dg', 'rd'],                         'dac',     2016, 'Precise error determination of approximated components in sequential circuits with model checking', 'XXXX', '' ),
     ( ['ms', 'ac'],                                      'dac',     2016, 'Unlocking efficiency and scalability of reversible logic synthesis using conventional logic synthesis', 'XXXX', '' ),
     ( ['ms', 'ss', 'peg', 'la', 'rd', 'gdm'],            'dac',     2016, 'An MIG-based compiler for programmable logic-in-memory architectures', 'XXXX', '' ),
+    ( ['ss', 'ms', 'dg', 'rd'],                          'gecco',   2016, 'Approximate BDD optimization with prioritized ε-preferred evolutionary algorithm', 'XXXX', '' )
 ]
 
 article_data = [
@@ -485,7 +487,8 @@ news_data = [
     ( 'tcs', 618 ),
     ( 'ismvl', 2016 ),
     ( 'dac', 2016 ),
-    ( 'cnf', -1 )
+    ( 'cnf', -1 ),
+    ( 'gecco', 2016 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
