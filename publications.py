@@ -303,7 +303,8 @@ conferences_data = [
         ( 2012, 'jul', 'Copenhagen', 'Denmark' ),
         ( 2013, 'jul', 'Victoria, BC', 'Canada' ),
         ( 2014, 'jul', 'Kyoto', 'Japan' ),
-        ( 2015, 'jul', 'Grenoble', 'France' )
+        ( 2015, 'jul', 'Grenoble', 'France' ),
+        ( 2016, 'jul', 'Bologna', 'Italy' )
     ] ),
     ( 'sbcci', 'SBCCI', 'Symposium on Integrated Circuits and Systems Design', 'ACM', [
         ( 2014, 'sep', 'Aracaju', 'Brazil' )
@@ -459,7 +460,9 @@ confpapers_data = [
     ( ['ac2', 'ms', 'dg', 'rd'],                         'dac',     2016, 'Precise error determination of approximated components in sequential circuits with model checking', 'XXXX', '' ),
     ( ['ms', 'ac'],                                      'dac',     2016, 'Unlocking efficiency and scalability of reversible logic synthesis using conventional logic synthesis', 'XXXX', '' ),
     ( ['ms', 'ss', 'peg', 'la', 'rd', 'gdm'],            'dac',     2016, 'An MIG-based compiler for programmable logic-in-memory architectures', 'XXXX', '' ),
-    ( ['ss', 'ms', 'dg', 'rd'],                          'gecco',   2016, 'Approximate BDD optimization with prioritized ε-preferred evolutionary algorithm', 'XXXX', '' )
+    ( ['ss', 'ms', 'dg', 'rd'],                          'gecco',   2016, 'Approximate BDD optimization with prioritized ε-preferred evolutionary algorithm', 'XXXX', '' ),
+    ( ['ms', 'gwd', 'dmm'],                              'rc',      2016, 'A fast symbolic transformation based algorithm for reversible logic synthesis', 'XXXX', '' ),
+    ( ['ms', 'na', 'gdm'],                               'rc',      2016, 'Enumeration of reversible functions and its application to circuit complexity', 'XXXX', '' )
 ]
 
 article_data = [
@@ -488,7 +491,8 @@ news_data = [
     ( 'ismvl', 2016 ),
     ( 'dac', 2016 ),
     ( 'cnf', -1 ),
-    ( 'gecco', 2016 )
+    ( 'gecco', 2016 ),
+    ( 'rc', 2016 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
