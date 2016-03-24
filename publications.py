@@ -4,7 +4,7 @@
 import os
 import sys
 
-from jinja2 import Environment
+from jinja2 import Environment, Template
 
 def dict_from_tuple( keys, data ):
     return dict( zip( keys, data ) )
@@ -73,25 +73,33 @@ def make_filename( c ):
         return "%s_%s_%d" % ( year, conf, same_venue.index( c ) + 1 )
 
 
+def make_bibtex_title( title ):
+    global capitalize, replacements
+
+    for c in capitalize:
+        title = title.replace( c, "{%s}" % c )
+    for r, s in replacements:
+        title = title.replace( r, s )
+    return title
+
 def format_bibtex_incollection( paper ):
     global capitalize
 
     conf  = paper['conf']
     venue = conf['venues'][paper['year']]
 
-    title = paper['title']
-    for c in capitalize:
-        title = title.replace( c, "{%s}" % c )
+    title = make_bibtex_title( paper['title'] )
 
-    print( "@inproceedings{%s%d," % ( conf['key'], paper['year'] ) )
+    print( "@inproceedings{%s," % make_filename( paper ) )
     print( "  author    = {%s},"     % " and ".join( "%s, %s" % ( a['lastname'], a['firstname'] ) for a in paper['authors'] ) )
     print( "  title     = {%s},"     % title )
     print( "  booktitle = {%s},"     % conf['name'] )
     print( "  year      = %d,"       % paper['year'] )
     print( "  month     = %s,"       % venue['month'] )
     print( "  address   = {%s, %s}," % ( venue['city'], venue['country'] ) )
-    print( "  publisher = {%s},"     % conf['publisher'] )
-    print( "  pages     = {%s}"      % paper['pages'] )
+    if paper['pages'] != "XXXX":
+        print( "  pages     = {%s}," % paper['pages'] )
+    print( "  publisher = {%s}"      % conf['publisher'] )
     print( "}" )
 
 def format_haml_incollection( paper, id ):
@@ -140,6 +148,28 @@ def format_haml_incollection( paper, id ):
                              'external': external,
                              'pages': " | Pages %s" % paper['pages'].replace( "--", "&ndash;" ) if paper['pages'] != "XXXX" else "",
                              'publisher': conf['publisher']} )[1:] )
+
+def format_bibtex_article( paper ):
+    global capitalize
+
+    journal = paper['journal']
+
+    title = make_bibtex_title( paper['title'] )
+
+    print( "@article{%s%d," % ( journal['key'], paper['year'] ) )
+    print( "  author    = {%s},"     % " and ".join( "%s, %s" % ( a['lastname'], a['firstname'] ) for a in paper['authors'] ) )
+    print( "  title     = {%s},"     % title )
+    print( "  journal   = {%s},"     % journal['name'] )
+    if paper['volume'] == -1:
+        print( "  note      = {in press}," )
+    else:
+        print( "  year      = %d,"       % paper['year'] )
+        print( "  volume    = %d,"       % paper['volume'] )
+        print( "  number    = {%s},"       % paper['number'] )
+        if paper['pages'] != "XXXX":
+            print( "  pages     = {%s}," % paper['pages'] )
+    print( "  publisher = {%s}"     % journal['publisher'] )
+    print( "}" )
 
 def format_haml_article( paper, id ):
     journal = paper['journal']
@@ -212,8 +242,38 @@ def format_haml_news( news ):
                 article += "    %%li\n      %%a(href=\"publications.html#j%i\") %s\n" % ( articles.index( p) + 1, p["title"] )
         print( "  The article%s\n%s  got accepted for publication in\n  %%i %s.\n  %%a.badge(href=\"publications.html\") publication" % ( "s" if len( papers ) > 1 else "", article, papers[0]["journal"]["name"] ) )
 
+def write_publications():
+    global confpapers
+
+    text = Template('''
+\documentclass[conference]{IEEEtran}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+
+    \\usepackage[backend=biber,firstinits=true,maxnames=99,sorting=none]{biblatex}
+\\addbibresource{publications.bib}
+
+\\title{List of Publications}
+\\author{
+  \IEEEauthorblockN{Mathias Soeken} \\
+  \IEEEauthorblockA{Integrated Systems Laboratory, EPFL, Switzerland}
+}
+
+\\begin{document}
+  \\maketitle
+
+  \\nocite{*}
+  \printbibliography[type=article,title={Journal articles}]
+  \printbibliography[type=inproceedings,title={Conference papers}]
+\end{document}''')
+
+    with open( "publications.tex", "w" ) as f:
+        f.write( text.render().strip() + "\n" )
+
+
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "metaSMT", "MIG", "MPSoC", "NCV", "NoC", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "$\\varepsilon$"), ("πDD", "{$\\pi$DD}")]
 
 conferences_data = [
     ( 'apms', 'APMS', 'Advances in Production Management Systems', 'IFIP', [
@@ -250,7 +310,7 @@ conferences_data = [
     ( 'dgk', 'DGK', 'Annual Conference of the German Crystallographic Society', '', [
         ( 2013, 'mar', 'Freiberg', 'Germany' )
     ] ),
-    ( 'fdl', 'FDL', 'Forum on Specification & Design Languages', 'IEEE', [
+    ( 'fdl', 'FDL', 'Forum on Specification and Design Languages', 'IEEE', [
         ( 2012, 'sep', 'Vienna', 'Austria' ),
         ( 2014, 'oct', 'Munich', 'Germany' )
     ] ),
@@ -273,7 +333,7 @@ conferences_data = [
     ( 'icgt', 'ICGT', 'International Conference on Graph Transformation', 'Springer', [
         ( 2012, 'sep', 'Bremen', 'Germany' )
     ] ),
-    ( 'idt', 'IDT', 'International Test & Design Symposium', 'IEEE', [
+    ( 'idt', 'IDT', 'International Test and Design Symposium', 'IEEE', [
         ( 2010, 'dec', 'Abu Dhabi', 'United Arab Emirates' ),
         ( 2013, 'dec', 'Marrakesh', 'Marocco' )
     ] ),
@@ -417,7 +477,7 @@ confpapers_data = [
     ( ['rd', 'ms', 'rw'],                                'fdl',     2012, 'Formal Specification Level: Towards verification-driven design based on natural language processing', '53--58', 'http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=6336984' ),
     ( ['rd', 'md', 'dg', 'uk', 'hml', 'js', 'ms', 'rw'], 'icgt',    2012, 'Completeness-Driven Development', '38--50', 'http://dx.doi.org/10.1007/978-3-642-33654-6_3' ),
     ( ['md', 'ms', 'dg', 'rd'],                          'hldvt',   2012, 'Behavior driven development for circuit design and verification', '9--16', 'http://dx.doi.org/10.1109/HLDVT.2012.6418237' ),
-    ( ['js', 'ms', 'rw', 'rd'],                          'rc',      2012, 'Property checking of quantum circuits using quantum multiple-valued decision diagrams', 'http://dx.doi.org/10.1007/978-3-642-36315-3_15', '183--196' ),
+    ( ['js', 'ms', 'rw', 'rd'],                          'rc',      2012, 'Property checking of quantum circuits using quantum multiple-valued decision diagrams', '183--196', 'http://dx.doi.org/10.1007/978-3-642-36315-3_15' ),
     ( ['ms', 'rw', 'sim', 'rd'],                         'rc',      2012, 'Using πDDs in the design for reversible circuits', '197--203', 'http://dx.doi.org/10.1007/978-3-642-36315-3_16' ),
     ( ['rw', 'ms', 'co', 'rd'],                          'aspdac',  2013, 'Improving the mapping of reversible circuits to quantum circuits using multiple target lines', '145--150', 'http://dx.doi.org/10.1109/ASPDAC.2013.6509587' ),
     ( ['rw', 'mg', 'ms', 'mk', 'rd'],                    'date',    2013, 'Towards a generic verification methodology for system models', '1193--1196', 'http://dl.acm.org/citation.cfm?id=2485575' ),
@@ -431,7 +491,7 @@ confpapers_data = [
     ( ['ms', 'mkt'],                                     'rc',      2013, 'White dots do matter: Rewriting reversible logic circuits', '196--208', 'http://dx.doi.org/10.1007/978-3-642-38986-3_16' ),
     ( ['ms', 'rd'],                                      'idt',     2013, 'Grammar-based program generation based on model finding', '1--5', 'http://dx.doi.org/10.1109/IDT.2013.6727084' ),
     ( ['na', 'ms', 'rd'],                                'rc',      2014, 'Quantum circuit optimization by Hadamard gate reduction', '149--162', 'http://dx.doi.org/10.1007/978-3-319-08494-7_12' ),
-    ( ['dmm', 'ms', 'rd'],                               'rc',      2014, 'Mapping NCV circuits to optimized Clifford+$T$ circuits', '163--175', 'http://dx.doi.org/10.1007/978-3-319-08494-7_13' ),
+    ( ['dmm', 'ms', 'rd'],                               'rc',      2014, 'Mapping NCV circuits to optimized Clifford+T circuits', '163--175', 'http://dx.doi.org/10.1007/978-3-319-08494-7_13' ),
     ( ['md', 'uk', 'ms', 'rd'],                          'tap',     2014, 'Behaviour driven development for tests and verification', '61--77', 'http://dx.doi.org/10.1007/978-3-319-09099-3_5' ),
     ( ['rd', 'ms', 'rw'],                                'iccad',   2014, 'Automated and quality-driven requirements engineering', '586--590', 'http://dx.doi.org/10.1109/ICCAD.2014.7001410' ),
     ( ['sw', 'cg', 'ms', 'kdt', 'rd'],                   'apms',    2014, 'Requirements engineering for cyber-physical systems - challenges in the context of "Industrie 4.0"', '281--288', 'http://dx.doi.org/10.1007/978-3-662-44739-0_35' ),
@@ -477,7 +537,7 @@ article_data = [
     ( ['rw', 'es', 'ms', 'rd'],                   'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits',                                      '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
     ( ['ms', 'rd', 'rxf'],                        'zk',          231, "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',                                                 '107--111', 'http://dx.doi.org/10.1515/zkri-2015-1887' ),
     ( ['na', 'ma', 'rd', 'ms'],                   'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                                                                    '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' ),
-    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',          -1, "",          0, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using Rainbow Refractometry', 'XXXX',     '' )
+    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',          -1, "",          0, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', 'XXXX',     '' )
 ]
 
 news_data = [
@@ -504,10 +564,16 @@ articles = list( map( make_article, article_data ) )
 
 news = list( map( make_news, news_data ) )
 
-def cmd_bibtex():
+def cmd_publications():
+    for a in articles:
+        format_bibtex_article( a )
+        print()
+
     for c in confpapers:
         format_bibtex_incollection( c )
         print()
+
+    write_publications()
 
 def cmd_haml():
     year = ""
