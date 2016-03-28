@@ -44,6 +44,13 @@ def make_article( data ):
     d['journal'] = journals[d['journal']]
     return d
 
+def make_preprint( data ):
+    global authors
+
+    d = dict_from_tuple( ['authors', 'id', 'title', 'comments', 'ref', 'subj'], data )
+    d['authors'] = [authors[k] for k in d['authors']]
+    return d
+
 def make_news( data ):
     global conferences
     global journals
@@ -218,6 +225,47 @@ def format_haml_article( paper, id ):
                              'external': external,
                              'publisher': journal['publisher']} )[1:] )
 
+def format_haml_preprint( paper, id ):
+    global months
+
+    env = Environment()
+    template = env.from_string('''
+.item
+  .pubmain
+    .pubassets
+      %a(href="http://arxiv.org/abs/{{id}}" data-toggle="tooltip" data-placement="top" title="Open webpage" target="_blank")
+        %span.glyphicon.glyphicon-new-window
+      %a(href="http://arxiv.org/pdf/{{id}}" data-toggle="tooltip" data-placement="top" title="View PDF" target="_blank")
+        %span.glyphicon.glyphicon-cloud-download
+    %a.paper(href="http://arxiv.org/pdf/{{id}}" target="_blank")
+      %img.pubthumb(src="images/thumbs/arxiv_{{id}}.png")
+    %h4.pubtitle#p{{nid}} {{title}}
+    .pubauthor
+      {{authors}}
+    .pubcite
+      %span.label.label-danger Preprint {{nid}}
+      arXiv:{{id}} | {{month}} {{year}}
+      {{ref}}| Comments: {{comments}} | Subjects: {{subjects}}''')
+
+    authors = ",\n      ".join( "%s %s" % ( a['firstname'], a['lastname'] ) for a in paper['authors'] )
+    authors = authors.replace( "Mathias Soeken", "%strong Mathias Soeken" )
+
+    subjects = "; ".join( paper['subj'] )
+
+    ref = ""
+    if paper['ref'] != "":
+        ref = "|\n      %%a(href=\"publications.html#%s\") Reference\n      " % paper['ref']
+
+    print( template.render( {'title': paper['title'],
+                             'authors': authors,
+                             'id': paper['id'],
+                             'nid': id,
+                             'month': months[int( paper['id'][2:4] ) - 1],
+                             'year': '20' + paper['id'][0:2],
+                             'comments': paper['comments'],
+                             'ref': ref,
+                             'subjects': subjects } ) )
+
 def format_haml_news( news ):
     print( "%li.list-group-item" )
 
@@ -250,12 +298,12 @@ def write_publications():
 \\usepackage[utf8]{inputenc}
 \\usepackage[T1]{fontenc}
 
-    \\usepackage[backend=biber,firstinits=true,maxnames=99,sorting=none]{biblatex}
+    \\usepackage[backend=biber,style=ieee]{biblatex}
 \\addbibresource{publications.bib}
 
 \\title{List of Publications}
 \\author{
-  \IEEEauthorblockN{Mathias Soeken} \\
+  \IEEEauthorblockN{Mathias Soeken}
   \IEEEauthorblockA{Integrated Systems Laboratory, EPFL, Switzerland}
 }
 
@@ -272,8 +320,9 @@ def write_publications():
 
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
+months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "metaSMT", "MIG", "MPSoC", "NCV", "NoC", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
-replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "$\\varepsilon$"), ("πDD", "{$\\pi$DD}")]
+replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("πDD", "{$\\pi$DD}")]
 
 conferences_data = [
     ( 'apms', 'APMS', 'Advances in Production Management Systems', 'IFIP', [
@@ -399,6 +448,7 @@ authors_data = [
     ( 'aaa', 'Arman', 'Allahyari-Abhari' ),
     ( 'ac',  'Anupam', 'Chattopadhyay' ),
     ( 'ac2', 'Arun', 'Chandrasekharan' ),
+    ( 'adv', 'Alexis', 'De Vos' ),
     ( 'asa', 'Amr', 'Sayed Ahmed' ),
     ( 'bs',  'Baruch', 'Sterin' ),
     ( 'cbh', 'Christopher B.', 'Harris' ),
@@ -419,6 +469,7 @@ authors_data = [
     ( 'hml', 'Hoang M.', 'Le' ),
     ( 'hr',  'Heinz', 'Riener' ),
     ( 'igh', 'Ian G.', 'Harris' ),
+    ( 'jd',  'Jeroen', 'Demeyer' ),
     ( 'jp',  'Judith', 'Peters' ),
     ( 'jpd', 'Jean-Philippe', 'Diguet' ),
     ( 'js',  'Julia', 'Seiter' ),
@@ -451,6 +502,7 @@ authors_data = [
     ( 'sw',  'Stefan', 'Wiesner' ),
     ( 'tw',  'Thomas', 'Wriedt' ),
     ( 'uk',  'Ulrich', 'Kühne' ),
+    ( 'wc',  'Wouter', 'Castryck' ),
     ( 'zs',  'Zahra', 'Sasanian' )
 ]
 
@@ -540,6 +592,15 @@ article_data = [
     ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',          -1, "",          0, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', 'XXXX',     '' )
 ]
 
+preprint_data = [
+    ( ['ms', 'dmm', 'rd'],             '1308.2493',  'On quantum circuits employing roots of the Pauli matrices',                           '7 pages, 1 figure',                                                        'j3', ['quant-ph', 'cs.ET'] ),
+    ( ['ms', 'na', 'rd'],              '1407.5878',  'A framework for reversible circuit complexity',                                       "6 pages, 4 figures, accepted for Int'l Workshop on Boolean Problems 2014", '',   ['cs.ET', 'quant-ph'] ),
+    ( ['ms', 'rw', 'ok', 'dmm', 'rd'], '1408.3586',  'Embedding of large Boolean functions for reversible logic',                           '13 pages, 10 figures',                                                     'j7', ['cs.ET'] ),
+    ( ['ms', 'lt', 'gwd', 'rd'],       '1408.3955',  'Ancilla-free synthesis of large reversible functions using binary decision diagrams', '25 pages, 15 figures',                                                     'j8', ['cs.ET', 'quant-ph'] ),
+    ( ['ms', 'mkt', 'gwd', 'dmm'],     '1502.05825', 'Self-inverse functions and palindromic circuits',                                     '6 pages, 3 figures',                                                       '',   ['cs.ET', 'math.GR', 'quant-ph'] ),
+    ( ['wc', 'jd', 'adv', 'ok', 'ms'], '1503.08579', 'Translating between the roots of identity in quantum circuits',                       '7 pages',                                                                  '',   ['quant-ph', 'math.GR'] )
+]
+
 news_data = [
     ( 'aspdac', 2016 ),
     ( 'zk', 231 ),
@@ -561,6 +622,7 @@ journals = make_dict( 'key', journals_data, make_journal )
 
 confpapers = list( map( make_conference_paper, confpapers_data ) )
 articles = list( map( make_article, article_data ) )
+preprints = list( map( make_preprint, preprint_data ) )
 
 news = list( map( make_news, news_data ) )
 
@@ -590,6 +652,10 @@ def cmd_haml_article():
             year = c['year']
             print( "%%h4 %s" % ( "In press" if year == 0 else year ) )
         format_haml_article( c, len( articles ) - index )
+
+def cmd_haml_preprint():
+    for index, c in enumerate( reversed( preprints ) ):
+        format_haml_preprint( c, len( preprints ) - index )
 
 def cmd_haml_news():
     for n in reversed( news ):

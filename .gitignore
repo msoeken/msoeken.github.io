@@ -1,2 +1,4 @@
 Gemfile.lock
 papers/articles/*.pdf
+papers/arxiv/*.pdf
+cv

@@ -30,6 +30,9 @@
             %li(role="presentation")
               %a(href="#books")
                 Books
+            %li(role="presentation")
+              %a(href="#preprints")
+                Preprints
           .tab-content
             .tab-pane.active#journals
               .pitems
@@ -68,6 +71,9 @@
                     .pubcite
                       %span.label.label-success Book 1
                       3844011994 | 226 pages (in German) | 2012 | Publisher: Shaker
+            .tab-pane#preprints
+              .pitems
+                = Haml::Engine.new(File.read('_preprints.haml')).render(Object.new)
           %h3 Copyright Notice
           %p
             This material is presented to ensure timely dissemination of scholarly and technical work. Copyright and all rights therein are retained by authors or by other copyright holders. All persons copying this information are expected to adhere to the terms and constraints invoked by each author's copyright. In most cases, these works may not be reposted without the explicit permission of the copyright holder.
