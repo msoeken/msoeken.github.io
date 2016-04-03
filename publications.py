@@ -321,7 +321,7 @@ def write_publications():
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-capitalize = ["BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "metaSMT", "MIG", "MPSoC", "NCV", "NoC", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+capitalize = ["AIGs", "BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "LEXSAT", "metaSMT", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
 replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("πDD", "{$\\pi$DD}")]
 
 conferences_data = [
@@ -415,6 +415,9 @@ conferences_data = [
         ( 2015, 'jul', 'Grenoble', 'France' ),
         ( 2016, 'jul', 'Bologna', 'Italy' )
     ] ),
+    ( 'sat', 'SAT', 'International Conference on Theory and Applications of Satisfiability Testing', 'Springer', [
+        ( 2016, 'jul', 'Bordeaux', 'France' )
+    ] ),
     ( 'sbcci', 'SBCCI', 'Symposium on Integrated Circuits and Systems Design', 'ACM', [
         ( 2014, 'sep', 'Aracaju', 'Brazil' )
     ] ),
@@ -449,6 +452,8 @@ authors_data = [
     ( 'ac',  'Anupam', 'Chattopadhyay' ),
     ( 'ac2', 'Arun', 'Chandrasekharan' ),
     ( 'adv', 'Alexis', 'De Vos' ),
+    ( 'am',  'Alan', 'Mishchenko' ),
+    ( 'ap',  'Ana', 'Petkovska' ),
     ( 'asa', 'Amr', 'Sayed Ahmed' ),
     ( 'bs',  'Baruch', 'Sterin' ),
     ( 'cbh', 'Christopher B.', 'Harris' ),
@@ -491,6 +496,7 @@ authors_data = [
     ( 'nr',  'Norbert', 'Riefler' ),
     ( 'ok',  'Oliver', 'Keszocze' ),
     ( 'peg', 'Pierre-Emmanuel', 'Gaillardon' ),
+    ( 'pi',  'Paolo', 'Ienne' ),
     ( 'rkb', 'Robert K.', 'Brayton' ),
     ( 'rkj', 'Robin Kaasgaard', 'Jensen' ),
     ( 'rd',  'Rolf', 'Drechsler' ),
@@ -574,7 +580,8 @@ confpapers_data = [
     ( ['ms', 'ss', 'peg', 'la', 'rd', 'gdm'],            'dac',     2016, 'An MIG-based compiler for programmable logic-in-memory architectures', 'XXXX', '' ),
     ( ['ss', 'ms', 'dg', 'rd'],                          'gecco',   2016, 'Approximate BDD optimization with prioritized ε-preferred evolutionary algorithm', 'XXXX', '' ),
     ( ['ms', 'gwd', 'dmm'],                              'rc',      2016, 'A fast symbolic transformation based algorithm for reversible logic synthesis', 'XXXX', '' ),
-    ( ['ms', 'na', 'gdm'],                               'rc',      2016, 'Enumeration of reversible functions and its application to circuit complexity', 'XXXX', '' )
+    ( ['ms', 'na', 'gdm'],                               'rc',      2016, 'Enumeration of reversible functions and its application to circuit complexity', 'XXXX', '' ),
+    ( ['ms', 'am', 'ap', 'bs', 'pi', 'rkb', 'gdm'],      'sat',     2016, 'Heuristic NPN classification for large functions using AIGs and LEXSAT', 'XXXX', '' )
 ]
 
 article_data = [
@@ -613,7 +620,8 @@ news_data = [
     ( 'dac', 2016 ),
     ( 'cnf', -1 ),
     ( 'gecco', 2016 ),
-    ( 'rc', 2016 )
+    ( 'rc', 2016 ),
+    ( 'sat', 2016 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
