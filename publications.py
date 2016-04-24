@@ -26,6 +26,9 @@ def make_journal( data ):
 def make_author( data ):
     return dict_from_tuple( ['key', 'firstname', 'lastname'], data )
 
+def make_university( data ):
+    return dict_from_tuple( ['key', 'name', 'city', 'country', 'webpage', 'original_name'], data )
+
 def make_conference_paper( data ):
     global conferences
     global authors
@@ -65,6 +68,19 @@ def make_news( data ):
     else:
         d['type'] = 'journal'
         d['papers'] = list( reversed( [a for a in articles if a['journal']['key'] == d['name'] and a['volume'] == d['year']] ) )
+
+    return d
+
+def make_invited( data ):
+    global conferences
+    global universities
+
+    d = dict_from_tuple( ['year', 'month', 'type', 'type_key', 'host', 'title', 'webpage'], data )
+
+    if d['type'] == 'uni':
+        d['uni'] = universities[d['type_key']]
+    elif d['type'] == 'conf':
+        d['conf'] = conferences[d['type_key']]
 
     return d
 
@@ -318,6 +334,43 @@ def write_publications():
     with open( "publications.tex", "w" ) as f:
         f.write( text.render().strip() + "\n" )
 
+def format_haml_invited( invited ):
+    template = Template('''
+.item
+  .pubmain(style="min-height:0px")
+    {{ logo }}
+    %h4.pubtitle {{ title }}
+    .project-description
+      Talk
+      %i {{ talk_title }}
+      {{ host }}
+      ({{ month }}{{ year }})
+    {{ more }}''')
+
+    if invited['type'] == "uni":
+        uni = invited['uni']
+        title = uni['name']
+        if uni['original_name'] != '':
+            title += " (" + uni['original_name'] + ")"
+        logo = '%%a(href="%s" target="_blank")\n      %%img.project-thumb(src="images/logos/%s.png" border="0")' % ( uni['webpage'], uni['key'] )
+        host = 'invited by ' + invited['host']
+    else:
+        conf = invited['conf']
+        title = conf['name'] + " " + str( invited['year'] )
+        logo = ''
+        host = ''
+
+    if invited['webpage'] != '':
+        more = '.project-description\n      %%a(href="%s" target="_blank") More information' % invited['webpage']
+    else:
+        more = ''
+
+    talk_title = invited['title']
+    month = monthnames[invited['month']] + " " if invited['month'] != '' else ''
+    year = invited['year']
+
+    print( template.render( title = title, logo = logo, talk_title = talk_title, host = host, month = month, year = year, more = more ) )
+
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -335,6 +388,10 @@ conferences_data = [
     ] ),
     ( 'ast', 'AST', 'International Workshop on Automation of Software Test', 'ACM', [
         ( 2013, 'may', 'San Francisco, CA', 'USA' )
+    ] ),
+    ( 'cukeup', '', 'CukeUp!', 'Skills Matter', [
+        ( 2012, 'apr', 'London', 'England' ),
+        ( 2013, 'apr', 'London', 'England' )
     ] ),
     ( 'dac', 'DAC', 'Design Automation Conference', 'ACM/IEEE', [
         ( 2010, 'jun', 'Anaheim, CA', 'USA' ),
@@ -414,6 +471,9 @@ conferences_data = [
         ( 2014, 'jul', 'Kyoto', 'Japan' ),
         ( 2015, 'jul', 'Grenoble', 'France' ),
         ( 2016, 'jul', 'Bologna', 'Italy' )
+    ] ),
+    ( 'rm', 'RM', 'Reed-Muller Workshop', '', [
+        ( 2015, 'may', 'Waterloo, ON', 'Canada' )
     ] ),
     ( 'sat', 'SAT', 'International Conference on Theory and Applications of Satisfiability Testing', 'Springer', [
         ( 2016, 'jul', 'Bordeaux', 'France' )
@@ -634,6 +694,36 @@ preprints = list( map( make_preprint, preprint_data ) )
 
 news = list( map( make_news, news_data ) )
 
+universities_data = [
+    ( 'birs', 'Banff International Research Station', 'Banff, AL',       'Canada',      'http://www.birs.ca',            '' ),
+    ( 'epfl', 'EPFL',                                 'Lausanne',        'Switzerland', 'http://epfl.ch',                'École Polytechnique Fédérale de Lausanne' ),
+    ( 'hu',   'Hokkaido University',                  'Sapporo',         'Japan',       'https://www.oia.hokudai.ac.jp', '北海道大学' ),
+    ( 'rwth', 'RWTH Aachen University',               'Aachen',          'Germany',     'http://www.rwth-aachen.de',     'RWTH Aachen' ),
+    ( 'ru',   'Ritsumeikan University',               'Kyoto',           'Japan',       'http://en.ritsumei.ac.jp',      '立命館大学' ),
+    ( 'sri',  'SRI International',                    'Menlo Park, CA',  'USA',         'https://www.sri.com',           '' ),
+    ( 'su',   'Stanford University',                  'Stanford, CA',    'USA',         'http://stanford.edu',           '' ),
+    ( 'unb',  'University of New Brunswick',          'Fredericton, NB', 'Canada',      'http://www.unb.ca',             '' )
+]
+
+universities = make_dict( 'key', universities_data, make_university )
+
+invited_data = [
+    ( 2011, 'jan', 'uni',  'hu',     'Prof. Shin-ichi Minato',     'Formal verification of UML-based specifications',                         'http://www-erato.ist.hokudai.ac.jp/wiki/wiki.cgi?page=ERATO-seminar' ),
+    ( 2012, 'apr', 'conf', 'cukeup', '',                           'BDD for embedded system design',                                          'https://skillsmatter.com/skillscasts/3124-bdd-for-embedded-system-design' ),
+    ( 2013, 'jan', 'uni',  'hu',     'Prof. Shin-ichi Minato',     'Synthesis of reversible circuits with minimal lines for large functions', '' ),
+    ( 2013, 'apr', 'conf', 'cukeup', '',                           'Towards automatic scenario generation based on uncovered code',           'https://skillsmatter.com/skillscasts/4043-towards-automatic-scenario-generation-based-on-uncovered-code' ),
+    ( 2014, 'apr', 'uni',  'su',     'Prof. Subhasish Mitra',      'Formal specification level',                                              '' ),
+    ( 2014, '',    'uni',  'rwth',   'Prof. Anupam Chattopadhyay', 'Implementing synthesis flows with RevKit',                                '' ),
+    ( 2014, 'may', 'uni',  'ru',     'Prof. Shigeru Yamashita',    'Formal specification level',                                              '' ),
+    ( 2014, 'oct', 'uni',  'unb',    'Prof. Gerhard W. Dueck',     'Formal specification level',                                              'http://www.cs.unb.ca/seminarseries/documents/Mathias_Soeken-10.29.14.pdf' ),
+    ( 2014, 'dec', 'uni',  'sri',    'Dr. Wenchao Li',             'Reverse engineering',                                                     '' ),
+    ( 2015, 'may', 'conf', 'rm',     '',                           'Generalized equivalence checking problems for reverse engineering',       'http://lyle.smu.edu/RM2015/program.htm' ),
+    ( 2015, 'jun', 'uni',  'epfl',   'Prof. Paolo Ienne',          'Reverse engineering with simulation graphs',                              '' ),
+    ( 2016, 'apr', 'uni',  'birs',   'Dr. Martin Roetteler',       'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www.birs.ca/events/2016/5-day-workshops/16w5029/videos/watch/201604181552-Soeken.html' )
+]
+
+invited = list( map( make_invited, invited_data ) )
+
 def cmd_publications():
     for a in articles:
         format_bibtex_article( a )
@@ -668,6 +758,14 @@ def cmd_haml_preprint():
 def cmd_haml_news():
     for n in reversed( news ):
         format_haml_news( n )
+
+def cmd_haml_invited():
+    year = ""
+    for n in invited:
+        if n['year'] != year:
+            year = n['year']
+            print( "%%h4 %s" % year )
+        format_haml_invited( n )
 
 def cmd_stats():
     num_countries = len( set( [p['conf']['venues'][p['year']]['country'] for p in confpapers] ) )

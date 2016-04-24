@@ -61,3 +61,6 @@
                     %span.glyphicon.glyphicon-user
                     %b Collaborator:
                     Prof. Robert K. Brayton, UC Berkeley, CA, USA
+              %h3 Invited Talks
+              .pitems
+                = Haml::Engine.new(File.read('_invited.haml')).render(Object.new)
