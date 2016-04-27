@@ -31,6 +31,9 @@
               %a(href="#books")
                 Books
             %li(role="presentation")
+              %a(href="#workshops")
+                Workshop Papers
+            %li(role="presentation")
               %a(href="#preprints")
                 Preprints
           .tab-content
@@ -71,6 +74,9 @@
                     .pubcite
                       %span.label.label-success Book 1
                       3844011994 | 226 pages (in German) | 2012 | Publisher: Shaker
+            .tab-pane#workshops
+              .pitems
+                = Haml::Engine.new(File.read('_workshops.haml')).render(Object.new)
             .tab-pane#preprints
               .pitems
                 = Haml::Engine.new(File.read('_preprints.haml')).render(Object.new)

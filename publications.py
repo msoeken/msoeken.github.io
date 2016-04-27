@@ -84,11 +84,11 @@ def make_invited( data ):
 
     return d
 
-def make_filename( c ):
+def make_filename( c, collection ):
     conf = c['conf']['key']
     year = c['year']
 
-    same_venue = [c2 for c2 in confpapers if c2['conf']['key'] == conf and c2['year'] == year]
+    same_venue = [c2 for c2 in collection if c2['conf']['key'] == conf and c2['year'] == year]
 
     if len( same_venue ) == 1:
         return "%s_%s" % ( year, conf )
@@ -105,7 +105,7 @@ def make_bibtex_title( title ):
         title = title.replace( r, s )
     return title
 
-def format_bibtex_incollection( paper ):
+def format_bibtex_incollection( paper, collection, keyword ):
     global capitalize
 
     conf  = paper['conf']
@@ -113,7 +113,7 @@ def format_bibtex_incollection( paper ):
 
     title = make_bibtex_title( paper['title'] )
 
-    print( "@inproceedings{%s," % make_filename( paper ) )
+    print( "@inproceedings{%s," % make_filename( paper, collection ) )
     print( "  author    = {%s},"     % " and ".join( "%s, %s" % ( a['lastname'], a['firstname'] ) for a in paper['authors'] ) )
     print( "  title     = {%s},"     % title )
     print( "  booktitle = {%s},"     % conf['name'] )
@@ -122,7 +122,9 @@ def format_bibtex_incollection( paper ):
     print( "  address   = {%s, %s}," % ( venue['city'], venue['country'] ) )
     if paper['pages'] != "XXXX":
         print( "  pages     = {%s}," % paper['pages'] )
-    print( "  publisher = {%s}"      % conf['publisher'] )
+    if conf['publisher'] != "":
+        print( "  publisher = {%s}," % conf['publisher'] )
+    print( "  keywords  = {%s}"      % keyword )
     print( "}" )
 
 def format_haml_incollection( paper, id ):
@@ -150,7 +152,48 @@ def format_haml_incollection( paper, id ):
     authors = ",\n      ".join( "%s %s" % ( a['firstname'], a['lastname'] ) for a in paper['authors'] )
     authors = authors.replace( "Mathias Soeken", "%strong Mathias Soeken" )
 
-    filename = make_filename( paper )
+    filename = make_filename( paper, confpapers )
+    image = "thumbs/" + filename if os.path.exists( "images/thumbs/%s.png" % filename ) else "nothumb"
+
+    external = ""
+    if paper['doi'] != "":
+        external = "%%a(href=\"%s\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open paper\" target=\"_blank\")\n        %%span.glyphicon.glyphicon-new-window" % paper['doi']
+
+    print( template.render( {'title': paper['title'],
+                             'id': id,
+                             'filename': filename,
+                             'image': image,
+                             'authors': authors,
+                             'conf': conf['name'],
+                             'shortname': conf['shortname'],
+                             'city': venue['city'],
+                             'country': venue['country'],
+                             'month': monthnames[venue['month']],
+                             'year': venue['year'],
+                             'external': external,
+                             'pages': " | Pages %s" % paper['pages'].replace( "--", "&ndash;" ) if paper['pages'] != "XXXX" else "",
+                             'publisher': conf['publisher']} )[1:] )
+
+def format_haml_incollection_work( paper, id ):
+    conf  = paper['conf']
+    venue = conf['venues'][paper['year']]
+
+    env = Environment()
+    template = env.from_string('''
+.item
+  .pubmain
+    %h4.pubtitle#w{{id}}
+      {{title}}
+    .pubauthor
+      {{authors}}
+    .pubcite
+      %span.label.label-warning Workshop Paper {{id}}
+      In {{conf}} ({{shortname}}) | {{city}}, {{country}}, {{month}} {{year}}{{pages}} | Publisher: {{publisher}}''')
+
+    authors = ",\n      ".join( "%s %s" % ( a['firstname'], a['lastname'] ) for a in paper['authors'] )
+    authors = authors.replace( "Mathias Soeken", "%strong Mathias Soeken" )
+
+    filename = make_filename( paper, workpapers )
     image = "thumbs/" + filename if os.path.exists( "images/thumbs/%s.png" % filename ) else "nothumb"
 
     external = ""
@@ -327,8 +370,10 @@ def write_publications():
   \\maketitle
 
   \\nocite{*}
+  \printbibliography[type=book,title={Books}]
   \printbibliography[type=article,title={Journal articles}]
-  \printbibliography[type=inproceedings,title={Conference papers}]
+  \printbibliography[type=inproceedings,keyword=conference,title={Conference papers}]
+  \printbibliography[type=inproceedings,keyword=workshop,title={Refereed papers without formal proceedings}]
 \end{document}''')
 
     with open( "publications.tex", "w" ) as f:
@@ -336,7 +381,7 @@ def write_publications():
 
 def format_haml_invited( invited ):
     template = Template('''
-.item
+.pitem
   .pubmain(style="min-height:0px")
     {{ logo }}
     %h4.pubtitle {{ title }}
@@ -374,7 +419,7 @@ def format_haml_invited( invited ):
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-capitalize = ["AIGs", "BDD", "Boolean", "Completeness-Driven Development", "CPU", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "Industrie", "LEXSAT", "metaSMT", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "IDE", "Industrie", "LEXSAT", "lips", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
 replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("πDD", "{$\\pi$DD}")]
 
 conferences_data = [
@@ -413,8 +458,16 @@ conferences_data = [
         ( 2015, 'apr', 'Belgrad', 'Serbia' ),
         ( 2016, 'apr', 'Košice', 'Slovakia' )
     ] ),
+    ( 'difts', 'DIFTS', 'International Workshop on Design and Implementation of Formal Tools and Systems', '', [
+        ( 2014, 'oct', 'Lausanne', 'Switzerland' )
+    ] ),
     ( 'dgk', 'DGK', 'Annual Conference of the German Crystallographic Society', '', [
         ( 2013, 'mar', 'Freiberg', 'Germany' )
+    ] ),
+    ( 'duhde', 'DUHDe', 'DATE Friday Workshop: Design Automation for Understanding Hardware Designs', '', [
+        ( 2014, 'mar', 'Dresden', 'Germany' ),
+        ( 2015, 'mar', 'Grenoble', 'France' ),
+        ( 2016, 'mar', 'Dresden', 'Germany' )
     ] ),
     ( 'fdl', 'FDL', 'Forum on Specification and Design Languages', 'IEEE', [
         ( 2012, 'sep', 'Vienna', 'Austria' ),
@@ -457,12 +510,34 @@ conferences_data = [
         ( 2008, 'apr', 'Montpellier', 'France' ),
         ( 2012, 'aug', 'Armherst, CA', 'USA' )
     ] ),
+    ( 'iwls', 'IWLS', 'International Workshop on Logic Synthesis', '', [
+        ( 2015, 'jul', 'Montaun View, CA', 'USA' ),
+        ( 2016, 'jul', 'Austin, TX', 'USA' )
+    ] ),
+    ( 'iwsbp', 'IWSBP', 'International Workshop on Boolean Problems', '', [
+        ( 2012, 'sep', 'Freiberg', 'Germany' ),
+        ( 2014, 'sep', 'Freiberg', 'Germany' ),
+        ( 2016, 'sep', 'Freiberg', 'Germany' )
+    ] ),
     ( 'lascas', 'LASCAS', 'IEEE Latin Amarican Symposium on Circuits and Systems', 'IEEE', [
         ( 2016, 'feb', 'Florianopolis', 'Brazil' )
+    ] ),
+    ( 'mbmv', 'MBMV', 'Methoden und Beschreibungssprachen zur Modellierung und Verifikation von Schaltungen und Systemen', '', [
+        ( 2010, 'mar', 'Dresden', 'Germany' ),
+        ( 2011, 'mar', 'Oldenburg', 'Germany' ),
+        ( 2013, 'mar', 'Rostock', 'Germany' ),
+        ( 2014, 'mar', 'Böblingen', 'Germany' ),
+        ( 2016, 'mar', 'Freiburg', 'Germany' )
+    ] ),
+    ( 'mecoes', 'MeCoES', 'International Workshop on and Code Generation for Embedded Systems', '', [
+        ( 2012, 'oct', 'Tampere', 'Finland' )
     ] ),
     ( 'modevva', 'MoDeVVa', 'Model-Driven Engineering, Verification, And Validation', 'ACM', [
         ( 2011, 'oct', 'Wellington', 'New Zealand' ),
         ( 2015, 'oct', 'Ottawa, ON', 'Canada' )
+    ] ),
+    ( 'naturalise', 'NaturaLiSE', 'International Workshop on Natural Language Analysis in Software Engineering', '', [
+        ( 2013, 'may', 'San Francisco, CA', 'USA' )
     ] ),
     ( 'rc', 'RC', 'Conference on Reversible Computation', 'Springer', [
         ( 2011, 'jul', 'Ghent', 'Belgium' ),
@@ -472,6 +547,10 @@ conferences_data = [
         ( 2015, 'jul', 'Grenoble', 'France' ),
         ( 2016, 'jul', 'Bologna', 'Italy' )
     ] ),
+    ( 'rcw', 'RC', 'Workshop on Reversible Computation', 'Springer', [
+        ( 2010, 'jul', 'Bremen', 'Germany' ),
+        ( 2011, 'jul', 'Ghent', 'Belgium' ),
+    ] ),
     ( 'rm', 'RM', 'Reed-Muller Workshop', '', [
         ( 2015, 'may', 'Waterloo, ON', 'Canada' )
     ] ),
@@ -480,6 +559,9 @@ conferences_data = [
     ] ),
     ( 'sbcci', 'SBCCI', 'Symposium on Integrated Circuits and Systems Design', 'ACM', [
         ( 2014, 'sep', 'Aracaju', 'Brazil' )
+    ] ),
+    ( 'sec', 'SEC', 'International Workshop on the Swarm at the Edge of the Cloud', '', [
+        ( 2013, 'sep', 'Montreal, QC', 'Canada' )
     ] ),
     ( 'tap', 'TAP', 'International Conference on Tests and Proofs', 'Springer', [
         ( 2011, 'jun', 'Zürich', 'Switzerland' ),
@@ -526,7 +608,9 @@ authors_data = [
     ( 'dg',  'Daniel', 'Große' ),
     ( 'dmm', 'D. Michael', 'Miller' ),
     ( 'eg',  'Esther', 'Guerra' ),
+    ( 'ek',  'Eugen', 'Kuksa' ),
     ( 'es',  'Eleonora', 'Schönborn' ),
+    ( 'et',  'Eleonora', 'Testa' ),
     ( 'gdm', 'Giovanni', 'De Micheli' ),
     ( 'gf',  'Görschwin', 'Fey' ),
     ( 'gg',  'Guy', 'Gogniat' ),
@@ -549,14 +633,18 @@ authors_data = [
     ( 'mg',  'Martin', 'Gogolla' ),
     ( 'mk',  'Mirko', 'Kuhlmann' ),
     ( 'mkt', 'Michael Kirkedal', 'Thomsen' ),
+    ( 'mm',  'Marc', 'Michael' ),
     ( 'mmr', 'Md. Mazder', 'Rahman' ),
+    ( 'mn',  'Max', 'Nitze' ),
     ( 'ms',  'Mathias', 'Soeken' ),
+    ( 'ms2', 'Matthias', 'Sauer' ),
     ( 'na',  'Nabila', 'Abdessaied' ),
     ( 'np',  'Nils', 'Przigoda' ),
     ( 'nr',  'Norbert', 'Riefler' ),
     ( 'ok',  'Oliver', 'Keszocze' ),
     ( 'peg', 'Pierre-Emmanuel', 'Gaillardon' ),
     ( 'pi',  'Paolo', 'Ienne' ),
+    ( 'pr',  'Pascal', 'Raiola' ),
     ( 'rkb', 'Robert K.', 'Brayton' ),
     ( 'rkj', 'Robin Kaasgaard', 'Jensen' ),
     ( 'rd',  'Rolf', 'Drechsler' ),
@@ -569,6 +657,7 @@ authors_data = [
     ( 'tw',  'Thomas', 'Wriedt' ),
     ( 'uk',  'Ulrich', 'Kühne' ),
     ( 'wc',  'Wouter', 'Castryck' ),
+    ( 'wh',  'Winston', 'Haaswijk' ),
     ( 'zs',  'Zahra', 'Sasanian' )
 ]
 
@@ -644,6 +733,31 @@ confpapers_data = [
     ( ['ms', 'am', 'ap', 'bs', 'pi', 'rkb', 'gdm'],      'sat',     2016, 'Heuristic NPN classification for large functions using AIGs and LEXSAT', 'XXXX', '' )
 ]
 
+workpapers_data = [
+    ( ['ms', 'rw', 'mk', 'mg', 'rd'],         'mbmv',       2010, 'Verifying UML/OCL models using Boolean satisfiability', '57--66', '' ),
+    ( ['ms', 'rw', 'rd'],                     'rcw',        2010, 'Hierachical synthesis of reversible circuits using positive and negative Davio decomposition', '55--58', '' ),
+    ( ['ms', 'sf', 'rw', 'rd'],               'rcw',        2010, 'RevKit: A toolkit for reversible circuit design', '69-72', '' ),
+    ( ['ms', 'uk', 'mf', 'gf', 'rd'],         'mbmv',       2011, 'Towards automatic property generation for the formal verification of bus bridges', '183--192', '' ),
+    ( ['rw', 'ms', 'dg', 'es', 'rd'],         'mbmv',       2011, 'Designing a RISC CPU in reversible logic', '249--258', '' ),
+    ( ['ms', 'sf', 'rw', 'rd'],               'rcw',        2011, 'Customized design flows for reversible circuits using RevKit', '91--96', '' ),
+    ( ['ms', 'rw', 'np', 'ch', 'rd'],         'rcw',        2011, 'Synthesis of reversible circuits with minimal lines for large functions', '59--70', '' ),
+    ( ['ms', 'rw', 'lt', 'dmm', 'rd'],        'iwsbp',      2012, 'Towards embedding of large functions for reversible logic', 'XXXX', '' ),
+    ( ['ms', 'hr', 'rw', 'gf', 'rd'],         'mecoes',     2012, 'Verification of embedded systems using modeling and implementation languages', '67--72', '' ),
+    ( ['ms', 'rw', 'ek', 'rd'],               'mbmv',       2013, 'Generierung von OCL-Ausdrücken aus natürlichsprachlichen Beschreibungen', '99-103', '' ),
+    ( ['ok', 'ms', 'ek', 'rd'],               'naturalise', 2013, 'lips: An IDE for model driven engineering based on natural language processing', 'XXXX', '' ),
+    ( ['rd', 'hml', 'ms', 'rw'],              'sec',        2013, 'Law-based verification of complex swarm systems', 'XXXX', '' ),
+    ( ['ms', 'mn', 'rd'],                     'mbmv',       2014, 'Formale Methoden für Alle', '213--216', '' ),
+    ( ['js', 'mm', 'ms', 'rw', 'rd'],         'duhde',      2014, 'Towards a multi-dimensional and dynamic visualization for ESL designs', 'XXXX', '' ),
+    ( ['ms', 'na', 'rd'],                     'iwsbp',      2014, 'A framework for reversible circuit complexity', 'XXXX', '' ),
+    ( ['rd', 'js', 'ms'],                     'difts',      2014, 'Coverage at the formal specification level', 'XXXX', '' ),
+    ( ['ms', 'mkt', 'gwd', 'dmm'],            'rm',         2015, 'Self-inverse functions and palindromic circuits', 'XXXX', '' ),
+    ( ['bs', 'ms', 'rd', 'rkb'],              'iwls',       2015, 'Simulation graphs for reverse engineering', 'XXXX', '' ),
+    ( ['ac2', 'dg', 'ms', 'rd'],              'mbmv',       2016, 'Symbolic error metric determination for approximate computing', '75--76', '' ),
+    ( ['et', 'ms', 'la', 'peg', 'gdm'],       'iwls',       2016, 'Inversion minimization in majority-inverter graphs', 'XXXX', '' ),
+    ( ['ms', 'pr', 'bs', 'ms2'],              'iwls',       2016, 'SAT-based functional dependency computation', 'XXXX', '' ),
+    ( ['wh', 'ms', 'la', 'peg', 'gdm'],       'iwls',       2016, 'LUT mapping and optimization for majority-inverter graphs', 'XXXX', '' )
+]
+
 article_data = [
     ( ['ms', 'sf', 'rw', 'rd'],                   'mvl',         18,  "1",      2012, 'RevKit: A toolkit for reversible circuit design',                                                                                        '55--65',   'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC18.1abstracts/MVLSCv18n1p55-65Soeken.html' ),
     ( ['rw', 'ms', 'np', 'rd'],                   'mvl',         21,  "5--6",   2013, 'Effect of negative control lines on the exact synthesis of reversible circuits',                                                         '627--640', 'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC21.5-6abstracts/MVLSCv21n5-6p627-640Wille.html' ),
@@ -689,6 +803,7 @@ conferences = make_dict( 'key', conferences_data, make_conference )
 journals = make_dict( 'key', journals_data, make_journal )
 
 confpapers = list( map( make_conference_paper, confpapers_data ) )
+workpapers = list( map( make_conference_paper, workpapers_data ) )
 articles = list( map( make_article, article_data ) )
 preprints = list( map( make_preprint, preprint_data ) )
 
@@ -725,13 +840,31 @@ invited_data = [
 invited = list( map( make_invited, invited_data ) )
 
 def cmd_publications():
+    print( "@book{book1," )
+    print( "  editors   = {Rolf Drechsler and Mathias Soeken and Robert Wille}," )
+    print( "  title     = {Auf dem Weg zum Quantencomputer: Entwurf reversibler Logik (Technische Informatik)}," )
+    print( "  publisher = {Shaker}," )
+    print( "  year      = 2012" )
+    print( "}" )
+    print()
+    print( "@book{book2," )
+    print( "  editors   = {Mathias Soeken and Rolf Drechsler}," )
+    print( "  title     = {Formal Specification Level}," )
+    print( "  publisher = {Springer}," )
+    print( "  year      = 2014" )
+    print( "}" )
+    print()
+
     for a in articles:
         format_bibtex_article( a )
         print()
 
     for c in confpapers:
-        format_bibtex_incollection( c )
+        format_bibtex_incollection( c, confpapers, "conference" )
         print()
+
+    for w in workpapers:
+        format_bibtex_incollection( w, workpapers, "workshop" )
 
     write_publications()
 
@@ -742,6 +875,15 @@ def cmd_haml():
             year = c['year']
             print( "%%h4 %s" % year )
         format_haml_incollection( c, len( confpapers ) - index )
+
+def cmd_haml_work():
+    print( "%p These workshop papers are peer-reviewed and have been presented at events, where the proceedings where distributed only among the participants.  If you are interested in one of the listed papers, please send me an eMail and I am happy to share the PDF." )
+    year = ""
+    for index, c in enumerate( reversed( workpapers ) ):
+        if c['year'] != year:
+            year = c['year']
+            print( "%%h4 %s" % year )
+        format_haml_incollection_work( c, len( workpapers ) - index )
 
 def cmd_haml_article():
     year = ""
@@ -773,7 +915,7 @@ def cmd_stats():
 
 def cmd_pdfs():
     for c in confpapers:
-        filename = make_filename( c )
+        filename = make_filename( c, confpapers )
 
         if os.path.exists( "papers/%s.pdf" % filename ):
             if not os.path.exists( "images/thumbs/%s.png" % filename ):
