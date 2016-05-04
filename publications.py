@@ -371,6 +371,7 @@ def write_publications():
 
   \\nocite{*}
   \printbibliography[type=book,title={Books}]
+  \printbibliography[type=incollection,title={Book chapters}]
   \printbibliography[type=article,title={Journal articles}]
   \printbibliography[type=inproceedings,keyword=conference,title={Conference papers}]
   \printbibliography[type=inproceedings,keyword=workshop,title={Refereed papers without formal proceedings}]
@@ -419,7 +420,7 @@ def format_haml_invited( invited ):
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "IDE", "Industrie", "LEXSAT", "lips", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "IDE", "Industrie", "LEXSAT", "lips", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
 replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("πDD", "{$\\pi$DD}")]
 
 conferences_data = [
@@ -585,6 +586,7 @@ journals_data = [
     ( 'mvl', 'Multiple-Valued Logic and Soft Computing', 'Old City Publishing', 'http://www.oldcitypublishing.com/journals/mvlsc-home/' ),
     ( 'pra', 'Physical Review A', 'American Physical Society', 'http://journals.aps.org/pra/' ),
     ( 'sosym', 'Software and System Modeling', 'Springer', 'http://www.sosym.org/' ),
+    ( 'sttt', 'Journal on Software Tools for Technology Transfer', 'Springer', 'http://www.springer.com/computer/swe/journal/10009' ),
     ( 'tcs', 'Theoretical Computer Science', 'Elsevier', 'http://www.journals.elsevier.com/theoretical-computer-science/' ),
     ( 'zk', 'Zeitschrift für Kristallographie - Crystalline Materials', 'De Gruyter', 'http://www.degruyter.com/view/j/zkri' )
 ]
@@ -611,6 +613,7 @@ authors_data = [
     ( 'ek',  'Eugen', 'Kuksa' ),
     ( 'es',  'Eleonora', 'Schönborn' ),
     ( 'et',  'Eleonora', 'Testa' ),
+    ( 'fh',  'Finn', 'Haedicke' ),
     ( 'gdm', 'Giovanni', 'De Micheli' ),
     ( 'gf',  'Görschwin', 'Fey' ),
     ( 'gg',  'Guy', 'Gogniat' ),
@@ -770,7 +773,8 @@ article_data = [
     ( ['rw', 'es', 'ms', 'rd'],                   'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits',                                      '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
     ( ['ms', 'rd', 'rxf'],                        'zk',          231, "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',                                                 '107--111', 'http://dx.doi.org/10.1515/zkri-2015-1887' ),
     ( ['na', 'ma', 'rd', 'ms'],                   'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                                                                    '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' ),
-    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',          -1, "",          0, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', 'XXXX',     'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' )
+    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',          -1, "",          0, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', 'XXXX',     'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
+    ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1, "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       'XXXX',     '' )
 ]
 
 preprint_data = [
@@ -841,16 +845,34 @@ invited = list( map( make_invited, invited_data ) )
 
 def cmd_publications():
     print( "@book{book1," )
-    print( "  editors   = {Rolf Drechsler and Mathias Soeken and Robert Wille}," )
+    print( "  editor    = {Rolf Drechsler and Mathias Soeken and Robert Wille}," )
     print( "  title     = {Auf dem Weg zum Quantencomputer: Entwurf reversibler Logik (Technische Informatik)}," )
     print( "  publisher = {Shaker}," )
     print( "  year      = 2012" )
     print( "}" )
     print()
     print( "@book{book2," )
-    print( "  editors   = {Mathias Soeken and Rolf Drechsler}," )
+    print( "  author    = {Mathias Soeken and Rolf Drechsler}," )
     print( "  title     = {Formal Specification Level}," )
     print( "  publisher = {Springer}," )
+    print( "  year      = 2014" )
+    print( "}" )
+    print()
+    print( "@incollection{inc1," )
+    print( "  author    = {Rolf Drechsler and Mathias Soeken and Robert Wille}," )
+    print( "  title     = {Formal specification level}," )
+    print( "  editor    = {Jan Haase}," )
+    print( "  booktitle = {Models, Methods, and Tools for Complex Chip Design: Selected Contributions from FDL 2012}," )
+    print( "  publisher = {Springer}," )
+    print( "  year      = 2014" )
+    print( "}" )
+    print()
+    print( "@incollection{inc2," )
+    print( "  author    = {Mathias Soeken}," )
+    print( "  title     = {Formale {Spezifikationsebene}}," )
+    print( "  editor    = {S. H{\\\"o}lldobler and others}," )
+    print( "  booktitle = {Ausgezeichnete Informatikdissertationen 2013}," )
+    print( "  publisher = {GI}," )
     print( "  year      = 2014" )
     print( "}" )
     print()
