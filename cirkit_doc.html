@@ -74,6 +74,14 @@
                 <a href='#data-structures-truth-tables'>2.1 Truth Tables</a>
                 <br>
                 <a href='#data-structures-expressions'>2.2 Expressions</a>
+                <br>
+                <a href='#integration'>3 Integration with other tools</a>
+                <br>
+                <a href='#integration-abc'>3.1 ABC</a>
+                <!--
+                  <br>
+                  <a href='#integration-quipper'>3.2 Quipper</a>
+                -->
               </div>
             </div>
           </div>
@@ -109,6 +117,19 @@
                 <li>
                   <a href='#data-structures-expressions'>Expressions</a>
                 </li>
+              </ol>
+            </li>
+            <li>
+              <a href='#integration'>Integration</a>
+              <ol>
+                <li>
+                  <a href='#integration-abc'>ABC</a>
+                </li>
+                <!--
+                  <li>
+                    <a href='#integration-quipper'>Quipper</a>
+                  </li>
+                -->
               </ol>
             </li>
           </ol>
@@ -330,14 +351,51 @@
           <pre>$ ./make_script.cs experiments.cs&#x000A;$ cirkit -f experiments.cs -l experiments.log&#x000A;$ ./make_table.cs experiments.log</pre>
           <h3 id='getting-started-aliases'>1.4 Aliases</h3>
           <p>
-            It is possible to create aliases, which are shortcuts to commands or sequences of commands.  Aliases are stored in the file
+            The command
+            <kbd>alias</kbd>
+            allows to create aliases, which are shortcuts to commands or sequences of commands.  The best place for aliass is the init file
             <i>alias</i>
-            in a directory that is read from the
+            located in the directory that is specified in the
             <code>$CIRKIT_HOME</code>
             environment variable. It is recommended to set
             <code>$CIRKIT_HOME</code>
             to the root directory of CirKit. Examples for entries in an alias file are:
-            <pre>e2t = convert --expr_to_tt&#x000A;simexpr = convert --expr_to_tt; print -t</pre>
+            <pre>alias e2t "convert --expr_to_tt"</pre>
+            The alias command gets two arguments, the
+            <i>key</i>
+            and the
+            <i>value</i>
+            that is used for substituion.  If the key or the value contain a space they need to be put into quotes, and internal quotes need to be escaped.
+          </p>
+          <p>
+            Note that they key can be any regular expression with capture groups and that the value is a formatted string that can contain placeholders for each capture string:
+            <code>%1%</code>
+            for the first capture group,
+            <code>%2%</code>
+            for the second one and so on.  Note that the
+            <code>%</code>
+            sign needs to be escaped.  A more complex example is an alias to read a Verilog file into an AIG using ABC:
+            <pre>alias "abc_verilog (.*)" "abc -c \"%%read %1%; %%blast\""</pre>
+            This will translate, e.g., the command
+            <kbd>abc_verilog file.v</kbd>
+            into
+            <pre>abc -c "%read file.v; %blast"</pre>
+          </p>
+          <p>
+            Since the key is any regular expression, we can create aliases which are very expressive.  The alias
+            <pre>alias "(\\w+) > (\\w+)" "convert --%1%_to_%2%"</pre>
+            allows, e.g., to convert a truth table into an AIG using
+            <kbd>tt > aig</kbd>
+            .
+            Putting everything together we can write scripts in CirKit such as
+            <pre>abc_verilog file.v&#x000A;aig > bdd&#x000A;bdd -c</pre>
+            which reads a Verilog file into a CirKit AIG using ABC's API, then converts the AIG into a BDD and finally computes the characteristic function of the BDD.
+          </p>
+          <p>
+            Aliases are also useful inside scripts when they are only required locally.
+            Consider, e.g., one wants to convert several truth tables into AIGs, optimize them, and then write them into a file.
+            A script for this task could look as follows:
+            <pre>alias "tt_aig_prog ([01]+)" "tt %1%; tt > aig; abc -c &dc2; ps -a; write_aiger %1%.aag"&#x000A;tt_aig_prog 11101000&#x000A;tt_aig_prog 01011101&#x000A;tt_aig_prog 0110&#x000A;tt_aig_prog 1001100111010111&#x000A;tt_aig_prog 1101110011000000</pre>
           </p>
           <h2 id='data-structures'>2 Data Structures</h2>
           <p>
@@ -377,7 +435,9 @@
                 <td class='check-column'>
                   <span class='glyphicon glyphicon-ok'></span>
                 </td>
-                <td></td>
+                <td class='check-column'>
+                  <span class='glyphicon glyphicon-ok'></span>
+                </td>
               </tr>
               <tr>
                 <td>And-inverter graph (AIG)</td>
@@ -491,7 +551,7 @@
             One can obtain a truth table from an expression using
             <kbd>convert --expr_to_tt</kbd>
             or its alias
-            <kbd>e2t</kbd>
+            <kbd>expr > tt</kbd>
             .
           </p>
           <p>
@@ -519,6 +579,8 @@
                 <tr>
                   <td>
                     <kbd>convert --tt_to_aig</kbd>
+                    , Alias:
+                    <kbd>tt > aig</kbd>
                   </td>
                   <td>Convert truth table to AIG</td>
                 </tr>
@@ -526,7 +588,7 @@
                   <td>
                     <kbd>convert --expr_to_tt</kbd>
                     , Alias:
-                    <kbd>e2t</kbd>
+                    <kbd>expr > tt</kbd>
                   </td>
                   <td>Convert expression to truth table</td>
                 </tr>
@@ -623,10 +685,15 @@
             ) using the command
             <kbd>expr</kbd>
             .
+            Expressions can be used as starting point to create truth tables (
+            <kbd>expr > tt</kbd>
+            ) or binary decision diagrams (
+            <kbd>expr > bdd</kbd>
+            ) for simple functions and avoid to create a file.
             The following example illustrates its usage.
           </p>
           <h4>Example</h4>
-          <pre>cirkit> expr (ab)&#x000A;cirkit> e2t&#x000A;cirkit> print -t&#x000A;1000&#x000A;cirkit> expr !{ac}&#x000A;cirkit> e2t&#x000A;cirkit> print -t&#x000A;00000101&#x000A;cirkit> expr {{(ab)(ac)}(bc)}&#x000A;cirkit> e2t&#x000A;cirkit> print -t&#x000A;11101000&#x000A;cirkit> expr <abc>&#x000A;cirkit> e2t&#x000A;cirkit> print -t&#x000A;11101000</pre>
+          <pre>cirkit> expr (ab)&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;1000&#x000A;cirkit> expr !{ac}&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;00000101&#x000A;cirkit> expr {{(ab)(ac)}(bc)}&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;11101000&#x000A;cirkit> expr <abc>&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;11101000</pre>
           <p>
             Note that when loading
             <code>!{ac}</code>
@@ -635,6 +702,61 @@
             .
             The last two examples are both Boolean expressions for MAJ, the majority-of-three function.
           </p>
+          <p>
+            Some commands related to expressions are:
+            <table class='table table-striped table-bordered table-condensed'>
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <kbd>expr</kbd>
+                  </td>
+                  <td>Load expressions</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>convert --expr_to_tt</kbd>
+                    , Alias:
+                    <kbd>expr > tt</kbd>
+                  </td>
+                  <td>Convert expression to truth table</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>convert --expr_to_bdd</kbd>
+                    , Alias:
+                    <kbd>expr > bdd</kbd>
+                  </td>
+                  <td>Convert expression to binary decision diagram</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+          <h2 id='integration'>3 Integration</h2>
+          <p>
+            CirKit offers functions to interact with certain tools.
+            This section shows with which tools CirKit interacts well and gives some illustrative examples.
+          </p>
+          <h3 id='integration-abc'>3.1 ABC</h3>
+          <p>
+            CirKit is tightly integrated with ABC.  ABC can be accessed as a subshell inside CirKit with the command
+            <kbd>abc</kbd>
+            .
+            If an AIG is present in CirKit's AIG store, it will be copied to the ABC subshell and available in the &-space (ABC9 commands).  Furthermore, when leaving the ABC subshell using
+            <kbd>quit</kbd>
+            ABC's AIG will be copied back to CirKit and replace the current AIG in the store (unless
+            <kbd>abc</kbd>
+            is called with the option
+            <kbd>-n</kbd>
+            ).  The following example illustrates this interaction in which an AIG is copied to ABC in order to optimize it and then copied back:
+            <pre>cirkit> read_aiger c432.aig&#x000A;cirkit> ps -a&#x000A;[i]                 c432: i/o =      36 /       7  and =     136  lev =   25&#x000A;cirkit> abc&#x000A;UC Berkeley, ABC 1.01 (compiled Apr 22 2016 19:45:32)&#x000A;abc 01> &ps&#x000A;c432     : i/o =     36/      7  and =     136  lev =   25 (19.14)  mem = 0.00 MB&#x000A;abc 01> &dc2&#x000A;abc 01> &ps&#x000A;c432     : i/o =     36/      7  and =     123  lev =   25 (19.14)  mem = 0.00 MB&#x000A;abc 01> quit&#x000A;cirkit> ps -a&#x000A;[i]                 c432: i/o =      36 /       7  and =     123  lev =   25&#x000A;cirkit> quit</pre>
+          </p>
+          <!-- %h3#integration-quipper 3.2 Quipper -->
         </div>
       </div>
     </div>

@@ -28,6 +28,13 @@
                 %a(href="#data-structures-truth-tables") 2.1 Truth Tables
                 %br
                 %a(href="#data-structures-expressions") 2.2 Expressions
+                %br
+                %a(href="#integration") 3 Integration with other tools
+                %br
+                %a(href="#integration-abc") 3.1 ABC
+                /
+                  %br
+                  %a(href="#integration-quipper") 3.2 Quipper
           %h1 CirKit Documentation
           %p
             This is a documentation for the command line interface of CirKit.  Most of its content is also valid for the command line interface of RevKit.
@@ -51,6 +58,14 @@
                   %a(href="#data-structures-truth-tables") Truth Tables
                 %li
                   %a(href="#data-structures-expressions") Expressions
+            %li
+              %a(href="#integration") Integration
+              %ol
+                %li
+                  %a(href="#integration-abc") ABC
+                /
+                  %li
+                    %a(href="#integration-quipper") Quipper
           %h2#getting-started 1 Getting Started
           %h3#getting-started-running 1.1 Running CirKit
           %p
@@ -258,17 +273,68 @@
               $ ./make_table.cs experiments.log
           %h3#getting-started-aliases 1.4 Aliases
           %p
-            It is possible to create aliases, which are shortcuts to commands or sequences of commands.  Aliases are stored in the file
+            The command
+            %kbd alias
+            allows to create aliases, which are shortcuts to commands or sequences of commands.  The best place for aliass is the init file
             %i alias
-            in a directory that is read from the
+            located in the directory that is specified in the
             %code $CIRKIT_HOME
             environment variable. It is recommended to set
             %code $CIRKIT_HOME
             to the root directory of CirKit. Examples for entries in an alias file are:
             %pre
               :preserve
-                e2t = convert --expr_to_tt
-                simexpr = convert --expr_to_tt; print -t
+                alias e2t "convert --expr_to_tt"
+            The alias command gets two arguments, the
+            %i key
+            and the
+            %i value
+            that is used for substituion.  If the key or the value contain a space they need to be put into quotes, and internal quotes need to be escaped.
+          %p
+            Note that they key can be any regular expression with capture groups and that the value is a formatted string that can contain placeholders for each capture string:
+            %code %1%
+            for the first capture group,
+            %code %2%
+            for the second one and so on.  Note that the
+            %code %
+            sign needs to be escaped.  A more complex example is an alias to read a Verilog file into an AIG using ABC:
+            %pre
+              :preserve
+                alias "abc_verilog (.*)" "abc -c \"%%read %1%; %%blast\""
+            This will translate, e.g., the command
+            %kbd abc_verilog file.v
+            into
+            %pre
+              :preserve
+                abc -c "%read file.v; %blast"
+          %p
+            Since the key is any regular expression, we can create aliases which are very expressive.  The alias
+            %pre
+              :preserve
+                alias "(\\w+) > (\\w+)" "convert --%1%_to_%2%"
+            allows, e.g., to convert a truth table into an AIG using
+            %kbd tt > aig
+            :plain
+              .
+            Putting everything together we can write scripts in CirKit such as
+            %pre
+              :preserve
+                abc_verilog file.v
+                aig > bdd
+                bdd -c
+            which reads a Verilog file into a CirKit AIG using ABC's API, then converts the AIG into a BDD and finally computes the characteristic function of the BDD.
+          %p
+            Aliases are also useful inside scripts when they are only required locally.
+            Consider, e.g., one wants to convert several truth tables into AIGs, optimize them, and then write them into a file.
+            A script for this task could look as follows:
+            %pre
+              :preserve
+                alias "tt_aig_prog ([01]+)" "tt %1%; tt > aig; abc -c &dc2; ps -a; write_aiger %1%.aag"
+                tt_aig_prog 11101000
+                tt_aig_prog 01011101
+                tt_aig_prog 0110
+                tt_aig_prog 1001100111010111
+                tt_aig_prog 1101110011000000
           %h2#data-structures 2 Data Structures
           %p
             CirKit (and RevKit) provide the analysis and manipulation of several data structures.
@@ -299,7 +365,8 @@
                   %kbd --expr
                 %td.check-column
                   %span.glyphicon.glyphicon-ok
-                %td
+                %td.check-column
+                  %span.glyphicon.glyphicon-ok
               %tr
                 %td And-inverter graph (AIG)
                 %td
@@ -418,7 +485,7 @@
             One can obtain a truth table from an expression using
             %kbd convert --expr_to_tt
             or its alias
-            %kbd e2t
+            %kbd expr > tt
             :plain
               .
           %p
@@ -440,12 +507,14 @@
                 %tr
                   %td
                     %kbd convert --tt_to_aig
+                    , Alias:
+                    %kbd tt > aig
                   %td Convert truth table to AIG
                 %tr
                   %td
                     %kbd convert --expr_to_tt
                     , Alias:
-                    %kbd e2t
+                    %kbd expr > tt
                   %td Convert expression to truth table
                 %tr
                   %td
@@ -527,24 +596,29 @@
             %kbd expr
             :plain
               .
+            Expressions can be used as starting point to create truth tables (
+            %kbd expr > tt
+            ) or binary decision diagrams (
+            %kbd expr > bdd
+            ) for simple functions and avoid to create a file.
             The following example illustrates its usage.
           %h4 Example
           %pre
             :preserve
               cirkit> expr (ab)
-              cirkit> e2t
+              cirkit> expr > tt
               cirkit> print -t
               1000
               cirkit> expr !{ac}
-              cirkit> e2t
+              cirkit> expr > tt
               cirkit> print -t
               00000101
               cirkit> expr {{(ab)(ac)}(bc)}
-              cirkit> e2t
+              cirkit> expr > tt
               cirkit> print -t
               11101000
               cirkit> expr <abc>
-              cirkit> e2t
+              cirkit> expr > tt
               cirkit> print -t
               11101000
           %p
@@ -555,5 +629,63 @@
             :plain
               .
             The last two examples are both Boolean expressions for MAJ, the majority-of-three function.
+          %p
+            Some commands related to expressions are:
+            %table.table.table-striped.table-bordered.table-condensed
+              %thead
+                %tr
+                  %th Command
+                  %th Description
+              %tbody
+                %tr
+                  %td
+                    %kbd expr
+                  %td Load expressions
+                %tr
+                  %td
+                    %kbd convert --expr_to_tt
+                    , Alias:
+                    %kbd expr > tt
+                  %td Convert expression to truth table
+                %tr
+                  %td
+                    %kbd convert --expr_to_bdd
+                    , Alias:
+                    %kbd expr > bdd
+                  %td Convert expression to binary decision diagram
+          %h2#integration 3 Integration
+          %p
+            CirKit offers functions to interact with certain tools.
+            This section shows with which tools CirKit interacts well and gives some illustrative examples.
+          %h3#integration-abc 3.1 ABC
+          %p
+            CirKit is tightly integrated with ABC.  ABC can be accessed as a subshell inside CirKit with the command
+            %kbd abc
+            :plain
+              .
+            If an AIG is present in CirKit's AIG store, it will be copied to the ABC subshell and available in the &-space (ABC9 commands).  Furthermore, when leaving the ABC subshell using
+            %kbd quit
+            ABC's AIG will be copied back to CirKit and replace the current AIG in the store (unless
+            %kbd abc
+            is called with the option
+            %kbd -n
+            ).  The following example illustrates this interaction in which an AIG is copied to ABC in order to optimize it and then copied back:
+            %pre
+              :preserve
+                cirkit> read_aiger c432.aig
+                cirkit> ps -a
+                [i]                 c432: i/o =      36 /       7  and =     136  lev =   25
+                cirkit> abc
+                UC Berkeley, ABC 1.01 (compiled Apr 22 2016 19:45:32)
+                abc 01> &ps
+                c432     : i/o =     36/      7  and =     136  lev =   25 (19.14)  mem = 0.00 MB
+                abc 01> &dc2
+                abc 01> &ps
+                c432     : i/o =     36/      7  and =     123  lev =   25 (19.14)  mem = 0.00 MB
+                abc 01> quit
+                cirkit> ps -a
+                [i]                 c432: i/o =      36 /       7  and =     123  lev =   25
+                cirkit> quit
+          /%h3#integration-quipper 3.2 Quipper
     %script(src="js/jquery.min.js")
     %script(src="js/cirkit_doc.js")
