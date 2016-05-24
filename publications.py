@@ -773,7 +773,7 @@ article_data = [
     ( ['rw', 'es', 'ms', 'rd'],                   'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits',                                      '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
     ( ['ms', 'rd', 'rxf'],                        'zk',          231, "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',                                                 '107--111', 'http://dx.doi.org/10.1515/zkri-2015-1887' ),
     ( ['na', 'ma', 'rd', 'ms'],                   'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                                                                    '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' ),
-    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',          -1, "",          0, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', 'XXXX',     'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
+    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',         168, "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',     'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
     ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1, "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       'XXXX',     '' )
 ]
 
@@ -796,10 +796,11 @@ news_data = [
     ( 'tcs', 618 ),
     ( 'ismvl', 2016 ),
     ( 'dac', 2016 ),
-    ( 'cnf', -1 ),
+    ( 'cnf', 168 ),
     ( 'gecco', 2016 ),
     ( 'rc', 2016 ),
-    ( 'sat', 2016 )
+    ( 'sat', 2016 ),
+    ( 'sttt', -1 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
