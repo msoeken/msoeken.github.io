@@ -488,7 +488,8 @@ conferences_data = [
         ( 2012, 'nov', 'Huntington Beach, CA', 'USA' )
     ] ),
     ( 'iccad', 'ICCAD', 'International Conference on Computer-Aided Design', 'IEEE', [
-        ( 2014, 'nov', 'San Jose, CA', 'USA' )
+        ( 2014, 'nov', 'San Jose, CA', 'USA' ),
+        ( 2016, 'nov', 'Austin, TX', 'USA' )
     ] ),
     ( 'icgt', 'ICGT', 'International Conference on Graph Transformation', 'Springer', [
         ( 2012, 'sep', 'Bremen', 'Germany' )
@@ -740,7 +741,9 @@ confpapers_data = [
     ( ['ms', 'gwd', 'dmm'],                                'rc',       2016, 'A fast symbolic transformation based algorithm for reversible logic synthesis', 'XXXX', '' ),
     ( ['ms', 'na', 'gdm'],                                 'rc',       2016, 'Enumeration of reversible functions and its application to circuit complexity', 'XXXX', '' ),
     ( ['ms', 'am', 'ap', 'bs', 'pi', 'rkb', 'gdm'],        'sat',      2016, 'Heuristic NPN classification for large functions using AIGs and LEXSAT', 'XXXX', '' ),
-    ( ['et', 'ms', 'oz', 'la', 'pr2', 'rl', 'peg', 'gdm'], 'nanoarch', 2016, 'Inversion optimization in majority-inverter graphs', 'XXXX', '' )
+    ( ['et', 'ms', 'oz', 'la', 'pr2', 'rl', 'peg', 'gdm'], 'nanoarch', 2016, 'Inversion optimization in majority-inverter graphs', 'XXXX', '' ),
+    ( ['ac2', 'ms', 'dg', 'rd'],                           'iccad',    2016, 'Approximation-aware rewriting of AIGs for error tolerant applications', 'XXXX', '' ),
+    ( ['ap', 'am', 'ms', 'gdm', 'rkb', 'pi'],              'iccad',    2016, 'Fast generation of lexicographic satisfiable assignments: enabling canonicity in SAT-based applications', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -763,6 +766,7 @@ workpapers_data = [
     ( ['ms', 'mkt', 'gwd', 'dmm'],            'rm',         2015, 'Self-inverse functions and palindromic circuits', 'XXXX', '' ),
     ( ['bs', 'ms', 'rd', 'rkb'],              'iwls',       2015, 'Simulation graphs for reverse engineering', 'XXXX', '' ),
     ( ['ac2', 'dg', 'ms', 'rd'],              'mbmv',       2016, 'Symbolic error metric determination for approximate computing', '75--76', '' ),
+    ( ['ap', 'am', 'ms', 'gdm', 'rkb', 'pi'], 'iwls',       2016, 'Fast generation of lexicographic satisfiable assignments: enabling canonicity in SAT-based applications', 'XXXX', '' ),
     ( ['et', 'ms', 'la', 'peg', 'gdm'],       'iwls',       2016, 'Inversion minimization in majority-inverter graphs', 'XXXX', '' ),
     ( ['ms', 'pr', 'bs', 'ms2'],              'iwls',       2016, 'SAT-based functional dependency computation', 'XXXX', '' ),
     ( ['wh', 'ms', 'la', 'peg', 'gdm'],       'iwls',       2016, 'LUT mapping and optimization for majority-inverter graphs', 'XXXX', '' )
@@ -808,7 +812,8 @@ news_data = [
     ( 'rc', 2016 ),
     ( 'sat', 2016 ),
     ( 'sttt', -1 ),
-    ( 'nanoarch', 2016 )
+    ( 'nanoarch', 2016 ),
+    ( 'iccad', 2016 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
@@ -847,7 +852,8 @@ invited_data = [
     ( 2014, 'dec', 'uni',  'sri',    'Dr. Wenchao Li',             'Reverse engineering',                                                     '' ),
     ( 2015, 'may', 'conf', 'rm',     '',                           'Generalized equivalence checking problems for reverse engineering',       'http://lyle.smu.edu/RM2015/program.htm' ),
     ( 2015, 'jun', 'uni',  'epfl',   'Prof. Paolo Ienne',          'Reverse engineering with simulation graphs',                              '' ),
-    ( 2016, 'apr', 'uni',  'birs',   'Dr. Martin Roetteler',       'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www.birs.ca/events/2016/5-day-workshops/16w5029/videos/watch/201604181552-Soeken.html' )
+    ( 2016, 'apr', 'uni',  'birs',   'Dr. Martin Roetteler',       'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www.birs.ca/events/2016/5-day-workshops/16w5029/videos/watch/201604181552-Soeken.html' ),
+    ( 2016, 'may', 'uni',  'hu',     'Prof. Shin-ichi Minato',     'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www-erato.ist.hokudai.ac.jp/html/php/seminar.php?day=20160517' )
 ]
 
 invited = list( map( make_invited, invited_data ) )
