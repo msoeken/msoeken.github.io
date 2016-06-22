@@ -477,6 +477,9 @@ conferences_data = [
     ( 'fmcad', 'FMCAD', 'Formal Methods in Computer-Aided Design', 'IEEE', [
         ( 2015, 'sep', 'Austin, TX', 'USA' )
     ] ),
+    ( 'fpl', 'FPL', 'International Conference on Field-Programmable Logic and Applications', 'IEEE', [
+        ( 2016, 'sep', 'Lausanne', 'Switzerland' )
+    ] ),
     ( 'gecco', 'GECCO', 'Genetic and Evolutionary Computation Conference', 'ACM', [
         ( 2015, 'jul', 'Madrid', 'Spain' ),
         ( 2016, 'jul', 'Denver, CO', 'USA' )
@@ -727,23 +730,24 @@ confpapers_data = [
     ( ['np', 'jp', 'ms', 'rw', 'rd'],                      'modevva',  2015, 'Towards an automatic approach for restricting UML/OCL invariability clauses', '44-47', 'http://ceur-ws.org/Vol-1514/paper6.pdf' ),
     ( ['ms', 'dg', 'ac2', 'rd'],                           'aspdac',   2016, 'BDD minimization for approximate computing', '474--479', 'http://dx.doi.org/10.1109/ASPDAC.2016.7428057' ),
     ( ['js2', 'df', 'ms', 'jpd', 'gg'],                    'lascas',   2016, 'Dynamic NoC buffer allocation for MPSoC timing side channel attack protection', 'XXXX', '' ),
-    ( ['asa', 'dg', 'uk', 'ms', 'rd'],                     'date',     2016, 'Formal verification of integer multipliers by combining Gröbner basis with logic reduction', '1048--1053', '' ),
-    ( ['ss', 'ms', 'peg', 'rd'],                           'date',     2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', '948--953', '' ),
-    ( ['ms', 'la', 'peg', 'gdm'],                          'date',     2016, 'Optimizing majority-inverter graphs with functional hashing', '1030--1035', '' ),
-    ( ['ss', 'ms', 'rd'],                                  'ddecs',    2016, 'Multi-objective BDD optimization for RRAM based circuit design', 'XXXX', ''),
+    ( ['asa', 'dg', 'uk', 'ms', 'rd'],                     'date',     2016, 'Formal verification of integer multipliers by combining Gröbner basis with logic reduction', '1048--1053', 'http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=7459464' ),
+    ( ['ss', 'ms', 'peg', 'rd'],                           'date',     2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', '948--953', 'http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=7459444' ),
+    ( ['ms', 'la', 'peg', 'gdm'],                          'date',     2016, 'Optimizing majority-inverter graphs with functional hashing', '1030--1035', 'http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=7459461' ),
+    ( ['ss', 'ms', 'rd'],                                  'ddecs',    2016, 'Multi-objective BDD optimization for RRAM based circuit design', '46-15', 'http://dx.doi.org/10.1109/DDECS.2016.7482461'),
     ( ['ms', 'gwd', 'mmr', 'dmm'],                         'iscas',    2016, 'An extension of transformation-based reversible and quantum circuit synthesis', 'XXXX', '' ),
     ( ['ac', 'la', 'ms', 'peg', 'gdm'],                    'ismvl',    2016, 'Notes on majority Boolean algebra', '50-55', '' ),
     ( ['na', 'ma', 'ms', 'rd'],                            'ismvl',    2016, 'Technology mapping of reversible circuits to Clifford+T quantum circuits', '150-155', '' ),
-    ( ['ac2', 'ms', 'dg', 'rd'],                           'dac',      2016, 'Precise error determination of approximated components in sequential circuits with model checking', 'XXXX', '' ),
-    ( ['ms', 'ac'],                                        'dac',      2016, 'Unlocking efficiency and scalability of reversible logic synthesis using conventional logic synthesis', 'XXXX', '' ),
-    ( ['ms', 'ss', 'peg', 'la', 'rd', 'gdm'],              'dac',      2016, 'An MIG-based compiler for programmable logic-in-memory architectures', 'XXXX', '' ),
+    ( ['ac2', 'ms', 'dg', 'rd'],                           'dac',      2016, 'Precise error determination of approximated components in sequential circuits with model checking', '129:1-129:6', 'http://doi.acm.org/10.1145/2897937.2898069' ),
+    ( ['ms', 'ac'],                                        'dac',      2016, 'Unlocking efficiency and scalability of reversible logic synthesis using conventional logic synthesis', '149:1-149:6', 'http://doi.acm.org/10.1145/2897937.2898107' ),
+    ( ['ms', 'ss', 'peg', 'la', 'rd', 'gdm'],              'dac',      2016, 'An MIG-based compiler for programmable logic-in-memory architectures', '117:1-117:6', 'http://doi.acm.org/10.1145/2897937.2897985' ),
     ( ['ss', 'ms', 'dg', 'rd'],                            'gecco',    2016, 'Approximate BDD optimization with prioritized ε-preferred evolutionary algorithm', 'XXXX', '' ),
     ( ['ms', 'gwd', 'dmm'],                                'rc',       2016, 'A fast symbolic transformation based algorithm for reversible logic synthesis', 'XXXX', '' ),
     ( ['ms', 'na', 'gdm'],                                 'rc',       2016, 'Enumeration of reversible functions and its application to circuit complexity', 'XXXX', '' ),
-    ( ['ms', 'am', 'ap', 'bs', 'pi', 'rkb', 'gdm'],        'sat',      2016, 'Heuristic NPN classification for large functions using AIGs and LEXSAT', 'XXXX', '' ),
+    ( ['ms', 'am', 'ap', 'bs', 'pi', 'rkb', 'gdm'],        'sat',      2016, 'Heuristic NPN classification for large functions using AIGs and LEXSAT', '212-227', 'http://dx.doi.org/10.1007/978-3-319-40970-2_14' ),
     ( ['et', 'ms', 'oz', 'la', 'pr2', 'rl', 'peg', 'gdm'], 'nanoarch', 2016, 'Inversion optimization in majority-inverter graphs', 'XXXX', '' ),
     ( ['ac2', 'ms', 'dg', 'rd'],                           'iccad',    2016, 'Approximation-aware rewriting of AIGs for error tolerant applications', 'XXXX', '' ),
-    ( ['ap', 'am', 'ms', 'gdm', 'rkb', 'pi'],              'iccad',    2016, 'Fast generation of lexicographic satisfiable assignments: enabling canonicity in SAT-based applications', 'XXXX', '' )
+    ( ['ap', 'am', 'ms', 'gdm', 'rkb', 'pi'],              'iccad',    2016, 'Fast generation of lexicographic satisfiable assignments: enabling canonicity in SAT-based applications', 'XXXX', '' ),
+    ( ['ap', 'ms', 'gdm', 'pi', 'am'],                     'fpl',      2016, 'Fast hierarchical NPN classification', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -769,7 +773,8 @@ workpapers_data = [
     ( ['ap', 'am', 'ms', 'gdm', 'rkb', 'pi'], 'iwls',       2016, 'Fast generation of lexicographic satisfiable assignments: enabling canonicity in SAT-based applications', 'XXXX', '' ),
     ( ['et', 'ms', 'la', 'peg', 'gdm'],       'iwls',       2016, 'Inversion minimization in majority-inverter graphs', 'XXXX', '' ),
     ( ['ms', 'pr', 'bs', 'ms2'],              'iwls',       2016, 'SAT-based functional dependency computation', 'XXXX', '' ),
-    ( ['wh', 'ms', 'la', 'peg', 'gdm'],       'iwls',       2016, 'LUT mapping and optimization for majority-inverter graphs', 'XXXX', '' )
+    ( ['wh', 'ms', 'la', 'peg', 'gdm'],       'iwls',       2016, 'LUT mapping and optimization for majority-inverter graphs', 'XXXX', '' ),
+    ( ['ok', 'ms', 'rd'],                     'iwsbp',      2016, 'On the computational complexity of error metrics in approximate computing', 'XXXX', '' )
 ]
 
 article_data = [
@@ -784,8 +789,8 @@ article_data = [
     ( ['rw', 'es', 'ms', 'rd'],                   'integration', 53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits',                                      '39--53',   'http://dx.doi.org/10.1016/j.vlsi.2015.10.001' ),
     ( ['ms', 'rd', 'rxf'],                        'zk',          231, "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',                                                 '107--111', 'http://dx.doi.org/10.1515/zkri-2015-1887' ),
     ( ['na', 'ma', 'rd', 'ms'],                   'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                                                                    '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' ),
-    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',         168, "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',     'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
-    ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1, "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       'XXXX',     '' )
+    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',         168, "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',  'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
+    ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1, "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       '1-17',     'http://dx.doi.org/10.1007/s10009-016-0426-1' )
 ]
 
 preprint_data = [
@@ -813,7 +818,8 @@ news_data = [
     ( 'sat', 2016 ),
     ( 'sttt', -1 ),
     ( 'nanoarch', 2016 ),
-    ( 'iccad', 2016 )
+    ( 'iccad', 2016 ),
+    ( 'fpl', 2016 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
