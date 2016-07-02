@@ -897,6 +897,16 @@ def cmd_publications():
     print( "  year      = 2014" )
     print( "}" )
     print()
+    print( "@incollection{inc3," )
+    print( "  author    = {Mathias Soeken and Nabila Abdessaied and Rolf Drechsler}," )
+    print( "  title     = {A framework for reversible circuit complexity}," )
+    print( "  editor    = {Bernd Steinbach}," )
+    print( "  booktitle = {Problems and New Solutions in the Boolean Domain}," )
+    print( "  publisher = {Cambridge Scholars Publishing}," )
+    print( "  pages     = {327--341}," )
+    print( "  year      = 2016" )
+    print( "}" )
+    print()
 
     for a in articles:
         format_bibtex_article( a )
