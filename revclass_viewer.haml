@@ -8,7 +8,7 @@
       .row#main-row
         = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "cirkit")
         .col-md-9
-          %h1 Reversible Circuit Classification [NPNP-2 0,1,2,3]
+          %h1#header Reversible Circuit Classification [NPNP-2 0,1,2,3]
           %p
             %a(href="revclass.html") Back to all classes
           %p

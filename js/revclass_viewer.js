@@ -7,6 +7,12 @@ function getUrlVars() {
   return vars;
 }
 
+var vars = getUrlVars()["vars"];
+var cls = getUrlVars()["cls"];
+var repr = getUrlVars()["repr"];
+
+$("#header").html("Reversible Circuit Classification [" + cls.toUpperCase() + "-" + vars + " " + repr.split('') + "]");
+
 $.getJSON( "json/revclass.json", function( data ) {
     var vars = getUrlVars()["vars"];
     var cls = getUrlVars()["cls"];
