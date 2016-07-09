@@ -475,7 +475,8 @@ conferences_data = [
         ( 2014, 'oct', 'Munich', 'Germany' )
     ] ),
     ( 'fmcad', 'FMCAD', 'Formal Methods in Computer-Aided Design', 'IEEE', [
-        ( 2015, 'sep', 'Austin, TX', 'USA' )
+        ( 2015, 'sep', 'Austin, TX', 'USA' ),
+        ( 2016, 'oct', 'Mountain View, CA', 'USA' )
     ] ),
     ( 'fpl', 'FPL', 'International Conference on Field-Programmable Logic and Applications', 'IEEE', [
         ( 2016, 'sep', 'Lausanne', 'Switzerland' )
@@ -747,7 +748,8 @@ confpapers_data = [
     ( ['et', 'ms', 'oz', 'la', 'pr2', 'rl', 'peg', 'gdm'], 'nanoarch', 2016, 'Inversion optimization in majority-inverter graphs', 'XXXX', '' ),
     ( ['ac2', 'ms', 'dg', 'rd'],                           'iccad',    2016, 'Approximation-aware rewriting of AIGs for error tolerant applications', 'XXXX', '' ),
     ( ['ap', 'am', 'ms', 'gdm', 'rkb', 'pi'],              'iccad',    2016, 'Fast generation of lexicographic satisfiable assignments: enabling canonicity in SAT-based applications', 'XXXX', '' ),
-    ( ['ap', 'ms', 'gdm', 'pi', 'am'],                     'fpl',      2016, 'Fast hierarchical NPN classification', 'XXXX', '' )
+    ( ['ap', 'ms', 'gdm', 'pi', 'am'],                     'fpl',      2016, 'Fast hierarchical NPN classification', 'XXXX', '' ),
+    ( ['asa', 'dg', 'ms', 'rd'],                           'fmcad',    2016, 'Equivalence checking using Gröbner bases', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -819,7 +821,8 @@ news_data = [
     ( 'sttt', -1 ),
     ( 'nanoarch', 2016 ),
     ( 'iccad', 2016 ),
-    ( 'fpl', 2016 )
+    ( 'fpl', 2016 ),
+    ( 'fmcad', 2016 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
