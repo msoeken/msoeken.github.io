@@ -128,6 +128,8 @@ def format_bibtex_incollection( paper, collection, keyword ):
     print( "}" )
 
 def format_haml_incollection( paper, id ):
+    global best_paper_data
+
     conf  = paper['conf']
     venue = conf['venues'][paper['year']]
 
@@ -147,7 +149,7 @@ def format_haml_incollection( paper, id ):
       {{authors}}
     .pubcite
       %span.label.label-warning Conference Paper {{id}}
-      In {{conf}} ({{shortname}}) | {{city}}, {{country}}, {{month}} {{year}}{{pages}} | Publisher: {{publisher}}''')
+      In {{conf}} ({{shortname}}) | {{city}}, {{country}}, {{month}} {{year}}{{pages}} | Publisher: {{publisher}}{{best}}''')
 
     authors = ",\n      ".join( "%s %s" % ( a['firstname'], a['lastname'] ) for a in paper['authors'] )
     authors = authors.replace( "Mathias Soeken", "%strong Mathias Soeken" )
@@ -158,6 +160,12 @@ def format_haml_incollection( paper, id ):
     external = ""
     if paper['doi'] != "":
         external = "%%a(href=\"%s\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Open paper\" target=\"_blank\")\n        %%span.glyphicon.glyphicon-new-window" % paper['doi']
+
+    besta = [b[1] for b in best_paper_data if b[0] == filename]
+    if len( besta ) == 0:
+        best = ""
+    elif besta[0] == 'c':
+        best = "\n    .pubcite(style=\"color: #990000\")\n      %%span.glyphicon.glyphicon-certificate\n      %b Best paper candidate"
 
     print( template.render( {'title': paper['title'],
                              'id': id,
@@ -172,7 +180,8 @@ def format_haml_incollection( paper, id ):
                              'year': venue['year'],
                              'external': external,
                              'pages': " | Pages %s" % paper['pages'].replace( "--", "&ndash;" ) if paper['pages'] != "XXXX" else "",
-                             'publisher': conf['publisher']} )[1:] )
+                             'publisher': conf['publisher'],
+                             'best': best} )[1:] )
 
 def format_haml_incollection_work( paper, id ):
     conf  = paper['conf']
@@ -803,6 +812,8 @@ preprint_data = [
     ( ['ms', 'mkt', 'gwd', 'dmm'],     '1502.05825', 'Self-inverse functions and palindromic circuits',                                     '6 pages, 3 figures',                                                       '',   ['cs.ET', 'math.GR', 'quant-ph'] ),
     ( ['wc', 'jd', 'adv', 'ok', 'ms'], '1503.08579', 'Translating between the roots of identity in quantum circuits',                       '7 pages',                                                                  '',   ['quant-ph', 'math.GR'] )
 ]
+
+best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 
 news_data = [
     ( 'aspdac', 2016 ),
