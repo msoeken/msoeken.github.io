@@ -2,6 +2,28 @@
 %html
   %head
     = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / CirKit Documentation')
+    %link(href="css/highlight.css" rel="stylesheet")
+    %script(src="js/highlight.js")
+    :javascript
+      hljs.registerLanguage("cirkit", function(hljs) {
+        return {
+          keywords: 'cirkit',
+          contains: [
+            {
+              className: 'command',
+              begin: '^(cirkit|abc \\d+)> ',
+              excludeBegin: true,
+              end: ' |$',
+              excludeEnd: true
+            }
+          ]
+        }
+      });
+      console.log(hljs.listLanguages());
+      hljs.initHighlightingOnLoad();
+
+    %link(href="css/doc.css" rel="stylesheet")
+
   %body
     .container#main-container
       .row#main-row
@@ -377,6 +399,14 @@
                 %td.check-column
                   %span.glyphicon.glyphicon-ok
               %tr
+                %td Majority-inverter graph (MIG)
+                %td
+                  %kbd -m
+                  %kbd --mig
+                %td.check-column
+                  %span.glyphicon.glyphicon-ok
+                %td
+              %tr
                 %td Binary decision diagram (BDD)
                 %td
                   %kbd -b
@@ -459,26 +489,27 @@
               .
           %h4 Example
           %pre
-            :preserve
-              cirkit> read_aiger c17.aig
-              cirkit> simulate -atn
-              [i] G16 : 1011100011111000101110001111100010111000111110001011100011111000 (B8F8B8F8B8F8B8F8)
-              [i] G17 : 0011001111111111001100001111000000110011111111110011000011110000 (33FF30F033FF30F0)
-              [i] runtime: 0.00 secs
-              cirkit> store -t
-              [i] truth tables in store:
-                   0: 1011100011111000101110001111100010111000111110001011100011111000
-                *  1: 0011001111111111001100001111000000110011111111110011000011110000
-              cirkit> current -t 0
-              cirkit> npn -t --approach 0
-              [i] run-time: 0.89 secs
-              [i] NPN class for 1011100011111000101110001111100010111000111110001011100011111000 is 0000000000000000000000000000111111110000111100001111111111111111
-              [i] - phase: 1001010 perm: 5 4 1 3 0 2
-              cirkit> current -t 1
-              cirkit> npn -t --approach 0
-              [i] run-time: 0.89 secs
-              [i] NPN class for 0011001111111111001100001111000000110011111111110011000011110000 is 0000000000000000000000001111111100001111000011110000111111111111
-              [i] - phase: 1001010 perm: 5 0 1 2 4 3
+            %code.cirkit
+              :preserve
+                cirkit> read_aiger c17.aig
+                cirkit> simulate -atn
+                [i] G16 : 1011100011111000101110001111100010111000111110001011100011111000 (B8F8B8F8B8F8B8F8)
+                [i] G17 : 0011001111111111001100001111000000110011111111110011000011110000 (33FF30F033FF30F0)
+                [i] runtime: 0.00 secs
+                cirkit> store -t
+                [i] truth tables in store:
+                     0: 1011100011111000101110001111100010111000111110001011100011111000
+                  *  1: 0011001111111111001100001111000000110011111111110011000011110000
+                cirkit> current -t 0
+                cirkit> npn -t --approach 0
+                [i] run-time: 0.89 secs
+                [i] NPN class for 1011100011111000101110001111100010111000111110001011100011111000 is 0000000000000000000000000000111111110000111100001111111111111111
+                [i] - phase: 1001010 perm: 5 4 1 3 0 2
+                cirkit> current -t 1
+                cirkit> npn -t --approach 0
+                [i] run-time: 0.89 secs
+                [i] NPN class for 0011001111111111001100001111000000110011111111110011000011110000 is 0000000000000000000000001111111100001111000011110000111111111111
+                [i] - phase: 1001010 perm: 5 0 1 2 4 3
           %p
             The current truth table in the store corresponds to the last output of the AIG.
             Notice that truth table simulation only scales for AIGs with a small number of inputs.
@@ -520,6 +551,10 @@
                   %td
                     %kbd simulate -atn
                   %td Simulates AIGs as truth table and stores them
+                %tr
+                  %td
+                    %kbd simulate -mtn
+                  %td Simulates MIGs as truth table and stores them
           %h3#data-structures-expressions 2.2 Expressions
           %p
             Expressions provide an easy way to enter Boolean functions into CirKit.
@@ -604,23 +639,24 @@
             The following example illustrates its usage.
           %h4 Example
           %pre
-            :preserve
-              cirkit> expr (ab)
-              cirkit> expr > tt
-              cirkit> print -t
-              1000
-              cirkit> expr !{ac}
-              cirkit> expr > tt
-              cirkit> print -t
-              00000101
-              cirkit> expr {{(ab)(ac)}(bc)}
-              cirkit> expr > tt
-              cirkit> print -t
-              11101000
-              cirkit> expr <abc>
-              cirkit> expr > tt
-              cirkit> print -t
-              11101000
+            %code.cirkit
+              :preserve
+                cirkit> expr (ab)
+                cirkit> expr > tt
+                cirkit> print -t
+                1000
+                cirkit> expr !{ac}
+                cirkit> expr > tt
+                cirkit> print -t
+                00000101
+                cirkit> expr {{(ab)(ac)}(bc)}
+                cirkit> expr > tt
+                cirkit> print -t
+                11101000
+                cirkit> expr <abc>
+                cirkit> expr > tt
+                cirkit> print -t
+                11101000
           %p
             Note that when loading
             %code !{ac}
@@ -671,21 +707,22 @@
             %kbd -n
             ).  The following example illustrates this interaction in which an AIG is copied to ABC in order to optimize it and then copied back:
             %pre
-              :preserve
-                cirkit> read_aiger c432.aig
-                cirkit> ps -a
-                [i]                 c432: i/o =      36 /       7  and =     136  lev =   25
-                cirkit> abc
-                UC Berkeley, ABC 1.01 (compiled Apr 22 2016 19:45:32)
-                abc 01> &ps
-                c432     : i/o =     36/      7  and =     136  lev =   25 (19.14)  mem = 0.00 MB
-                abc 01> &dc2
-                abc 01> &ps
-                c432     : i/o =     36/      7  and =     123  lev =   25 (19.14)  mem = 0.00 MB
-                abc 01> quit
-                cirkit> ps -a
-                [i]                 c432: i/o =      36 /       7  and =     123  lev =   25
-                cirkit> quit
+              %code.cirkit
+                :preserve
+                  cirkit> read_aiger c432.aig
+                  cirkit> ps -a
+                  [i]                 c432: i/o =      36 /       7  and =     136  lev =   25
+                  cirkit> abc
+                  UC Berkeley, ABC 1.01 (compiled Apr 22 2016 19:45:32)
+                  abc 01> &ps
+                  c432     : i/o =     36/      7  and =     136  lev =   25 (19.14)  mem = 0.00 MB
+                  abc 01> &dc2
+                  abc 01> &ps
+                  c432     : i/o =     36/      7  and =     123  lev =   25 (19.14)  mem = 0.00 MB
+                  abc 01> quit
+                  cirkit> ps -a
+                  [i]                 c432: i/o =      36 /       7  and =     123  lev =   25
+                  cirkit> quit
           /%h3#integration-quipper 3.2 Quipper
     %script(src="js/jquery.min.js")
     %script(src="js/cirkit_doc.js")

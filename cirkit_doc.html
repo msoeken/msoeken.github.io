@@ -16,6 +16,27 @@
       ga('create', 'UA-70660599-1', 'auto');
       ga('send', 'pageview', location.pathname);
     </script>
+    <link href='css/highlight.css' rel='stylesheet'>
+    <script src='js/highlight.js'></script>
+    <script>
+      hljs.registerLanguage("cirkit", function(hljs) {
+        return {
+          keywords: 'cirkit',
+          contains: [
+            {
+              className: 'command',
+              begin: '^(cirkit|abc \\d+)> ',
+              excludeBegin: true,
+              end: ' |$',
+              excludeEnd: true
+            }
+          ]
+        }
+      });
+      console.log(hljs.listLanguages());
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link href='css/doc.css' rel='stylesheet'>
   </head>
   <body>
     <div class='container' id='main-container'>
@@ -453,6 +474,17 @@
                 </td>
               </tr>
               <tr>
+                <td>Majority-inverter graph (MIG)</td>
+                <td>
+                  <kbd>-m</kbd>
+                  <kbd>--mig</kbd>
+                </td>
+                <td class='check-column'>
+                  <span class='glyphicon glyphicon-ok'></span>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
                 <td>Binary decision diagram (BDD)</td>
                 <td>
                   <kbd>-b</kbd>
@@ -544,7 +576,7 @@
             .
           </p>
           <h4>Example</h4>
-          <pre>cirkit> read_aiger c17.aig&#x000A;cirkit> simulate -atn&#x000A;[i] G16 : 1011100011111000101110001111100010111000111110001011100011111000 (B8F8B8F8B8F8B8F8)&#x000A;[i] G17 : 0011001111111111001100001111000000110011111111110011000011110000 (33FF30F033FF30F0)&#x000A;[i] runtime: 0.00 secs&#x000A;cirkit> store -t&#x000A;[i] truth tables in store:&#x000A;     0: 1011100011111000101110001111100010111000111110001011100011111000&#x000A;  *  1: 0011001111111111001100001111000000110011111111110011000011110000&#x000A;cirkit> current -t 0&#x000A;cirkit> npn -t --approach 0&#x000A;[i] run-time: 0.89 secs&#x000A;[i] NPN class for 1011100011111000101110001111100010111000111110001011100011111000 is 0000000000000000000000000000111111110000111100001111111111111111&#x000A;[i] - phase: 1001010 perm: 5 4 1 3 0 2&#x000A;cirkit> current -t 1&#x000A;cirkit> npn -t --approach 0&#x000A;[i] run-time: 0.89 secs&#x000A;[i] NPN class for 0011001111111111001100001111000000110011111111110011000011110000 is 0000000000000000000000001111111100001111000011110000111111111111&#x000A;[i] - phase: 1001010 perm: 5 0 1 2 4 3</pre>
+          <pre><code class='cirkit'>cirkit> read_aiger c17.aig&#x000A;cirkit> simulate -atn&#x000A;[i] G16 : 1011100011111000101110001111100010111000111110001011100011111000 (B8F8B8F8B8F8B8F8)&#x000A;[i] G17 : 0011001111111111001100001111000000110011111111110011000011110000 (33FF30F033FF30F0)&#x000A;[i] runtime: 0.00 secs&#x000A;cirkit> store -t&#x000A;[i] truth tables in store:&#x000A;     0: 1011100011111000101110001111100010111000111110001011100011111000&#x000A;  *  1: 0011001111111111001100001111000000110011111111110011000011110000&#x000A;cirkit> current -t 0&#x000A;cirkit> npn -t --approach 0&#x000A;[i] run-time: 0.89 secs&#x000A;[i] NPN class for 1011100011111000101110001111100010111000111110001011100011111000 is 0000000000000000000000000000111111110000111100001111111111111111&#x000A;[i] - phase: 1001010 perm: 5 4 1 3 0 2&#x000A;cirkit> current -t 1&#x000A;cirkit> npn -t --approach 0&#x000A;[i] run-time: 0.89 secs&#x000A;[i] NPN class for 0011001111111111001100001111000000110011111111110011000011110000 is 0000000000000000000000001111111100001111000011110000111111111111&#x000A;[i] - phase: 1001010 perm: 5 0 1 2 4 3</code></pre>
           <p>
             The current truth table in the store corresponds to the last output of the AIG.
             Notice that truth table simulation only scales for AIGs with a small number of inputs.
@@ -597,6 +629,12 @@
                     <kbd>simulate -atn</kbd>
                   </td>
                   <td>Simulates AIGs as truth table and stores them</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>simulate -mtn</kbd>
+                  </td>
+                  <td>Simulates MIGs as truth table and stores them</td>
                 </tr>
               </tbody>
             </table>
@@ -693,7 +731,7 @@
             The following example illustrates its usage.
           </p>
           <h4>Example</h4>
-          <pre>cirkit> expr (ab)&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;1000&#x000A;cirkit> expr !{ac}&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;00000101&#x000A;cirkit> expr {{(ab)(ac)}(bc)}&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;11101000&#x000A;cirkit> expr <abc>&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;11101000</pre>
+          <pre><code class='cirkit'>cirkit> expr (ab)&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;1000&#x000A;cirkit> expr !{ac}&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;00000101&#x000A;cirkit> expr {{(ab)(ac)}(bc)}&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;11101000&#x000A;cirkit> expr <abc>&#x000A;cirkit> expr > tt&#x000A;cirkit> print -t&#x000A;11101000</code></pre>
           <p>
             Note that when loading
             <code>!{ac}</code>
@@ -754,7 +792,7 @@
             is called with the option
             <kbd>-n</kbd>
             ).  The following example illustrates this interaction in which an AIG is copied to ABC in order to optimize it and then copied back:
-            <pre>cirkit> read_aiger c432.aig&#x000A;cirkit> ps -a&#x000A;[i]                 c432: i/o =      36 /       7  and =     136  lev =   25&#x000A;cirkit> abc&#x000A;UC Berkeley, ABC 1.01 (compiled Apr 22 2016 19:45:32)&#x000A;abc 01> &ps&#x000A;c432     : i/o =     36/      7  and =     136  lev =   25 (19.14)  mem = 0.00 MB&#x000A;abc 01> &dc2&#x000A;abc 01> &ps&#x000A;c432     : i/o =     36/      7  and =     123  lev =   25 (19.14)  mem = 0.00 MB&#x000A;abc 01> quit&#x000A;cirkit> ps -a&#x000A;[i]                 c432: i/o =      36 /       7  and =     123  lev =   25&#x000A;cirkit> quit</pre>
+            <pre><code class='cirkit'>cirkit> read_aiger c432.aig&#x000A;cirkit> ps -a&#x000A;[i]                 c432: i/o =      36 /       7  and =     136  lev =   25&#x000A;cirkit> abc&#x000A;UC Berkeley, ABC 1.01 (compiled Apr 22 2016 19:45:32)&#x000A;abc 01> &ps&#x000A;c432     : i/o =     36/      7  and =     136  lev =   25 (19.14)  mem = 0.00 MB&#x000A;abc 01> &dc2&#x000A;abc 01> &ps&#x000A;c432     : i/o =     36/      7  and =     123  lev =   25 (19.14)  mem = 0.00 MB&#x000A;abc 01> quit&#x000A;cirkit> ps -a&#x000A;[i]                 c432: i/o =      36 /       7  and =     123  lev =   25&#x000A;cirkit> quit</code></pre>
           </p>
           <!-- %h3#integration-quipper 3.2 Quipper -->
         </div>
