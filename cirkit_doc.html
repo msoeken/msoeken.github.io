@@ -96,6 +96,8 @@
                 <br>
                 <a href='#data-structures-expressions'>2.2 Expressions</a>
                 <br>
+                <a href='#data-structures-aigs'>2.3 And-inverter graphs (AIG)</a>
+                <br>
                 <a href='#integration'>3 Integration with other tools</a>
                 <br>
                 <a href='#integration-abc'>3.1 ABC</a>
@@ -137,6 +139,9 @@
                 </li>
                 <li>
                   <a href='#data-structures-expressions'>Expressions</a>
+                </li>
+                <li>
+                  <a href='#data-structures-aigs'>And-inverter graphs (AIG)</a>
                 </li>
               </ol>
             </li>
@@ -211,7 +216,7 @@
           </p>
           <p>
             Some of the main commands are:
-            <table class='table table-striped table-bordered table-condensed'>
+            <table class='table table-bordered table-condensed'>
               <thead>
                 <tr>
                   <th>Command</th>
@@ -219,6 +224,15 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td>
+                    <kbd>alias</kbd>
+                  </td>
+                  <td>
+                    Creates an
+                    <a href='#getting-started-aliases'>alias</a>
+                  </td>
+                </tr>
                 <tr>
                   <td>
                     <kbd>help</kbd>
@@ -230,6 +244,12 @@
                     <kbd>quit</kbd>
                   </td>
                   <td>Quits CirKit</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>set</kbd>
+                  </td>
+                  <td>Sets (internal) environment variables</td>
                 </tr>
               </tbody>
             </table>
@@ -283,7 +303,7 @@
             <kbd>store</kbd>
             .
             The generic commands are:
-            <table class='table table-striped table-bordered table-condensed'>
+            <table class='table table-bordered table-condensed'>
               <thead>
                 <tr>
                   <th>Command</th>
@@ -426,7 +446,7 @@
             Not all data structures are available in both CirKit and RevKit.
             The following table gives an overview over the existing data structures, their access option for the store, and their availability in CirKit and RevKit.
           </p>
-          <table class='table table-striped table-bordered'>
+          <table class='table table-bordered'>
             <thead>
               <tr>
                 <th>Data structure</th>
@@ -588,7 +608,7 @@
           </p>
           <p>
             Some truth table related commands are:
-            <table class='table table-striped table-bordered table-condensed'>
+            <table class='table table-bordered table-condensed'>
               <thead>
                 <tr>
                   <th>Command</th>
@@ -742,7 +762,7 @@
           </p>
           <p>
             Some commands related to expressions are:
-            <table class='table table-striped table-bordered table-condensed'>
+            <table class='table table-bordered table-condensed'>
               <thead>
                 <tr>
                   <th>Command</th>
@@ -771,6 +791,169 @@
                     <kbd>expr > bdd</kbd>
                   </td>
                   <td>Convert expression to binary decision diagram</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+          <h3 id='data-structures-aigs'>2.3 And-inverter graphs (AIG)</h3>
+          <h4>Getting an AIG into CirKit</h4>
+          <p>
+            There are several ways to an AIG into CirKit. If the AIG is represented as AIGER file with extension
+            <code>*.aig</code>
+            if in binary format and
+            <code>*.aag</code>
+            if in ASCII format, one can use the command
+            <kbd>read_aiger</kbd>
+            to parse the file and create an AIG in the store.
+            If already an AIG is in the store, it will be overriden, unless one calls
+            <kbd>read_aiger -n</kbd>
+            .
+            If the AIG is represented in Verilog such that ABC's command
+            <kbd>%read</kbd>
+            is able to parse it, one can use
+            <kbd>read_verilog -a</kbd>
+            to read the Verilog file, convert it into an AIG and put it into the store.
+            Also BENCH files can be read into AIGs with the command
+            <kbd>read_bench</kbd>
+            .
+            The command
+            <kbd>tt > aig</kbd>
+            allows to translate the current truth table into an AIG.  Internally, ABC's API will be used for that purpose and the AIG is optimized using
+            <kbd>dc2</kbd>
+            .
+          </p>
+          <p>
+            This summary lists commands to get AIGs into CirKit:
+            <table class='table table-bordered table-condensed'>
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <kbd>read_aiger</kbd>
+                  </td>
+                  <td>Read AIG from binary or ASCII AIGER file</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>read_verilog -a</kbd>
+                  </td>
+                  <td>
+                    Read AIG from Verilog file (using ABC's
+                    <kbd>%read</kbd>
+                    command
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>read_bench</kbd>
+                  </td>
+                  <td>Read AIG from BENCH file</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>convert --tt_to_aig</kbd>
+                    , Alias:
+                    <kbd>tt > aig</kbd>
+                  </td>
+                  <td>Convert truth table to AIG</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+          <h4>Manipulating the AIG</h4>
+          <p>
+            ABC is a powerful tool for AIG optimization and manipulation and using the
+            <a href='#integration-abc'>tight integration of CirKit with ABC</a>
+            using the command
+            <kbd>abc</kbd>
+            , it is very easy to use ABC to optimize AIGs in CirKit directly.
+            Hence, few commands in CirKit exist to perform AIG optimization, but mainly utility commands.
+          </p>
+          <p>
+            This list some commands in CirKit to manipulate an AIG:
+            <table class='table table-bordered table-condensed'>
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <kbd>cone</kbd>
+                  </td>
+                  <td>Extracts AIG based on output cones</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>cuts -a</kbd>
+                  </td>
+                  <td>Performs cut enumeration</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>rename</kbd>
+                  </td>
+                  <td>Renames inputs and outputs</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>shuffle -a</kbd>
+                  </td>
+                  <td>Shuffles I/O of an AIG</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>strash</kbd>
+                  </td>
+                  <td>Strashes an AIG (removes dangling nodes)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>unate</kbd>
+                  </td>
+                  <td>Computes unateness properties and functional dependencies of the AIG</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+          <h4>Writing an AIG</h4>
+          <p>
+            AIGs can be written into AIGER files (only in ASCII format) using
+            <kbd>write_aiger</kbd>
+            or into Verilog files using
+            <kbd>write_verilog -a</kbd>
+            .
+          </p>
+          <p>
+            This summary lists commands to write AIGs:
+            <table class='table table-bordered table-condensed'>
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <kbd>write_aiger</kbd>
+                  </td>
+                  <td>Write AIG to ASCII AIGER file</td>
+                </tr>
+                <tr>
+                  <td>
+                    <kbd>write_verilog -a</kbd>
+                  </td>
+                  <td>
+                    Write AIG to Verilog file
+                  </td>
                 </tr>
               </tbody>
             </table>
