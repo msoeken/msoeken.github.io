@@ -621,7 +621,7 @@ authors_data = [
     ( 'cg',  'Christian', 'Gorldt' ),
     ( 'ch',  'Christoph', 'Hilken' ),
     ( 'co',  'Christian', 'Otterstedt' ),
-    ( 'cr',  'Christoph', 'Rosebrock' ),
+    ( 'cr',  'Christopher D.', 'Rosebrock' ),
     ( 'cw',  'Clemens', 'Werther' ),
     ( 'df',  'Daniel', 'Florez' ),
     ( 'dg',  'Daniel', 'Große' ),
