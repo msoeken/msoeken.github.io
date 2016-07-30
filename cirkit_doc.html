@@ -18,24 +18,7 @@
     </script>
     <link href='css/highlight.css' rel='stylesheet'>
     <script src='js/highlight.js'></script>
-    <script>
-      hljs.registerLanguage("cirkit", function(hljs) {
-        return {
-          keywords: 'cirkit',
-          contains: [
-            {
-              className: 'command',
-              begin: '^(cirkit|abc \\d+)> ',
-              excludeBegin: true,
-              end: ' |$',
-              excludeEnd: true
-            }
-          ]
-        }
-      });
-      console.log(hljs.listLanguages());
-      hljs.initHighlightingOnLoad();
-    </script>
+    <script src='js/cirkit_highlight.js'></script>
     <link href='css/doc.css' rel='stylesheet'>
   </head>
   <body>
