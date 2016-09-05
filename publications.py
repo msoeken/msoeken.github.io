@@ -439,7 +439,8 @@ conferences_data = [
     ( 'aspdac', 'ASP-DAC', 'Asia and South Pacific Design Automation Conference', 'IEEE', [
         ( 2012, 'jan', 'Sydney', 'Australia' ),
         ( 2013, 'jan', 'Yokohama', 'Japan' ),
-        ( 2016, 'jan', 'Macau', 'China' )
+        ( 2016, 'jan', 'Macau', 'China' ),
+        ( 2017, 'jan', 'Tokyo', 'Japan' )
     ] ),
     ( 'ast', 'AST', 'International Workshop on Automation of Software Test', 'ACM', [
         ( 2013, 'may', 'San Francisco, CA', 'USA' )
@@ -639,6 +640,7 @@ authors_data = [
     ( 'hr',  'Heinz', 'Riener' ),
     ( 'igh', 'Ian G.', 'Harris' ),
     ( 'jd',  'Jeroen', 'Demeyer' ),
+    ( 'jl',  'Jiong', 'Luo' ),
     ( 'jp',  'Judith', 'Peters' ),
     ( 'jpd', 'Jean-Philippe', 'Diguet' ),
     ( 'js',  'Julia', 'Seiter' ),
@@ -667,6 +669,7 @@ authors_data = [
     ( 'pi',  'Paolo', 'Ienne' ),
     ( 'pr',  'Pascal', 'Raiola' ),
     ( 'pr2', 'Praveen', 'Raghavan' ),
+    ( 'pv',  'Patrick', 'Vuillod' ),
     ( 'rkb', 'Robert K.', 'Brayton' ),
     ( 'rkj', 'Robin Kaasgaard', 'Jensen' ),
     ( 'rd',  'Rolf', 'Drechsler' ),
@@ -675,6 +678,7 @@ authors_data = [
     ( 'rxf', 'Reinhard X.', 'Fischer' ),
     ( 'sf',  'Stefan', 'Frehse' ),
     ( 'sim', 'Shin-ichi', 'Minato' ),
+    ( 'sr',  'Sandip', 'Ray' ),
     ( 'ss',  'Saeideh', 'Shirinzadeh' ),
     ( 'sw',  'Stefan', 'Wiesner' ),
     ( 'tw',  'Thomas', 'Wriedt' ),
@@ -723,7 +727,7 @@ confpapers_data = [
     ( ['na', 'ms', 'rd'],                                  'rc',       2014, 'Quantum circuit optimization by Hadamard gate reduction', '149--162', 'http://dx.doi.org/10.1007/978-3-319-08494-7_12' ),
     ( ['dmm', 'ms', 'rd'],                                 'rc',       2014, 'Mapping NCV circuits to optimized Clifford+T circuits', '163--175', 'http://dx.doi.org/10.1007/978-3-319-08494-7_13' ),
     ( ['md', 'uk', 'ms', 'rd'],                            'tap',      2014, 'Behaviour driven development for tests and verification', '61--77', 'http://dx.doi.org/10.1007/978-3-319-09099-3_5' ),
-    ( ['rd', 'ms', 'rw'],                                  'iccad',    2014, 'Automated and quality-driven requirements engineering', '586--590', 'http://dx.doi.org/10.1109/ICCAD.2014.7001410' ),
+    ( ['rd', 'ms', 'rw'],                                  'iccad',    2014, 'Automated and quality-driven requirements engineering (invited tutorial)', '586--590', 'http://dx.doi.org/10.1109/ICCAD.2014.7001410' ),
     ( ['sw', 'cg', 'ms', 'kdt', 'rd'],                     'apms',     2014, 'Requirements engineering for cyber-physical systems - challenges in the context of "Industrie 4.0"', '281--288', 'http://dx.doi.org/10.1007/978-3-662-44739-0_35' ),
     ( ['rd', 'hml', 'ms'],                                 'sbcci',    2014, 'Self-verification as the key technology for next generation electronic systems', '15:1--15:4', 'http://doi.acm.org/10.1145/2660540.2660983' ),
     ( ['ms', 'cbh', 'na', 'igh', 'rd'],                    'fdl',      2014, 'Automating the translation of assertions using natural language processing techniques', '1--8', 'http://dx.doi.org/10.1109/FDL.2014.7119356' ),
@@ -744,21 +748,24 @@ confpapers_data = [
     ( ['ss', 'ms', 'peg', 'rd'],                           'date',     2016, 'Fast logic synthesis for RRAM-based in-memory computing using majority-inverter graphs', '948--953', 'http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=7459444' ),
     ( ['ms', 'la', 'peg', 'gdm'],                          'date',     2016, 'Optimizing majority-inverter graphs with functional hashing', '1030--1035', 'http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=7459461' ),
     ( ['ss', 'ms', 'rd'],                                  'ddecs',    2016, 'Multi-objective BDD optimization for RRAM based circuit design', '46-15', 'http://dx.doi.org/10.1109/DDECS.2016.7482461'),
-    ( ['ms', 'gwd', 'mmr', 'dmm'],                         'iscas',    2016, 'An extension of transformation-based reversible and quantum circuit synthesis', 'XXXX', '' ),
+    ( ['ms', 'gwd', 'mmr', 'dmm'],                         'iscas',    2016, 'An extension of transformation-based reversible and quantum circuit synthesis', '2290-2293', 'http://dx.doi.org/10.1109/ISCAS.2016.7539041' ),
     ( ['ac', 'la', 'ms', 'peg', 'gdm'],                    'ismvl',    2016, 'Notes on majority Boolean algebra', '50-55', '' ),
     ( ['na', 'ma', 'ms', 'rd'],                            'ismvl',    2016, 'Technology mapping of reversible circuits to Clifford+T quantum circuits', '150-155', '' ),
     ( ['ac2', 'ms', 'dg', 'rd'],                           'dac',      2016, 'Precise error determination of approximated components in sequential circuits with model checking', '129:1-129:6', 'http://doi.acm.org/10.1145/2897937.2898069' ),
     ( ['ms', 'ac'],                                        'dac',      2016, 'Unlocking efficiency and scalability of reversible logic synthesis using conventional logic synthesis', '149:1-149:6', 'http://doi.acm.org/10.1145/2897937.2898107' ),
     ( ['ms', 'ss', 'peg', 'la', 'rd', 'gdm'],              'dac',      2016, 'An MIG-based compiler for programmable logic-in-memory architectures', '117:1-117:6', 'http://doi.acm.org/10.1145/2897937.2897985' ),
-    ( ['ss', 'ms', 'dg', 'rd'],                            'gecco',    2016, 'Approximate BDD optimization with prioritized ε-preferred evolutionary algorithm', 'XXXX', '' ),
-    ( ['ms', 'gwd', 'dmm'],                                'rc',       2016, 'A fast symbolic transformation based algorithm for reversible logic synthesis', 'XXXX', '' ),
-    ( ['ms', 'na', 'gdm'],                                 'rc',       2016, 'Enumeration of reversible functions and its application to circuit complexity', 'XXXX', '' ),
+    ( ['ss', 'ms', 'dg', 'rd'],                            'gecco',    2016, 'Approximate BDD optimization with prioritized ε-preferred evolutionary algorithm', '79-80', 'http://doi.acm.org/10.1145/2908961.2908987' ),
+    ( ['ms', 'gwd', 'dmm'],                                'rc',       2016, 'A fast symbolic transformation based algorithm for reversible logic synthesis', '307-321', 'http://dx.doi.org/10.1007/978-3-319-40578-0_22' ),
+    ( ['ms', 'na', 'gdm'],                                 'rc',       2016, 'Enumeration of reversible functions and its application to circuit complexity', '255-270', 'http://dx.doi.org/10.1007/978-3-319-40578-0_19' ),
     ( ['ms', 'am', 'ap', 'bs', 'pi', 'rkb', 'gdm'],        'sat',      2016, 'Heuristic NPN classification for large functions using AIGs and LEXSAT', '212-227', 'http://dx.doi.org/10.1007/978-3-319-40970-2_14' ),
     ( ['et', 'ms', 'oz', 'la', 'pr2', 'rl', 'peg', 'gdm'], 'nanoarch', 2016, 'Inversion optimization in majority-inverter graphs', 'XXXX', '' ),
     ( ['ac2', 'ms', 'dg', 'rd'],                           'iccad',    2016, 'Approximation-aware rewriting of AIGs for error tolerant applications', 'XXXX', '' ),
     ( ['ap', 'am', 'ms', 'gdm', 'rkb', 'pi'],              'iccad',    2016, 'Fast generation of lexicographic satisfiable assignments: enabling canonicity in SAT-based applications', 'XXXX', '' ),
+    ( ['sr', 'igh', 'gf', 'ms'],                           'iccad',    2016, 'Multilevel design understanding: from specification to logic (invited special session)', 'XXXX', '' ),
     ( ['ap', 'ms', 'gdm', 'pi', 'am'],                     'fpl',      2016, 'Fast hierarchical NPN classification', 'XXXX', '' ),
-    ( ['asa', 'dg', 'ms', 'rd'],                           'fmcad',    2016, 'Equivalence checking using Gröbner bases', 'XXXX', '' )
+    ( ['asa', 'dg', 'ms', 'rd'],                           'fmcad',    2016, 'Equivalence checking using Gröbner bases', 'XXXX', '' ),
+    ( ['wh', 'ms', 'la', 'peg', 'gdm'],                    'aspdac',   2017, 'A novel basis for logic rewriting', 'XXXX', '' ),
+    ( ['la', 'ms', 'wh', 'et', 'pv', 'jl', 'peg', 'gdm'],  'aspdac',   2017, 'Multi-level logic benchmarks: An exactness study', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -833,7 +840,8 @@ news_data = [
     ( 'nanoarch', 2016 ),
     ( 'iccad', 2016 ),
     ( 'fpl', 2016 ),
-    ( 'fmcad', 2016 )
+    ( 'fmcad', 2016 ),
+    ( 'aspdac', 2017 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
