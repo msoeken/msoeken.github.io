@@ -501,6 +501,9 @@ conferences_data = [
     ( 'hldvt', 'HLDVT', 'International Workshop on High-Level Design Validation and Test', 'IEEE', [
         ( 2012, 'nov', 'Huntington Beach, CA', 'USA' )
     ] ),
+    ( 'hvc', 'HVC', 'Haifa Verification Conference', 'Springer', [
+        ( 2016, 'nov', 'Haifa', 'Israel' )
+    ] ),
     ( 'iccad', 'ICCAD', 'International Conference on Computer-Aided Design', 'IEEE', [
         ( 2014, 'nov', 'San Jose, CA', 'USA' ),
         ( 2016, 'nov', 'Austin, TX', 'USA' )
@@ -617,6 +620,7 @@ authors_data = [
     ( 'am',  'Alan', 'Mishchenko' ),
     ( 'ap',  'Ana', 'Petkovska' ),
     ( 'asa', 'Amr', 'Sayed Ahmed' ),
+    ( 'bb',  'Bernd', 'Becker' ),
     ( 'bs',  'Baruch', 'Sterin' ),
     ( 'cbh', 'Christopher B.', 'Harris' ),
     ( 'cg',  'Christian', 'Gorldt' ),
@@ -764,6 +768,7 @@ confpapers_data = [
     ( ['sr', 'igh', 'gf', 'ms'],                           'iccad',    2016, 'Multilevel design understanding: from specification to logic (invited special session)', 'XXXX', '' ),
     ( ['ap', 'ms', 'gdm', 'pi', 'am'],                     'fpl',      2016, 'Fast hierarchical NPN classification', 'XXXX', '' ),
     ( ['asa', 'dg', 'ms', 'rd'],                           'fmcad',    2016, 'Equivalence checking using Gröbner bases', 'XXXX', '' ),
+    ( ['ms', 'pr', 'bs', 'bb', 'gdm', 'ms2'],              'hvc',      2016, 'SAT-based combinational and sequential dependency computation', 'XXXX', '' ),
     ( ['wh', 'ms', 'la', 'peg', 'gdm'],                    'aspdac',   2017, 'A novel basis for logic rewriting', 'XXXX', '' ),
     ( ['la', 'ms', 'wh', 'et', 'pv', 'jl', 'peg', 'gdm'],  'aspdac',   2017, 'Multi-level logic benchmarks: An exactness study', 'XXXX', '' )
 ]
@@ -841,6 +846,7 @@ news_data = [
     ( 'iccad', 2016 ),
     ( 'fpl', 2016 ),
     ( 'fmcad', 2016 ),
+    ( 'hvc', 2016 ),
     ( 'aspdac', 2017 )
 ]
 
