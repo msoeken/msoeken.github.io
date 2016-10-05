@@ -37,7 +37,7 @@ function generate_permutation() {
     // compute link sequence
     var link = [];
     for ( i = 0; i < distance; ++i ) {
-        var current = cubea.slice();
+        var current = cubeb.slice();
         var a = $("#digit-a" + ( pos2[i] + 1 )).data( "state" );
         var b = $("#digit-b" + ( pos2[i] + 1 )).data( "state" );
         if ( a == "p" && b == "n" ) { current[pos2[i]] = ""; }
