@@ -429,7 +429,7 @@ def format_haml_invited( invited ):
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
 replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("πDD", "{$\\pi$DD}")]
 
 conferences_data = [
@@ -813,7 +813,7 @@ article_data = [
     ( ['ms', 'rd', 'rxf'],                        'zk',          231, "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',                                                 '107--111', 'http://dx.doi.org/10.1515/zkri-2015-1887' ),
     ( ['na', 'ma', 'rd', 'ms'],                   'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                                                                    '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' ),
     ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',         168, "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',  'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
-    ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1, "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       '1-17',     'http://dx.doi.org/10.1007/s10009-016-0426-1' )
+    ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1, "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       '1-17',     'http://link.springer.com/article/10.1007/s10009-016-0426-1' )
 ]
 
 preprint_data = [
@@ -862,32 +862,34 @@ preprints = list( map( make_preprint, preprint_data ) )
 news = list( map( make_news, news_data ) )
 
 universities_data = [
-    ( 'birs', 'Banff International Research Station', 'Banff, AL',       'Canada',      'http://www.birs.ca',            '' ),
-    ( 'epfl', 'EPFL',                                 'Lausanne',        'Switzerland', 'http://epfl.ch',                'École Polytechnique Fédérale de Lausanne' ),
-    ( 'hu',   'Hokkaido University',                  'Sapporo',         'Japan',       'https://www.oia.hokudai.ac.jp', '北海道大学' ),
-    ( 'rwth', 'RWTH Aachen University',               'Aachen',          'Germany',     'http://www.rwth-aachen.de',     'RWTH Aachen' ),
-    ( 'ru',   'Ritsumeikan University',               'Kyoto',           'Japan',       'http://en.ritsumei.ac.jp',      '立命館大学' ),
-    ( 'sri',  'SRI International',                    'Menlo Park, CA',  'USA',         'https://www.sri.com',           '' ),
-    ( 'su',   'Stanford University',                  'Stanford, CA',    'USA',         'http://stanford.edu',           '' ),
-    ( 'unb',  'University of New Brunswick',          'Fredericton, NB', 'Canada',      'http://www.unb.ca',             '' )
+    ( 'birs', 'Banff International Research Station', 'Banff, AL',       'Canada',      'http://www.birs.ca',                        '' ),
+    ( 'epfl', 'EPFL',                                 'Lausanne',        'Switzerland', 'http://epfl.ch',                            'École Polytechnique Fédérale de Lausanne' ),
+    ( 'hu',   'Hokkaido University',                  'Sapporo',         'Japan',       'https://www.oia.hokudai.ac.jp',             '北海道大学' ),
+    ( 'rwth', 'RWTH Aachen University',               'Aachen',          'Germany',     'http://www.rwth-aachen.de',                 'RWTH Aachen' ),
+    ( 'ru',   'Ritsumeikan University',               'Kyoto',           'Japan',       'http://en.ritsumei.ac.jp',                  '立命館大学' ),
+    ( 'sri',  'SRI International',                    'Menlo Park, CA',  'USA',         'https://www.sri.com',                       '' ),
+    ( 'su',   'Stanford University',                  'Stanford, CA',    'USA',         'http://stanford.edu',                       '' ),
+    ( 'unb',  'University of New Brunswick',          'Fredericton, NB', 'Canada',      'http://www.unb.ca',                         '' ),
+    ( 'msr',  'Microsoft Research',                   'Redmond, WA',     'USA',         'https://www.microsoft.com/en-us/research/', '' )
 ]
 
 universities = make_dict( 'key', universities_data, make_university )
 
 invited_data = [
-    ( 2011, 'jan', 'uni',  'hu',     'Prof. Shin-ichi Minato',     'Formal verification of UML-based specifications',                         'http://www-erato.ist.hokudai.ac.jp/wiki/wiki.cgi?page=ERATO-seminar' ),
-    ( 2012, 'apr', 'conf', 'cukeup', '',                           'BDD for embedded system design',                                          'https://skillsmatter.com/skillscasts/3124-bdd-for-embedded-system-design' ),
-    ( 2013, 'jan', 'uni',  'hu',     'Prof. Shin-ichi Minato',     'Synthesis of reversible circuits with minimal lines for large functions', '' ),
-    ( 2013, 'apr', 'conf', 'cukeup', '',                           'Towards automatic scenario generation based on uncovered code',           'https://skillsmatter.com/skillscasts/4043-towards-automatic-scenario-generation-based-on-uncovered-code' ),
-    ( 2014, 'apr', 'uni',  'su',     'Prof. Subhasish Mitra',      'Formal specification level',                                              '' ),
-    ( 2014, '',    'uni',  'rwth',   'Prof. Anupam Chattopadhyay', 'Implementing synthesis flows with RevKit',                                '' ),
-    ( 2014, 'may', 'uni',  'ru',     'Prof. Shigeru Yamashita',    'Formal specification level',                                              '' ),
-    ( 2014, 'oct', 'uni',  'unb',    'Prof. Gerhard W. Dueck',     'Formal specification level',                                              'http://www.cs.unb.ca/seminarseries/documents/Mathias_Soeken-10.29.14.pdf' ),
-    ( 2014, 'dec', 'uni',  'sri',    'Dr. Wenchao Li',             'Reverse engineering',                                                     '' ),
-    ( 2015, 'may', 'conf', 'rm',     '',                           'Generalized equivalence checking problems for reverse engineering',       'http://lyle.smu.edu/RM2015/program.htm' ),
-    ( 2015, 'jun', 'uni',  'epfl',   'Prof. Paolo Ienne',          'Reverse engineering with simulation graphs',                              '' ),
-    ( 2016, 'apr', 'uni',  'birs',   'Dr. Martin Roetteler',       'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www.birs.ca/events/2016/5-day-workshops/16w5029/videos/watch/201604181552-Soeken.html' ),
-    ( 2016, 'may', 'uni',  'hu',     'Prof. Shin-ichi Minato',     'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www-erato.ist.hokudai.ac.jp/html/php/seminar.php?day=20160517' )
+    ( 2011, 'jan', 'uni',  'hu',     'Prof. Shin-ichi Minato',                    'Formal verification of UML-based specifications',                         'http://www-erato.ist.hokudai.ac.jp/wiki/wiki.cgi?page=ERATO-seminar' ),
+    ( 2012, 'apr', 'conf', 'cukeup', '',                                          'BDD for embedded system design',                                          'https://skillsmatter.com/skillscasts/3124-bdd-for-embedded-system-design' ),
+    ( 2013, 'jan', 'uni',  'hu',     'Prof. Shin-ichi Minato',                    'Synthesis of reversible circuits with minimal lines for large functions', '' ),
+    ( 2013, 'apr', 'conf', 'cukeup', '',                                          'Towards automatic scenario generation based on uncovered code',           'https://skillsmatter.com/skillscasts/4043-towards-automatic-scenario-generation-based-on-uncovered-code' ),
+    ( 2014, 'apr', 'uni',  'su',     'Prof. Subhasish Mitra',                     'Formal specification level',                                              '' ),
+    ( 2014, '',    'uni',  'rwth',   'Prof. Anupam Chattopadhyay',                'Implementing synthesis flows with RevKit',                                '' ),
+    ( 2014, 'may', 'uni',  'ru',     'Prof. Shigeru Yamashita',                   'Formal specification level',                                              '' ),
+    ( 2014, 'oct', 'uni',  'unb',    'Prof. Gerhard W. Dueck',                    'Formal specification level',                                              'http://www.cs.unb.ca/seminarseries/documents/Mathias_Soeken-10.29.14.pdf' ),
+    ( 2014, 'dec', 'uni',  'sri',    'Dr. Wenchao Li',                            'Reverse engineering',                                                     '' ),
+    ( 2015, 'may', 'conf', 'rm',     '',                                          'Generalized equivalence checking problems for reverse engineering',       'http://lyle.smu.edu/RM2015/program.htm' ),
+    ( 2015, 'jun', 'uni',  'epfl',   'Prof. Paolo Ienne',                         'Reverse engineering with simulation graphs',                              '' ),
+    ( 2016, 'apr', 'uni',  'birs',   'Dr. Martin Roetteler',                      'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www.birs.ca/events/2016/5-day-workshops/16w5029/videos/watch/201604181552-Soeken.html' ),
+    ( 2016, 'may', 'uni',  'hu',     'Prof. Shin-ichi Minato',                    'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www-erato.ist.hokudai.ac.jp/html/php/seminar.php?day=20160517' ),
+    ( 2016, 'sep', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'Symbolic and hierarchical reversible logic synthesis',                    '' )
 ]
 
 invited = list( map( make_invited, invited_data ) )
