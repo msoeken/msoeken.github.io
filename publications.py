@@ -986,7 +986,7 @@ def cmd_haml_news():
 
 def cmd_haml_invited():
     year = ""
-    for n in invited:
+    for n in reversed( invited ):
         if n['year'] != year:
             year = n['year']
             print( "%%h4 %s" % year )

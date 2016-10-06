@@ -8,6 +8,8 @@
       %a(href="teaching.html") Teaching
     %li(role="presentation"){:class => ("active" if page == "publications" )}
       %a(href="publications.html") Publications
+    %li(role="presentation"){:class => ("active" if page == "talks" )}
+      %a(href="talks.html") Invited Talks
       /
         = Haml::Engine.new(File.read( '_nav_publications.haml' )).render( Object.new ) if page == "publications"
     .nav-sep Software

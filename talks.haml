@@ -1,0 +1,12 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / Talks')
+  %body
+    .container#main-container
+      .row#main-row
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => 'talks')
+        .col-md-9
+          %h1 Invited Talks
+          .pitems
+            = Haml::Engine.new(File.read('_invited.haml')).render(Object.new)
