@@ -460,7 +460,8 @@ conferences_data = [
         ( 2013, 'mar', 'Grenoble', 'France' ),
         ( 2014, 'mar', 'Dresden', 'Germany' ),
         ( 2015, 'mar', 'Grenoble', 'Germany' ),
-        ( 2016, 'mar', 'Dresden', 'Germany' )
+        ( 2016, 'mar', 'Dresden', 'Germany' ),
+        ( 2017, 'mar', 'Lausanne', 'Switzerland' )
     ] ),
     ( 'ddecs', 'DDECS', 'IEEE International Symposium on Design and Diagnostics of Electronic Circuits and Systems', 'IEEE', [
         ( 2010, 'apr', 'Vienna', 'Austria' ),
@@ -662,11 +663,13 @@ authors_data = [
     ( 'mm',  'Marc', 'Michael' ),
     ( 'mmr', 'Md. Mazder', 'Rahman' ),
     ( 'mn',  'Max', 'Nitze' ),
+    ( 'mr',  'Martin', 'Roetteler' ),
     ( 'ms',  'Mathias', 'Soeken' ),
     ( 'ms2', 'Matthias', 'Sauer' ),
     ( 'na',  'Nabila', 'Abdessaied' ),
     ( 'np',  'Nils', 'Przigoda' ),
     ( 'nr',  'Norbert', 'Riefler' ),
+    ( 'nw',  'Nathan', 'Wiebe' ),
     ( 'ok',  'Oliver', 'Keszocze' ),
     ( 'oz',  'Odysseas', 'Zografos' ),
     ( 'peg', 'Pierre-Emmanuel', 'Gaillardon' ),
@@ -770,7 +773,10 @@ confpapers_data = [
     ( ['asa', 'dg', 'ms', 'rd'],                           'fmcad',    2016, 'Equivalence checking using Gröbner bases', 'XXXX', '' ),
     ( ['ms', 'pr', 'bs', 'bb', 'gdm', 'ms2'],              'hvc',      2016, 'SAT-based combinational and sequential dependency computation', 'XXXX', '' ),
     ( ['wh', 'ms', 'la', 'peg', 'gdm'],                    'aspdac',   2017, 'A novel basis for logic rewriting', 'XXXX', '' ),
-    ( ['la', 'ms', 'wh', 'et', 'pv', 'jl', 'peg', 'gdm'],  'aspdac',   2017, 'Multi-level logic benchmarks: An exactness study', 'XXXX', '' )
+    ( ['la', 'ms', 'wh', 'et', 'pv', 'jl', 'peg', 'gdm'],  'aspdac',   2017, 'Multi-level logic benchmarks: An exactness study', 'XXXX', '' ),
+    ( ['ss', 'ms', 'peg', 'gdm', 'rd'],                    'date',     2017, 'Endurance management for resistive logic-in-memory computing architectures', 'XXXX', '' ),
+    ( ['ms', 'gdm', 'am'],                                 'date',     2017, 'Busy Man\'s Synthesis: Combinational delay optimization with SAT', 'XXXX', '' ),
+    ( ['ms', 'mr', 'nw', 'gdm'],                           'date',     2017, 'Design automation and design space exploration for quantum computers', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -847,7 +853,8 @@ news_data = [
     ( 'fpl', 2016 ),
     ( 'fmcad', 2016 ),
     ( 'hvc', 2016 ),
-    ( 'aspdac', 2017 )
+    ( 'aspdac', 2017 ),
+    ( 'date', 2017 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
