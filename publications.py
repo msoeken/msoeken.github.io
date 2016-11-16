@@ -879,7 +879,8 @@ universities_data = [
     ( 'sri',  'SRI International',                    'Menlo Park, CA',  'USA',         'https://www.sri.com',                       '' ),
     ( 'su',   'Stanford University',                  'Stanford, CA',    'USA',         'http://stanford.edu',                       '' ),
     ( 'unb',  'University of New Brunswick',          'Fredericton, NB', 'Canada',      'http://www.unb.ca',                         '' ),
-    ( 'msr',  'Microsoft Research',                   'Redmond, WA',     'USA',         'https://www.microsoft.com/en-us/research/', '' )
+    ( 'msr',  'Microsoft Research',                   'Redmond, WA',     'USA',         'https://www.microsoft.com/en-us/research/', '' ),
+    ( 'snps', 'Synopsys',                             'Sunnyvale, CA',   'USA',         'http://www.synopsys.com/',                  '' )
 ]
 
 universities = make_dict( 'key', universities_data, make_university )
@@ -898,7 +899,8 @@ invited_data = [
     ( 2015, 'jun', 'uni',  'epfl',   'Prof. Paolo Ienne',                         'Reverse engineering with simulation graphs',                              '' ),
     ( 2016, 'apr', 'uni',  'birs',   'Dr. Martin Roetteler',                      'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www.birs.ca/events/2016/5-day-workshops/16w5029/videos/watch/201604181552-Soeken.html' ),
     ( 2016, 'may', 'uni',  'hu',     'Prof. Shin-ichi Minato',                    'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www-erato.ist.hokudai.ac.jp/html/php/seminar.php?day=20160517' ),
-    ( 2016, 'sep', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'Symbolic and hierarchical reversible logic synthesis',                    '' )
+    ( 2016, 'sep', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'Symbolic and hierarchical reversible logic synthesis',                    '' ),
+    ( 2016, 'nov', 'uni',  'snps',   'Dr. Luca Amarù',                            'SAT-based logic synthesis',                                               '' )
 ]
 
 invited = list( map( make_invited, invited_data ) )
