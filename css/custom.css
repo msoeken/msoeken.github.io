@@ -131,6 +131,9 @@ ul.list-group#commits li.list-group-item p {
 td.number {
     text-align: right;
 }
+tr.data {
+    background-color: white;
+}
 
 .revclass-grid .grid-item {
     float: left;

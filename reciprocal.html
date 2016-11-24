@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <title>Mathias Soeken / Reversible reciprocal circuits</title>
+    <link href='css/bootstrap.min.css' rel='stylesheet'>
+    <link href='css/custom.css' rel='stylesheet'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-70660599-1', 'auto');
+      ga('send', 'pageview', location.pathname);
+    </script>
+    <link href='css/doc.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class='container' id='main-container'>
+      <div class='row' id='main-row'>
+        <div class='col-md-3' id='left-column'>
+          <ul class='nav nav-pills nav-stacked'>
+            <li role='presentation'>
+              <a href='index.html'>About me</a>
+            </li>
+            <li role='presentation'>
+              <a href='research.html'>Research</a>
+            </li>
+            <li role='presentation'>
+              <a href='teaching.html'>Teaching</a>
+            </li>
+            <li role='presentation'>
+              <a href='publications.html'>Publications</a>
+            </li>
+            <li role='presentation'>
+              <a href='talks.html'>Invited Talks</a>
+              <!--
+                
+              -->
+            </li>
+            <div class='nav-sep'>Software</div>
+            <li role='presentation'>
+              <a href='cirkit.html'>CirKit</a>
+            </li>
+            <li class='active' role='presentation'>
+              <a href='revkit.html'>RevKit</a>
+            </li>
+            <center>
+              <a href='http://www.epfl.ch' target='_blank'>
+                <img id='epfl-logo' src='images/epfl.svg'>
+              </a>
+            </center>
+          </ul>
+        </div>
+        <div class='col-md-9'>
+          <h1>Reversible reciprocal circuits</h1>
+          <p>
+            This page lists the benchmarks for the reversible reciprocal circuits reported in
+          </p>
+          <p>
+            Mathias Soeken, Martin Roetteler, Nathan Wiebe, and Giovanni De Micheli:
+            <a href='publications.html#c81'>Design automation and design space exploration for quantum computers</a>
+            <i>Design Automation and Test in Europe,</i>
+            2017.
+          </p>
+          <h3>Results with Symbolic Functional Reversible Synthesis</h3>
+          <table class='table table table-bordered' width='100%'>
+            <thead>
+              <tr class='active'>
+                <th></th>
+                <th colspan='3' style='text-align:center'>
+                  <tt>INTDIV</tt>
+                  (
+                  <i>n</i>
+                  )
+                </th>
+                <th colspan='3' style='text-align:center'>
+                  <tt>NEWTON</tt>
+                  (
+                  <i>n</i>
+                  )
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <i>n</i>
+                </th>
+                <th>qubits</th>
+                <th>
+                  <i>T</i>
+                  count
+                </th>
+                <th>files</th>
+                <th>qubits</th>
+                <th>
+                  <i>T</i>
+                  count
+                </th>
+                <th>files</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class='data'>
+                <td class='number'>4</td>
+                <td class='number'>7</td>
+                <td class='number'>687</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec4.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec4.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec4.real.gz'>REAL</a>
+                </td>
+                <td class='number'>7</td>
+                <td class='number'>649</td>
+                <td>
+                  <a href='PATH/newton-pla-rec4.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec4.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec4.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>5</td>
+                <td class='number'>9</td>
+                <td class='number'>2171</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec5.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec5.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec5.real.gz'>REAL</a>
+                </td>
+                <td class='number'>9</td>
+                <td class='number'>2368</td>
+                <td>
+                  <a href='PATH/newton-pla-rec5.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec5.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec5.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>6</td>
+                <td class='number'>11</td>
+                <td class='number'>7957</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec6.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec6.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec6.real.gz'>REAL</a>
+                </td>
+                <td class='number'>11</td>
+                <td class='number'>8187</td>
+                <td>
+                  <a href='PATH/newton-pla-rec6.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec6.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec6.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>7</td>
+                <td class='number'>13</td>
+                <td class='number'>26644</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec7.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec7.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec7.real.gz'>REAL</a>
+                </td>
+                <td class='number'>13</td>
+                <td class='number'>23223</td>
+                <td>
+                  <a href='PATH/newton-pla-rec7.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec7.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec7.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>8</td>
+                <td class='number'>15</td>
+                <td class='number'>70742</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec8.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec8.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec8.real.gz'>REAL</a>
+                </td>
+                <td class='number'>15</td>
+                <td class='number'>78109</td>
+                <td>
+                  <a href='PATH/newton-pla-rec8.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec8.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec8.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>9</td>
+                <td class='number'>17</td>
+                <td class='number'>198349</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec9.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec9.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec9.real.gz'>REAL</a>
+                </td>
+                <td class='number'>17</td>
+                <td class='number'>210023</td>
+                <td>
+                  <a href='PATH/newton-pla-rec9.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec9.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec9.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>10</td>
+                <td class='number'>19</td>
+                <td class='number'>542321</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec10.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec10.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec10.real.gz'>REAL</a>
+                </td>
+                <td class='number'>19</td>
+                <td class='number'>548199</td>
+                <td>
+                  <a href='PATH/newton-pla-rec10.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec10.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec10.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>11</td>
+                <td class='number'>21</td>
+                <td class='number'>1386090</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec11.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec11.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec11.real.gz'>REAL</a>
+                </td>
+                <td class='number'>21</td>
+                <td class='number'>1391509</td>
+                <td>
+                  <a href='PATH/newton-pla-rec11.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec11.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec11.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>12</td>
+                <td class='number'>23</td>
+                <td class='number'>3472245</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec12.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec12.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec12.real.gz'>REAL</a>
+                </td>
+                <td class='number'>23</td>
+                <td class='number'>3488707</td>
+                <td>
+                  <a href='PATH/newton-pla-rec12.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec12.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec12.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>13</td>
+                <td class='number'>25</td>
+                <td class='number'>8410660</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec13.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec13.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec13.real.gz'>REAL</a>
+                </td>
+                <td class='number'>25</td>
+                <td class='number'>8480676</td>
+                <td>
+                  <a href='PATH/newton-pla-rec13.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec13.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec13.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>14</td>
+                <td class='number'>27</td>
+                <td class='number'>20204942</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec14.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec14.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec14.real.gz'>REAL</a>
+                </td>
+                <td class='number'>27</td>
+                <td class='number'>20223022</td>
+                <td>
+                  <a href='PATH/newton-pla-rec14.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec14.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec14.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>15</td>
+                <td class='number'>29</td>
+                <td class='number'>47512793</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec15.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec15.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec15.real.gz'>REAL</a>
+                </td>
+                <td class='number'>29</td>
+                <td class='number'>47487120</td>
+                <td>
+                  <a href='PATH/newton-pla-rec15.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec15.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec15.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>16</td>
+                <td class='number'>31</td>
+                <td class='number'>110598564</td>
+                <td>
+                  <a href='PATH/intdiv-pla-rec16.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec16.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/intdiv-pla-rec16.real.gz'>REAL</a>
+                </td>
+                <td class='number'>31</td>
+                <td class='number'>110844474</td>
+                <td>
+                  <a href='PATH/newton-pla-rec16.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec16.pla.gz'>PLA</a>
+                  &middot;
+                  <a href='PATH/newton-pla-rec16.real.gz'>REAL</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            The PLA files have been generated using the
+            <a href='https://people.eecs.berkeley.edu/~alanmi/abc/' target='_blank'>ABC</a>
+            commands
+            <kbd>clp</kbd>
+            and
+            <kbd>satclp</kbd>
+            .
+            The
+            <tt>NEWTON</tt>
+            designs have been parsed using
+            <a href='http://www.clifford.at/yosys/' target='_blank'>Yosys</a>
+            and translated into BLIF files to be read with ABC.  We used the command
+            <kbd>stbs -s</kbd>
+            in
+            <a href='revkit.html'>RevKit</a>
+            to generate reversible circuit realizations (REAL files).
+            The command
+            <kbd>gen_reciprocal</kbd>
+            (see details
+            <a href='https://github.com/msoeken/cirkit/blob/master/addons/cirkit-addon-reversible/src/reversible/generators/reciprocal.cpp' target='_blank'>here</a>
+            )
+            in RevKit can be used to execute the whole flow (requires to have
+            <code>abc</code>
+            and
+            <code>yosys</code>
+            executables in the
+            <code>$PATH</code>
+            ):
+          </p>
+          <pre><span style="color: darkred"># <b>[N]</b> is a placeholder for the bitwidth</span>&#x000A;<span style="color: darkred"># INTDIV design (-a 0)</span>&#x000A;gen_reciprocal -a 0 -m 1 --verilog_name rec<b>[N]</b>.v --pla_name rec<b>[N]</b>.pla <b>[N]</b>&#x000A;ps -c&#x000A;write_real rec<b>[N]</b>.real&#x000A;&#x000A;<span style="color: darkred"># NEWTON design (-a 1)</span>&#x000A;gen_reciprocal -a 1 -m 1 --verilog_name rec<b>[N]</b>.v --pla_name rec<b>[N]</b>.pla <b>[N]</b>&#x000A;ps -c&#x000A;write_real rec<b>[N]</b>.real</pre>
+          <h3>Results with REVS</h3>
+          <p>
+            <span class='label label-info'>Info</span>
+            The Verilog (V) and ESOP (E) files are the same for the flows with
+            <i>p = 0</i>
+            and
+            <i>p = 1</i>
+          </p>
+          <table class='table table table-bordered' width='100%'>
+            <thead>
+              <tr class='active'>
+                <th></th>
+                <th colspan='3' style='text-align:center'>
+                  <tt>INTDIV</tt>
+                  (
+                  <i>n</i>
+                  ),
+                  <i>p = 0</i>
+                </th>
+                <th colspan='3' style='text-align:center'>
+                  <tt>NEWTON</tt>
+                  (
+                  <i>n</i>
+                  ),
+                  <i>p = 0</i>
+                </th>
+                <th colspan='3' style='text-align:center'>
+                  <tt>INTDIV</tt>
+                  (
+                  <i>n</i>
+                  ),
+                  <i>p = 1</i>
+                </th>
+                <th colspan='3' style='text-align:center'>
+                  <tt>NEWTON</tt>
+                  (
+                  <i>n</i>
+                  ),
+                  <i>p = 1</i>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <i>n</i>
+                </th>
+                <th>qubits</th>
+                <th>
+                  <i>T</i>
+                  count
+                </th>
+                <th>files</th>
+                <th>qubits</th>
+                <th>
+                  <i>T</i>
+                  count
+                </th>
+                <th>files</th>
+                <th>qubits</th>
+                <th>
+                  <i>T</i>
+                  count
+                </th>
+                <th>files</th>
+                <th>qubits</th>
+                <th>
+                  <i>T</i>
+                  count
+                </th>
+                <th>files</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class='data'>
+                <td class='number'>5</td>
+                <td class='number'>10</td>
+                <td class='number'>286</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec5.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec5.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec5.real.gz'>R</a>
+                </td>
+                <td class='number'>10</td>
+                <td class='number'>169</td>
+                <td>
+                  <a href='PATH/newton-esop-rec5.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec5.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec5.real.gz'>R</a>
+                </td>
+                <td class='number'>12</td>
+                <td class='number'>269</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec5.real.gz'>R</a>
+                </td>
+                <td class='number'>10</td>
+                <td class='number'>169</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec5.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>6</td>
+                <td class='number'>12</td>
+                <td class='number'>531</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec6.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec6.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec6.real.gz'>R</a>
+                </td>
+                <td class='number'>12</td>
+                <td class='number'>366</td>
+                <td>
+                  <a href='PATH/newton-esop-rec6.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec6.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec6.real.gz'>R</a>
+                </td>
+                <td class='number'>14</td>
+                <td class='number'>507</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec6.real.gz'>R</a>
+                </td>
+                <td class='number'>13</td>
+                <td class='number'>334</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec6.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>7</td>
+                <td class='number'>14</td>
+                <td class='number'>1019</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec7.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec7.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec7.real.gz'>R</a>
+                </td>
+                <td class='number'>14</td>
+                <td class='number'>726</td>
+                <td>
+                  <a href='PATH/newton-esop-rec7.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec7.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec7.real.gz'>R</a>
+                </td>
+                <td class='number'>17</td>
+                <td class='number'>989</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec7.real.gz'>R</a>
+                </td>
+                <td class='number'>17</td>
+                <td class='number'>629</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec7.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>8</td>
+                <td class='number'>16</td>
+                <td class='number'>1762</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec8.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec8.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec8.real.gz'>R</a>
+                </td>
+                <td class='number'>16</td>
+                <td class='number'>1357</td>
+                <td>
+                  <a href='PATH/newton-esop-rec8.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec8.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec8.real.gz'>R</a>
+                </td>
+                <td class='number'>20</td>
+                <td class='number'>1675</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec8.real.gz'>R</a>
+                </td>
+                <td class='number'>20</td>
+                <td class='number'>1310</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec8.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>9</td>
+                <td class='number'>18</td>
+                <td class='number'>2742</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec9.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec9.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec9.real.gz'>R</a>
+                </td>
+                <td class='number'>18</td>
+                <td class='number'>2518</td>
+                <td>
+                  <a href='PATH/newton-esop-rec9.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec9.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec9.real.gz'>R</a>
+                </td>
+                <td class='number'>23</td>
+                <td class='number'>2359</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec9.real.gz'>R</a>
+                </td>
+                <td class='number'>22</td>
+                <td class='number'>2278</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec9.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>10</td>
+                <td class='number'>20</td>
+                <td class='number'>4611</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec10.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec10.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec10.real.gz'>R</a>
+                </td>
+                <td class='number'>20</td>
+                <td class='number'>4477</td>
+                <td>
+                  <a href='PATH/newton-esop-rec10.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec10.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec10.real.gz'>R</a>
+                </td>
+                <td class='number'>23</td>
+                <td class='number'>4142</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec10.real.gz'>R</a>
+                </td>
+                <td class='number'>24</td>
+                <td class='number'>3919</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec10.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>11</td>
+                <td class='number'>22</td>
+                <td class='number'>7683</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec11.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec11.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec11.real.gz'>R</a>
+                </td>
+                <td class='number'>22</td>
+                <td class='number'>7227</td>
+                <td>
+                  <a href='PATH/newton-esop-rec11.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec11.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec11.real.gz'>R</a>
+                </td>
+                <td class='number'>29</td>
+                <td class='number'>6782</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec11.real.gz'>R</a>
+                </td>
+                <td class='number'>27</td>
+                <td class='number'>6224</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec11.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>12</td>
+                <td class='number'>24</td>
+                <td class='number'>11607</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec12.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec12.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec12.real.gz'>R</a>
+                </td>
+                <td class='number'>24</td>
+                <td class='number'>11597</td>
+                <td>
+                  <a href='PATH/newton-esop-rec12.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec12.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec12.real.gz'>R</a>
+                </td>
+                <td class='number'>30</td>
+                <td class='number'>10036</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec12.real.gz'>R</a>
+                </td>
+                <td class='number'>29</td>
+                <td class='number'>9312</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec12.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>13</td>
+                <td class='number'>26</td>
+                <td class='number'>18630</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec13.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec13.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec13.real.gz'>R</a>
+                </td>
+                <td class='number'>26</td>
+                <td class='number'>19837</td>
+                <td>
+                  <a href='PATH/newton-esop-rec13.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec13.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec13.real.gz'>R</a>
+                </td>
+                <td class='number'>31</td>
+                <td class='number'>15034</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec13.real.gz'>R</a>
+                </td>
+                <td class='number'>32</td>
+                <td class='number'>15634</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec13.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>14</td>
+                <td class='number'>28</td>
+                <td class='number'>30652</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec14.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec14.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec14.real.gz'>R</a>
+                </td>
+                <td class='number'>28</td>
+                <td class='number'>30456</td>
+                <td>
+                  <a href='PATH/newton-esop-rec14.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec14.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec14.real.gz'>R</a>
+                </td>
+                <td class='number'>37</td>
+                <td class='number'>25061</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec14.real.gz'>R</a>
+                </td>
+                <td class='number'>34</td>
+                <td class='number'>25140</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec14.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>15</td>
+                <td class='number'>30</td>
+                <td class='number'>47148</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec15.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec15.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec15.real.gz'>R</a>
+                </td>
+                <td class='number'>30</td>
+                <td class='number'>48981</td>
+                <td>
+                  <a href='PATH/newton-esop-rec15.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec15.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec15.real.gz'>R</a>
+                </td>
+                <td class='number'>35</td>
+                <td class='number'>37057</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec15.real.gz'>R</a>
+                </td>
+                <td class='number'>37</td>
+                <td class='number'>37819</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec15.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>16</td>
+                <td class='number'>32</td>
+                <td class='number'>74072</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec16.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec16.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec16.real.gz'>R</a>
+                </td>
+                <td class='number'>32</td>
+                <td class='number'>71818</td>
+                <td>
+                  <a href='PATH/newton-esop-rec16.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec16.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec16.real.gz'>R</a>
+                </td>
+                <td class='number'>46</td>
+                <td class='number'>57017</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec16.real.gz'>R</a>
+                </td>
+                <td class='number'>38</td>
+                <td class='number'>55258</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec16.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>17</td>
+                <td class='number'>34</td>
+                <td class='number'>111470</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec17.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec17.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec17.real.gz'>R</a>
+                </td>
+                <td class='number'>34</td>
+                <td class='number'>135612</td>
+                <td>
+                  <a href='PATH/newton-esop-rec17.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec17.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec17.real.gz'>R</a>
+                </td>
+                <td class='number'>41</td>
+                <td class='number'>86197</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec17.real.gz'>R</a>
+                </td>
+                <td class='number'>43</td>
+                <td class='number'>101784</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec17.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>18</td>
+                <td class='number'>36</td>
+                <td class='number'>170390</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec18.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec18.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec18.real.gz'>R</a>
+                </td>
+                <td class='number'>36</td>
+                <td class='number'>218782</td>
+                <td>
+                  <a href='PATH/newton-esop-rec18.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec18.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec18.real.gz'>R</a>
+                </td>
+                <td class='number'>43</td>
+                <td class='number'>127149</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec18.real.gz'>R</a>
+                </td>
+                <td class='number'>44</td>
+                <td class='number'>160527</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec18.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>19</td>
+                <td class='number'>38</td>
+                <td class='number'>256275</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec19.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec19.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec19.real.gz'>R</a>
+                </td>
+                <td class='number'>38</td>
+                <td class='number'>328760</td>
+                <td>
+                  <a href='PATH/newton-esop-rec19.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec19.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec19.real.gz'>R</a>
+                </td>
+                <td class='number'>46</td>
+                <td class='number'>187670</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec19.real.gz'>R</a>
+                </td>
+                <td class='number'>46</td>
+                <td class='number'>237482</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec19.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>20</td>
+                <td class='number'>40</td>
+                <td class='number'>407790</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec20.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec20.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec20.real.gz'>R</a>
+                </td>
+                <td class='number'>40</td>
+                <td class='number'>501326</td>
+                <td>
+                  <a href='PATH/newton-esop-rec20.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec20.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec20.real.gz'>R</a>
+                </td>
+                <td class='number'>48</td>
+                <td class='number'>296075</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec20.real.gz'>R</a>
+                </td>
+                <td class='number'>47</td>
+                <td class='number'>356202</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec20.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>21</td>
+                <td class='number'>42</td>
+                <td class='number'>608408</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec21.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec21.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec21.real.gz'>R</a>
+                </td>
+                <td class='number'>42</td>
+                <td class='number'>795032</td>
+                <td>
+                  <a href='PATH/newton-esop-rec21.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec21.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec21.real.gz'>R</a>
+                </td>
+                <td class='number'>51</td>
+                <td class='number'>434015</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec21.real.gz'>R</a>
+                </td>
+                <td class='number'>51</td>
+                <td class='number'>561878</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec21.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>22</td>
+                <td class='number'>44</td>
+                <td class='number'>923681</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec22.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec22.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec22.real.gz'>R</a>
+                </td>
+                <td class='number'>44</td>
+                <td class='number'>1208146</td>
+                <td>
+                  <a href='PATH/newton-esop-rec22.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec22.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec22.real.gz'>R</a>
+                </td>
+                <td class='number'>52</td>
+                <td class='number'>651553</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec22.real.gz'>R</a>
+                </td>
+                <td class='number'>53</td>
+                <td class='number'>842407</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec22.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>23</td>
+                <td class='number'>46</td>
+                <td class='number'>1360868</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec23.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec23.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec23.real.gz'>R</a>
+                </td>
+                <td class='number'>46</td>
+                <td class='number'>1806710</td>
+                <td>
+                  <a href='PATH/newton-esop-rec23.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec23.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec23.real.gz'>R</a>
+                </td>
+                <td class='number'>56</td>
+                <td class='number'>937520</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec23.real.gz'>R</a>
+                </td>
+                <td class='number'>56</td>
+                <td class='number'>1248826</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec23.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>24</td>
+                <td class='number'>48</td>
+                <td class='number'>2052701</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec24.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec24.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec24.real.gz'>R</a>
+                </td>
+                <td class='number'>48</td>
+                <td class='number'>2731038</td>
+                <td>
+                  <a href='PATH/newton-esop-rec24.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec24.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec24.real.gz'>R</a>
+                </td>
+                <td class='number'>57</td>
+                <td class='number'>1404403</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec24.real.gz'>R</a>
+                </td>
+                <td class='number'>58</td>
+                <td class='number'>1848500</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec24.real.gz'>R</a>
+                </td>
+              </tr>
+              <tr class='data'>
+                <td class='number'>25</td>
+                <td class='number'>50</td>
+                <td class='number'>3075095</td>
+                <td>
+                  <a href='PATH/intdiv-esop-rec25.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop-rec25.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/intdiv-esop0-rec25.real.gz'>R</a>
+                </td>
+                <td class='number'>50</td>
+                <td class='number'>4090938</td>
+                <td>
+                  <a href='PATH/newton-esop-rec25.v.gz'>V</a>
+                  &middot;
+                  <a href='PATH/newton-esop-rec25.esop.gz'>E</a>
+                  &middot;
+                  <a href='PATH/newton-esop0-rec25.real.gz'>R</a>
+                </td>
+                <td class='number'>60</td>
+                <td class='number'>2085957</td>
+                <td>
+                  <a href='PATH/intdiv-esop1-rec25.real.gz'>R</a>
+                </td>
+                <td class='number'>60</td>
+                <td class='number'>2737267</td>
+                <td>
+                  <a href='PATH/newton-esop1-rec25.real.gz'>R</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            The following command in RevKit can be used to execute the whole flow (the flow requires to have
+            <code>abc</code>
+            and
+            <code>yosys</code>
+            executables in the
+            <code>$PATH</code>
+            ):
+          </p>
+          <pre><span style="color: darkred"># <b>[N]</b> is a placeholder for the bitwidth</span>&#x000A;<span style="color: darkred"># INTDIV design (-a 0)</span>&#x000A;gen_reciprocal -a 0 -m 0 --verilog_name rec<b>[N]</b>.v --pla_name rec<b>[N]</b>.pla <b>[N]</b>&#x000A;ps -c&#x000A;write_real rec<b>[N]</b>.real&#x000A;&#x000A;<span style="color: darkred"># NEWTON design (-a 1)</span>&#x000A;gen_reciprocal -a 1 -m 0 --verilog_name rec<b>[N]</b>.v --pla_name rec<b>[N]</b>.pla <b>[N]</b>&#x000A;ps -c&#x000A;write_real rec<b>[N]</b>.real</pre>
+          <h3>Results with Hierarchical Synthesis</h3>
+          <table class='table table table-bordered' width='100%'>
+            <thead>
+              <tr class='active'>
+                <th></th>
+                <th colspan='3' style='text-align:center'>
+                  <tt>INTDIV</tt>
+                  (
+                  <i>n</i>
+                  )
+                </th>
+                <th colspan='3' style='text-align:center'>
+                  <tt>NEWTON</tt>
+                  (
+                  <i>n</i>
+                  )
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <i>n</i>
+                </th>
+                <th>qubits</th>
+                <th>
+                  <i>T</i>
+                  count
+                </th>
+                <th>files</th>
+                <th>qubits</th>
+                <th>
+                  <i>T</i>
+                  count
+                </th>
+                <th>files</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class='number'>16</td>
+                <td class='number'>892</td>
+                <td class='number'>5607</td>
+                <td>
+                  <a href='PATH/intdiv-dxs-rec16.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec16.xmg.v.gz'>XMG</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec16.real.gz'>REAL</a>
+                </td>
+                <td class='number'>10713</td>
+                <td class='number'>73080</td>
+                <td>
+                  <a href='PATH/intdiv-dxs-rec16.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec16.xmg.v.gz'>XMG</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec16.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr>
+                <td class='number'>32</td>
+                <td class='number'>3501</td>
+                <td class='number'>21455</td>
+                <td>
+                  <a href='PATH/intdiv-dxs-rec32.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec32.xmg.v.gz'>XMG</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec32.real.gz'>REAL</a>
+                </td>
+                <td class='number'>56207</td>
+                <td class='number'>392917</td>
+                <td>
+                  <a href='PATH/intdiv-dxs-rec32.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec32.xmg.v.gz'>XMG</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec32.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr>
+                <td class='number'>64</td>
+                <td class='number'>13465</td>
+                <td class='number'>80339</td>
+                <td>
+                  <a href='PATH/intdiv-dxs-rec64.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec64.xmg.v.gz'>XMG</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec64.real.gz'>REAL</a>
+                </td>
+                <td class='number'>178653</td>
+                <td class='number'>1264704</td>
+                <td>
+                  <a href='PATH/intdiv-dxs-rec64.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec64.xmg.v.gz'>XMG</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec64.real.gz'>REAL</a>
+                </td>
+              </tr>
+              <tr>
+                <td class='number'>128</td>
+                <td class='number'>51897</td>
+                <td class='number'>308364</td>
+                <td>
+                  <a href='PATH/intdiv-dxs-rec128.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec128.xmg.v.gz'>XMG</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec128.real.gz'>REAL</a>
+                </td>
+                <td class='number'>1029441</td>
+                <td class='number'>7033040</td>
+                <td>
+                  <a href='PATH/intdiv-dxs-rec128.v.gz'>Verilog</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec128.xmg.v.gz'>XMG</a>
+                  &middot;
+                  <a href='PATH/intdiv-dxs-rec128.real.gz'>REAL</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            The following script that involves calls to RevKit, ABC and
+            <a href='cirkit.html'>CirKit</a>
+            has been used to generate the circuits.  Here, we show the scripts to generate the
+            <tt>INTDIV</tt>
+            design.  Change
+            <kbd>-a 0</kbd>
+            in the
+            <kbd>gen_reciprocal</kbd>
+            command to
+            <kbd>-a 1</kbd>
+            to use the
+            <tt>NEWTON</tt>
+            design.
+          </p>
+          <pre><span style="color: darkred"># <b>[N]</b> is a placeholder for the bitwidth</span>&#x000A;<span style="color: darkred"># RevKit</span>&#x000A;gen_reciprocal -a 0 --verilog_name rec<b>[N]</b> --only_write <b>[N]</b>&#x000A;quit&#x000A;&#x000A;<span style="color: darkred"># Use ABC <i>resyn2</i> iteratively (until no more improvement) to translate Verilog into AIG rec<b>[N]</b>.aig</span>&#x000A;%read rec<b>[N]</b>.v&#x000A;%blast&#x000A;&put&#x000A;resyn2; print_stats&#x000A;resyn2; print_stats&#x000A;...&#x000A;write rec<b>[N]</b>.aig&#x000A;&#x000A;<span style="color: darkred"># CirKit</span>&#x000A;read_aiger rec<b>[N]</b>.aig&#x000A;xmglut -k 4&#x000A;write_verilog -x rec<b>[N]</b>.xmg.v&#x000A;quit&#x000A;&#x000A;<span style="color: darkred"># RevKit</span>&#x000A;read_verilog -x rec<b>[N]</b>.xmg.v&#x000A;dxs&#x000A;ps -c&#x000A;write_real rec<b>[N]</b>.real</pre>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
