@@ -825,12 +825,13 @@ article_data = [
 ]
 
 preprint_data = [
-    ( ['ms', 'dmm', 'rd'],             '1308.2493',  'On quantum circuits employing roots of the Pauli matrices',                           '7 pages, 1 figure',                                                        'j3', ['quant-ph', 'cs.ET'] ),
-    ( ['ms', 'na', 'rd'],              '1407.5878',  'A framework for reversible circuit complexity',                                       "6 pages, 4 figures, accepted for Int'l Workshop on Boolean Problems 2014", '',   ['cs.ET', 'quant-ph'] ),
-    ( ['ms', 'rw', 'ok', 'dmm', 'rd'], '1408.3586',  'Embedding of large Boolean functions for reversible logic',                           '13 pages, 10 figures',                                                     'j7', ['cs.ET'] ),
-    ( ['ms', 'lt', 'gwd', 'rd'],       '1408.3955',  'Ancilla-free synthesis of large reversible functions using binary decision diagrams', '25 pages, 15 figures',                                                     'j8', ['cs.ET', 'quant-ph'] ),
-    ( ['ms', 'mkt', 'gwd', 'dmm'],     '1502.05825', 'Self-inverse functions and palindromic circuits',                                     '6 pages, 3 figures',                                                       '',   ['cs.ET', 'math.GR', 'quant-ph'] ),
-    ( ['wc', 'jd', 'adv', 'ok', 'ms'], '1503.08579', 'Translating between the roots of identity in quantum circuits',                       '7 pages',                                                                  '',   ['quant-ph', 'math.GR'] )
+    ( ['ms', 'dmm', 'rd'],             '1308.2493',  'On quantum circuits employing roots of the Pauli matrices',                           '7 pages, 1 figure',                                                        'j3',  ['quant-ph', 'cs.ET'] ),
+    ( ['ms', 'na', 'rd'],              '1407.5878',  'A framework for reversible circuit complexity',                                       "6 pages, 4 figures, accepted for Int'l Workshop on Boolean Problems 2014", '',    ['cs.ET', 'quant-ph'] ),
+    ( ['ms', 'rw', 'ok', 'dmm', 'rd'], '1408.3586',  'Embedding of large Boolean functions for reversible logic',                           '13 pages, 10 figures',                                                     'j7',  ['cs.ET'] ),
+    ( ['ms', 'lt', 'gwd', 'rd'],       '1408.3955',  'Ancilla-free synthesis of large reversible functions using binary decision diagrams', '25 pages, 15 figures',                                                     'j8',  ['cs.ET', 'quant-ph'] ),
+    ( ['ms', 'mkt', 'gwd', 'dmm'],     '1502.05825', 'Self-inverse functions and palindromic circuits',                                     '6 pages, 3 figures',                                                       '',    ['cs.ET', 'math.GR', 'quant-ph'] ),
+    ( ['wc', 'jd', 'adv', 'ok', 'ms'], '1503.08579', 'Translating between the roots of identity in quantum circuits',                       '7 pages',                                                                  '',    ['quant-ph', 'math.GR'] ),
+    ( ['ms', 'mr', 'nw', 'gdm'],       '1612.00631', 'Design automation and design space exploration for quantum computers',                '6 pages, 1 figure',                                                        'c81', ['quant-ph', 'cs.ET'] )
 ]
 
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
