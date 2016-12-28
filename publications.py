@@ -910,6 +910,11 @@ invited_data = [
 invited = list( map( make_invited, invited_data ) )
 
 def cmd_publications():
+    for key, conf in conferences.items():
+        if len( conf['shortname'] ) > 0:
+            print( "@STRING{%s = {%s}}" % ( conf['shortname'], conf['name'] ) )
+    print()
+    
     print( "@book{book1," )
     print( "  editor    = {Rolf Drechsler and Mathias Soeken and Robert Wille}," )
     print( "  title     = {Auf dem Weg zum Quantencomputer: Entwurf reversibler Logik (Technische Informatik)}," )
