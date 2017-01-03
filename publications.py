@@ -610,6 +610,7 @@ journals_data = [
     ( 'pra', 'Physical Review A', 'American Physical Society', 'http://journals.aps.org/pra/' ),
     ( 'sosym', 'Software and System Modeling', 'Springer', 'http://www.sosym.org/' ),
     ( 'sttt', 'Journal on Software Tools for Technology Transfer', 'Springer', 'http://www.springer.com/computer/swe/journal/10009' ),
+    ( 'tcad', 'IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems', 'IEEE', '' ),
     ( 'tcs', 'Theoretical Computer Science', 'Elsevier', 'http://www.journals.elsevier.com/theoretical-computer-science/' ),
     ( 'zk', 'Zeitschrift für Kristallographie - Crystalline Materials', 'De Gruyter', 'http://www.degruyter.com/view/j/zkri' )
 ]
@@ -824,7 +825,8 @@ article_data = [
     ( ['na', 'ma', 'rd', 'ms'],                   'tcs',         618, "",       2016, 'Complexity of reversible circuits and their quantum implementations',                                                                    '85--106',  'http://dx.doi.org/10.1016/j.tcs.2016.01.011' ),
     ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',         168, "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',  'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
     ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1, "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       '1-17',     'http://link.springer.com/article/10.1007/s10009-016-0426-1' ),
-    ( ['np', 'ms', 'rw', 'rd'],                   'cps',          -1, "",          0, 'Verifying the structure and behavior in UML/OCL models using satisfiability solvers',                                                    '',         '' )
+    ( ['np', 'ms', 'rw', 'rd'],                   'cps',          -1, "",          0, 'Verifying the structure and behavior in UML/OCL models using satisfiability solvers',                                                    '',         '' ),
+    ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         -1, "",          0, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '',         '' )
 ]
 
 preprint_data = [
@@ -840,27 +842,9 @@ preprint_data = [
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 
 news_data = [
-    ( 'aspdac', 2016 ),
-    ( 'zk', 231 ),
-    ( 'lascas', 2016 ),
-    ( 'date', 2016 ),
-    ( 'ddecs', 2016 ),
-    ( 'iscas', 2016 ),
-    ( 'tcs', 618 ),
-    ( 'ismvl', 2016 ),
-    ( 'dac', 2016 ),
-    ( 'cnf', 168 ),
-    ( 'gecco', 2016 ),
-    ( 'rc', 2016 ),
-    ( 'sat', 2016 ),
-    ( 'sttt', -1 ),
-    ( 'nanoarch', 2016 ),
-    ( 'iccad', 2016 ),
-    ( 'fpl', 2016 ),
-    ( 'fmcad', 2016 ),
-    ( 'hvc', 2016 ),
     ( 'aspdac', 2017 ),
-    ( 'date', 2017 )
+    ( 'date', 2017 ),
+    ( 'tcad', -1 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
