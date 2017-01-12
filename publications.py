@@ -95,7 +95,6 @@ def make_filename( c, collection ):
     else:
         return "%s_%s_%d" % ( year, conf, same_venue.index( c ) + 1 )
 
-
 def make_bibtex_title( title ):
     global capitalize, replacements
 
@@ -227,14 +226,15 @@ def format_haml_incollection_work( paper, id ):
 def format_bibtex_article( paper ):
     global capitalize
 
-    journal = paper['journal']
-
+    journal = paper["journal"]
+    
+    name = make_bibtex_title( journal["name"] )
     title = make_bibtex_title( paper['title'] )
 
     print( "@article{%s%d," % ( journal['key'], paper['year'] ) )
     print( "  author    = {%s},"     % " and ".join( "%s, %s" % ( a['lastname'], a['firstname'] ) for a in paper['authors'] ) )
     print( "  title     = {%s},"     % title )
-    print( "  journal   = {%s},"     % journal['name'] )
+    print( "  journal   = {%s},"     % name )
     if paper['volume'] == -1:
         print( "  note      = {in press}," )
     else:
@@ -243,7 +243,8 @@ def format_bibtex_article( paper ):
         print( "  number    = {%s},"       % paper['number'] )
         if paper['pages'] != "XXXX":
             print( "  pages     = {%s}," % paper['pages'] )
-    print( "  publisher = {%s}"     % journal['publisher'] )
+    print( "  publisher = {%s},"     % journal['publisher'] )
+    print( "  keywords  = {article}" )
     print( "}" )
 
 def format_haml_article( paper, id ):
@@ -293,6 +294,20 @@ def format_haml_article( paper, id ):
                              'external': external,
                              'publisher': journal['publisher']} )[1:] )
 
+def format_bibtex_preprint( paper ):
+    global capitalize
+
+    title = make_bibtex_title( paper['title'] )
+
+    print( "@article{arxiv_%s,"     % paper['id'] )
+    print( "  author    = {%s},"    % " and ".join( "%s, %s" % ( a['lastname'], a['firstname'] ) for a in paper['authors'] ) )
+    print( "  title     = {%s},"    % title )
+    print( "  journal   = {arXiv}," )
+    print( "  year      = {%s},"      % ( '20' + paper['id'][0:2] ) )
+    print( "  volume    = {%s},"    % paper['id'] )
+    print( "  keywords  = {preprint}" )
+    print( "}" )
+    
 def format_haml_preprint( paper, id ):
     global months
 
@@ -381,8 +396,9 @@ def write_publications():
   \\nocite{*}
   \printbibliography[type=book,title={Books}]
   \printbibliography[type=incollection,title={Book chapters}]
-  \printbibliography[type=article,title={Journal articles}]
+  \printbibliography[type=article,keyword=article,title={Journal articles}]
   \printbibliography[type=inproceedings,keyword=conference,title={Conference papers}]
+  \printbibliography[type=article,keyword=preprint,title={Preprints}]
   \printbibliography[type=inproceedings,keyword=workshop,title={Refereed papers without formal proceedings}]
 \end{document}''')
 
@@ -430,7 +446,7 @@ def format_haml_invited( invited ):
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
-replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("πDD", "{$\\pi$DD}")]
+replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("πDD", "{$\\pi$DD}"), ("&", "\&")]
 
 conferences_data = [
     ( 'apms', 'APMS', 'Advances in Production Management Systems', 'IFIP', [
@@ -952,6 +968,9 @@ def cmd_publications():
 
     for w in workpapers:
         format_bibtex_incollection( w, workpapers, "workshop" )
+
+    for p in preprints:
+        format_bibtex_preprint( p )
 
     write_publications()
 
