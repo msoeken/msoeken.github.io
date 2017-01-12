@@ -1,22 +1,52 @@
 .col-md-3#left-column
   %ul.nav.nav-pills.nav-stacked
     %li(role="presentation"){:class => ("active" if page == "index" )}
-      %a(href="index.html") About me
+      %a(href="index.html")
+        %span.glyphicon.glyphicon-user
+        .text
+          About me
     %li(role="presentation"){:class => ("active" if page == "research" )}
-      %a(href="research.html") Research
+      %a(href="research.html")
+        %span.glyphicon.glyphicon-pencil
+        .text
+          Research
     %li(role="presentation"){:class => ("active" if page == "teaching" )}
-      %a(href="teaching.html") Teaching
+      %a(href="teaching.html")
+        %span.glyphicon.glyphicon-education
+        .text
+          Teaching
     %li(role="presentation"){:class => ("active" if page == "publications" )}
-      %a(href="publications.html") Publications
+      %a(href="publications.html")
+        %span.glyphicon.glyphicon-book
+        .text
+          Publications
     %li(role="presentation"){:class => ("active" if page == "talks" )}
-      %a(href="talks.html") Invited Talks
-      /
-        = Haml::Engine.new(File.read( '_nav_publications.haml' )).render( Object.new ) if page == "publications"
+      %a(href="talks.html")
+        %span.glyphicon.glyphicon-bullhorn
+        .text
+          Invited Talks
     .nav-sep Software
     %li(role="presentation"){:class => ("active" if page == "cirkit" )}
-      %a(href="cirkit.html") CirKit
+      %a.tool(href="cirkit.html")
+        %span.glyphicon.glyphicon-cd
+        .text
+          CirKit
+    %li
+      .sub
+        %a(href="cirkit_doc.html") documentation
+        /
+          |
+          %a(href="#") tutorials
     %li(role="presentation"){:class => ("active" if page == "revkit" )}
-      %a(href="revkit.html") RevKit
+      %a.tool(href="revkit.html")
+        %span.glyphicon.glyphicon-cd
+        .text
+          RevKit
+    %li
+      .sub
+        %a(href="cirkit_doc.html") documentation
+        |
+        %a(href="benchmarks.html") benchmarks
     %center
       %a(href="http://www.epfl.ch" target="_blank")
         %img#epfl-logo(src="images/epfl.svg")

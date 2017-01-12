@@ -3,3 +3,4 @@ papers/articles/*.pdf
 papers/arxiv/*.pdf
 cv
 .DS_Store
+**/*~

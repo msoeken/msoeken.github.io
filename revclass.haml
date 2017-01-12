@@ -9,6 +9,13 @@
         = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "cirkit")
         .col-md-9
           %h1 Reversible Circuit Classification
+          %p
+            This page lists the benchmarks for the reversible reciprocal circuits reported in
+          %p
+            Mathias Soeken, Nabila Abdessaied, and Giovanni De Micheli:
+            %a(href="publications.html#c68") Enumeration of reversible functions and its application to circuit complexity,
+            %i Conference on Reversible Computation,
+            2016, 255&ndash;270.
           .row
             .col-md-4
               %h3 2-variable functions

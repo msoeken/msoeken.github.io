@@ -2,6 +2,7 @@
 %html
   %head
     = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / CirKit')
+    %link(href="css/doc.css" rel="stylesheet")
   %body
     .container#main-container
       .row#main-row
