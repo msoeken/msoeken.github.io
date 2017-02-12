@@ -445,7 +445,7 @@ def format_haml_invited( invited ):
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
 replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("πDD", "{$\\pi$DD}"), ("&", "\&")]
 
 conferences_data = [
@@ -467,7 +467,8 @@ conferences_data = [
     ] ),
     ( 'dac', 'DAC', 'Design Automation Conference', 'ACM/IEEE', [
         ( 2010, 'jun', 'Anaheim, CA', 'USA' ),
-        ( 2016, 'jun', 'Austin, TX', 'USA' )
+        ( 2016, 'jun', 'Austin, TX', 'USA' ),
+        ( 2017, 'jun', 'Austin, TX', 'USA' )
     ] ),
     ( 'date', 'DATE', 'Design, Automation and Test in Europe', 'IEEE', [
         ( 2010, 'mar', 'Dresden', 'Germany' ),
@@ -799,7 +800,8 @@ confpapers_data = [
     ( ['ms', 'gdm', 'am'],                                              'date',     2017, 'Busy Man\'s Synthesis: Combinational delay optimization with SAT', 'XXXX', '' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                                        'date',     2017, 'Design automation and design space exploration for quantum computers', 'XXXX', '' ),
     ( ['oz', 'adm', 'et', 'ms', 'peg', 'gdm', 'la', 'pr2', 'fc', 'rl'], 'date',     2017, 'Wave pipelining for majority-based beyond-CMOS technologies (invited special session)', 'XXXX', '' ),
-    ( ['wh', 'et', 'ms', 'gdm'],                                        'ismvl',    2017, 'Classifying functions with exact synthesis', 'XXXX', '' )
+    ( ['wh', 'et', 'ms', 'gdm'],                                        'ismvl',    2017, 'Classifying functions with exact synthesis', 'XXXX', '' ),
+    ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -844,7 +846,7 @@ article_data = [
     ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',         168, "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',  'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
     ( ['np', 'ms', 'rw', 'rd'],                   'cps',           1,"1",       2016, 'Verifying the structure and behavior in UML/OCL models using satisfiability solvers',                                                    '49--59',   'http://digital-library.theiet.org/content/journals/10.1049/iet-cps.2016.0022' ),
     ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1, "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       '1-17',     'http://link.springer.com/article/10.1007/s10009-016-0426-1' ),
-    ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         -1, "",          0, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '',         '' )
+    ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         -1, "",          0, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '',         'https://doi.org/10.1109/TCAD.2017.2664059' )
 ]
 
 preprint_data = [
@@ -863,7 +865,8 @@ news_data = [
     ( 'aspdac', 2017 ),
     ( 'date', 2017 ),
     ( 'tcad', -1 ),
-    ( 'ismvl', 2017 )
+    ( 'ismvl', 2017 ),
+    ( 'dac', 2017 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
