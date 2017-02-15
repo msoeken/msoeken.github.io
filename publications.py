@@ -516,6 +516,9 @@ conferences_data = [
     ( 'gi', 'GI', 'Jahrestagung der Gesellschaft für Informatik', 'GI', [
         ( 2013, 'sep', 'Koblenz', 'Germany' )
     ] ),
+    ( 'glsvlsi', 'GLSVLSI', 'Great Lakes Symposium on VLSI', 'ACM', [
+        ( 2017, 'may', 'Banff, AB', 'Canada' )
+    ] ),
     ( 'hldvt', 'HLDVT', 'International Workshop on High-Level Design Validation and Test', 'IEEE', [
         ( 2012, 'nov', 'Huntington Beach, CA', 'USA' )
     ] ),
@@ -663,6 +666,7 @@ authors_data = [
     ( 'gf',  'Görschwin', 'Fey' ),
     ( 'gg',  'Guy', 'Gogniat' ),
     ( 'gwd', 'Gerhard W.', 'Dueck' ),
+    ( 'gz',  'Grace', 'Zgheib' ),
     ( 'hml', 'Hoang M.', 'Le' ),
     ( 'hr',  'Heinz', 'Riener' ),
     ( 'igh', 'Ian G.', 'Harris' ),
@@ -714,6 +718,9 @@ authors_data = [
     ( 'uk',  'Ulrich', 'Kühne' ),
     ( 'wc',  'Wouter', 'Castryck' ),
     ( 'wh',  'Winston', 'Haaswijk' ),
+    ( 'xt',  'Xifan', 'Tang' ),
+    ( 'yx',  'Yinshui', 'Xia' ),
+    ( 'zc',  'Zhufei', 'Chu' ),
     ( 'zs',  'Zahra', 'Sasanian' )
 ]
 
@@ -801,6 +808,7 @@ confpapers_data = [
     ( ['ms', 'mr', 'nw', 'gdm'],                                        'date',     2017, 'Design automation and design space exploration for quantum computers', 'XXXX', '' ),
     ( ['oz', 'adm', 'et', 'ms', 'peg', 'gdm', 'la', 'pr2', 'fc', 'rl'], 'date',     2017, 'Wave pipelining for majority-based beyond-CMOS technologies (invited special session)', 'XXXX', '' ),
     ( ['wh', 'et', 'ms', 'gdm'],                                        'ismvl',    2017, 'Classifying functions with exact synthesis', 'XXXX', '' ),
+    ( ['zc', 'xt', 'ms', 'ap', 'gz', 'la', 'yx', 'pi', 'gdm', 'peg'],   'glsvlsi',  2017, 'Improving circuit mapping performance through MIG-based synthesis for carry chains', 'XXXX', '' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', 'XXXX', '' )
 ]
 
@@ -866,6 +874,7 @@ news_data = [
     ( 'date', 2017 ),
     ( 'tcad', -1 ),
     ( 'ismvl', 2017 ),
+    ( 'glsvlsi', 2017 ),
     ( 'dac', 2017 )
 ]
 
