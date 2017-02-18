@@ -227,7 +227,7 @@ def format_bibtex_article( paper ):
     global capitalize
 
     journal = paper["journal"]
-    
+
     name = make_bibtex_title( journal["name"] )
     title = make_bibtex_title( paper['title'] )
 
@@ -307,7 +307,7 @@ def format_bibtex_preprint( paper ):
     print( "  volume    = {%s},"    % paper['id'] )
     print( "  keywords  = {preprint}" )
     print( "}" )
-    
+
 def format_haml_preprint( paper, id ):
     global months
 
@@ -537,7 +537,8 @@ conferences_data = [
         ( 2013, 'dec', 'Marrakesh', 'Marocco' )
     ] ),
     ( 'iscas', 'ISCAS', 'International Symposium on Circuits and Systems', 'IEEE', [
-        ( 2016, 'may', 'Montreal, QC', 'Canada' )
+        ( 2016, 'may', 'Montreal, QC', 'Canada' ),
+        ( 2017, 'may', 'Baltimore, MD', 'USA' )
     ] ),
     ( 'ismvl', 'ISMVL', 'International Symposium on Multiple-Valued Logic', 'IEEE', [
         ( 2011, 'may', 'Tuusula', 'Finland' ),
@@ -809,6 +810,7 @@ confpapers_data = [
     ( ['oz', 'adm', 'et', 'ms', 'peg', 'gdm', 'la', 'pr2', 'fc', 'rl'], 'date',     2017, 'Wave pipelining for majority-based beyond-CMOS technologies (invited special session)', 'XXXX', '' ),
     ( ['wh', 'et', 'ms', 'gdm'],                                        'ismvl',    2017, 'Classifying functions with exact synthesis', 'XXXX', '' ),
     ( ['zc', 'xt', 'ms', 'ap', 'gz', 'la', 'yx', 'pi', 'gdm', 'peg'],   'glsvlsi',  2017, 'Improving circuit mapping performance through MIG-based synthesis for carry chains', 'XXXX', '' ),
+    ( ['ms', 'peg', 'gdm'],                                             'iscas',    2017, 'RM3 based logic synthesis', 'XXXX', '' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', 'XXXX', '' )
 ]
 
@@ -875,6 +877,7 @@ news_data = [
     ( 'tcad', -1 ),
     ( 'ismvl', 2017 ),
     ( 'glsvlsi', 2017 ),
+    ( 'iscas', 2017 ),
     ( 'dac', 2017 )
 ]
 
@@ -919,7 +922,8 @@ invited_data = [
     ( 2016, 'apr', 'uni',  'birs',   'Dr. Martin Roetteler',                      'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www.birs.ca/events/2016/5-day-workshops/16w5029/videos/watch/201604181552-Soeken.html' ),
     ( 2016, 'may', 'uni',  'hu',     'Prof. Shin-ichi Minato',                    'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www-erato.ist.hokudai.ac.jp/html/php/seminar.php?day=20160517' ),
     ( 2016, 'sep', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'Symbolic and hierarchical reversible logic synthesis',                    '' ),
-    ( 2016, 'nov', 'uni',  'snps',   'Dr. Luca Amarù',                            'SAT-based logic synthesis',                                               '' )
+    ( 2016, 'nov', 'uni',  'snps',   'Dr. Luca Amarù',                            'SAT-based logic synthesis',                                               '' ),
+    ( 2017, 'feb', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'LUT-based hierarchical reversible logic synthesis',                       '' )
 ]
 
 invited = list( map( make_invited, invited_data ) )
@@ -929,7 +933,7 @@ def cmd_publications():
         if len( conf['shortname'] ) > 0:
             print( "@STRING{%s = {%s}}" % ( conf['shortname'], conf['name'] ) )
     print()
-    
+
     print( "@book{book1," )
     print( "  editor    = {Rolf Drechsler and Mathias Soeken and Robert Wille}," )
     print( "  title     = {Auf dem Weg zum Quantencomputer: Entwurf reversibler Logik (Technische Informatik)}," )
