@@ -550,10 +550,10 @@ conferences_data = [
     ] ),
     ( 'isvlsi', 'ISVLSI', 'IEEE Computer Society Annual Symposium on VLSI', 'IEEE', [
         ( 2008, 'apr', 'Montpellier', 'France' ),
-        ( 2012, 'aug', 'Armherst, CA', 'USA' )
+        ( 2012, 'aug', 'Amherst, MA', 'USA' )
     ] ),
     ( 'iwls', 'IWLS', 'International Workshop on Logic Synthesis', '', [
-        ( 2015, 'jul', 'Montaun View, CA', 'USA' ),
+        ( 2015, 'jul', 'Mountain View, CA', 'USA' ),
         ( 2016, 'jul', 'Austin, TX', 'USA' )
     ] ),
     ( 'iwsbp', 'IWSBP', 'International Workshop on Boolean Problems', '', [
@@ -1049,6 +1049,18 @@ def cmd_pdfs():
                 os.system( "convert -trim -resize x130 /tmp/%s-0.png images/thumbs/%s.png" % ( filename, filename ) )
         else:
             print( "[w] no PDF for \"%s\" (%s %d)" % ( c['title'], c['conf']['shortname'], c['year'] ) )
+
+def cmd_geo():
+    from geopy.geocoders import Nominatim
+    locator = Nominatim()
+    for k1, d in conferences.items():
+        for k2, v in d['venues'].items():
+            location = "%s, %s" % (v['city'], v['country'])
+            l = locator.geocode( location )
+            if l:
+                print( "  {title: '%s', position: {lat: %s, lng: %s}}," % (location, l.latitude, l.longitude) )
+            else:
+                print( "No geocode for %s" % v )
 
 if len( sys.argv ) == 2:
     globals()['cmd_%s' % sys.argv[1]]()
