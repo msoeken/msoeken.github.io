@@ -623,6 +623,7 @@ conferences_data = [
 
 journals_data = [
     ( 'cnf', 'Combustion and Flame', 'Elsevier', 'http://www.journals.elsevier.com/combustion-and-flame/' ),
+    ( 'computer', 'Computer', 'IEEE', 'https://www.computer.org/computer-magazine/' ),
     ( 'cps', 'Cyber-Physical Systems: Theory & Applications', 'IET', 'http://digital-library.theiet.org/content/journals/iet-cps;jsessionid=15e1smt7vf2ux.x-iet-live-01' ),
     ( 'integration', 'Integration', 'Elsevier', 'http://www.journals.elsevier.com/integration-the-vlsi-journal/' ),
     ( 'ipl', 'Information Processing Letters', 'Elsevier', 'http://www.journals.elsevier.com/information-processing-letters/' ),
@@ -856,7 +857,8 @@ article_data = [
     ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',         168, "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',  'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
     ( ['np', 'ms', 'rw', 'rd'],                   'cps',           1,"1",       2016, 'Verifying the structure and behavior in UML/OCL models using satisfiability solvers',                                                    '49--59',   'http://digital-library.theiet.org/content/journals/10.1049/iet-cps.2016.0022' ),
     ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1, "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       '1-17',     'http://link.springer.com/article/10.1007/s10009-016-0426-1' ),
-    ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         -1, "",          0, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '',         'https://doi.org/10.1109/TCAD.2017.2664059' )
+    ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         -1, "",          0, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '',         'https://doi.org/10.1109/TCAD.2017.2664059' ),
+    ( ['ms', 'peg', 'ss', 'rd', 'gdm'],           'computer',     -1, "",          0, 'A PLiM computer for the IoT',                                                                                                            '',         '' )
 ]
 
 preprint_data = [
