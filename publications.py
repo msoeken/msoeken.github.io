@@ -511,7 +511,8 @@ conferences_data = [
     ] ),
     ( 'gecco', 'GECCO', 'Genetic and Evolutionary Computation Conference', 'ACM', [
         ( 2015, 'jul', 'Madrid', 'Spain' ),
-        ( 2016, 'jul', 'Denver, CO', 'USA' )
+        ( 2016, 'jul', 'Denver, CO', 'USA' ),
+        ( 2017, 'jul', 'Berlin', 'Germany' )
     ] ),
     ( 'gi', 'GI', 'Jahrestagung der Gesellschaft für Informatik', 'GI', [
         ( 2013, 'sep', 'Koblenz', 'Germany' )
@@ -812,7 +813,8 @@ confpapers_data = [
     ( ['wh', 'et', 'ms', 'gdm'],                                        'ismvl',    2017, 'Classifying functions with exact synthesis', 'XXXX', '' ),
     ( ['zc', 'xt', 'ms', 'ap', 'gz', 'la', 'yx', 'pi', 'gdm', 'peg'],   'glsvlsi',  2017, 'Improving circuit mapping performance through MIG-based synthesis for carry chains', 'XXXX', '' ),
     ( ['ms', 'peg', 'gdm'],                                             'iscas',    2017, 'RM3 based logic synthesis', 'XXXX', '' ),
-    ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', 'XXXX', '' )
+    ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', 'XXXX', '' ),
+    ( ['ss', 'ms', 'dg', 'rd'],                                         'gecco',    2017, 'An adaptive prioritized ε-preferred evolutionary algorithm for approximate BDD optimization', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -880,7 +882,8 @@ news_data = [
     ( 'ismvl', 2017 ),
     ( 'glsvlsi', 2017 ),
     ( 'iscas', 2017 ),
-    ( 'dac', 2017 )
+    ( 'dac', 2017 ),
+    ( 'gecco', 2017 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
