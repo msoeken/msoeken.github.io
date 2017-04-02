@@ -598,7 +598,8 @@ conferences_data = [
         ( 2011, 'jul', 'Ghent', 'Belgium' ),
     ] ),
     ( 'rm', 'RM', 'Reed-Muller Workshop', '', [
-        ( 2015, 'may', 'Waterloo, ON', 'Canada' )
+        ( 2015, 'may', 'Waterloo, ON', 'Canada' ),
+        ( 2017, 'may', 'Novi Sad', 'Serbia' )
     ] ),
     ( 'sat', 'SAT', 'International Conference on Theory and Applications of Satisfiability Testing', 'Springer', [
         ( 2016, 'jul', 'Bordeaux', 'France' )
@@ -673,6 +674,7 @@ authors_data = [
     ( 'hml', 'Hoang M.', 'Le' ),
     ( 'hr',  'Heinz', 'Riener' ),
     ( 'igh', 'Ian G.', 'Harris' ),
+    ( 'ik',  'Ina', 'Kodrasi' ),
     ( 'jd',  'Jeroen', 'Demeyer' ),
     ( 'jl',  'Jiong', 'Luo' ),
     ( 'jp',  'Judith', 'Peters' ),
@@ -841,7 +843,8 @@ workpapers_data = [
     ( ['et', 'ms', 'la', 'peg', 'gdm'],       'iwls',       2016, 'Inversion minimization in majority-inverter graphs', 'XXXX', '' ),
     ( ['ms', 'pr', 'bs', 'ms2'],              'iwls',       2016, 'SAT-based functional dependency computation', 'XXXX', '' ),
     ( ['wh', 'ms', 'la', 'peg', 'gdm'],       'iwls',       2016, 'LUT mapping and optimization for majority-inverter graphs', 'XXXX', '' ),
-    ( ['ok', 'ms', 'rd'],                     'iwsbp',      2016, 'On the computational complexity of error metrics in approximate computing', 'XXXX', '' )
+    ( ['ok', 'ms', 'rd'],                     'iwsbp',      2016, 'On the computational complexity of error metrics in approximate computing', 'XXXX', '' ),
+    ( ['ms', 'ik', 'gdm'],                    'rm',         2017, 'Boolean function classification with δ-swaps', 'XXXX', '' )
 ]
 
 article_data = [
