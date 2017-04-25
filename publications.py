@@ -551,7 +551,8 @@ conferences_data = [
     ] ),
     ( 'isvlsi', 'ISVLSI', 'IEEE Computer Society Annual Symposium on VLSI', 'IEEE', [
         ( 2008, 'apr', 'Montpellier', 'France' ),
-        ( 2012, 'aug', 'Amherst, MA', 'USA' )
+        ( 2012, 'aug', 'Amherst, MA', 'USA' ),
+        ( 2017, 'jul', 'Bochum', 'Germany' )
     ] ),
     ( 'iwls', 'IWLS', 'International Workshop on Logic Synthesis', '', [
         ( 2015, 'jul', 'Mountain View, CA', 'USA' ),
@@ -650,6 +651,7 @@ authors_data = [
     ( 'am',  'Alan', 'Mishchenko' ),
     ( 'ap',  'Ana', 'Petkovska' ),
     ( 'asa', 'Amr', 'Sayed Ahmed' ),
+    ( 'av',  'Adrien', 'Vaysset' ),
     ( 'bb',  'Bernd', 'Becker' ),
     ( 'bs',  'Baruch', 'Sterin' ),
     ( 'bs2', 'Benoit', 'Seguin' ),
@@ -697,6 +699,7 @@ authors_data = [
     ( 'mk',  'Mirko', 'Kuhlmann' ),
     ( 'mkt', 'Michael Kirkedal', 'Thomsen' ),
     ( 'mm',  'Marc', 'Michael' ),
+    ( 'mm2', 'Mauricio', 'Manfrini' ),
     ( 'mmr', 'Md. Mazder', 'Rahman' ),
     ( 'mn',  'Max', 'Nitze' ),
     ( 'mr',  'Martin', 'Roetteler' ),
@@ -822,7 +825,8 @@ confpapers_data = [
     ( ['zc', 'xt', 'ms', 'ap', 'gz', 'la', 'yx', 'pi', 'gdm', 'peg'],   'glsvlsi',  2017, 'Improving circuit mapping performance through MIG-based synthesis for carry chains', 'XXXX', '' ),
     ( ['ms', 'peg', 'gdm'],                                             'iscas',    2017, 'RM3 based logic synthesis', 'XXXX', '' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', 'XXXX', '' ),
-    ( ['ss', 'ms', 'dg', 'rd'],                                         'gecco',    2017, 'An adaptive prioritized ε-preferred evolutionary algorithm for approximate BDD optimization', 'XXXX', '' )
+    ( ['ss', 'ms', 'dg', 'rd'],                                         'gecco',    2017, 'An adaptive prioritized ε-preferred evolutionary algorithm for approximate BDD optimization', 'XXXX', '' ),
+    ( ['et', 'oz', 'ms', 'av', 'mm2', 'rl', 'gdm'],                     'isvlsi',   2017, 'Inverter propagation and fan-out constraints for beyond-CMOS majority-based technologies', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -898,7 +902,8 @@ news_data = [
     ( 'glsvlsi', 2017 ),
     ( 'iscas', 2017 ),
     ( 'dac', 2017 ),
-    ( 'gecco', 2017 )
+    ( 'gecco', 2017 ),
+    ( 'isvlsi', 2017 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
