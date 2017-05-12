@@ -59,15 +59,22 @@ def make_news( data ):
     global journals
     global confpapers
     global articles
+    global authors
 
-    d = dict_from_tuple( ['name', 'year'], data )
-
-    if d['name'] in conferences:
-        d['type'] = 'conf'
-        d['papers'] = list( reversed( [p for p in confpapers if p['conf']['key'] == d['name'] and p['year'] == d['year']] ) )
+    if data[0] == 'tutorial':
+        d = dict_from_tuple( ['type', 'name', 'url', 'introduction', 'authors', 'location'], data )
+        d['authors'] = [authors[k] for k in d['authors']]
+        d['conf'] = conferences[d['location'][0]]
+        d['year'] = d['location'][1]
     else:
-        d['type'] = 'journal'
-        d['papers'] = list( reversed( [a for a in articles if a['journal']['key'] == d['name'] and a['volume'] == d['year']] ) )
+        d = dict_from_tuple( ['name', 'year'], data )
+
+        if d['name'] in conferences:
+            d['type'] = 'conf'
+            d['papers'] = list( reversed( [p for p in confpapers if p['conf']['key'] == d['name'] and p['year'] == d['year']] ) )
+        else:
+            d['type'] = 'journal'
+            d['papers'] = list( reversed( [a for a in articles if a['journal']['key'] == d['name'] and a['volume'] == d['year']] ) )
 
     return d
 
@@ -372,6 +379,14 @@ def format_haml_news( news ):
             for p in papers:
                 article += "    %%li\n      %%a(href=\"publications.html#j%i\") %s\n" % ( articles.index( p) + 1, p["title"] )
         print( "  The article%s\n%s  got accepted for publication in\n  %%i %s.\n  %%a.badge(href=\"publications.html\") publication" % ( "s" if len( papers ) > 1 else "", article, papers[0]["journal"]["name"] ) )
+    if news['type'] == "tutorial":
+        print( "  %s\n  %%a(href=\"%s\" target=\"_blank\") %s" % (news['introduction'], news['url'], news['name']) )
+        if len( news['authors'] ) > 0:
+            authors = ", ".join( "%s %s" % ( a['firstname'], a['lastname'] ) for a in news['authors'] )
+            print( "  with %s" % authors )
+        conf = news['conf']
+        venue = conf['venues'][news['year']]
+        print( "  in %s, %s at the %s %d conference.\n  %%a.badge(href=\"#\") tutorial" % (venue['city'], venue['country'], conf['shortname'], news['year']) )
 
 def write_publications():
     global confpapers
@@ -587,6 +602,9 @@ conferences_data = [
     ( 'naturalise', 'NaturaLiSE', 'International Workshop on Natural Language Analysis in Software Engineering', '', [
         ( 2013, 'may', 'San Francisco, CA', 'USA' )
     ] ),
+    ( 'newcas', 'NEWCAS', 'International NEWCAS Conference', 'IEEE', [
+        ( 2017, 'jun', 'Strasbourg', 'France' )
+    ] ),
     ( 'rc', 'RC', 'Conference on Reversible Computation', 'Springer', [
         ( 2011, 'jul', 'Ghent', 'Belgium' ),
         ( 2012, 'jul', 'Copenhagen', 'Denmark' ),
@@ -769,7 +787,7 @@ confpapers_data = [
     ( ['na', 'ms', 'rw', 'rd'],                                         'ismvl',    2013, 'Exact template matching using Boolean satisfiability', '328--333', 'http://dx.doi.org/10.1109/ISMVL.2013.26' ),
     ( ['lt', 'ms', 'sim', 'rd'],                                        'ismvl',    2013, 'Debugging of reversible circuits using πDDs', '316--321', 'http://dx.doi.org/10.1109/ISMVL.2013.22' ),
     ( ['md', 'ms', 'dg', 'rd'],                                         'ast',      2013, 'Towards automatic scenario generation from coverage information', '82--88', 'http://dx.doi.org/10.1109/IWAST.2013.6595796' ),
-    ( ['ms', 'rd', 'rxf'],                                              'dgk',      2013, 'Evaluation of site occupancy factors in crystal structure refinements using Boolean satisfiability techniques', 'XXXX', '' ),
+    ( ['ms', 'rd', 'rxf'],                                              'dgk',      2013, 'Evaluation of site occupancy factors in crystal structure refinements using Boolean satisfiability techniques', '19', 'https://doi.org/10.1524/9783486858983.19' ),
     ( ['rd', 'ms'],                                                     'ddecs',    2013, 'Hardware-software co-visualization: Developing systems in the holodeck', '1--4', 'http://dx.doi.org/10.1109/DDECS.2013.6549775' ),
     ( ['na', 'rw', 'ms', 'rd'],                                         'rc',       2013, 'Reducing the depth of quantum circuits using additional lines', '221--233', 'http://dx.doi.org/10.1007/978-3-642-38986-3_18' ),
     ( ['ms', 'mkt'],                                                    'rc',       2013, 'White dots do matter: Rewriting reversible logic circuits', '196--208', 'http://dx.doi.org/10.1007/978-3-642-38986-3_16' ),
@@ -903,7 +921,9 @@ news_data = [
     ( 'iscas', 2017 ),
     ( 'dac', 2017 ),
     ( 'gecco', 2017 ),
-    ( 'isvlsi', 2017 )
+    ( 'isvlsi', 2017 ),
+    ( 'tutorial', 'Design Automation for Quantum Computing', 'https://newcas2017.org/tutorials/', 'I am holding the tutorial', [], ('newcas', 2017) ),
+    ( 'tutorial', 'Logic synthesis is everywhere', 'http://www2.dac.com/events/eventdetails.aspx?id=223-225', 'I am organizing the tutorial', ['am', 'la', 'rkb'], ('dac', 2017) ),
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
