@@ -9,8 +9,13 @@
         = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "cirkit")
         .col-md-9
           %h1 Tutorials
+          %h4 CirKit / General
           %ul
             %li
               %a(href="cirkit_new_addon.html") Getting started with CirKit development with add-ons
             %li
               %a(href="cirkit_examples.html") CirKit showcase
+          %h4 RevKit
+          %ul
+            %li
+              %a(href="revkit_new_command.html") Adding a command to RevKit

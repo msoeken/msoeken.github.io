@@ -1,0 +1,187 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / Adding a command to RevKit')
+    %link(href="css/highlight.css" rel="stylesheet")
+    %script(src="js/highlight.pack.js")
+    %script(src="js/cirkit_highlight.js")
+
+    %link(href="css/doc.css" rel="stylesheet")
+  %body
+    .container#main-container
+      .row#main-row
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "revkit")
+        .col-md-9.block
+          %h1 Adding a command to RevKit
+          %p
+            This tutorial explains how to integrate a new simple command into RevKit.  As an example, a command called
+            %kbd unopt
+            is implemented, that copies gate in a reversible circuit without modifying the functionality.
+          %p
+            CirKit provides utility scripts in order to create new files easily. We create a file for the new command using the following script:
+          %pre
+            :preserve
+              ./utils/make_src_file.py reversible/cli/commands/unopt reversible
+          %p
+            Note, that the first argument is the path to the filename without the
+            %i src/
+            in the beginning and without an extension in the end.  Two files, a header and a source file, are created.
+            The second parameter ensures that the files are created for the RevKit add-on.
+            The third parameter is optional and can have a name of the file author.
+            If not specified, the name is fetched from the user's git configuration.
+          %p
+            The header file in
+            %i addons/cirkit-addon-reversible/src/reversible/cli/commands/unopt.hpp
+            contains already some skeleton code and we extend it as follows (all comments are omitted in the code):
+          %pre
+            %code.cpp
+              :preserve
+                // unopt.hpp
+                #ifndef CLI_UNOPT_COMMAND_HPP
+                #define CLI_UNOPT_COMMAND_HPP
+
+                #include &lt;core/cli/cirkit_command.hpp&gt;
+
+                namespace cirkit
+                {
+
+                class unopt_command : public cirkit_command
+                {
+                public:
+                  unopt_command( const environment::ptr& env );
+                  rules_t validity_rules() const;
+
+                protected:
+                  bool execute();
+
+                private:
+                  unsigned copies = 1u;
+                };
+
+                }
+
+                #endif
+          %p
+            We define a command with the base class
+            %code cirkit_command
+            :plain
+              .
+            It is important that the class name is
+            %code unopt_command
+            to be used in later code that makes use of macros and relies on some naming conventions.
+            Two methods need to be implemented, the constructor that will set up the arguments which can be passed to the command, and
+            %code execute
+            which executes the code and calls our algorithm.
+            We also implement the method
+            %code validity_rules
+            to ensure that the store contains at least one reversible circuit when calling the command.
+            More details on how to write commands can be found in the
+            %a(href="https://github.com/msoeken/cirkit/blob/master/programs/core/abc_cli.cpp" target="_blank") abc_cli
+            example program.
+          %p
+            Next we implement both these methods in the source file:
+          %pre
+            %code.cpp
+              :preserve
+                // unopt.cpp
+                #include "unopt.hpp"
+
+                #include &lt;alice/rules.hpp&gt;
+                #include &lt;core/utils/program_options.hpp&gt;
+                #include &lt;reversible/target_tags.hpp&gt;
+                #include &lt;reversible/cli/stores.hpp&gt;
+                #include &lt;reversible/functions/copy_metadata.hpp&gt;
+
+                namespace cirkit
+                {
+
+                unopt_command::unopt_command( const environment::ptr& env )
+                  : cirkit_command( env, "unoptimize circuits" )
+                {
+                  opts.add_options()
+                    ( "copies,c", value_with_default( &copies ), "number of gate copies" )
+                    ;
+
+                  add_new_option(); /* adds a flag --new, or -n that can be used to add a new
+                                       store entry instead of overwriting it */
+                }
+
+                command::rules_t unopt_command::validity_rules() const
+                {
+                  return {has_store_element&lt;circuit&gt;( env )};
+                }
+
+                bool unopt_command::execute()
+                {
+                  auto& circuits = env->store&lt;circuit&gt;(); /* access store with reversible circuits */
+
+                  /* reference to current circuit, and new circuit with same properties */
+                  const auto& circ = circuits.current();
+                  circuit circ_new;
+                  copy_metadata( circ, circ_new );
+
+                  for ( const auto& g : circ )     /* iterate through the gates */
+                  {
+                    circ_new.append_gate() = g;    /* copy existing gate */
+                    if ( is_toffoli( g ) )         /* some more copies, if gate is Toffoli */
+                    {
+                      for ( auto i = 0u; i < 2u * copies; ++i )
+                      {
+                        circ_new.append_gate() = g;
+                      }
+                    }
+                  }
+
+                  extend_if_new( circuits ); /* extend store by empty element if --new option is set */
+                  circuits.current() = circ_new;
+
+                  return true; /* always return true */
+                }
+
+                }
+          %p
+            The function should always return <code>true</code>.
+          %p
+            We are almost done.  Next, we add the command to the RevKit executable.  For this purpose, open the file
+            %i addons/cirkit-addon-reversible/programs/reversible/revkit.cpp
+            and add the following header, where other headers are included:
+          %pre
+            %code.cpp
+              :preserve
+                #include &lt;reversible/cli/commands/unopt.hpp&gt;
+          %p
+            And then add the command in the same style as other commands are added using:
+          %pre
+            %code.cpp
+              :preserve
+                ADD_COMMAND( unopt );
+          %p
+            That's it.  We rebuild RevKit with
+          %pre
+            :preserve
+              make -C build revkit
+          %p
+            and then call it to try out the new command:
+          %pre
+            %code.cirkit
+              :preserve
+                revkit> read_spec -p "0 4 2 1 0 3 7 5"
+                revkit> tbs
+                [i] run-time: 0.00 secs
+                revkit> ps -c
+                Lines:        3
+                Gates:        7
+                T-count:      21
+                Logic qubits: 4
+                revkit> unopt
+                revkit> ps -c
+                Lines:        3
+                Gates:        21
+                T-count:      63
+                Logic qubits: 4
+          %h4 Exercises
+          %p
+            Here are some suggestions for exercises (with a difficulty estimation from 0&ndash;50) to extend the add-on.
+          %ol
+            %li
+              [25] Copy all gates which are self-inverse in this manner based on a syntactic comparison.

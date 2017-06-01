@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta content='IE=edge' http-equiv='X-UA-Compatible'>
     <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <title>Mathias Soeken / Logic Synthesis Interactive Handbook</title>
+    <title>Mathias Soeken / Quantum Computing</title>
     <link href='css/bootstrap.min.css' rel='stylesheet'>
     <link href='css/custom.css' rel='stylesheet'>
     <script>
@@ -16,7 +16,7 @@
       ga('create', 'UA-70660599-1', 'auto');
       ga('send', 'pageview', location.pathname);
     </script>
-    <link href='css/exl.css' rel='stylesheet'>
+    <link href='css/doc.css' rel='stylesheet'>
   </head>
   <body>
     <div class='container' id='main-container'>
@@ -104,66 +104,68 @@
           </ul>
         </div>
         <div class='col-md-9'>
-          <h1>Logic Synthesis Interactive Handbook</h1>
-          <h2>Exorlink</h2>
-          <p style='text-align: justify'>
-            Let
-            <i>f</i>
-            be an ESOP expression over
-            <i>n</i>
-            variables. Then each product term in
-            <i>f</i>
-            consists of literals. Each of the
-            <i>n</i>
-            variables can occur in three different ways in a product term. Either it is contained as a positive literal, it is contained as a negative literal, or it is not contained at all. When comparing two product terms, the distance of these two terms is the number of variables that are different in both terms.
-          </p>
-          <p style='text-align: justify'>
-            A pair of two product terms with distance
-            <i>d</i>
-            can be transformed into an ESOP expression with
-            <i>d</i>
-            terms using the
-            <i>Exorlink</i>
-            operation. One can think of the Exorlink operation as a chain of transformation, &ldquo;adjusting&rdquo; one different position at the time. Since there are
-            <i>d!</i>
-            different ways of choosing the order of positions, one can obtain
-            <i>d!</i>
-            different ESOP expressions using the Exorlink operation.
-          </p>
-          <h4>Interactive Example</h4>
-          <div class='panel panel-info'>
-            <div class='panel-heading'>Configure the product terms by clicking on the literals</div>
-            <div class='panel-body'>
-              <div class='exl-editor'><div class='exl-digit' data-state='p' data-var='a' id='digit-a1'>a</div><div class='exl-digit' data-state='p' data-var='b' id='digit-a2'>b</div><div class='exl-digit' data-state='p' data-var='c' id='digit-a3'>c</div><div class='exl-digit' data-state='p' data-var='d' id='digit-a4'>d</div><div class='exl-oplus'>&oplus;</div><div class='exl-digit' data-state='p' data-var='a' id='digit-b1'>a</div><div class='exl-digit' data-state='p' data-var='b' id='digit-b2'>b</div><div class='exl-digit' data-state='p' data-var='c' id='digit-b3'>c</div><div class='exl-digit' data-state='p' data-var='d' id='digit-b4'>d</div></div>
-              <p style='margin-top: 10px; margin-bottom: 0px'>
-                The two cubes have a distance of
-                <span id='exl-distance'>0.</span>
-                Orange boxes show in which both products differ. If you have a distance of at least 1, you can pick a permutation in which order the cubes are modified
-              </p>
-            </div>
-          </div>
-          <div class='panel panel-info'>
-            <div class='panel-heading'>Configure the permutation by dragging the numbers around</div>
-            <div class='panel-body'>
-              <div class='exl-editor' id='exl-permutation'></div>
-              <p id='exl-result'></p>
-            </div>
-          </div>
-          <p>
-            [1] N. Song: Minimization of exclusive sum of product expressions for multi-valued input incompletely specified functions,
-            <i>M.S. thesis,</i>
-            Portland State University, 1992.
-          </p>
-          <p>
-            [2] A. Mishchenko and M. Perkowski: Fast heuristic minimization of exclusive-sum-of-products, in:
-            <i>Reed Muller Workshop</i>
-            2001.
-          </p>
+          <h1>Quantum Computing</h1>
+          <h4>Recommended News Articles</h4>
+          <h5>Nature</h5>
+          <ul>
+            <li>
+              March 6, 2017:
+              <a href='http://www.nature.com/news/ibm-s-quantum-cloud-computer-goes-commercial-1.21585' target='_blank'>IBM's quantum cloud computer goes commercial</a>
+              (Davide Castelvecchi)
+            </li>
+            <li>
+              January 3, 2017:
+              <a href='http://www.nature.com/news/quantum-computers-ready-to-leap-out-of-the-lab-in-2017-1.21239' target='_blank'>Quantum computers ready to leap out of the lab in 2017</a>
+              (Davide Castelvecchi)
+            </li>
+            <li>
+              October 21, 2016:
+              <a href='http://www.nature.com/news/inside-microsoft-s-quest-for-a-topological-quantum-computer-1.20774' target='_blank'>Inside Microsoft’s quest for a topological quantum computer</a>
+              (Elizabeth Gibney)
+            </li>
+          </ul>
+          <h5>MIT Technology Review</h5>
+          <ul>
+            <li>
+              April 21, 2017:
+              <a href='https://www.technologyreview.com/s/604242/googles-new-chip-is-a-stepping-stone-to-quantum-computing-supremacy/' target='_blank'>Google’s New Chip Is a Stepping Stone to Quantum Computing Supremacy</a>
+              (Tom Simonite)
+            </li>
+            <li>
+              April 11, 2017:
+              <a href='https://www.technologyreview.com/s/604140/a-milestone-for-quantum-computing/' target='_blank'>Supercomputer Simulation Offers Peek at the Future of Quantum Computers</a>
+            </li>
+          </ul>
+          <h5>Others</h5>
+          <ul>
+            <li>
+              April 28, 2017:
+              <a href='https://www.computerworld.com.au/article/618323/inside-microsoft-soup-nuts-quantum-computing-ramp-up/' target='_blank'>Inside Microsoft's 'soup to nuts' quantum computing ramp-up</a>
+              (George Nott, Computerworld)
+            </li>
+            <li>
+              March 30, 2017:
+              <a href='https://www.aspistrategist.org.au/isnt-quantum-supremacy/' target='_blank'>The “is” and “isn’t” of quantum supremacy</a>
+              (Patrick Kennedy, Australian Strategic Policy Institute)
+            </li>
+            <li>
+              March 9, 2017:
+              <a href='http://www.economist.com/technology-quarterly/2017-03-09/quantum-devices' target='_blank'>Quantum devices: Here, there and everywhere</a>
+              (The Economist, Technology Quarterly)
+            </li>
+            <li>
+              December 22, 2016:
+              <a href='https://www.digitaltrends.com/computing/intel-silicon-qubits-quantum-computer/' target='_blank'>Intel will leverage its chip-making expertise for quantum research</a>
+              (Brad Jones, Digital Trends)
+            </li>
+            <li>
+              December 20, 2016:
+              <a href='http://www.techradar.com/news/why-microsoft-believes-were-on-the-threshold-of-quantum-computing' target='_blank'>Why Microsoft believes we’re on the threshold of quantum computing</a>
+              (Mary Branscombe, techradar.pro)
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <script src='js/jquery.min.js'></script>
-    <script src='js/jquery-ui.min.js'></script>
-    <script src='js/exl.js'></script>
   </body>
 </html>

@@ -1,0 +1,58 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / Quantum Computing')
+    %link(href="css/doc.css" rel="stylesheet")
+  %body
+    .container#main-container
+      .row#main-row
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "research")
+        .col-md-9
+          %h1 Quantum Computing
+          %h4 Recommended News Articles
+          %h5 Nature
+          %ul
+            %li
+              March 6, 2017:
+              %a(href="http://www.nature.com/news/ibm-s-quantum-cloud-computer-goes-commercial-1.21585" target="_blank") IBM's quantum cloud computer goes commercial
+
+              (Davide Castelvecchi)
+            %li
+              January 3, 2017:
+              %a(href="http://www.nature.com/news/quantum-computers-ready-to-leap-out-of-the-lab-in-2017-1.21239" target="_blank") Quantum computers ready to leap out of the lab in 2017
+              (Davide Castelvecchi)
+            %li
+              October 21, 2016:
+              %a(href="http://www.nature.com/news/inside-microsoft-s-quest-for-a-topological-quantum-computer-1.20774" target="_blank") Inside Microsoft’s quest for a topological quantum computer
+              (Elizabeth Gibney)
+          %h5 MIT Technology Review
+          %ul
+            %li
+              April 21, 2017:
+              %a(href="https://www.technologyreview.com/s/604242/googles-new-chip-is-a-stepping-stone-to-quantum-computing-supremacy/" target="_blank") Google’s New Chip Is a Stepping Stone to Quantum Computing Supremacy
+              (Tom Simonite)
+            %li
+              April 11, 2017:
+              %a(href="https://www.technologyreview.com/s/604140/a-milestone-for-quantum-computing/" target="_blank") Supercomputer Simulation Offers Peek at the Future of Quantum Computers
+          %h5 Others
+          %ul
+            %li
+              April 28, 2017:
+              %a(href="https://www.computerworld.com.au/article/618323/inside-microsoft-soup-nuts-quantum-computing-ramp-up/" target="_blank") Inside Microsoft's 'soup to nuts' quantum computing ramp-up
+              (George Nott, Computerworld)
+            %li
+              March 30, 2017:
+              %a(href="https://www.aspistrategist.org.au/isnt-quantum-supremacy/" target="_blank") The “is” and “isn’t” of quantum supremacy
+              (Patrick Kennedy, Australian Strategic Policy Institute)
+            %li
+              March 9, 2017:
+              %a(href="http://www.economist.com/technology-quarterly/2017-03-09/quantum-devices" target="_blank") Quantum devices: Here, there and everywhere
+              (The Economist, Technology Quarterly)
+            %li
+              December 22, 2016:
+              %a(href="https://www.digitaltrends.com/computing/intel-silicon-qubits-quantum-computer/" target="_blank") Intel will leverage its chip-making expertise for quantum research
+              (Brad Jones, Digital Trends)
+            %li
+              December 20, 2016:
+              %a(href="http://www.techradar.com/news/why-microsoft-believes-were-on-the-threshold-of-quantum-computing" target="_blank") Why Microsoft believes we’re on the threshold of quantum computing
+              (Mary Branscombe, techradar.pro)
