@@ -7,8 +7,88 @@
     .container#main-container
       .row#main-row
         = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "research")
-        .col-md-9
+        .col-md-9.block
           %h1 Quantum Computing
+          %h4 What is Quantum Computing
+          %p
+            %small
+              %i This introduction to quantum computing was written for the SIGDA newsletter.
+          %p
+            Quantum computers perform computations based on the counter-intuitive
+            effects of quantum mechanics, which allows them to solve some problems
+            in a lower complexity compared to classical computers.  What is a bit
+            to classical computers is a qubit to quantum computers.  A qubit's two
+            most powerful properties are superposition and entanglement.
+            Superposition enables qubits to represent exponential many states at
+            the same time.  Entanglement allows to affect the state of several
+            qubits, even when operating only on a single one.  Several quantum
+            algorithms have already been discovered, which can harness the power
+            of a quantum computer to eventually solve complex problems more
+            efficiently.  The most prominent one is arguably Shor's algorithm that
+            can factorize integers in polynomial time.  However, other more
+            abstract algorithms play a significant role in scientific applications
+            of high interest.  These are Grover's search algorithm which enables
+            faster database queries, the HHL algorithm which brings an exponential
+            speedup to solve linear equations, and quantum simulation to model
+            atomic-scale interactions efficiently, allowing to approximate
+            behavior in drugs, organics, and materials in areas like medicine,
+            chemistry, and engineering, respectively [1].
+          %p
+            The progress in building physical fully-programmable quantum computers
+            has rapidly accelerated in the last few years [2].  Examples are the
+            17-qubit quantum computer from IBM based on superconducting circuits
+            (a 16-qubit variant can be freely accessed and programmed via a cloud
+            service), the 9-qubit quantum computer from Google based on
+            superconducting qubits [3], and the 5-qubit ion trap based quantum
+            computer developed at the University of Maryland [4].  Microsoft is
+            working on a topological quantum computer.  So far, no physical
+            topological quantum computer has been demonstrated, however,
+            topological qubits promise to be far superior compared to the
+            superconducting ones, thereby requiring less error correction and
+            therefore enabling larger scalability.  Intel is aiming at developing
+            a silicon qubit arguing that they are more likely to scale up to
+            thousand or millions of qubits [5].
+          %p
+            Researchers call "quantum supremacy" an experiment that demonstrates a
+            calculation that is beyond the reach of any conventional computer [6].
+            It is believed that one needs a quantum computer that operates on at
+            least 49 qubits to show quantum supremacy [7].  Quantum algorithms can
+            be simulated classically on supercomputers by explicitly representing
+            all quantum states using exponential-size memory.  The world record in
+            simulated qubits is currently at 45 qubits, which were simulated on
+            the Cori II supercomputer using 8192 nodes and 0.5 petabytes of memory
+            [8].  The computational task in that experiment is the execution of
+            low-depth random quantum circuits, which beyond the demonstration of
+            quantum supremacy is not scientifically useful.  But there exist very
+            practical problems that can be solvable with just a few more qubits.
+            It is assumed that it takes 100 qubits for a thorough analysis of the
+            energy-intensive nitrogenase reaction to make fertilizer in just a few
+            days, whereas todays supercomputers need billion of years.  The
+            implication of such an analysis might be a cut of 1&ndash;2% in global
+            natural-gas consumption [9].
+          %p
+            The efforts in developing software to program quantum computers once
+            they are available is comparatively small compared to what has been
+            done in designing hardware for quantum computing.  While for quantum
+            computers the aim is to increase the number of qubits that can be
+            programmed, at the software and design automation side researchers try
+            to reduce the number of qubits and quantum interactions that are
+            required to implement a quantum algorithm.  Microsoft is pushing
+            forward this field and aims to support the whole software stack,
+            starting from user interfaces and code compilers to machine
+            instructions that are suitable to run on various physical quantum
+            computers.  Design automation is crucial to realize quantum algorithms
+            using few qubits and few operations.  While for example the quantum
+            linear systems algorithm requires only 100 quantum bits to encode a
+            2<sup>100</sup> &times; 2<sup>100</sup> matrix inversion problem [10], clearly demonstrating the
+            advantage that can be gained by using a quantum computer, in prior
+            approaches, the reciprocal step (1/x) that is part of the calculation
+            can require in excess of 500 quantum bits.  This means that
+            arithmetic may dominate the number of qubits of that algorithm [11],
+            diminishing the potential improvements of a quantum algorithmic
+            implementation.  Recent research in design automation therefore
+            addresses the efficient compilation of classical arithmetic components
+            such as floating point components into quantum operations [12].
           %h4 Recommended News Articles
           %h5 Nature
           %ul
