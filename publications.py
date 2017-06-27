@@ -461,7 +461,7 @@ def format_haml_invited( invited ):
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
-replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("πDD", "{$\\pi$DD}"), ("&", "\&")]
+replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("δ", "{$\\delta$}"), ("πDD", "{$\\pi$DD}"), ("&", "\&")]
 
 conferences_data = [
     ( 'apms', 'APMS', 'Advances in Production Management Systems', 'IFIP', [
@@ -543,7 +543,8 @@ conferences_data = [
     ] ),
     ( 'iccad', 'ICCAD', 'International Conference on Computer-Aided Design', 'IEEE', [
         ( 2014, 'nov', 'San Jose, CA', 'USA' ),
-        ( 2016, 'nov', 'Austin, TX', 'USA' )
+        ( 2016, 'nov', 'Austin, TX', 'USA' ),
+        ( 2017, 'nov', 'Irvine, CA', 'USA' )
     ] ),
     ( 'icgt', 'ICGT', 'International Conference on Graph Transformation', 'Springer', [
         ( 2012, 'sep', 'Bremen', 'Germany' )
@@ -702,6 +703,7 @@ authors_data = [
     ( 'ik',  'Ina', 'Kodrasi' ),
     ( 'jd',  'Jeroen', 'Demeyer' ),
     ( 'jl',  'Jiong', 'Luo' ),
+    ( 'jo',  'Janet', 'Olson' ),
     ( 'jp',  'Judith', 'Peters' ),
     ( 'jpd', 'Jean-Philippe', 'Diguet' ),
     ( 'js',  'Julia', 'Seiter' ),
@@ -844,7 +846,8 @@ confpapers_data = [
     ( ['ms', 'peg', 'gdm'],                                             'iscas',    2017, 'RM3 based logic synthesis', 'XXXX', '' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', 'XXXX', '' ),
     ( ['ss', 'ms', 'dg', 'rd'],                                         'gecco',    2017, 'An adaptive prioritized ε-preferred evolutionary algorithm for approximate BDD optimization', 'XXXX', '' ),
-    ( ['et', 'oz', 'ms', 'av', 'mm2', 'rl', 'gdm'],                     'isvlsi',   2017, 'Inverter propagation and fan-out constraints for beyond-CMOS majority-based technologies', 'XXXX', '' )
+    ( ['et', 'oz', 'ms', 'av', 'mm2', 'rl', 'gdm'],                     'isvlsi',   2017, 'Inverter propagation and fan-out constraints for beyond-CMOS majority-based technologies', 'XXXX', '' ),
+    ( ['la', 'ms', 'pv', 'jl', 'am', 'peg', 'jo', 'rkb', 'gdm'],        'iccad',    2017, 'Enabling exact delay synthesis', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -926,6 +929,7 @@ news_data = [
     ( 'computer', 50 ),
     ( 'tutorial', 'Design Automation for Quantum Computing', 'https://newcas2017.org/tutorials/', 'I am holding the tutorial', [], ('newcas', 2017) ),
     ( 'tutorial', 'Logic synthesis is everywhere', 'http://www2.dac.com/events/eventdetails.aspx?id=223-225', 'I am organizing the tutorial', ['am', 'la', 'rkb'], ('dac', 2017) ),
+    ( 'iccad', 2017 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )

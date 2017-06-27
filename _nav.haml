@@ -2,33 +2,33 @@
   %ul.nav.nav-pills.nav-stacked
     %li(role="presentation"){:class => ("active" if page == "index" )}
       %a(href="index.html")
-        %span.glyphicon.glyphicon-user
+        %i.fa.fa-user(aria-hidden="true")
         .text
           About me
     %li(role="presentation"){:class => ("active" if page == "research" )}
       %a(href="research.html")
-        %span.glyphicon.glyphicon-pencil
+        %i.fa.fa-graduation-cap(aria-hidden="true")
         .text
           Research
     %li(role="presentation"){:class => ("active" if page == "teaching" )}
       %a(href="teaching.html")
-        %span.glyphicon.glyphicon-education
+        %i.fa.fa-users(aria-hidden="true")
         .text
           Teaching
     %li(role="presentation"){:class => ("active" if page == "publications" )}
       %a(href="publications.html")
-        %span.glyphicon.glyphicon-book
+        %i.fa.fa-users(aria-hidden="true")
         .text
           Publications
     %li(role="presentation"){:class => ("active" if page == "talks" )}
       %a(href="talks.html")
-        %span.glyphicon.glyphicon-bullhorn
+        %i.fa.fa-microphone(aria-hidden="true")
         .text
           Invited Talks
     .nav-sep Software
     %li(role="presentation"){:class => ("active" if page == "cirkit" )}
       %a.tool(href="cirkit.html")
-        %span.glyphicon.glyphicon-cd
+        %i.fa.fa-floppy-o(aria-hidden="true")
         .text
           CirKit
     %li
@@ -38,7 +38,7 @@
         %a(href="tutorials.html") tutorials
     %li(role="presentation"){:class => ("active" if page == "revkit" )}
       %a.tool(href="revkit.html")
-        %span.glyphicon.glyphicon-cd
+        %i.fa.fa-floppy-o(aria-hidden="true")
         .text
           RevKit
     %li
