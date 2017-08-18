@@ -900,7 +900,8 @@ article_data = [
     ( ['np', 'ms', 'rw', 'rd'],                   'cps',           1,  "1",      2016, 'Verifying the structure and behavior in UML/OCL models using satisfiability solvers',                                                    '49--59',   'http://digital-library.theiet.org/content/journals/10.1049/iet-cps.2016.0022' ),
     ( ['ms', 'peg', 'ss', 'rd', 'gdm'],           'computer',     50,  "6",      2017, 'A PLiM computer for the Internet of Things',                                                                                             '35--40',   'https://doi.org/10.1109/MC.2017.173' ),
     ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1,  "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       '1-17',     'http://link.springer.com/article/10.1007/s10009-016-0426-1' ),
-    ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         -1,  "",          0, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '',         'https://doi.org/10.1109/TCAD.2017.2664059' )
+    ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         -1,  "",          0, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '',         'https://doi.org/10.1109/TCAD.2017.2664059' ),
+    ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         -1,  "",          0, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '',         '' )
 ]
 
 preprint_data = [
