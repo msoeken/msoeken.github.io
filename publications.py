@@ -910,7 +910,7 @@ article_data = [
     ( ['ms', 'peg', 'ss', 'rd', 'gdm'],           'computer',     50,  "6",      2017, 'A PLiM computer for the Internet of Things',                                                                                             '35--40',   'https://doi.org/10.1109/MC.2017.173' ),
     ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         19,  "5",      2017, 'metaSMT: Focus on your application and not on solver integration',                                                                       '605--621', 'http://link.springer.com/article/10.1007/s10009-016-0426-1' ),
     ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         -1,  "",          0, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '',         'https://doi.org/10.1109/TCAD.2017.2664059' ),
-    ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         -1,  "",          0, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '',         '' )
+    ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         -1,  "",          0, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '',         'https://doi.org/10.1109/TCAD.2017.2750064' )
 ]
 
 preprint_data = [
