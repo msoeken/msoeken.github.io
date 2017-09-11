@@ -471,10 +471,14 @@ conferences_data = [
         ( 2012, 'jan', 'Sydney', 'Australia' ),
         ( 2013, 'jan', 'Yokohama', 'Japan' ),
         ( 2016, 'jan', 'Macau', 'China' ),
-        ( 2017, 'jan', 'Tokyo', 'Japan' )
+        ( 2017, 'jan', 'Tokyo', 'Japan' ),
+        ( 2018, 'jan', 'Jeju Island', 'Korea' )
     ] ),
     ( 'ast', 'AST', 'International Workshop on Automation of Software Test', 'ACM', [
         ( 2013, 'may', 'San Francisco, CA', 'USA' )
+    ] ),
+    ( 'costts', '', 'COST IC1405 Training School', '', [
+        ( 2017, 'aug', 'Torun', 'Poland' )
     ] ),
     ( 'cukeup', '', 'CukeUp!', 'Skills Matter', [
         ( 2012, 'apr', 'London', 'England' ),
@@ -613,6 +617,9 @@ conferences_data = [
         ( 2014, 'jul', 'Kyoto', 'Japan' ),
         ( 2015, 'jul', 'Grenoble', 'France' ),
         ( 2016, 'jul', 'Bologna', 'Italy' )
+    ] ),
+    ( 'rcss', '', 'Reversible Computation Summer School', '', [
+        ( 2017, 'jul', 'Kolkata', 'India' )
     ] ),
     ( 'rcw', 'RC', 'Workshop on Reversible Computation', 'Springer', [
         ( 2010, 'jul', 'Bremen', 'Germany' ),
@@ -847,7 +854,9 @@ confpapers_data = [
     ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', 'XXXX', '' ),
     ( ['ss', 'ms', 'dg', 'rd'],                                         'gecco',    2017, 'An adaptive prioritized ε-preferred evolutionary algorithm for approximate BDD optimization', 'XXXX', '' ),
     ( ['et', 'oz', 'ms', 'av', 'mm2', 'rl', 'gdm'],                     'isvlsi',   2017, 'Inverter propagation and fan-out constraints for beyond-CMOS majority-based technologies', 'XXXX', '' ),
-    ( ['la', 'ms', 'pv', 'jl', 'am', 'peg', 'jo', 'rkb', 'gdm'],        'iccad',    2017, 'Enabling exact delay synthesis', 'XXXX', '' )
+    ( ['la', 'ms', 'pv', 'jl', 'am', 'peg', 'jo', 'rkb', 'gdm'],        'iccad',    2017, 'Enabling exact delay synthesis', 'XXXX', '' ),
+    ( ['zc', 'ms', 'yx', 'gdm'],                                        'aspdac',   2018, 'Functional decomposition using majority', 'XXXX', '' ),
+    ( ['gm', 'ms', 'mr', 'nw', 'gdm'],                                  'aspdac',   2018, 'A best-fit mapping algorithm to facilitate ESOP-decomposition in Clifford+T quantum network synthesis', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -899,7 +908,7 @@ article_data = [
     ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',         168,  "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',  'http://dx.doi.org/10.1016/j.combustflame.2016.03.007' ),
     ( ['np', 'ms', 'rw', 'rd'],                   'cps',           1,  "1",      2016, 'Verifying the structure and behavior in UML/OCL models using satisfiability solvers',                                                    '49--59',   'http://digital-library.theiet.org/content/journals/10.1049/iet-cps.2016.0022' ),
     ( ['ms', 'peg', 'ss', 'rd', 'gdm'],           'computer',     50,  "6",      2017, 'A PLiM computer for the Internet of Things',                                                                                             '35--40',   'https://doi.org/10.1109/MC.2017.173' ),
-    ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         -1,  "",          0, 'metaSMT: Focus on your application and not on solver integration',                                                                       '1-17',     'http://link.springer.com/article/10.1007/s10009-016-0426-1' ),
+    ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         19,  "5",      2017, 'metaSMT: Focus on your application and not on solver integration',                                                                       '605--621', 'http://link.springer.com/article/10.1007/s10009-016-0426-1' ),
     ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         -1,  "",          0, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '',         'https://doi.org/10.1109/TCAD.2017.2664059' ),
     ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         -1,  "",          0, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '',         '' )
 ]
@@ -930,7 +939,8 @@ news_data = [
     ( 'computer', 50 ),
     ( 'tutorial', 'Design Automation for Quantum Computing', 'https://newcas2017.org/tutorials/', 'I am holding the tutorial', [], ('newcas', 2017) ),
     ( 'tutorial', 'Logic synthesis is everywhere', 'http://www2.dac.com/events/eventdetails.aspx?id=223-225', 'I am organizing the tutorial', ['am', 'la', 'rkb'], ('dac', 2017) ),
-    ( 'iccad', 2017 )
+    ( 'iccad', 2017 ),
+    ( 'aspdac', 2018 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
@@ -975,7 +985,9 @@ invited_data = [
     ( 2016, 'may', 'uni',  'hu',     'Prof. Shin-ichi Minato',                    'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www-erato.ist.hokudai.ac.jp/html/php/seminar.php?day=20160517' ),
     ( 2016, 'sep', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'Symbolic and hierarchical reversible logic synthesis',                    '' ),
     ( 2016, 'nov', 'uni',  'snps',   'Dr. Luca Amarù',                            'SAT-based logic synthesis',                                               '' ),
-    ( 2017, 'feb', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'LUT-based hierarchical reversible logic synthesis',                       '' )
+    ( 2017, 'feb', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'LUT-based hierarchical reversible logic synthesis',                       '' ),
+    ( 2017, 'jul', 'conf', 'rcss',   '',                                          'Reversible logic synthesis and RevKit',                                   'http://reversible-computation.org/2017/images/Program-RC2017.pdf' ),
+    ( 2017, 'aug', 'conf', 'costts', '',                                          'Hierarchical reversible logic synthesis',                                 'http://www.informatik.uni-bremen.de/ictcost/school2017.php?program' )
 ]
 
 invited = list( map( make_invited, invited_data ) )
