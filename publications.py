@@ -497,7 +497,8 @@ conferences_data = [
         ( 2014, 'mar', 'Dresden', 'Germany' ),
         ( 2015, 'mar', 'Grenoble', 'Germany' ),
         ( 2016, 'mar', 'Dresden', 'Germany' ),
-        ( 2017, 'mar', 'Lausanne', 'Switzerland' )
+        ( 2017, 'mar', 'Lausanne', 'Switzerland' ),
+        ( 2018, 'mar', 'Dresden', 'Germany' )
     ] ),
     ( 'ddecs', 'DDECS', 'IEEE International Symposium on Design and Diagnostics of Electronic Circuits and Systems', 'IEEE', [
         ( 2010, 'apr', 'Vienna', 'Austria' ),
@@ -856,7 +857,8 @@ confpapers_data = [
     ( ['et', 'oz', 'ms', 'av', 'mm2', 'rl', 'gdm'],                     'isvlsi',   2017, 'Inverter propagation and fan-out constraints for beyond-CMOS majority-based technologies', 'XXXX', '' ),
     ( ['la', 'ms', 'pv', 'jl', 'am', 'peg', 'jo', 'rkb', 'gdm'],        'iccad',    2017, 'Enabling exact delay synthesis', 'XXXX', '' ),
     ( ['zc', 'ms', 'yx', 'gdm'],                                        'aspdac',   2018, 'Functional decomposition using majority', 'XXXX', '' ),
-    ( ['gm', 'ms', 'mr', 'nw', 'gdm'],                                  'aspdac',   2018, 'A best-fit mapping algorithm to facilitate ESOP-decomposition in Clifford+T quantum network synthesis', 'XXXX', '' )
+    ( ['gm', 'ms', 'mr', 'nw', 'gdm'],                                  'aspdac',   2018, 'A best-fit mapping algorithm to facilitate ESOP-decomposition in Clifford+T quantum network synthesis', 'XXXX', '' ),
+    ( ['la', 'ms', 'pv', 'jl', 'am', 'jo', 'rkb', 'gdm'],               'date',     2018, 'Improvements to Boolean resynthesis', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -929,7 +931,7 @@ best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 news_data = [
     ( 'aspdac', 2017 ),
     ( 'date', 2017 ),
-    ( 'tcad', -1 ),
+    ( 'tcad', 36 ),
     ( 'ismvl', 2017 ),
     ( 'glsvlsi', 2017 ),
     ( 'iscas', 2017 ),
@@ -940,7 +942,8 @@ news_data = [
     ( 'tutorial', 'Design Automation for Quantum Computing', 'https://newcas2017.org/tutorials/', 'I am holding the tutorial', [], ('newcas', 2017) ),
     ( 'tutorial', 'Logic synthesis is everywhere', 'http://www2.dac.com/events/eventdetails.aspx?id=223-225', 'I am organizing the tutorial', ['am', 'la', 'rkb'], ('dac', 2017) ),
     ( 'iccad', 2017 ),
-    ( 'aspdac', 2018 )
+    ( 'aspdac', 2018 ),
+    ( 'date', 2018 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )

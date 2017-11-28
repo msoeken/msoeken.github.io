@@ -1,273 +1,275 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
-    <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <title>Mathias Soeken / Quantum Computing</title>
-    <link href='css/bootstrap.min.css' rel='stylesheet'>
-    <link href='css/custom.css' rel='stylesheet'>
-    <script src='https://use.fontawesome.com/02858a71b6.js'></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-70660599-1', 'auto');
-      ga('send', 'pageview', location.pathname);
-    </script>
-    <link href='css/doc.css' rel='stylesheet'>
-  </head>
-  <body>
-    <div class='container' id='main-container'>
-      <div class='row' id='main-row'>
-        <div class='col-md-3' id='left-column'>
-          <ul class='nav nav-pills nav-stacked'>
-            <li role='presentation'>
-              <a href='index.html'>
-                <i aria-hidden='true' class='fa fa-user'></i>
-                <div class='text'>
-                  About me
-                </div>
-              </a>
-            </li>
-            <li class='active' role='presentation'>
-              <a href='research.html'>
-                <i aria-hidden='true' class='fa fa-graduation-cap'></i>
-                <div class='text'>
-                  Research
-                </div>
-              </a>
-            </li>
-            <li role='presentation'>
-              <a href='teaching.html'>
-                <i aria-hidden='true' class='fa fa-users'></i>
-                <div class='text'>
-                  Teaching
-                </div>
-              </a>
-            </li>
-            <li role='presentation'>
-              <a href='publications.html'>
-                <i aria-hidden='true' class='fa fa-users'></i>
-                <div class='text'>
-                  Publications
-                </div>
-              </a>
-            </li>
-            <li role='presentation'>
-              <a href='talks.html'>
-                <i aria-hidden='true' class='fa fa-microphone'></i>
-                <div class='text'>
-                  Invited Talks
-                </div>
-              </a>
-            </li>
-            <div class='nav-sep'>Software</div>
-            <li role='presentation'>
-              <a class='tool' href='cirkit.html'>
-                <i aria-hidden='true' class='fa fa-floppy-o'></i>
-                <div class='text'>
-                  CirKit
-                </div>
-              </a>
-            </li>
-            <li>
-              <div class='sub'>
-                <a href='cirkit_doc.html'>doc</a>
-                |
-                <a href='tutorials.html'>tutorials</a>
-              </div>
-            </li>
-            <li role='presentation'>
-              <a class='tool' href='revkit.html'>
-                <i aria-hidden='true' class='fa fa-floppy-o'></i>
-                <div class='text'>
-                  RevKit
-                </div>
-              </a>
-            </li>
-            <li>
-              <div class='sub'>
-                <a href='cirkit_doc.html'>doc</a>
-                |
-                <a href='benchmarks.html'>benchmarks</a>
-                |
-                <a href='tutorials.html'>tutorials</a>
-              </div>
-            </li>
-            <center>
-              <a href='http://www.epfl.ch' target='_blank'>
-                <img id='epfl-logo' src='images/epfl.svg'>
-              </a>
-            </center>
-          </ul>
-        </div>
-        <div class='col-md-9 block'>
-          <h1>Quantum Computing</h1>
-          <h4>What is Quantum Computing</h4>
-          <p>
-            <small>
-              <i>This introduction to quantum computing was written for the SIGDA newsletter.</i>
-            </small>
-          </p>
-          <p>
-            Quantum computers perform computations based on the counter-intuitive
-            effects of quantum mechanics, which allows them to solve some problems
-            in a lower complexity compared to classical computers.  What is a bit
-            to classical computers is a qubit to quantum computers.  A qubit's two
-            most powerful properties are superposition and entanglement.
-            Superposition enables qubits to represent exponential many states at
-            the same time.  Entanglement allows to affect the state of several
-            qubits, even when operating only on a single one.  Several quantum
-            algorithms have already been discovered, which can harness the power
-            of a quantum computer to eventually solve complex problems more
-            efficiently.  The most prominent one is arguably Shor's algorithm that
-            can factorize integers in polynomial time.  However, other more
-            abstract algorithms play a significant role in scientific applications
-            of high interest.  These are Grover's search algorithm which enables
-            faster database queries, the HHL algorithm which brings an exponential
-            speedup to solve linear equations, and quantum simulation to model
-            atomic-scale interactions efficiently, allowing to approximate
-            behavior in drugs, organics, and materials in areas like medicine,
-            chemistry, and engineering, respectively [1].
-          </p>
-          <p>
-            The progress in building physical fully-programmable quantum computers
-            has rapidly accelerated in the last few years [2].  Examples are the
-            17-qubit quantum computer from IBM based on superconducting circuits
-            (a 16-qubit variant can be freely accessed and programmed via a cloud
-            service), the 9-qubit quantum computer from Google based on
-            superconducting qubits [3], and the 5-qubit ion trap based quantum
-            computer developed at the University of Maryland [4].  Microsoft is
-            working on a topological quantum computer.  So far, no physical
-            topological quantum computer has been demonstrated, however,
-            topological qubits promise to be far superior compared to the
-            superconducting ones, thereby requiring less error correction and
-            therefore enabling larger scalability.  Intel is aiming at developing
-            a silicon qubit arguing that they are more likely to scale up to
-            thousand or millions of qubits [5].
-          </p>
-          <p>
-            Researchers call "quantum supremacy" an experiment that demonstrates a
-            calculation that is beyond the reach of any conventional computer [6].
-            It is believed that one needs a quantum computer that operates on at
-            least 49 qubits to show quantum supremacy [7].  Quantum algorithms can
-            be simulated classically on supercomputers by explicitly representing
-            all quantum states using exponential-size memory.  The world record in
-            simulated qubits is currently at 45 qubits, which were simulated on
-            the Cori II supercomputer using 8192 nodes and 0.5 petabytes of memory
-            [8].  The computational task in that experiment is the execution of
-            low-depth random quantum circuits, which beyond the demonstration of
-            quantum supremacy is not scientifically useful.  But there exist very
-            practical problems that can be solvable with just a few more qubits.
-            It is assumed that it takes 100 qubits for a thorough analysis of the
-            energy-intensive nitrogenase reaction to make fertilizer in just a few
-            days, whereas todays supercomputers need billion of years.  The
-            implication of such an analysis might be a cut of 1&ndash;2% in global
-            natural-gas consumption [9].
-          </p>
-          <p>
-            The efforts in developing software to program quantum computers once
-            they are available is comparatively small compared to what has been
-            done in designing hardware for quantum computing.  While for quantum
-            computers the aim is to increase the number of qubits that can be
-            programmed, at the software and design automation side researchers try
-            to reduce the number of qubits and quantum interactions that are
-            required to implement a quantum algorithm.  Microsoft is pushing
-            forward this field and aims to support the whole software stack,
-            starting from user interfaces and code compilers to machine
-            instructions that are suitable to run on various physical quantum
-            computers.  Design automation is crucial to realize quantum algorithms
-            using few qubits and few operations.  While for example the quantum
-            linear systems algorithm requires only 100 quantum bits to encode a
-            2<sup>100</sup> &times; 2<sup>100</sup> matrix inversion problem [10], clearly demonstrating the
-            advantage that can be gained by using a quantum computer, in prior
-            approaches, the reciprocal step (1/x) that is part of the calculation
-            can require in excess of 500 quantum bits.  This means that
-            arithmetic may dominate the number of qubits of that algorithm [11],
-            diminishing the potential improvements of a quantum algorithmic
-            implementation.  Recent research in design automation therefore
-            addresses the efficient compilation of classical arithmetic components
-            such as floating point components into quantum operations [12].
-          </p>
-          <h4>Recommended News Articles</h4>
-          <h5>Nature</h5>
-          <ul>
-            <li>
-              March 6, 2017:
-              <a href='http://www.nature.com/news/ibm-s-quantum-cloud-computer-goes-commercial-1.21585' target='_blank'>IBM's quantum cloud computer goes commercial</a>
-              (Davide Castelvecchi)
-            </li>
-            <li>
-              January 3, 2017:
-              <a href='http://www.nature.com/news/quantum-computers-ready-to-leap-out-of-the-lab-in-2017-1.21239' target='_blank'>Quantum computers ready to leap out of the lab in 2017</a>
-              (Davide Castelvecchi)
-            </li>
-            <li>
-              October 21, 2016:
-              <a href='http://www.nature.com/news/inside-microsoft-s-quest-for-a-topological-quantum-computer-1.20774' target='_blank'>Inside Microsoft’s quest for a topological quantum computer</a>
-              (Elizabeth Gibney)
-            </li>
-          </ul>
-          <h5>MIT Technology Review</h5>
-          <ul>
-            <li>
-              April 21, 2017:
-              <a href='https://www.technologyreview.com/s/604242/googles-new-chip-is-a-stepping-stone-to-quantum-computing-supremacy/' target='_blank'>Google’s New Chip Is a Stepping Stone to Quantum Computing Supremacy</a>
-              (Tom Simonite)
-            </li>
-            <li>
-              April 11, 2017:
-              <a href='https://www.technologyreview.com/s/604140/a-milestone-for-quantum-computing/' target='_blank'>Supercomputer Simulation Offers Peek at the Future of Quantum Computers</a>
-            </li>
-          </ul>
-          <h5>Others</h5>
-          <ul>
-            <li>
-              September 28, 2017:
-              <a href='https://www.newscientist.com/article/2148989-google-quantum-computer-test-shows-breakthrough-is-within-reach/' target='_blank'>Google quantum computer test shows breakthrough is within reach</a>
-              (Mark Kim, New Scientist)
-            </li>
-            <li>
-              July 18, 2017:
-              <a href='https://www.newscientist.com/article/2141105-quantum-simulator-with-51-qubits-is-largest-ever/' target='_blank'>Quantum simulator with 51 qubits is largest ever</a>
-              (Matt Reynolds, New Scientist)
-            </li>
-            <li>
-              June 26, 2017:
-              <a href='https://www.newscientist.com/article/2138373-google-on-track-for-quantum-computer-breakthrough-by-end-of-2017/' target='_blank'>Google on track for quantum computer breakthrough by end of 2017</a>
-              (Matt Raynolds, New Scientist)
-            </li>
-            <li>
-              April 28, 2017:
-              <a href='https://www.computerworld.com.au/article/618323/inside-microsoft-soup-nuts-quantum-computing-ramp-up/' target='_blank'>Inside Microsoft's 'soup to nuts' quantum computing ramp-up</a>
-              (George Nott, Computerworld)
-            </li>
-            <li>
-              March 30, 2017:
-              <a href='https://www.aspistrategist.org.au/isnt-quantum-supremacy/' target='_blank'>The “is” and “isn’t” of quantum supremacy</a>
-              (Patrick Kennedy, Australian Strategic Policy Institute)
-            </li>
-            <li>
-              March 9, 2017:
-              <a href='http://www.economist.com/technology-quarterly/2017-03-09/quantum-devices' target='_blank'>Quantum devices: Here, there and everywhere</a>
-              (The Economist, Technology Quarterly)
-            </li>
-            <li>
-              December 22, 2016:
-              <a href='https://www.digitaltrends.com/computing/intel-silicon-qubits-quantum-computer/' target='_blank'>Intel will leverage its chip-making expertise for quantum research</a>
-              (Brad Jones, Digital Trends)
-            </li>
-            <li>
-              December 20, 2016:
-              <a href='http://www.techradar.com/news/why-microsoft-believes-were-on-the-threshold-of-quantum-computing' target='_blank'>Why Microsoft believes we’re on the threshold of quantum computing</a>
-              (Mary Branscombe, techradar.pro)
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </body>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<title>Mathias Soeken / Quantum Computing</title>
+<link href='css/bootstrap.min.css' rel='stylesheet'>
+<link href='css/custom.css' rel='stylesheet'>
+<script src='https://use.fontawesome.com/02858a71b6.js'></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-70660599-1', 'auto');
+  ga('send', 'pageview', location.pathname);
+</script>
+
+<link href='css/doc.css' rel='stylesheet'>
+</head>
+<body>
+<div class='container' id='main-container'>
+<div class='row' id='main-row'>
+<div class='col-md-3' id='left-column'>
+<ul class='nav nav-pills nav-stacked'>
+<li role='presentation'>
+<a href='index.html'>
+<i aria-hidden='true' class='fa fa-user'></i>
+<div class='text'>
+About me
+</div>
+</a>
+</li>
+<li class='active' role='presentation'>
+<a href='research.html'>
+<i aria-hidden='true' class='fa fa-graduation-cap'></i>
+<div class='text'>
+Research
+</div>
+</a>
+</li>
+<li role='presentation'>
+<a href='teaching.html'>
+<i aria-hidden='true' class='fa fa-users'></i>
+<div class='text'>
+Teaching
+</div>
+</a>
+</li>
+<li role='presentation'>
+<a href='publications.html'>
+<i aria-hidden='true' class='fa fa-users'></i>
+<div class='text'>
+Publications
+</div>
+</a>
+</li>
+<li role='presentation'>
+<a href='talks.html'>
+<i aria-hidden='true' class='fa fa-microphone'></i>
+<div class='text'>
+Invited Talks
+</div>
+</a>
+</li>
+<div class='nav-sep'>Software</div>
+<li role='presentation'>
+<a class='tool' href='cirkit.html'>
+<i aria-hidden='true' class='fa fa-floppy-o'></i>
+<div class='text'>
+CirKit
+</div>
+</a>
+</li>
+<li>
+<div class='sub'>
+<a href='cirkit_doc.html'>doc</a>
+|
+<a href='tutorials.html'>tutorials</a>
+</div>
+</li>
+<li role='presentation'>
+<a class='tool' href='revkit.html'>
+<i aria-hidden='true' class='fa fa-floppy-o'></i>
+<div class='text'>
+RevKit
+</div>
+</a>
+</li>
+<li>
+<div class='sub'>
+<a href='cirkit_doc.html'>doc</a>
+|
+<a href='benchmarks.html'>benchmarks</a>
+|
+<a href='tutorials.html'>tutorials</a>
+</div>
+</li>
+<center>
+<a href='http://www.epfl.ch' target='_blank'>
+<img id='epfl-logo' src='images/epfl.svg'>
+</a>
+</center>
+</ul>
+</div>
+
+<div class='col-md-9 block'>
+<h1>Quantum Computing</h1>
+<h4>What is Quantum Computing</h4>
+<p>
+<small>
+<i>This introduction to quantum computing was written for the SIGDA newsletter.</i>
+</small>
+</p>
+<p>
+Quantum computers perform computations based on the counter-intuitive
+effects of quantum mechanics, which allows them to solve some problems
+in a lower complexity compared to classical computers.  What is a bit
+to classical computers is a qubit to quantum computers.  A qubit's two
+most powerful properties are superposition and entanglement.
+Superposition enables qubits to represent exponential many states at
+the same time.  Entanglement allows to affect the state of several
+qubits, even when operating only on a single one.  Several quantum
+algorithms have already been discovered, which can harness the power
+of a quantum computer to eventually solve complex problems more
+efficiently.  The most prominent one is arguably Shor's algorithm that
+can factorize integers in polynomial time.  However, other more
+abstract algorithms play a significant role in scientific applications
+of high interest.  These are Grover's search algorithm which enables
+faster database queries, the HHL algorithm which brings an exponential
+speedup to solve linear equations, and quantum simulation to model
+atomic-scale interactions efficiently, allowing to approximate
+behavior in drugs, organics, and materials in areas like medicine,
+chemistry, and engineering, respectively [1].
+</p>
+<p>
+The progress in building physical fully-programmable quantum computers
+has rapidly accelerated in the last few years [2].  Examples are the
+17-qubit quantum computer from IBM based on superconducting circuits
+(a 16-qubit variant can be freely accessed and programmed via a cloud
+service), the 9-qubit quantum computer from Google based on
+superconducting qubits [3], and the 5-qubit ion trap based quantum
+computer developed at the University of Maryland [4].  Microsoft is
+working on a topological quantum computer.  So far, no physical
+topological quantum computer has been demonstrated, however,
+topological qubits promise to be far superior compared to the
+superconducting ones, thereby requiring less error correction and
+therefore enabling larger scalability.  Intel is aiming at developing
+a silicon qubit arguing that they are more likely to scale up to
+thousand or millions of qubits [5].
+</p>
+<p>
+Researchers call "quantum supremacy" an experiment that demonstrates a
+calculation that is beyond the reach of any conventional computer [6].
+It is believed that one needs a quantum computer that operates on at
+least 49 qubits to show quantum supremacy [7].  Quantum algorithms can
+be simulated classically on supercomputers by explicitly representing
+all quantum states using exponential-size memory.  The world record in
+simulated qubits is currently at 45 qubits, which were simulated on
+the Cori II supercomputer using 8192 nodes and 0.5 petabytes of memory
+[8].  The computational task in that experiment is the execution of
+low-depth random quantum circuits, which beyond the demonstration of
+quantum supremacy is not scientifically useful.  But there exist very
+practical problems that can be solvable with just a few more qubits.
+It is assumed that it takes 100 qubits for a thorough analysis of the
+energy-intensive nitrogenase reaction to make fertilizer in just a few
+days, whereas todays supercomputers need billion of years.  The
+implication of such an analysis might be a cut of 1&ndash;2% in global
+natural-gas consumption [9].
+</p>
+<p>
+The efforts in developing software to program quantum computers once
+they are available is comparatively small compared to what has been
+done in designing hardware for quantum computing.  While for quantum
+computers the aim is to increase the number of qubits that can be
+programmed, at the software and design automation side researchers try
+to reduce the number of qubits and quantum interactions that are
+required to implement a quantum algorithm.  Microsoft is pushing
+forward this field and aims to support the whole software stack,
+starting from user interfaces and code compilers to machine
+instructions that are suitable to run on various physical quantum
+computers.  Design automation is crucial to realize quantum algorithms
+using few qubits and few operations.  While for example the quantum
+linear systems algorithm requires only 100 quantum bits to encode a
+2<sup>100</sup> &times; 2<sup>100</sup> matrix inversion problem [10], clearly demonstrating the
+advantage that can be gained by using a quantum computer, in prior
+approaches, the reciprocal step (1/x) that is part of the calculation
+can require in excess of 500 quantum bits.  This means that
+arithmetic may dominate the number of qubits of that algorithm [11],
+diminishing the potential improvements of a quantum algorithmic
+implementation.  Recent research in design automation therefore
+addresses the efficient compilation of classical arithmetic components
+such as floating point components into quantum operations [12].
+</p>
+<h4>Recommended News Articles</h4>
+<h5>Nature</h5>
+<ul>
+<li>
+March 6, 2017:
+<a href='http://www.nature.com/news/ibm-s-quantum-cloud-computer-goes-commercial-1.21585' target='_blank'>IBM's quantum cloud computer goes commercial</a>
+(Davide Castelvecchi)
+</li>
+<li>
+January 3, 2017:
+<a href='http://www.nature.com/news/quantum-computers-ready-to-leap-out-of-the-lab-in-2017-1.21239' target='_blank'>Quantum computers ready to leap out of the lab in 2017</a>
+(Davide Castelvecchi)
+</li>
+<li>
+October 21, 2016:
+<a href='http://www.nature.com/news/inside-microsoft-s-quest-for-a-topological-quantum-computer-1.20774' target='_blank'>Inside Microsoft’s quest for a topological quantum computer</a>
+(Elizabeth Gibney)
+</li>
+</ul>
+<h5>MIT Technology Review</h5>
+<ul>
+<li>
+April 21, 2017:
+<a href='https://www.technologyreview.com/s/604242/googles-new-chip-is-a-stepping-stone-to-quantum-computing-supremacy/' target='_blank'>Google’s New Chip Is a Stepping Stone to Quantum Computing Supremacy</a>
+(Tom Simonite)
+</li>
+<li>
+April 11, 2017:
+<a href='https://www.technologyreview.com/s/604140/a-milestone-for-quantum-computing/' target='_blank'>Supercomputer Simulation Offers Peek at the Future of Quantum Computers</a>
+</li>
+</ul>
+<h5>Others</h5>
+<ul>
+<li>
+September 28, 2017:
+<a href='https://www.newscientist.com/article/2148989-google-quantum-computer-test-shows-breakthrough-is-within-reach/' target='_blank'>Google quantum computer test shows breakthrough is within reach</a>
+(Mark Kim, New Scientist)
+</li>
+<li>
+July 18, 2017:
+<a href='https://www.newscientist.com/article/2141105-quantum-simulator-with-51-qubits-is-largest-ever/' target='_blank'>Quantum simulator with 51 qubits is largest ever</a>
+(Matt Reynolds, New Scientist)
+</li>
+<li>
+June 26, 2017:
+<a href='https://www.newscientist.com/article/2138373-google-on-track-for-quantum-computer-breakthrough-by-end-of-2017/' target='_blank'>Google on track for quantum computer breakthrough by end of 2017</a>
+(Matt Raynolds, New Scientist)
+</li>
+<li>
+April 28, 2017:
+<a href='https://www.computerworld.com.au/article/618323/inside-microsoft-soup-nuts-quantum-computing-ramp-up/' target='_blank'>Inside Microsoft's 'soup to nuts' quantum computing ramp-up</a>
+(George Nott, Computerworld)
+</li>
+<li>
+March 30, 2017:
+<a href='https://www.aspistrategist.org.au/isnt-quantum-supremacy/' target='_blank'>The “is” and “isn’t” of quantum supremacy</a>
+(Patrick Kennedy, Australian Strategic Policy Institute)
+</li>
+<li>
+March 9, 2017:
+<a href='http://www.economist.com/technology-quarterly/2017-03-09/quantum-devices' target='_blank'>Quantum devices: Here, there and everywhere</a>
+(The Economist, Technology Quarterly)
+</li>
+<li>
+December 22, 2016:
+<a href='https://www.digitaltrends.com/computing/intel-silicon-qubits-quantum-computer/' target='_blank'>Intel will leverage its chip-making expertise for quantum research</a>
+(Brad Jones, Digital Trends)
+</li>
+<li>
+December 20, 2016:
+<a href='http://www.techradar.com/news/why-microsoft-believes-were-on-the-threshold-of-quantum-computing' target='_blank'>Why Microsoft believes we’re on the threshold of quantum computing</a>
+(Mary Branscombe, techradar.pro)
+</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
 </html>
