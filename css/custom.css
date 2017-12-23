@@ -191,3 +191,12 @@ tr.data {
 td.check-column {
     text-align: center;
 }
+
+table.tools {
+    width: 60%;
+}
+
+table.tools th, table.tools td {
+    text-align: center;
+}
+

@@ -4,7 +4,7 @@
 <meta charset='utf-8'>
 <meta content='IE=edge' http-equiv='X-UA-Compatible'>
 <meta content='width=device-width, initial-scale=1' name='viewport'>
-<title>Mathias Soeken / CirKit Showcase</title>
+<title>Mathias Soeken / EPFL Logic Synthesis Tools</title>
 <link href='css/bootstrap.min.css' rel='stylesheet'>
 <link href='css/custom.css' rel='stylesheet'>
 <script src='https://use.fontawesome.com/02858a71b6.js'></script>
@@ -18,9 +18,6 @@
   ga('send', 'pageview', location.pathname);
 </script>
 
-<link href='css/highlight.css' rel='stylesheet'>
-<script src='js/highlight.js'></script>
-<script src='js/cirkit_highlight.js'></script>
 <link href='css/doc.css' rel='stylesheet'>
 </head>
 <body>
@@ -77,7 +74,7 @@ EPFL Logic Synthesis Tools
 </div>
 </a>
 </li>
-<li class='active' role='presentation'>
+<li role='presentation'>
 <a class='tool' href='cirkit.html'>
 <i aria-hidden='true' class='fa fa-floppy-o'></i>
 <div class='text'>
@@ -117,58 +114,98 @@ RevKit
 </ul>
 </div>
 
-<div class='col-md-9 block'>
-<h1>CirKit Showcase</h1>
-<p>
-This page lists some usage examples of CirKit to demonstrate its possibiilities.
+<div class='col-md-9'>
+<h1>EPFL Logic Synthesis Tools</h1>
+<p style='width:95%'>
+In the logic synthesis group at EPFL, we are developing a lot of open source software.
+Several core components and libraries are required by several frameworks, and we try to deploy them in separate, well documented, well tested, and easy-to-use libraries.
 </p>
-<h3>
-Tweaking
-<kbd>show</kbd>
-for Mac
-</h3>
-<p>
-The command
-<kbd>show</kbd>
-defaults to
-<code>xdg-open</code>
-as program to open the generated GraphViz files.  Mac lacks both this program and a good viewer for GraphViz files.
-A workaround is to create a PNG file with
-<code>dot</code>
-and then open the PNG file instead.  There are several ways to do this, but the most convenient is to set the CirKit variable
-<code>show_dotcmd</code>
-using
-<kbd>set</kbd>
-.
-A good place to set this variable is in the
-<code>alias</code>
-file such that it is loaded on start up (if you use the alias file, remember to set the
-<code>CIRKIT_HOME</code>
-environment variable to the CirKit directory).
-We add the following line to the
-<code>alias</code>
-file:
-</p>
-<pre>set show_dotcmd "dot -Tpng %s > /tmp/test.png; open /tmp/test.png"</pre>
-<p>
-Now in a program as the following, a PNG file is created and opened in a
-<code>Preview</code>
-window.
-</p>
-<pre><code class='cirkit'>cirkit> expr <[a!b]bc>&#x000A;cirkit> expr > xmg&#x000A;cirkit> show -x</code></pre>
-<p>
-If you happen to use
-<code>iTerm2</code>
-together with the
-<code>imgcat</code>
-extension, you can use it to directly display the PNG file in the terminal. Just use the following as
-<code>dotcmd</code>
-</p>
-<pre>set show_dotcmd "dot -Tpng %s > /tmp/test.png; imgcat /tmp/test.png"</pre>
+<h3>Core Libraries</h3>
+<table class='table table-hover tools'>
+<thead>
+<tr>
+<th>
+<img src='images/kitty.svg' style='width: 60pt'>
+<br>
+kitty
+</th>
+<th>
+<img src='images/alice.svg' style='width: 60pt'>
+<br>
+alice
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++ truth table library</td>
+<td>C++ command shell library</td>
+</tr>
+<tr>
+<td>
+<a href='https://github.com/msoeken/kitty' target='_blank'>Github</a>
+|
+<a href='https://github.com/msoeken/kitty/releases' target='_blank'>Version 0.2 (Dec 21, 17)</a>
+</td>
+<td>
+<a href='https://github.com/msoeken/alice' target='_blank'>Github</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href='https://libkitty.readthedocs.io' target='_blank'>Documentation</a>
+</td>
+<td>
+<a href='https://libalice.readthedocs.io' target='_blank'>Documentation</a>
+</td>
+</tr>
+<tr>
+<td>MIT license</td>
+<td>MIT license</td>
+</tr>
+</tbody>
+</table>
+<h3>Frameworks</h3>
+<table class='table table-hover tools'>
+<thead>
+<tr>
+<th>
+<img src='images/cirkit.svg' style='width: 60pt'>
+<br>
+CirKit
+</th>
+<th>
+<img src='images/revkit.svg' style='width: 60pt'>
+<br>
+RevKit
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++ logic synthesis framework</td>
+<td>C++ quantum compilation framework</td>
+</tr>
+<tr>
+<td>
+<a href='https://github.com/msoeken/cirkit' target='_blank'>Github</a>
+|
+<a href='cirkit.html'>More information</a>
+</td>
+<td>
+<a href='https://github.com/msoeken/cirkit' target='_blank'>Github</a>
+|
+<a href='revkit.html'>More information</a>
+</td>
+</tr>
+<tr>
+<td>MIT license</td>
+<td>MIT license</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-<script src='js/jquery.min.js'></script>
-<script src='js/cirkit_doc.js'></script>
 </body>
 </html>

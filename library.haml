@@ -1,0 +1,73 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / EPFL Logic Synthesis Tools')
+    %link(href="css/doc.css" rel="stylesheet")
+  %body
+    .container#main-container
+      .row#main-row
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "library")
+        .col-md-9
+          %h1 EPFL Logic Synthesis Tools
+          %p(style="width:95%")
+            In the logic synthesis group at EPFL, we are developing a lot of open source software.
+            Several core components and libraries are required by several frameworks, and we try to deploy them in separate, well documented, well tested, and easy-to-use libraries.
+          %h3 Core Libraries
+          %table.table.table-hover.tools
+            %thead
+              %tr
+                %th
+                  %img(src="images/kitty.svg" style="width: 60pt")
+                  %br
+                  kitty
+                %th
+                  %img(src="images/alice.svg" style="width: 60pt")
+                  %br
+                  alice
+            %tbody
+              %tr
+                %td C++ truth table library
+                %td C++ command shell library
+              %tr
+                %td
+                  %a(href="https://github.com/msoeken/kitty" target="_blank") Github
+                  |
+                  %a(href="https://github.com/msoeken/kitty/releases" target="_blank") Version 0.2 (Dec 21, 17)
+                %td
+                  %a(href="https://github.com/msoeken/alice" target="_blank") Github
+              %tr
+                %td
+                  %a(href="https://libkitty.readthedocs.io" target="_blank") Documentation
+                %td
+                  %a(href="https://libalice.readthedocs.io" target="_blank") Documentation
+              %tr
+                %td MIT license
+                %td MIT license
+          %h3 Frameworks
+          %table.table.table-hover.tools
+            %thead
+              %tr
+                %th
+                  %img(src="images/cirkit.svg" style="width: 60pt")
+                  %br
+                  CirKit
+                %th
+                  %img(src="images/revkit.svg" style="width: 60pt")
+                  %br
+                  RevKit
+            %tbody
+              %tr
+                %td C++ logic synthesis framework
+                %td C++ quantum compilation framework
+              %tr
+                %td
+                  %a(href="https://github.com/msoeken/cirkit" target="_blank") Github
+                  |
+                  %a(href="cirkit.html") More information
+                %td
+                  %a(href="https://github.com/msoeken/cirkit" target="_blank") Github
+                  |
+                  %a(href="revkit.html") More information
+              %tr
+                %td MIT license
+                %td MIT license
