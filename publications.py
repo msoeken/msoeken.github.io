@@ -664,7 +664,7 @@ journals_data = [
     ( 'pra', 'Physical Review A', 'American Physical Society', 'http://journals.aps.org/pra/' ),
     ( 'sosym', 'Software and System Modeling', 'Springer', 'http://www.sosym.org/' ),
     ( 'sttt', 'Journal on Software Tools for Technology Transfer', 'Springer', 'http://www.springer.com/computer/swe/journal/10009' ),
-    ( 'tcad', 'IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems', 'IEEE', '' ),
+    ( 'tcad', 'IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems', 'IEEE', 'http://ieee-ceda.org/publication/tcad-publication' ),
     ( 'tcs', 'Theoretical Computer Science', 'Elsevier', 'http://www.journals.elsevier.com/theoretical-computer-science/' ),
     ( 'zk', 'Zeitschrift für Kristallographie - Crystalline Materials', 'De Gruyter', 'http://www.degruyter.com/view/j/zkri' )
 ]
