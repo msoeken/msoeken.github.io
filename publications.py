@@ -757,6 +757,7 @@ authors_data = [
     ( 'ss',  'Saeideh', 'Shirinzadeh' ),
     ( 'ss2', 'Sabine', 'Süsstrunk' ),
     ( 'sw',  'Stefan', 'Wiesner' ),
+    ( 'th',  'Thomas', 'Haener' ),
     ( 'tw',  'Thomas', 'Wriedt' ),
     ( 'uk',  'Ulrich', 'Kühne' ),
     ( 'wc',  'Wouter', 'Castryck' ),
@@ -860,6 +861,8 @@ confpapers_data = [
     ( ['zc', 'ms', 'yx', 'gdm'],                                        'aspdac',   2018, 'Functional decomposition using majority', 'XXXX', '' ),
     ( ['gm', 'ms', 'mr', 'nw', 'gdm'],                                  'aspdac',   2018, 'A best-fit mapping algorithm to facilitate ESOP-decomposition in Clifford+T quantum network synthesis', 'XXXX', '' ),
     ( ['la', 'ms', 'pv', 'jl', 'am', 'jo', 'rkb', 'gdm'],               'date',     2018, 'Improvements to Boolean resynthesis', 'XXXX', '' ),
+    ( ['ms', 'wh', 'et', 'am', 'la', 'rkb', 'gdm'],                     'date',     2018, 'Practical exact synthesis (invited executive session)', 'XXXX', '' ),
+    ( ['ms', 'th', 'mr'],                                               'date',     2018, 'Programming quantum computers using design automation (invited executive session)', 'XXXX', '' ),
     ( ['wh', 'ec', 'bs2', 'ms', 'ss2', 'fk', 'gdm'],                    'iscas',    2018, 'Deep learning for logic optimization algorithms', 'XXXX', '' )
 ]
 
