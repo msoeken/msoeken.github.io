@@ -569,7 +569,8 @@ conferences_data = [
         ( 2013, 'may', 'Toyama', 'Japan' ),
         ( 2015, 'may', 'Waterloo, ON', 'Canada' ),
         ( 2016, 'may', 'Sapporo', 'Japan' ),
-        ( 2017, 'may', 'Novi Sad', 'Serbia' )
+        ( 2017, 'may', 'Novi Sad', 'Serbia' ),
+        ( 2018, 'may', 'Linz', 'Austria' )
     ] ),
     ( 'isvlsi', 'ISVLSI', 'IEEE Computer Society Annual Symposium on VLSI', 'IEEE', [
         ( 2008, 'apr', 'Montpellier', 'France' ),
@@ -863,7 +864,8 @@ confpapers_data = [
     ( ['la', 'ms', 'pv', 'jl', 'am', 'jo', 'rkb', 'gdm'],               'date',     2018, 'Improvements to Boolean resynthesis', 'XXXX', '' ),
     ( ['ms', 'wh', 'et', 'am', 'la', 'rkb', 'gdm'],                     'date',     2018, 'Practical exact synthesis (invited executive session)', 'XXXX', '' ),
     ( ['ms', 'th', 'mr'],                                               'date',     2018, 'Programming quantum computers using design automation (invited executive session)', 'XXXX', '' ),
-    ( ['wh', 'ec', 'bs2', 'ms', 'ss2', 'fk', 'gdm'],                    'iscas',    2018, 'Deep learning for logic optimization algorithms', 'XXXX', '' )
+    ( ['wh', 'ec', 'bs2', 'ms', 'ss2', 'fk', 'gdm'],                    'iscas',    2018, 'Deep learning for logic optimization algorithms', 'XXXX', '' ),
+    ( ['wc', 'jd', 'adv', 'ok', 'ms'],                                  'ismvl',    2018, 'Translating between the roots of identity in quantum circuits', 'XXXX', '' )
 ]
 
 workpapers_data = [
