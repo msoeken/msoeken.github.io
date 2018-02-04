@@ -865,7 +865,8 @@ confpapers_data = [
     ( ['ms', 'wh', 'et', 'am', 'la', 'rkb', 'gdm'],                     'date',     2018, 'Practical exact synthesis (invited executive session)', 'XXXX', '' ),
     ( ['ms', 'th', 'mr'],                                               'date',     2018, 'Programming quantum computers using design automation (invited executive session)', 'XXXX', '' ),
     ( ['wh', 'ec', 'bs2', 'ms', 'ss2', 'fk', 'gdm'],                    'iscas',    2018, 'Deep learning for logic optimization algorithms', 'XXXX', '' ),
-    ( ['wc', 'jd', 'adv', 'ok', 'ms'],                                  'ismvl',    2018, 'Translating between the roots of identity in quantum circuits', 'XXXX', '' )
+    ( ['wc', 'jd', 'adv', 'ok', 'ms'],                                  'ismvl',    2018, 'Translating between the roots of identity in quantum circuits', 'XXXX', '' ),
+    ( ['mm', 'ms'],                                                     'ismvl',    2018, 'A spectral algorithm for ternary function classification', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -942,7 +943,8 @@ news_data = [
     ( 'iccad', 2017 ),
     ( 'aspdac', 2018 ),
     ( 'date', 2018 ),
-    ( 'iscas', 2018 )
+    ( 'iscas', 2018 ),
+    ( 'ismvl', 2018 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
