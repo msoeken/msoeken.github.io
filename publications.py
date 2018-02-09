@@ -487,7 +487,8 @@ conferences_data = [
     ( 'dac', 'DAC', 'Design Automation Conference', 'ACM/IEEE', [
         ( 2010, 'jun', 'Anaheim, CA', 'USA' ),
         ( 2016, 'jun', 'Austin, TX', 'USA' ),
-        ( 2017, 'jun', 'Austin, TX', 'USA' )
+        ( 2017, 'jun', 'Austin, TX', 'USA' ),
+        ( 2018, 'jun', 'San Francisco, CA', 'USA' )
     ] ),
     ( 'date', 'DATE', 'Design, Automation and Test in Europe', 'IEEE', [
         ( 2010, 'mar', 'Dresden', 'Germany' ),
@@ -675,6 +676,7 @@ authors_data = [
     ( 'aaa', 'Arman', 'Allahyari-Abhari' ),
     ( 'ac',  'Anupam', 'Chattopadhyay' ),
     ( 'ac2', 'Arun', 'Chandrasekharan' ),
+    ( 'ad',  'Antun', 'Domic' ),
     ( 'adm', 'Anton', 'De Meester' ),
     ( 'adv', 'Alexis', 'De Vos' ),
     ( 'am',  'Alan', 'Mishchenko' ),
@@ -866,7 +868,9 @@ confpapers_data = [
     ( ['ms', 'th', 'mr'],                                               'date',     2018, 'Programming quantum computers using design automation (invited executive session)', 'XXXX', '' ),
     ( ['wh', 'ec', 'bs2', 'ms', 'ss2', 'fk', 'gdm'],                    'iscas',    2018, 'Deep learning for logic optimization algorithms', 'XXXX', '' ),
     ( ['wc', 'jd', 'adv', 'ok', 'ms'],                                  'ismvl',    2018, 'Translating between the roots of identity in quantum circuits', 'XXXX', '' ),
-    ( ['mm', 'ms'],                                                     'ismvl',    2018, 'A spectral algorithm for ternary function classification', 'XXXX', '' )
+    ( ['mm', 'ms'],                                                     'ismvl',    2018, 'A spectral algorithm for ternary function classification', 'XXXX', '' ),
+    ( ['am', 'rkb', 'ap', 'ms', 'la', 'ad'],                            'dac',      2018, 'Canonical computation without canonical representation', 'XXXX', '' ),
+    ( ['wh', 'am', 'ms', 'gdm'],                                        'dac',      2018, 'SAT based exact synthesis using DAG topology families', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -944,7 +948,8 @@ news_data = [
     ( 'aspdac', 2018 ),
     ( 'date', 2018 ),
     ( 'iscas', 2018 ),
-    ( 'ismvl', 2018 )
+    ( 'ismvl', 2018 ),
+    ( 'dac', 2018 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
