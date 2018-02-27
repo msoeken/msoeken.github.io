@@ -868,7 +868,7 @@ confpapers_data = [
     ( ['ms', 'th', 'mr'],                                               'date',     2018, 'Programming quantum computers using design automation (invited executive session)', 'XXXX', '' ),
     ( ['wh', 'ec', 'bs2', 'ms', 'ss2', 'fk', 'gdm'],                    'iscas',    2018, 'Deep learning for logic optimization algorithms', 'XXXX', '' ),
     ( ['wc', 'jd', 'adv', 'ok', 'ms'],                                  'ismvl',    2018, 'Translating between the roots of identity in quantum circuits', 'XXXX', '' ),
-    ( ['mm', 'ms'],                                                     'ismvl',    2018, 'A spectral algorithm for ternary function classification', 'XXXX', '' ),
+    ( ['dmm', 'ms'],                                                    'ismvl',    2018, 'A spectral algorithm for ternary function classification', 'XXXX', '' ),
     ( ['am', 'rkb', 'ap', 'ms', 'la', 'ad'],                            'dac',      2018, 'Canonical computation without canonical representation', 'XXXX', '' ),
     ( ['wh', 'am', 'ms', 'gdm'],                                        'dac',      2018, 'SAT based exact synthesis using DAG topology families', 'XXXX', '' )
 ]
@@ -964,39 +964,46 @@ preprints = list( map( make_preprint, preprint_data ) )
 news = list( map( make_news, news_data ) )
 
 universities_data = [
-    ( 'birs', 'Banff International Research Station', 'Banff, AL',       'Canada',      'http://www.birs.ca',                        '' ),
-    ( 'epfl', 'EPFL',                                 'Lausanne',        'Switzerland', 'http://epfl.ch',                            'École Polytechnique Fédérale de Lausanne' ),
-    ( 'hu',   'Hokkaido University',                  'Sapporo',         'Japan',       'https://www.oia.hokudai.ac.jp',             '北海道大学' ),
-    ( 'rwth', 'RWTH Aachen University',               'Aachen',          'Germany',     'http://www.rwth-aachen.de',                 'RWTH Aachen' ),
-    ( 'ru',   'Ritsumeikan University',               'Kyoto',           'Japan',       'http://en.ritsumei.ac.jp',                  '立命館大学' ),
-    ( 'sri',  'SRI International',                    'Menlo Park, CA',  'USA',         'https://www.sri.com',                       '' ),
-    ( 'su',   'Stanford University',                  'Stanford, CA',    'USA',         'http://stanford.edu',                       '' ),
-    ( 'unb',  'University of New Brunswick',          'Fredericton, NB', 'Canada',      'http://www.unb.ca',                         '' ),
-    ( 'msr',  'Microsoft Research',                   'Redmond, WA',     'USA',         'https://www.microsoft.com/en-us/research/', '' ),
-    ( 'snps', 'Synopsys',                             'Sunnyvale, CA',   'USA',         'http://www.synopsys.com/',                  '' )
+    ( 'birs',    'Banff International Research Station', 'Banff, AL',        'Canada',      'http://www.birs.ca',                                   '' ),
+    ( 'epfl',    'EPFL',                                 'Lausanne',         'Switzerland', 'http://epfl.ch',                                       'École Polytechnique Fédérale de Lausanne' ),
+    ( 'hu',      'Hokkaido University',                  'Sapporo',          'Japan',       'https://www.oia.hokudai.ac.jp',                        '北海道大学' ),
+    ( 'ibm',     'IBM Research',                         'Yorktown Heights', 'USA',         'https://www.research.ibm.com/labs/watson/index.shtml', '' ),
+    ( 'rwth',    'RWTH Aachen University',               'Aachen',           'Germany',     'http://www.rwth-aachen.de',                            'RWTH Aachen' ),
+    ( 'ru',      'Ritsumeikan University',               'Kyoto',            'Japan',       'http://en.ritsumei.ac.jp',                             '立命館大学' ),
+    ( 'sri',     'SRI International',                    'Menlo Park, CA',   'USA',         'https://www.sri.com',                                  '' ),
+    ( 'su',      'Stanford University',                  'Stanford, CA',     'USA',         'http://stanford.edu',                                  '' ),
+    ( 'unb',     'University of New Brunswick',          'Fredericton, NB',  'Canada',      'http://www.unb.ca',                                    '' ),
+    ( 'msr',     'Microsoft Research',                   'Redmond, WA',      'USA',         'https://www.microsoft.com/en-us/research/',            '' ),
+    ( 'rigetti', 'Rigetti Computing',                    'Berkeley, CA',     'USA',         'https://www.rigetti.com/',                             '' ),
+    ( 'snps',    'Synopsys',                             'Sunnyvale, CA',    'USA',         'http://www.synopsys.com/',                             '' ),
+    ( 'unistra', 'University of Strasbourg',             'Strasbourg',       'France',      'https://en.unistra.fr/',                               '' )
 ]
 
 universities = make_dict( 'key', universities_data, make_university )
 
 invited_data = [
-    ( 2011, 'jan', 'uni',  'hu',     'Prof. Shin-ichi Minato',                    'Formal verification of UML-based specifications',                         'http://www-erato.ist.hokudai.ac.jp/wiki/wiki.cgi?page=ERATO-seminar' ),
-    ( 2012, 'apr', 'conf', 'cukeup', '',                                          'BDD for embedded system design',                                          'https://skillsmatter.com/skillscasts/3124-bdd-for-embedded-system-design' ),
-    ( 2013, 'jan', 'uni',  'hu',     'Prof. Shin-ichi Minato',                    'Synthesis of reversible circuits with minimal lines for large functions', '' ),
-    ( 2013, 'apr', 'conf', 'cukeup', '',                                          'Towards automatic scenario generation based on uncovered code',           'https://skillsmatter.com/skillscasts/4043-towards-automatic-scenario-generation-based-on-uncovered-code' ),
-    ( 2014, 'apr', 'uni',  'su',     'Prof. Subhasish Mitra',                     'Formal specification level',                                              '' ),
-    ( 2014, '',    'uni',  'rwth',   'Prof. Anupam Chattopadhyay',                'Implementing synthesis flows with RevKit',                                '' ),
-    ( 2014, 'may', 'uni',  'ru',     'Prof. Shigeru Yamashita',                   'Formal specification level',                                              '' ),
-    ( 2014, 'oct', 'uni',  'unb',    'Prof. Gerhard W. Dueck',                    'Formal specification level',                                              'http://www.cs.unb.ca/seminarseries/documents/Mathias_Soeken-10.29.14.pdf' ),
-    ( 2014, 'dec', 'uni',  'sri',    'Dr. Wenchao Li',                            'Reverse engineering',                                                     '' ),
-    ( 2015, 'may', 'conf', 'rm',     '',                                          'Generalized equivalence checking problems for reverse engineering',       'http://lyle.smu.edu/RM2015/program.htm' ),
-    ( 2015, 'jun', 'uni',  'epfl',   'Prof. Paolo Ienne',                         'Reverse engineering with simulation graphs',                              '' ),
-    ( 2016, 'apr', 'uni',  'birs',   'Dr. Martin Roetteler',                      'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www.birs.ca/events/2016/5-day-workshops/16w5029/videos/watch/201604181552-Soeken.html' ),
-    ( 2016, 'may', 'uni',  'hu',     'Prof. Shin-ichi Minato',                    'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www-erato.ist.hokudai.ac.jp/html/php/seminar.php?day=20160517' ),
-    ( 2016, 'sep', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'Symbolic and hierarchical reversible logic synthesis',                    '' ),
-    ( 2016, 'nov', 'uni',  'snps',   'Dr. Luca Amarù',                            'SAT-based logic synthesis',                                               '' ),
-    ( 2017, 'feb', 'uni',  'msr',    'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'LUT-based hierarchical reversible logic synthesis',                       '' ),
-    ( 2017, 'jul', 'conf', 'rcss',   '',                                          'Reversible logic synthesis and RevKit',                                   'http://reversible-computation.org/2017/images/Program-RC2017.pdf' ),
-    ( 2017, 'aug', 'conf', 'costts', '',                                          'Hierarchical reversible logic synthesis',                                 'http://www.informatik.uni-bremen.de/ictcost/school2017.php?program' )
+    ( 2011, 'jan', 'uni',  'hu',      'Prof. Shin-ichi Minato',                    'Formal verification of UML-based specifications',                         'http://www-erato.ist.hokudai.ac.jp/wiki/wiki.cgi?page=ERATO-seminar' ),
+    ( 2012, 'apr', 'conf', 'cukeup',  '',                                          'BDD for embedded system design',                                          'https://skillsmatter.com/skillscasts/3124-bdd-for-embedded-system-design' ),
+    ( 2013, 'jan', 'uni',  'hu',      'Prof. Shin-ichi Minato',                    'Synthesis of reversible circuits with minimal lines for large functions', '' ),
+    ( 2013, 'apr', 'conf', 'cukeup',  '',                                          'Towards automatic scenario generation based on uncovered code',           'https://skillsmatter.com/skillscasts/4043-towards-automatic-scenario-generation-based-on-uncovered-code' ),
+    ( 2014, 'apr', 'uni',  'su',      'Prof. Subhasish Mitra',                     'Formal specification level',                                              '' ),
+    ( 2014, '',    'uni',  'rwth',    'Prof. Anupam Chattopadhyay',                'Implementing synthesis flows with RevKit',                                '' ),
+    ( 2014, 'may', 'uni',  'ru',      'Prof. Shigeru Yamashita',                   'Formal specification level',                                              '' ),
+    ( 2014, 'oct', 'uni',  'unb',     'Prof. Gerhard W. Dueck',                    'Formal specification level',                                              'http://www.cs.unb.ca/seminarseries/documents/Mathias_Soeken-10.29.14.pdf' ),
+    ( 2014, 'dec', 'uni',  'sri',     'Dr. Wenchao Li',                            'Reverse engineering',                                                     '' ),
+    ( 2015, 'may', 'conf', 'rm',      '',                                          'Generalized equivalence checking problems for reverse engineering',       'http://lyle.smu.edu/RM2015/program.htm' ),
+    ( 2015, 'jun', 'uni',  'epfl',    'Prof. Paolo Ienne',                         'Reverse engineering with simulation graphs',                              '' ),
+    ( 2016, 'apr', 'uni',  'birs',    'Dr. Martin Roetteler',                      'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www.birs.ca/events/2016/5-day-workshops/16w5029/videos/watch/201604181552-Soeken.html' ),
+    ( 2016, 'may', 'uni',  'hu',      'Prof. Shin-ichi Minato',                    'Ancilla-free reversible logic synthesis using symbolic methods',          'http://www-erato.ist.hokudai.ac.jp/html/php/seminar.php?day=20160517' ),
+    ( 2016, 'sep', 'uni',  'msr',     'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'Symbolic and hierarchical reversible logic synthesis',                    '' ),
+    ( 2016, 'nov', 'uni',  'snps',    'Dr. Luca Amarù',                            'SAT-based logic synthesis',                                               '' ),
+    ( 2017, 'feb', 'uni',  'msr',     'Dr. Martin Roetteler and Dr. Nathan Wiebe', 'LUT-based hierarchical reversible logic synthesis',                       '' ),
+    ( 2017, 'jul', 'conf', 'rcss',    '',                                          'Reversible logic synthesis and RevKit',                                   'http://reversible-computation.org/2017/images/Program-RC2017.pdf' ),
+    ( 2017, 'aug', 'conf', 'costts',  '',                                          'Hierarchical reversible logic synthesis',                                 'http://www.informatik.uni-bremen.de/ictcost/school2017.php?program' ),
+    ( 2018, 'jan', 'uni',  'unistra', 'Dr. Morgan Madec',                          'Introduction to Quantum Computing and Reversible Logic',                  '' ),
+    ( 2018, 'feb', 'uni',  'ibm',     'Dr. Mihir Choudhury',                       'Logic Synthesis for Quantum Computing',                                   '' ),
+    ( 2018, 'feb', 'uni',  'rigetti', 'Dr. Will Zeng',                             'Logic Synthesis in Automatic Quantum Compilation',                        '' ),
+    ( 2018, 'feb', 'uni',  'msr',     'Dr. Martin Roetteler',                      'Automatically Compiling Combinational Operations in Q#',                  '' )
 ]
 
 invited = list( map( make_invited, invited_data ) )
