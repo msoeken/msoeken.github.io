@@ -949,7 +949,8 @@ preprint_data = [
     ( ['wc', 'jd', 'adv', 'ok', 'ms'], '1503.08579', 'Translating between the roots of identity in quantum circuits',                       '7 pages',                                                                  '',    ['quant-ph', 'math.GR'] ),
     ( ['ms', 'mr', 'nw', 'gdm'],       '1612.00631', 'Design automation and design space exploration for quantum computers',                '6 pages, 1 figure',                                                        'c81', ['quant-ph', 'cs.ET'] ),
     ( ['ms', 'mr', 'nw', 'gdm'],       '1706.02721', 'Logic synthesis for quantum computing',                                               '15 pages, 10 figures',                                                     '',    ['quant-ph', 'cs.ET'] ),
-    ( ['ms', 'th', 'mr'],              '1803.01022', 'Programming quantum computers using design automation',                               '10 pages, 10 figures',                                                     'c94', ['quant-ph', 'cs.ET'] )
+    ( ['ms', 'th', 'mr'],              '1803.01022', 'Programming quantum computers using design automation',                               '10 pages, 10 figures',                                                     'c94', ['quant-ph', 'cs.ET'] ),
+    ( ['ms', 'hr', 'wh', 'gdm'],       '1805.05121', 'The EPFL logic synthesis libraries',                                                  "8 pages, accepted at Int'l Workshop on Logic & Synthesis 2018",            '',    ['cs.LO', 'cs.MS'] )
 ]
 
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
