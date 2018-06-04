@@ -624,7 +624,8 @@ conferences_data = [
         ( 2013, 'jul', 'Victoria, BC', 'Canada' ),
         ( 2014, 'jul', 'Kyoto', 'Japan' ),
         ( 2015, 'jul', 'Grenoble', 'France' ),
-        ( 2016, 'jul', 'Bologna', 'Italy' )
+        ( 2016, 'jul', 'Bologna', 'Italy' ),
+        ( 2018, 'sep', 'Leicester', 'England' )
     ] ),
     ( 'rcss', '', 'Reversible Computation Summer School', '', [
         ( 2017, 'jul', 'Kolkata', 'India' )
@@ -879,7 +880,9 @@ confpapers_data = [
     ( ['wc', 'jd', 'adv', 'ok', 'ms'],                                  'ismvl',    2018, 'Translating between the roots of identity in quantum circuits', 'XXXX', '' ),
     ( ['dmm', 'ms'],                                                    'ismvl',    2018, 'A spectral algorithm for ternary function classification', 'XXXX', '' ),
     ( ['am', 'rkb', 'ap', 'ms', 'la', 'ad'],                            'dac',      2018, 'Canonical computation without canonical representation', 'XXXX', '' ),
-    ( ['wh', 'am', 'ms', 'gdm'],                                        'dac',      2018, 'SAT based exact synthesis using DAG topology families', 'XXXX', '' )
+    ( ['wh', 'am', 'ms', 'gdm'],                                        'dac',      2018, 'SAT based exact synthesis using DAG topology families', 'XXXX', '' ),
+    ( ['gm', 'ms', 'gdm'],                                              'rc',       2018, 'SAT-based {CNOT, T} quantum circuit synthesis', 'XXXX', '' ),
+    ( ['th', 'ms', 'mr'],                                               'rc',       2018, 'Quantum circuits for floating-point arithmetic', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -964,7 +967,8 @@ news_data = [
     ( 'date', 2018 ),
     ( 'iscas', 2018 ),
     ( 'ismvl', 2018 ),
-    ( 'dac', 2018 )
+    ( 'dac', 2018 ),
+    ( 'rc', 2018 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
