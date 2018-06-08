@@ -610,7 +610,8 @@ conferences_data = [
         ( 2015, 'oct', 'Ottawa, ON', 'Canada' )
     ] ),
     ( 'nanoarch', 'NANOARCH', 'International Symposium on Nanoscale Architectures', 'IEEE', [
-        ( 2016, 'jul', 'Beijing', 'China' )
+        ( 2016, 'jul', 'Beijing', 'China' ),
+        ( 2018, 'jul', 'Athens', 'Greece' )
     ] ),
     ( 'naturalise', 'NaturaLiSE', 'International Workshop on Natural Language Analysis in Software Engineering', '', [
         ( 2013, 'may', 'San Francisco, CA', 'USA' )
@@ -882,7 +883,8 @@ confpapers_data = [
     ( ['am', 'rkb', 'ap', 'ms', 'la', 'ad'],                            'dac',      2018, 'Canonical computation without canonical representation', 'XXXX', '' ),
     ( ['wh', 'am', 'ms', 'gdm'],                                        'dac',      2018, 'SAT based exact synthesis using DAG topology families', 'XXXX', '' ),
     ( ['gm', 'ms', 'gdm'],                                              'rc',       2018, 'SAT-based {CNOT, T} quantum circuit synthesis', 'XXXX', '' ),
-    ( ['th', 'ms', 'mr'],                                               'rc',       2018, 'Quantum circuits for floating-point arithmetic', 'XXXX', '' )
+    ( ['th', 'ms', 'mr'],                                               'rc',       2018, 'Quantum circuits for floating-point arithmetic', 'XXXX', '' ),
+    ( ['hr', 'et', 'la', 'ms', 'gdm'],                                  'nanoarch', 2018, 'Size optimization of MIGs with an application to QCA and STMG technologies', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -968,7 +970,8 @@ news_data = [
     ( 'iscas', 2018 ),
     ( 'ismvl', 2018 ),
     ( 'dac', 2018 ),
-    ( 'rc', 2018 )
+    ( 'rc', 2018 ),
+    ( 'nanoarch', 2018 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
