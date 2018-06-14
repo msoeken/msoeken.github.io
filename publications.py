@@ -728,6 +728,7 @@ authors_data = [
     ( 'js',  'Julia', 'Seiter' ),
     ( 'js2', 'Johanna', 'Sepulveda' ),
     ( 'kdt', 'Klaus-Dieter', 'Thoben' ),
+    ( 'kms', 'Krysta M.', 'Svore' ),
     ( 'la',  'Luca Gaetano', 'Amarù' ),
     ( 'lm',  'Lutz', 'Mädler' ),
     ( 'lt',  'Laura', 'Tague' ),
@@ -883,7 +884,7 @@ confpapers_data = [
     ( ['am', 'rkb', 'ap', 'ms', 'la', 'ad'],                            'dac',      2018, 'Canonical computation without canonical representation', 'XXXX', '' ),
     ( ['wh', 'am', 'ms', 'gdm'],                                        'dac',      2018, 'SAT based exact synthesis using DAG topology families', 'XXXX', '' ),
     ( ['gm', 'ms', 'gdm'],                                              'rc',       2018, 'SAT-based {CNOT, T} quantum circuit synthesis', 'XXXX', '' ),
-    ( ['th', 'ms', 'mr'],                                               'rc',       2018, 'Quantum circuits for floating-point arithmetic', 'XXXX', '' ),
+    ( ['th', 'ms', 'mr', 'kms'],                                        'rc',       2018, 'Quantum circuits for floating-point arithmetic', 'XXXX', '' ),
     ( ['hr', 'et', 'la', 'ms', 'gdm'],                                  'nanoarch', 2018, 'Size optimization of MIGs with an application to QCA and STMG technologies', 'XXXX', '' )
 ]
 
