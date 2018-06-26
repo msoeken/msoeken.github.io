@@ -943,7 +943,9 @@ article_data = [
     ( ['ms', 'peg', 'ss', 'rd', 'gdm'],           'computer',     50,  "6",      2017, 'A PLiM computer for the Internet of Things',                                                                                             '35--40',     'https://doi.org/10.1109/MC.2017.173' ),
     ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         19,  "5",      2017, 'metaSMT: Focus on your application and not on solver integration',                                                                       '605--621',   'http://link.springer.com/article/10.1007/s10009-016-0426-1' ),
     ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         36,  "11",     2017, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '1842--1855', 'https://doi.org/10.1109/TCAD.2017.2664059' ),
-    ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         -1,  "",          0, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '',           'https://doi.org/10.1109/TCAD.2017.2750064' )
+    ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         37,  "7",      2018, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '1937-4151',  'https://doi.org/10.1109/TCAD.2017.2750064' ),
+    ( ['ok', 'ms', 'rd'],                         'ipl',          -1,  "",          0, 'The complexity of error metric',                                                                                                         '', '' ),
+    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '', '' )
 ]
 
 preprint_data = [
@@ -972,7 +974,9 @@ news_data = [
     ( 'ismvl', 2018 ),
     ( 'dac', 2018 ),
     ( 'rc', 2018 ),
-    ( 'nanoarch', 2018 )
+    ( 'nanoarch', 2018 ),
+    ( 'ipl', -1 ),
+    ( 'tcad', -1 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
