@@ -460,8 +460,8 @@ def format_haml_invited( invited ):
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
-replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("δ", "{$\\delta$}"), ("πDD", "{$\\pi$DD}"), ("&", "\&")]
+capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "EPFL", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("δ", "{$\\delta$}"), ("πDD", "{$\\pi$DD}"), ("&", "\&"), ("T-count", "{$T$-count}")]
 
 conferences_data = [
     ( 'apms', 'APMS', 'Advances in Production Management Systems', 'IFIP', [
@@ -944,9 +944,9 @@ article_data = [
     ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         19,  "5",      2017, 'metaSMT: Focus on your application and not on solver integration',                                                                       '605--621',   'http://link.springer.com/article/10.1007/s10009-016-0426-1' ),
     ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         36,  "11",     2017, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '1842--1855', 'https://doi.org/10.1109/TCAD.2017.2664059' ),
     ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         37,  "7",      2018, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '1937-4151',  'https://doi.org/10.1109/TCAD.2017.2750064' ),
-    ( ['ok', 'ms', 'rd'],                         'ipl',          -1,  "",          0, 'The complexity of error metric',                                                                                                         '', 'https://doi.org/10.1016/j.ipl.2018.06.010' ),
-    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '', '' ),
-    ( ['ms', 'et', 'am', 'gdm'],                  'ipl',          -1,  "",          0, 'Pairs of majority-decomposing functions',                                                                                                '', '' )
+    ( ['ok', 'ms', 'rd'],                         'ipl',         139,  "",       2018, 'The complexity of error metric',                                                                                                         '1--7',       'https://doi.org/10.1016/j.ipl.2018.06.010' ),
+    ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004' ),
+    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '', '' )
 ]
 
 preprint_data = [
@@ -977,7 +977,7 @@ news_data = [
     ( 'dac', 2018 ),
     ( 'rc', 2018 ),
     ( 'nanoarch', 2018 ),
-    ( 'ipl', -1 ),
+    ( 'ipl', 139 ),
     ( 'tcad', -1 )
 ]
 
