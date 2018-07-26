@@ -946,7 +946,7 @@ article_data = [
     ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         37,  "7",      2018, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '1937-4151',  'https://doi.org/10.1109/TCAD.2017.2750064' ),
     ( ['ok', 'ms', 'rd'],                         'ipl',         139,  "",       2018, 'The complexity of error metric',                                                                                                         '1--7',       'https://doi.org/10.1016/j.ipl.2018.06.010' ),
     ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004' ),
-    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '', '' )
+    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '', 'https://doi.org/10.1109/TCAD.2018.2859251' )
 ]
 
 preprint_data = [
