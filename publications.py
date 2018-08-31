@@ -553,7 +553,8 @@ conferences_data = [
     ( 'iccad', 'ICCAD', 'International Conference on Computer-Aided Design', 'IEEE', [
         ( 2014, 'nov', 'San Jose, CA', 'USA' ),
         ( 2016, 'nov', 'Austin, TX', 'USA' ),
-        ( 2017, 'nov', 'Irvine, CA', 'USA' )
+        ( 2017, 'nov', 'Irvine, CA', 'USA' ),
+        ( 2018, 'nov', 'San Diego, CA', 'USA' )
     ] ),
     ( 'icgt', 'ICGT', 'International Conference on Graph Transformation', 'Springer', [
         ( 2012, 'sep', 'Bremen', 'Germany' )
@@ -885,7 +886,8 @@ confpapers_data = [
     ( ['wh', 'am', 'ms', 'gdm'],                                        'dac',      2018, 'SAT based exact synthesis using DAG topology families', 'XXXX', '' ),
     ( ['gm', 'ms', 'gdm'],                                              'rc',       2018, 'SAT-based {CNOT, T} quantum circuit synthesis', 'XXXX', '' ),
     ( ['th', 'ms', 'mr', 'kms'],                                        'rc',       2018, 'Quantum circuits for floating-point arithmetic', 'XXXX', '' ),
-    ( ['hr', 'et', 'la', 'ms', 'gdm'],                                  'nanoarch', 2018, 'Size optimization of MIGs with an application to QCA and STMG technologies', 'XXXX', '' )
+    ( ['hr', 'et', 'la', 'ms', 'gdm'],                                  'nanoarch', 2018, 'Size optimization of MIGs with an application to QCA and STMG technologies', 'XXXX', '' ),
+    ( ['la', 'et', 'mc', 'oz', 'gdm', 'ms'],                            'iccad',    2018, 'Majority logic synthesis (embedded tutorial)', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -978,7 +980,8 @@ news_data = [
     ( 'rc', 2018 ),
     ( 'nanoarch', 2018 ),
     ( 'ipl', 139 ),
-    ( 'tcad', -1 )
+    ( 'tcad', -1 ),
+    ( 'tutorial', 'Majority logic synthesis', 'https://iccad.com/event_details?id=263-6-E', 'I am organizing the tutorial', ['la', 'et', 'mc', 'oz'], ('iccad', 2018) )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
