@@ -119,9 +119,3 @@
         $('#myTab a[href="' + hash + '"]').tab('show');
         window.location = orig;
       }
-
-      $('a.paper').click(function (e) {
-        e.preventDefault();
-        ga('send', 'event', 'Papers', 'view', $(this).attr('href'));
-        window.location = $(this).attr('href');
-      });
