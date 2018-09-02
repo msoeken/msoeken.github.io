@@ -460,7 +460,7 @@ def format_haml_invited( invited ):
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "EPFL", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML"]
+capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "EPFL", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML", "XOR"]
 replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("δ", "{$\\delta$}"), ("πDD", "{$\\pi$DD}"), ("&", "\&"), ("T-count", "{$T$-count}")]
 
 conferences_data = [
@@ -472,7 +472,8 @@ conferences_data = [
         ( 2013, 'jan', 'Yokohama', 'Japan' ),
         ( 2016, 'jan', 'Macau', 'China' ),
         ( 2017, 'jan', 'Tokyo', 'Japan' ),
-        ( 2018, 'jan', 'Jeju Island', 'Korea' )
+        ( 2018, 'jan', 'Jeju Island', 'Korea' ),
+        ( 2019, 'jan', 'Tokyo', 'Japan' )
     ] ),
     ( 'ast', 'AST', 'International Workshop on Automation of Software Test', 'ACM', [
         ( 2013, 'may', 'San Francisco, CA', 'USA' )
@@ -887,7 +888,8 @@ confpapers_data = [
     ( ['gm', 'ms', 'gdm'],                                              'rc',       2018, 'SAT-based {CNOT, T} quantum circuit synthesis', 'XXXX', '' ),
     ( ['th', 'ms', 'mr', 'kms'],                                        'rc',       2018, 'Quantum circuits for floating-point arithmetic', 'XXXX', '' ),
     ( ['hr', 'et', 'la', 'ms', 'gdm'],                                  'nanoarch', 2018, 'Size optimization of MIGs with an application to QCA and STMG technologies', 'XXXX', '' ),
-    ( ['la', 'et', 'mc', 'oz', 'gdm', 'ms'],                            'iccad',    2018, 'Majority logic synthesis (embedded tutorial)', 'XXXX', '' )
+    ( ['la', 'et', 'mc', 'oz', 'gdm', 'ms'],                            'iccad',    2018, 'Majority logic synthesis (embedded tutorial)', 'XXXX', '' ),
+    ( ['zc', 'ms', 'yx', 'lw'],                                         'aspdac',   2019, 'Structural rewriting in XOR-majority graphs', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -981,7 +983,8 @@ news_data = [
     ( 'nanoarch', 2018 ),
     ( 'ipl', 139 ),
     ( 'tcad', -1 ),
-    ( 'tutorial', 'Majority logic synthesis', 'https://iccad.com/event_details?id=263-6-E', 'I am organizing the tutorial', ['la', 'et', 'mc', 'oz'], ('iccad', 2018) )
+    ( 'tutorial', 'Majority logic synthesis', 'https://iccad.com/event_details?id=263-6-E', 'I am organizing the tutorial', ['la', 'et', 'mc', 'oz'], ('iccad', 2018) ),
+    ( 'aspdac', 2019 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
