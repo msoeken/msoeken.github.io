@@ -673,6 +673,7 @@ journals_data = [
     ( 'jsc', 'Journal of Symbolic Computation', 'Elsevier', 'http://www.journals.elsevier.com/journal-of-symbolic-computation/' ),
     ( 'mvl', 'Multiple-Valued Logic and Soft Computing', 'Old City Publishing', 'http://www.oldcitypublishing.com/journals/mvlsc-home/' ),
     ( 'pra', 'Physical Review A', 'American Physical Society', 'http://journals.aps.org/pra/' ),
+    ( 'procieee', 'Proceedings of the IEEE', 'IEEE', 'http://proceedingsoftheieee.ieee.org' ),
     ( 'sosym', 'Software and System Modeling', 'Springer', 'http://www.sosym.org/' ),
     ( 'sttt', 'Journal on Software Tools for Technology Transfer', 'Springer', 'http://www.springer.com/computer/swe/journal/10009' ),
     ( 'tcad', 'IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems', 'IEEE', 'http://ieee-ceda.org/publication/tcad-publication' ),
@@ -950,7 +951,8 @@ article_data = [
     ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         37,  "7",      2018, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '1937-4151',  'https://doi.org/10.1109/TCAD.2017.2750064' ),
     ( ['ok', 'ms', 'rd'],                         'ipl',         139,  "",       2018, 'The complexity of error metric',                                                                                                         '1--7',       'https://doi.org/10.1016/j.ipl.2018.06.010' ),
     ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004' ),
-    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '', 'https://doi.org/10.1109/TCAD.2018.2859251' )
+    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '',           'https://doi.org/10.1109/TCAD.2018.2859251' ),
+    ( ['et', 'ms', 'la', 'gdm'],                  'procieee',     -1,  "",          0, 'Logic synthesis for established and emerging computing',                                                                                 '',           '' )
 ]
 
 preprint_data = [
@@ -970,10 +972,6 @@ preprint_data = [
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 
 news_data = [
-    ( 'computer', 50 ),
-    ( 'tutorial', 'Design Automation for Quantum Computing', 'https://newcas2017.org/tutorials/', 'I am holding the tutorial', [], ('newcas', 2017) ),
-    ( 'tutorial', 'Logic synthesis is everywhere', 'http://www2.dac.com/events/eventdetails.aspx?id=223-225', 'I am organizing the tutorial', ['am', 'la', 'rkb'], ('dac', 2017) ),
-    ( 'iccad', 2017 ),
     ( 'aspdac', 2018 ),
     ( 'date', 2018 ),
     ( 'iscas', 2018 ),
@@ -984,7 +982,8 @@ news_data = [
     ( 'ipl', 139 ),
     ( 'tcad', -1 ),
     ( 'tutorial', 'Majority logic synthesis', 'https://iccad.com/event_details?id=263-6-E', 'I am organizing the tutorial', ['la', 'et', 'mc', 'oz'], ('iccad', 2018) ),
-    ( 'aspdac', 2019 )
+    ( 'aspdac', 2019 ),
+    ( 'procieee', -1 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
