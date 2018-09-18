@@ -460,7 +460,7 @@ def format_haml_invited( invited ):
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "EPFL", "ESL", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML", "XOR"]
+capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "EPFL", "ESL", "ESOP", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML", "XOR"]
 replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("δ", "{$\\delta$}"), ("πDD", "{$\\pi$DD}"), ("&", "\&"), ("T-count", "{$T$-count}")]
 
 conferences_data = [
@@ -556,6 +556,9 @@ conferences_data = [
         ( 2016, 'nov', 'Austin, TX', 'USA' ),
         ( 2017, 'nov', 'Irvine, CA', 'USA' ),
         ( 2018, 'nov', 'San Diego, CA', 'USA' )
+    ] ),
+    ( 'icecs', 'ICECS', 'International Conference on Electronics, Circuits and Systems', 'IEEE', [
+        ( 2018, 'dec', 'Bordeaux', 'France' )
     ] ),
     ( 'icgt', 'ICGT', 'International Conference on Graph Transformation', 'Springer', [
         ( 2012, 'sep', 'Bremen', 'Germany' )
@@ -890,6 +893,7 @@ confpapers_data = [
     ( ['th', 'ms', 'mr', 'kms'],                                        'rc',       2018, 'Quantum circuits for floating-point arithmetic', 'XXXX', '' ),
     ( ['hr', 'et', 'la', 'ms', 'gdm'],                                  'nanoarch', 2018, 'Size optimization of MIGs with an application to QCA and STMG technologies', 'XXXX', '' ),
     ( ['la', 'et', 'mc', 'oz', 'gdm', 'ms'],                            'iccad',    2018, 'Majority logic synthesis (embedded tutorial)', 'XXXX', '' ),
+    ( ['wh', 'la', 'jl', 'pv', 'ms', 'gdm'],                            'icecs',    2018, 'Integrated ESOP refactoring for industrial designs', 'XXXX', '' ),
     ( ['zc', 'ms', 'yx', 'lw'],                                         'aspdac',   2019, 'Structural rewriting in XOR-majority graphs', 'XXXX', '' )
 ]
 
@@ -982,6 +986,7 @@ news_data = [
     ( 'ipl', 139 ),
     ( 'tcad', -1 ),
     ( 'tutorial', 'Majority logic synthesis', 'https://iccad.com/event_details?id=263-6-E', 'I am organizing the tutorial', ['la', 'et', 'mc', 'oz'], ('iccad', 2018) ),
+    ( 'icecs', 2018 ),
     ( 'aspdac', 2019 ),
     ( 'procieee', -1 )
 ]

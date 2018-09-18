@@ -73,13 +73,6 @@ CirKit
 </div>
 </a>
 </li>
-<li>
-<div class='sub'>
-<a href='cirkit_doc.html'>doc</a>
-|
-<a href='tutorials.html'>tutorials</a>
-</div>
-</li>
 <li class='active' role='presentation'>
 <a class='tool' href='revkit.html'>
 <i aria-hidden='true' class='fa fa-floppy-o'></i>
@@ -90,11 +83,7 @@ RevKit
 </li>
 <li>
 <div class='sub'>
-<a href='cirkit_doc.html'>doc</a>
-|
 <a href='benchmarks.html'>benchmarks</a>
-|
-<a href='tutorials.html'>tutorials</a>
 </div>
 </li>
 <center>
@@ -112,56 +101,37 @@ RevKit
 <h1>RevKit</h1>
 <p style='width:95%'>
 RevKit is an open source C++ logic synthesis framework for reversibe logic.
-Many
-<a href='https://github.com/msoeken/cirkit/tree/master/addons/cirkit-addon-reversible/src/reversible/synthesis' target='_blank'>synthesis</a>
-and
-<a href='https://github.com/msoeken/cirkit/tree/master/addons/cirkit-addon-reversible/src/reversible/optimization' target='_blank'>optimization</a>
-algorithms for reversible logic have been implemented or re-implemented in RevKit.
-Being part of
-<a href='cirkit.html'>CirKit</a>
-it now has a command line interface similar to SIS or ABC.
-The main underlying logic data structures are
-<a href='https://github.com/msoeken/cirkit/blob/master/addons/cirkit-addon-reversible/src/reversible/circuit.hpp' target='_blank'>reversible circuits,</a>
-<a href='https://github.com/msoeken/cirkit/blob/master/addons/cirkit-addon-reversible/src/reversible/truth_table.hpp' target='_blank'>truth tables,</a>
-and
-<a href='https://github.com/msoeken/cirkit/blob/master/addons/cirkit-addon-reversible/src/reversible/rcbdd.hpp' target='_blank'>RCBDDs.</a>
+It is based on the reversible and quantum library
+<a href='https://github.com/boschmitt/tweedledum'>tweedledum,</a>
+and the logic network library
+<a href='https://github.com/lsils/mockturtle'>mockturtle.</a>
+It uses
+<a href='https://github.com/msoeken/alice' target='_blank'>alice</a>
+to create commands for the command line interface and to expose a Python interface.
 </p>
-<h3>Download RevKit</h3>
+<h3>Download CirKit</h3>
 <p>
-The newest RevKit version is availabe as an addon for
-<a href='cirkit.html'>CirKit</a>
-and can be downloaded from
-<a href='http://github.com/msoeken/cirkit' target='_blank'>github.com/msoeken/cirkit.</a>
+<a href='http://github.com/msoeken/cirkit' target='_blank'>github.com/msoeken/cirkit</a>
 </p>
 <p>
 Previous versions of RevKit can be downloaded from
-<a href='http://www.revkit.org/' target='_blank'>www.revkit.org.</a>
-The older versions also contain a Python interface and a graphical user interface.
-These features are no longer maintained and are replaced by the command line interface.
+the
+<a href='https://github.com/msoeken/cirkit/tree/develop' target='_blank'>develop</a>
+branch in the Github repository.
+Older versions are no longer maintained.
 </p>
 <h3>Install RevKit</h3>
-<pre>git clone --recursive https://github.com/msoeken/cirkit.git&#x000A;cd cirkit&#x000A;mkdir build&#x000A;cd build&#x000A;cmake -Denable_cirkit-addon-reversible=ON -Denable_cirkit-addon-formal=ON ..&#x000A;make external&#x000A;make revkit&#x000A;cd ..</pre>
+<pre>git clone --recursive https://github.com/msoeken/cirkit.git&#x000A;cd cirkit&#x000A;mkdir build&#x000A;cd build&#x000A;cmake ..&#x000A;make revkit&#x000A;cd ..</pre>
 <h3>Run RevKit</h3>
 After a successful compilation, run
-<pre>./build/programs/revkit</pre>
+<pre>./build/cli/revkit</pre>
 from the main directory.
-The core concepts of the CirKit CLI also apply to RevKit.
-Some example scripts for RevKit can be found
-<a href='https://github.com/msoeken/cirkit/blob/master/addons/cirkit-addon-reversible/demo.cs' target='_blank'>here.</a>
-The script can also be run with
-<pre>./build/programs/revkit -ef addons/cirkit-addon-reversible/demo.cs</pre>
-from the main directory.
-<h3>Documentation</h3>
-Information on how to use CirKit can be found
-<a href='cirkit_doc.html'>here.</a>
 <h3>Requirements</h3>
 <ul>
-<li>Linux or Mac</li>
+<li>Linux, Mac, or Windows</li>
 <li>git</li>
-<li>cmake (at least version 3.0.0)</li>
-<li>g++ (at least version 4.9.0) or clang++ (at least version 3.5.0)</li>
-<li>boost (at least version 1.56.0)</li>
-<li>GNU MP, and its C++ interface GMP++</li>
+<li>cmake (at least version 3.8.0)</li>
+<li>g++ (at least version 7.3.0) or clang++ (at least version 6.0.0)</li>
 <li>GNU readline (optional)</li>
 </ul>
 </div>
