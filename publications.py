@@ -500,7 +500,8 @@ conferences_data = [
         ( 2015, 'mar', 'Grenoble', 'Germany' ),
         ( 2016, 'mar', 'Dresden', 'Germany' ),
         ( 2017, 'mar', 'Lausanne', 'Switzerland' ),
-        ( 2018, 'mar', 'Dresden', 'Germany' )
+        ( 2018, 'mar', 'Dresden', 'Germany' ),
+        ( 2019, 'mar', 'Florence', 'Italy' )
     ] ),
     ( 'ddecs', 'DDECS', 'IEEE International Symposium on Design and Diagnostics of Electronic Circuits and Systems', 'IEEE', [
         ( 2010, 'apr', 'Vienna', 'Austria' ),
@@ -701,7 +702,9 @@ authors_data = [
     ( 'bb',  'Bernd', 'Becker' ),
     ( 'bs',  'Baruch', 'Sterin' ),
     ( 'bs2', 'Benoit', 'Seguin' ),
+    ( 'bs3', 'Bruno', 'Schmitt' ),
     ( 'cbh', 'Christopher B.', 'Harris' ),
+    ( 'cc',  'Christopher', 'Casares' ),
     ( 'cg',  'Christian', 'Gorldt' ),
     ( 'ch',  'Christoph', 'Hilken' ),
     ( 'co',  'Christian', 'Otterstedt' ),
@@ -719,6 +722,7 @@ authors_data = [
     ( 'fc',  'Francky', 'Catthoor' ),
     ( 'fh',  'Finn', 'Haedicke' ),
     ( 'fk',  'Frédéric', 'Kaplan' ),
+    ( 'fm',  'Fereshte', 'Mozafari' ),
     ( 'gdm', 'Giovanni', 'De Micheli' ),
     ( 'gf',  'Görschwin', 'Fey' ),
     ( 'gg',  'Guy', 'Gogniat' ),
@@ -757,6 +761,7 @@ authors_data = [
     ( 'ms',  'Mathias', 'Soeken' ),
     ( 'ms2', 'Matthias', 'Sauer' ),
     ( 'na',  'Nabila', 'Abdessaied' ),
+    ( 'nb',  'Nikolaj', 'Bjorner' ),
     ( 'np',  'Nils', 'Przigoda' ),
     ( 'nr',  'Norbert', 'Riefler' ),
     ( 'nw',  'Nathan', 'Wiebe' ),
@@ -868,36 +873,40 @@ confpapers_data = [
     ( ['sr', 'igh', 'gf', 'ms'],                                        'iccad',    2016, 'Multilevel design understanding: from specification to logic (invited special session)', '133', 'http://doi.acm.org/10.1145/2966986.2980093' ),
     ( ['ap', 'ms', 'gdm', 'pi', 'am'],                                  'fpl',      2016, 'Fast hierarchical NPN classification', '1--4', 'http://dx.doi.org/10.1109/FPL.2016.7577306' ),
     ( ['asa', 'dg', 'ms', 'rd'],                                        'fmcad',    2016, 'Equivalence checking using Gröbner bases', '169--176', 'http://dx.doi.org/10.1109/FMCAD.2016.7886676' ),
-    ( ['ms', 'pr', 'bs', 'bb', 'gdm', 'ms2'],                           'hvc',      2016, 'SAT-based combinational and sequential dependency computation', '1-17', 'http://dx.doi.org/10.1007/978-3-319-49052-6_1' ),
-    ( ['wh', 'ms', 'la', 'peg', 'gdm'],                                 'aspdac',   2017, 'A novel basis for logic rewriting', '151-156', 'http://dx.doi.org/10.1109/ASPDAC.2017.7858312' ),
-    ( ['la', 'ms', 'wh', 'et', 'pv', 'jl', 'peg', 'gdm'],               'aspdac',   2017, 'Multi-level logic benchmarks: An exactness study', '157-162', 'http://dx.doi.org/10.1109/ASPDAC.2017.7858313' ),
+    ( ['ms', 'pr', 'bs', 'bb', 'gdm', 'ms2'],                           'hvc',      2016, 'SAT-based combinational and sequential dependency computation', '1--17', 'http://dx.doi.org/10.1007/978-3-319-49052-6_1' ),
+    ( ['wh', 'ms', 'la', 'peg', 'gdm'],                                 'aspdac',   2017, 'A novel basis for logic rewriting', '151--156', 'http://dx.doi.org/10.1109/ASPDAC.2017.7858312' ),
+    ( ['la', 'ms', 'wh', 'et', 'pv', 'jl', 'peg', 'gdm'],               'aspdac',   2017, 'Multi-level logic benchmarks: An exactness study', '157--162', 'http://dx.doi.org/10.1109/ASPDAC.2017.7858313' ),
     ( ['ss', 'ms', 'peg', 'gdm', 'rd'],                                 'date',     2017, 'Endurance management for resistive logic-in-memory computing architectures', '1092-1097', 'https://doi.org/10.23919/DATE.2017.7927152' ),
-    ( ['ms', 'gdm', 'am'],                                              'date',     2017, 'Busy Man\'s Synthesis: Combinational delay optimization with SAT', '830-835', 'https://doi.org/10.23919/DATE.2017.7927103' ),
-    ( ['ms', 'mr', 'nw', 'gdm'],                                        'date',     2017, 'Design automation and design space exploration for quantum computers', '470-475', 'https://doi.org/10.23919/DATE.2017.7927035' ),
-    ( ['oz', 'adm', 'et', 'ms', 'peg', 'gdm', 'la', 'pr2', 'fc', 'rl'], 'date',     2017, 'Wave pipelining for majority-based beyond-CMOS technologies (invited special session)', '1306-1311', 'https://doi.org/10.23919/DATE.2017.7927195' ),
-    ( ['wh', 'et', 'ms', 'gdm'],                                        'ismvl',    2017, 'Classifying functions with exact synthesis', 'XXXX', '' ),
-    ( ['zc', 'xt', 'ms', 'ap', 'gz', 'la', 'yx', 'pi', 'gdm', 'peg'],   'glsvlsi',  2017, 'Improving circuit mapping performance through MIG-based synthesis for carry chains', '131-136', 'http://doi.acm.org/10.1145/3060403.3060432' ),
-    ( ['ms', 'peg', 'gdm'],                                             'iscas',    2017, 'RM3 based logic synthesis', 'XXXX', '' ),
-    ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', 'XXXX', '' ),
-    ( ['ss', 'ms', 'dg', 'rd'],                                         'gecco',    2017, 'An adaptive prioritized ε-preferred evolutionary algorithm for approximate BDD optimization', 'XXXX', '' ),
-    ( ['et', 'oz', 'ms', 'av', 'mm2', 'rl', 'gdm'],                     'isvlsi',   2017, 'Inverter propagation and fan-out constraints for beyond-CMOS majority-based technologies', 'XXXX', '' ),
-    ( ['la', 'ms', 'pv', 'jl', 'am', 'peg', 'jo', 'rkb', 'gdm'],        'iccad',    2017, 'Enabling exact delay synthesis', 'XXXX', '' ),
-    ( ['zc', 'ms', 'yx', 'gdm'],                                        'aspdac',   2018, 'Functional decomposition using majority', 'XXXX', '' ),
-    ( ['gm', 'ms', 'mr', 'nw', 'gdm'],                                  'aspdac',   2018, 'A best-fit mapping algorithm to facilitate ESOP-decomposition in Clifford+T quantum network synthesis', 'XXXX', '' ),
-    ( ['la', 'ms', 'pv', 'jl', 'am', 'jo', 'rkb', 'gdm'],               'date',     2018, 'Improvements to Boolean resynthesis', 'XXXX', '' ),
-    ( ['ms', 'wh', 'et', 'am', 'la', 'rkb', 'gdm'],                     'date',     2018, 'Practical exact synthesis (invited executive session)', 'XXXX', '' ),
-    ( ['ms', 'th', 'mr'],                                               'date',     2018, 'Programming quantum computers using design automation (invited executive session)', 'XXXX', '' ),
-    ( ['wh', 'ec', 'bs2', 'ms', 'ss2', 'fk', 'gdm'],                    'iscas',    2018, 'Deep learning for logic optimization algorithms', 'XXXX', '' ),
-    ( ['wc', 'jd', 'adv', 'ok', 'ms'],                                  'ismvl',    2018, 'Translating between the roots of identity in quantum circuits', 'XXXX', '' ),
-    ( ['dmm', 'ms'],                                                    'ismvl',    2018, 'A spectral algorithm for ternary function classification', 'XXXX', '' ),
-    ( ['am', 'rkb', 'ap', 'ms', 'la', 'ad'],                            'dac',      2018, 'Canonical computation without canonical representation', 'XXXX', '' ),
-    ( ['wh', 'am', 'ms', 'gdm'],                                        'dac',      2018, 'SAT based exact synthesis using DAG topology families', 'XXXX', '' ),
-    ( ['gm', 'ms', 'gdm'],                                              'rc',       2018, 'SAT-based {CNOT, T} quantum circuit synthesis', 'XXXX', '' ),
-    ( ['th', 'ms', 'mr', 'kms'],                                        'rc',       2018, 'Quantum circuits for floating-point arithmetic', 'XXXX', '' ),
+    ( ['ms', 'gdm', 'am'],                                              'date',     2017, 'Busy Man\'s Synthesis: Combinational delay optimization with SAT', '830--835', 'https://doi.org/10.23919/DATE.2017.7927103' ),
+    ( ['ms', 'mr', 'nw', 'gdm'],                                        'date',     2017, 'Design automation and design space exploration for quantum computers', '470--475', 'https://doi.org/10.23919/DATE.2017.7927035' ),
+    ( ['oz', 'adm', 'et', 'ms', 'peg', 'gdm', 'la', 'pr2', 'fc', 'rl'], 'date',     2017, 'Wave pipelining for majority-based beyond-CMOS technologies (invited special session)', '1306--1311', 'https://doi.org/10.23919/DATE.2017.7927195' ),
+    ( ['wh', 'et', 'ms', 'gdm'],                                        'ismvl',    2017, 'Classifying functions with exact synthesis', '272--277', 'https://doi.org/10.1109/ISMVL.2017.44' ),
+    ( ['zc', 'xt', 'ms', 'ap', 'gz', 'la', 'yx', 'pi', 'gdm', 'peg'],   'glsvlsi',  2017, 'Improving circuit mapping performance through MIG-based synthesis for carry chains', '131--136', 'http://doi.acm.org/10.1145/3060403.3060432' ),
+    ( ['ms', 'peg', 'gdm'],                                             'iscas',    2017, 'RM3 based logic synthesis', '1--4', 'https://doi.org/10.1109/ISCAS.2017.8050223' ),
+    ( ['ms', 'mr', 'nw', 'gdm'],                                        'dac',      2017, 'Hierarchical reversible logic synthesis using LUTs', '78:1--78:6', 'http://doi.acm.org/10.1145/3061639.3062261' ),
+    ( ['ss', 'ms', 'dg', 'rd'],                                         'gecco',    2017, 'An adaptive prioritized ε-preferred evolutionary algorithm for approximate BDD optimization', '1232--1239', 'http://doi.acm.org/10.1145/3071178.3071281' ),
+    ( ['et', 'oz', 'ms', 'av', 'mm2', 'rl', 'gdm'],                     'isvlsi',   2017, 'Inverter propagation and fan-out constraints for beyond-CMOS majority-based technologies', '164--169', 'https://doi.org/10.1109/ISVLSI.2017.37' ),
+    ( ['la', 'ms', 'pv', 'jl', 'am', 'peg', 'jo', 'rkb', 'gdm'],        'iccad',    2017, 'Enabling exact delay synthesis',' 352--359', 'https://doi.org/10.1109/ICCAD.2017.8203799' ),
+    ( ['zc', 'ms', 'yx', 'gdm'],                                        'aspdac',   2018, 'Functional decomposition using majority', '676--681', 'https://doi.org/10.1109/ASPDAC.2018.8297400' ),
+    ( ['gm', 'ms', 'mr', 'nw', 'gdm'],                                  'aspdac',   2018, 'A best-fit mapping algorithm to facilitate ESOP-decomposition in Clifford+T quantum network synthesis', '664--669', 'https://doi.org/10.1109/ASPDAC.2018.8297398' ),
+    ( ['la', 'ms', 'pv', 'jl', 'am', 'jo', 'rkb', 'gdm'],               'date',     2018, 'Improvements to Boolean resynthesis', '755--760', 'https://doi.org/10.23919/DATE.2018.8342108' ),
+    ( ['ms', 'wh', 'et', 'am', 'la', 'rkb', 'gdm'],                     'date',     2018, 'Practical exact synthesis (invited executive session)', '309--314', 'https://doi.org/10.23919/DATE.2018.8342027' ),
+    ( ['ms', 'th', 'mr'],                                               'date',     2018, 'Programming quantum computers using design automation (invited executive session)', '137--146', 'https://doi.org/10.23919/DATE.2018.8341993' ),
+    ( ['wh', 'ec', 'bs2', 'ms', 'ss2', 'fk', 'gdm'],                    'iscas',    2018, 'Deep learning for logic optimization algorithms', '1--4', 'https://doi.org/10.1109/ISCAS.2018.8351885' ),
+    ( ['wc', 'jd', 'adv', 'ok', 'ms'],                                  'ismvl',    2018, 'Translating between the roots of identity in quantum circuits', '254--259', 'https://doi.org/10.1109/ISMVL.2018.00051' ),
+    ( ['dmm', 'ms'],                                                    'ismvl',    2018, 'A spectral algorithm for ternary function classification', '198--203', 'https://doi.org/10.1109/ISMVL.2018.00042' ),
+    ( ['am', 'rkb', 'ap', 'ms', 'la', 'ad'],                            'dac',      2018, 'Canonical computation without canonical representation', '52:1--52:6', 'http://doi.acm.org/10.1145/3195970.3196006' ),
+    ( ['wh', 'am', 'ms', 'gdm'],                                        'dac',      2018, 'SAT based exact synthesis using DAG topology families', '53:1--53:6', 'http://doi.acm.org/10.1145/3195970.3196111' ),
+    ( ['gm', 'ms', 'gdm'],                                              'rc',       2018, 'SAT-based {CNOT, T} quantum circuit synthesis', '175--188', 'https://doi.org/10.1007/978-3-319-99498-7_12' ),
+    ( ['th', 'ms', 'mr', 'kms'],                                        'rc',       2018, 'Quantum circuits for floating-point arithmetic', '162--174', 'https://doi.org/10.1007/978-3-319-99498-7_11' ),
     ( ['hr', 'et', 'la', 'ms', 'gdm'],                                  'nanoarch', 2018, 'Size optimization of MIGs with an application to QCA and STMG technologies', 'XXXX', '' ),
     ( ['la', 'et', 'mc', 'oz', 'gdm', 'ms'],                            'iccad',    2018, 'Majority logic synthesis (embedded tutorial)', 'XXXX', '' ),
     ( ['wh', 'la', 'jl', 'pv', 'ms', 'gdm'],                            'icecs',    2018, 'Integrated ESOP refactoring for industrial designs', 'XXXX', '' ),
-    ( ['zc', 'ms', 'yx', 'lw'],                                         'aspdac',   2019, 'Structural rewriting in XOR-majority graphs', 'XXXX', '' )
+    ( ['zc', 'ms', 'yx', 'lw'],                                         'aspdac',   2019, 'Structural rewriting in XOR-majority graphs', 'XXXX', '' ),
+    ( ['hr', 'wh', 'am', 'gdm', 'ms'],                                  'date',     2019, 'On-the-fly and DAG-aware: Rewriting Boolean networks with exact synthesis', 'XXXX', '' ),
+    ( ['et', 'la', 'ms', 'am', 'pv', 'jl', 'cc', 'peg', 'gdm'],         'date',     2019, 'Scalable Boolean methods in a modern synthesis flow', 'XXXX', '' ),
+    ( ['gm', 'ms', 'mr', 'nb', 'gdm'],                                  'date',     2019, 'Reversible pebbling game for quantum memory management', 'XXXX', '' ),
+    ( ['ms', 'fm', 'bs3', 'gdm'],                                       'date',     2019, 'Compiling permutations for superconducting QPUs', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -960,7 +969,7 @@ article_data = [
     ( ['ok', 'ms', 'rd'],                         'ipl',         139,  "",       2018, 'The complexity of error metric',                                                                                                         '1--7',       'https://doi.org/10.1016/j.ipl.2018.06.010' ),
     ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '',           'https://doi.org/10.1109/TCAD.2018.2859251' ),
-    ( ['et', 'ms', 'la', 'gdm'],                  'procieee',     -1,  "",          0, 'Logic synthesis for established and emerging computing',                                                                                 '',           '' )
+    ( ['et', 'ms', 'la', 'gdm'],                  'procieee',     -1,  "",          0, 'Logic synthesis for established and emerging computing',                                                                                 '',           'https://doi.org/10.1109/JPROC.2018.2869760' )
 ]
 
 preprint_data = [
@@ -992,7 +1001,8 @@ news_data = [
     ( 'tutorial', 'Majority logic synthesis', 'https://iccad.com/event_details?id=263-6-E', 'I am organizing the tutorial', ['la', 'et', 'mc', 'oz'], ('iccad', 2018) ),
     ( 'icecs', 2018 ),
     ( 'aspdac', 2019 ),
-    ( 'procieee', -1 )
+    ( 'procieee', -1 ),
+    ( 'date', 2019 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
