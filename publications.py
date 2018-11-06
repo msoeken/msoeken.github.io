@@ -684,6 +684,7 @@ journals_data = [
     ( 'sosym', 'Software and System Modeling', 'Springer', 'http://www.sosym.org/' ),
     ( 'sttt', 'Journal on Software Tools for Technology Transfer', 'Springer', 'http://www.springer.com/computer/swe/journal/10009' ),
     ( 'tcad', 'IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems', 'IEEE', 'http://ieee-ceda.org/publication/tcad-publication' ),
+    ( 'tc', 'IEEE Transactions on Computer', 'IEEE', 'https://www.computer.org/csdl/journal/tc' ),
     ( 'tcs', 'Theoretical Computer Science', 'Elsevier', 'http://www.journals.elsevier.com/theoretical-computer-science/' ),
     ( 'zk', 'Zeitschrift für Kristallographie - Crystalline Materials', 'De Gruyter', 'http://www.degruyter.com/view/j/zkri' )
 ]
@@ -969,7 +970,8 @@ article_data = [
     ( ['ok', 'ms', 'rd'],                         'ipl',         139,  "",       2018, 'The complexity of error metric',                                                                                                         '1--7',       'https://doi.org/10.1016/j.ipl.2018.06.010' ),
     ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '',           'https://doi.org/10.1109/TCAD.2018.2859251' ),
-    ( ['et', 'ms', 'la', 'gdm'],                  'procieee',     -1,  "",          0, 'Logic synthesis for established and emerging computing',                                                                                 '',           'https://doi.org/10.1109/JPROC.2018.2869760' )
+    ( ['et', 'ms', 'la', 'gdm'],                  'procieee',     -1,  "",          0, 'Logic synthesis for established and emerging computing',                                                                                 '',           'https://doi.worg/10.1109/JPROC.2018.2869760' ),
+    ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           -1,  "",          0, 'Mapping monotone Boolean functions into majority',                                                                                       '',           '' )
 ]
 
 preprint_data = [
@@ -989,20 +991,14 @@ preprint_data = [
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 
 news_data = [
-    ( 'aspdac', 2018 ),
-    ( 'date', 2018 ),
-    ( 'iscas', 2018 ),
-    ( 'ismvl', 2018 ),
-    ( 'dac', 2018 ),
-    ( 'rc', 2018 ),
-    ( 'nanoarch', 2018 ),
     ( 'ipl', 139 ),
     ( 'tcad', -1 ),
     ( 'tutorial', 'Majority logic synthesis', 'https://iccad.com/event_details?id=263-6-E', 'I am organizing the tutorial', ['la', 'et', 'mc', 'oz'], ('iccad', 2018) ),
     ( 'icecs', 2018 ),
     ( 'aspdac', 2019 ),
     ( 'procieee', -1 ),
-    ( 'date', 2019 )
+    ( 'date', 2019 ),
+    ( 'tc', -1 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
