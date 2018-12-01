@@ -460,7 +460,7 @@ def format_haml_invited( invited ):
 
 monthnames = {'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April', 'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August', 'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'}
 months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "EPFL", "ESL", "ESOP", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "SyReC", "Toffoli", "UML", "XOR"]
+capitalize = ["AIGs", "Alle", "Ausdrücken", "BDD", "Beschreibungen", "Boolean", "CMOS", "Completeness-Driven Development", "CPU", "DAG", "EPFL", "ESL", "ESOP", "Formal Specification Level", "Fredkin", "Gröbner", "Hadamard", "HDL", "IDE", "Industrie", "LEXSAT", "lips", "LUT", "LUTs", "metaSMT", "Methoden", "MIG", "MPSoC", "NCV", "NoC", "NPN", "OCL", "Pauli", "QCA", "QPUs", "RevKit", "RISC", "RRAM", "SAT", "SMT-LIB2", "STMG", "SyReC", "Toffoli", "UML", "XOR"]
 replacements = [("Clifford+T", "{Clifford+$T$}"), ("ε", "{$\\varepsilon$}"), ("δ", "{$\\delta$}"), ("πDD", "{$\\pi$DD}"), ("&", "\&"), ("T-count", "{$T$-count}")]
 
 conferences_data = [
@@ -971,7 +971,7 @@ article_data = [
     ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '',           'https://doi.org/10.1109/TCAD.2018.2859251' ),
     ( ['et', 'ms', 'la', 'gdm'],                  'procieee',     -1,  "",          0, 'Logic synthesis for established and emerging computing',                                                                                 '',           'https://doi.worg/10.1109/JPROC.2018.2869760' ),
-    ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           -1,  "",          0, 'Mapping monotone Boolean functions into majority',                                                                                       '',           '' )
+    ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           -1,  "",          0, 'Mapping monotone Boolean functions into majority',                                                                                       '',           'https://doi.org/10.1109/TC.2018.2881245' )
 ]
 
 preprint_data = [
