@@ -1,0 +1,90 @@
+#box {
+  width: 552px;
+  height: 368px;
+  background-color: #f4f4ff;
+  position: relative;
+  border: solid 1px #ddd;
+}
+
+#alice, #kitty, #easy, #lorina, #mockturtle, #percy, #tweedledum {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  z-index: 0;
+}
+
+#alice:hover, #easy:hover, #kitty:hover, #lorina:hover, #mockturtle:hover, #percy:hover, #tweedledum:hover {
+  animation: popout .8s ease;
+  -webkit-animation: popout .8s ease;
+  z-index: 1;
+}
+
+@keyframes popout {
+  from{transform:scale(.8)}
+  to{transform:scale(1.4)}
+}
+@-webkit-keyframes popout {
+  from{-webkit-transform:scale(.8)}
+  to{-webkit-transform:scale(1.4)}
+}
+
+#alice {
+  top: 10px;
+  left: 0px;
+}
+
+#easy {
+  top: 104px;
+  left: 55px;
+}
+
+#kitty {
+  position: absolute;
+  top: 10px;
+  left: 110px;
+}
+
+#lorina {
+  position: absolute;
+  top: 104px;
+  left: 165px;
+}
+
+#mockturtle {
+  position: absolute;
+  top: 10px;
+  left: 220px;
+}
+
+#percy {
+  position: absolute;
+  top: 104px;
+  left: 275px;
+}
+
+#tweedledum {
+  position: absolute;
+  top: 10px;
+  left: 330px;
+}
+
+#epfl {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 150px;
+}
+
+#header {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 28px;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+}
+
+#header a {
+  color: black;
+  text-decoration: none;
+}

@@ -2,6 +2,7 @@
 %html
   %head
     = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken')
+    %link(href="css/lstools.css" rel="stylesheet")
   %body
     .container#main-container
       .row#main-row
@@ -28,6 +29,27 @@
                 He holds a Ph.D. degree (Dr.-Ing.) in Computer Science from University of Bremen, Germany (2013).
                 His research interests are logic synthesis, quantum computing, reversible logic, reverse engineering, and formal verification.
                 Mathias Soeken is member of the IEEE and of the ACM.
+              #box
+                %a(href="https://github.com/msoeken/alice" target="_blank")
+                  %img#alice(src="https://cdn.rawgit.com/msoeken/alice/master/alice.svg")
+                %a(href="https://github.com/hriener/easy" target="_blank")
+                  %img#easy(src="https://cdn.rawgit.com/hriener/easy/master/easy.svg")
+                %a(href="https://github.com/msoeken/kitty" target="_blank")
+                  %img#kitty(src="https://cdn.rawgit.com/msoeken/kitty/master/kitty.svg")
+                %a(href="https://github.com/hriener/lorina" target="_blank")
+                  %img#lorina(src="https://cdn.rawgit.com/hriener/lorina/master/lorina.svg")
+                %a(href="https://github.com/lsils/mockturtle" target="_blank")
+                  %img#mockturtle(src="https://cdn.rawgit.com/lsils/mockturtle/master/mockturtle.svg")
+                %a(href="https://github.com/whaaswijk/percy" target="_blank")
+                  %img#percy(src="https://cdn.rawgit.com/whaaswijk/percy/master/percy.svg")
+                %a(href="https://github.com/boschmitt/tweedledum" target="_blank")
+                  %img#tweedledum(src="https://cdn.rawgit.com/boschmitt/tweedledum/master/tweedledum.svg")
+                %img#epfl(src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Logo_EPFL.svg")
+                #header
+                  %a(href="https://github.com/lsils/lstools-showcase" target="_blank")
+                    The EPFL
+                    %br
+                    Logic Synthesis Libraries
               %h3 News
               %ul.list-group
                 = Haml::Engine.new(File.read('_news.haml')).render(Object.new)
