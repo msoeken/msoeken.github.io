@@ -1,0 +1,267 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'Mathias Soeken / Logic Synthesis Interactive Handbook')
+    %link(href="css/exl.css" rel="stylesheet")
+    %script(src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async=true type="text/javascript")
+    %link(href="css/highlight.css" rel="stylesheet")
+    %script(src="js/highlight.js")
+    %script(src="js/qsharp_highlight.js")
+    %link(href="css/doc.css" rel="stylesheet")
+    %link(href="css/blog.css" rel="stylesheet")
+  %body
+    .container#main-container
+      .row#main-row
+        = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "research")
+        .col-md-9.block
+          %h1 Quantum Oracle Circuits and the Christmas Tree Pattern
+          %p
+            %b Blog entry by Mathias Soeken from December 19, 2018, written for the
+            %a(href="https://blogs.msdn.microsoft.com/visualstudio/2018/11/15/q-advent-calendar-2018/" target="_blank") Q# Advent Calendar
+          %p
+            Donald E. Knuth introduced the
+            %i Christmas tree pattern
+            sixteen years ago in his ninth annual
+            %i Christmas tree lecture
+            at Stanford University, and he has made it part of
+            Section 7.2.1.6 of his famous multi-volume work
+            %i The Art of Computer Programming.
+            The recursive definition of the Christmas tree pattern goes as follows.
+            The Christmas tree pattern of order \(1\) is a single row \(0 \; 1\).
+            One obtains the Christmas tree pattern of order \(n+1\) by taking each
+            row \(\sigma_1\; \sigma_2\; \ldots \sigma_s\) in the pattern of order \(n\)
+            and replace it by the following two rows:
+            $$ \begin{array}{ccccc} & \sigma_20 & \ldots & \sigma_s0 & \\ \sigma_10 & \sigma_11 & \ldots & \sigma_{s-1}1 & \sigma_s1\end{array}  $$
+            The first row is omitted when \(s = 1\).  The Christmas tree pattern of orders \(2\) to \(4\) are:
+          %table(style="width:100%")
+            %tr
+              %td(style="width:33%; color:green")
+                $$ \begin{array}{ccc} & 10 & \\ 00 & 01 & 11 \end{array} $$
+              %td(style="width:33%; color:green")
+                $$ \begin{array}{ccc} & 100 & 101 & \\ & 010 & 110 & \\ 000 & 001 & 011 & 111 \end{array} $$
+              %td(style="width:33%; color:green")
+                #ctp4off
+                  $$ \begin{array}{ccc} & & 1010 & & \\ & 1000 & 1001 & 1011 & \\ & & 1100 & & \\ & 0100 & 0101 & 1101 & \\ & 0010 & 0110 & 1110 & \\ 0000 & 0001 & 0011 & 0111 & 1111 \end{array} $$
+                #ctp4on(style="display:none")
+                  $$ \begin{array}{ccc} & & 1010 & & \\ & \color{red}{1000} & 1001 & \color{red}{1011} & \\ & & 1100 & & \\ & \color{red}{0100} & 0101 & \color{red}{1101} & \\ & \color{red}{0010} & 0110 & \color{red}{1110} & \\ 0000 & \color{red}{0001} & 0011 & \color{red}{0111} & 1111 \end{array} $$
+          %p
+            Knuth describes many interesting properties of this pattern in his book.
+            But one of the most apparent ones is that the pattern of order \(n\) contains all \(2^n\) bitstrings
+            of length \(n\), grouped into \(n+1\) columns according to the number of \(1\)&rsquo;s in the bitstring.
+            For now the Christmas tree pattern is visualized in green, but because it's Christmas, we would like to decorate
+            the tree!  We will use the implementation complexity of quantum oracles to decide which decoration to put.
+          %p
+            The Christmas tree pattern of order \(n\) can be used to visualize all the input combinations of an \(n\)-variable Boolean function.
+            Moreover, the Christmas tree pattern of order \(2^n\) can be used to either visualize all the input combinations of an \(2^n\)-variable
+            Boolean function, but also to visualize all \(n\)-variable Boolean functions themselves.
+            For example, the Christmas tree pattern of order \(4\) contains all 16 2-variable Boolean functions.
+          %h4 Quantum oracles
+          %p
+            In this blog entry, we consider the implementation of
+            %a(href="https://docs.microsoft.com/en-us/quantum/concepts/oracles?view=qsharp-preview" target="_blank") quantum oracle funtions
+            $$ U_f : |x_1x_2\ldots x_n\rangle|y\rangle \mapsto |x_1x_2\ldots x_n\rangle|y \oplus f(x_1, x_2, \dots, x_n)\rangle $$
+            in terms of quantum circuits using the Hadamard gate, CNOT gates, and arbitrary Z-rotation gates.
+            There exists a very nice recursive circuit construction, presented by
+            %a(href="https://arxiv.org/abs/quant-ph/0303063v2" target="_blank") Schuch and Siewert
+            and
+            %a(href="https://arxiv.org/abs/1306.3991" target="_blank") Welch et al,
+            which we illustrate for a generic 2-variable Boolean oracle \(f(x_1, x_2)\).
+          %p
+            %center
+              %img(src="images/blog_qac_stg2.png" border="0" style="height: 94px")
+          %p
+            The striking property about this construction is that it can be used to find a circuit for each of the 16 possible functions \(f\),
+            by only changing the values for the rotation angles \(\theta_1, \dots, \theta_7\).
+            Before we discuss how to determine these values, I'd like to point out the recursive structure of the construction:
+            If we leave out the surrounding Hadamard gates, there are three compartments \(1, 2, 3\), separated by barrier lines, one compartment for each qubit.
+            Let's for simplicity define \(x_3 = y\).  Then, the CNOT gates in compartment \(i\) prepare all linear functions that include \(x_i\) but do not include a variable
+            with a larger index.  All CNOT gates in compartment \(i\) have the target on qubit \(i\) and controls on qubits with a smaller index.
+            The first compartment does not need a CNOT gate, since it has \(x_1\) on the first qubit.
+            The second compartment computes \(x_2 \oplus x_1\), and then applies the CNOT gate again to revert the state of the second qubit back to \(x_2\).
+            Finally, CNOT gates in the third compartment are used to compute \(x_3 \oplus x_1\), \(x_3 \oplus x_2 \oplus x_1\), and \(x_3 \oplus x_2\).
+            The controls of the CNOT gates are chose such that the control patterns are generated using
+            a Gray code sequence&mdash;that minimizes the number of CNOT gates!
+            If we like to extend this circuit for a 4-qubit quantum circuit implementing oracles with 3 input variables, one just needs to add a fourth
+            compartment with 8 CNOT gates that adds all linear functions that include \(x_4\).
+          %p
+            That explains the CNOT gates, but how do we determine the angles \(\theta_j\)?
+            It turns out that these can be computed from the spectral coefficients \(s_j\) of the oracle function \(f(x_1, x_2)\).
+            We obtain the spectral coefficients by applying the Hadamard transform \(H_2 = \left(\begin{smallmatrix} 1 & 1 \\ 1 & -1 \end{smallmatrix}\right) \otimes \left(\begin{smallmatrix} 1 & 1 \\ 1 & -1 \end{smallmatrix}\right)\)
+            to the truth table of \(f(x_1, x_2)\) in \(\{-1,1\}\)-encoding.  This encoding simply replaces every 0 with a 1, and every 1 with a -1.
+            In other words, we have \(f_{x_2x_1} = (-1)^{f(x_1, x_2)}\).
+          %p
+            :plain
+              $$
+                \left[
+                \begin{array}{rrrr}
+                  1 &  1 &  1 &  1 \\
+                  1 & -1 &  1 & -1 \\
+                  1 &  1 & -1 & -1 \\
+                  1 & -1 & -1 &  1
+                \end{array}
+                \right]
+                \left[
+                \begin{array}{c}
+                  f_{00} \\
+                  f_{01} \\
+                  f_{10} \\
+                  f_{11} \\
+                \end{array}
+                \right]
+                =
+                \left[
+                \begin{array}{c}
+                  s_0 \\
+                  s_1 \\
+                  s_2 \\
+                  s_3 \\
+                \end{array}
+                \right]
+              $$
+          %p
+            Now, it turns out that by setting \(\theta_j = \frac{\pi s_i}{2^3}\), the above circuit implements
+            the oracle function.
+            For example, if \(f(x_1, x_2) = x_1 \land x_2\), then \(s_0 = s_1 = s_2 = 2\),
+            and \(s_3 = -2\), and therefore \(\theta_0 = \theta_1 = \theta_2 = \frac{\pi}{4}\)
+            and \(\theta_3 = -\frac{\pi}{4}\), hence,
+            resulting in the well-known circuit construction with 4 \(T\) gates and 3 \(T^\dagger\) gates.
+          %h4 Implementation in Q#
+          %p
+            I have implemented the above algorithm for oracle synthesis in Q#.
+            The complete source code is on Github, but the main operation is printed below.
+            The first two lines in the operation
+            %code OracleSynthesis
+            compute the \(\{1,-1\}\) value vector for the oracle function,
+            as well as the spectral coefficients by applying the Hadamard transform in
+            an efficient way using Yates's method.
+            The
+            %code Extend
+            method extends the spectral coefficients by their inverses as described in the example above.
+          %pre
+            %code.qsharp
+              :preserve
+                // First in tuple is value in GrayCode sequence
+                // Second in tuple is position to change in current value to get next one
+                //   Ex: GrayCode(2) = [(0, 1);(1, 0);(3, 1);(2, 0)]
+                function GrayCode(n : Int) : (Int, Int)[] {
+                  // ...
+                }
+
+                operation OracleSynthesis(func : Int, vars : Int) : Int[] {
+                  let table = Encode(TruthTable(func, vars));
+                  let spectrum = Extend(FastHadamardTransform(table));
+
+                  using (qubits = Qubit[vars + 1]) {
+                    H(qubits[vars]);
+
+                    for (i in 0..vars) {
+                      let start = 1 <<< i;
+                      RFrac(PauliZ, spectrum[start], vars + 2, qubits[i]);
+
+                      if (i > 0) {
+                        let code = GrayCode(i);
+                        for (j in 1..Length(code)) {
+                          let (offset, ctrl) = code[j % Length(code)];
+                          CNOT(qubits[ctrl], qubits[i]);
+                          if (j != Length(code)) {
+                            RFrac(PauliZ, spectrum[start + offset], vars + 2, qubits[i]);
+                          }
+                        }
+                      }
+                    }
+
+                    H(qubits[vars]);
+                  }
+                }
+
+          %h4 Coloring the Christmas Tree
+          %p
+            Let's apply the above oracle synthesis to all 3-input Boolean functions.
+            Of course, each of the 256 functions has a different spectrum with 8 coefficients.
+            But if we consider the absolute values of the coefficients and sort them, then all
+            functions will fall into one of the following 3 classes:
+          %p
+            $$ 0\, 0\, 0\, 0\, 0\, 0\, 0\, 8, \quad 0\, 0\, 0\, 0\, 4\, 4\, 4\, 4, \quad 2\, 2\, 2\, 2\, 2\, 2\, 2\, 6 $$
+          %p
+            The most narrow rotation angle in the first class is an \(S\) gate,
+            in the second class a \(T\) gate, and in the third class a \(\sqrt{T}\) gate.
+            Let's decorate the Christmas tree of order 8, by coloring each function from the first class in green,
+            from the second class in yellow, and from the third class in red.
+            Merry Christmas!
+          %p
+            %center
+              %table.tree
+                :plain
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>10101010</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>10101000</td> <td>10101001</td> <td>10101011</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>10101100</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>10100100</td> <td>10100101</td> <td>10101101</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>10100010</td> <td>10100110</td> <td>10101110</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>10100000</td> <td>10100001</td> <td>10100011</td> <td>10100111</td> <td>10101111</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>10110010</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>10110000</td> <td>10110001</td> <td>10110011</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>10110100</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>10010100</td> <td>10010101</td> <td>10110101</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>10010010</td> <td>10010110</td> <td>10110110</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>10010000</td> <td>10010001</td> <td>10010011</td> <td>10010111</td> <td>10110111</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>10111000</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>10011000</td> <td>10011001</td> <td>10111001</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>10001010</td> <td>10011010</td> <td>10111010</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>10001000</td> <td>10001001</td> <td>10001011</td> <td>10011011</td> <td>10111011</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>10001100</td> <td>10011100</td> <td>10111100</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>10000100</td> <td>10000101</td> <td>10001101</td> <td>10011101</td> <td>10111101</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>10000010</td> <td>10000110</td> <td>10001110</td> <td>10011110</td> <td>10111110</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>10000000</td> <td>10000001</td> <td>10000011</td> <td>10000111</td> <td>10001111</td> <td>10011111</td> <td>10111111</td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>11001010</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>11001000</td> <td>11001001</td> <td>11001011</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>11001100</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>11000100</td> <td>11000101</td> <td>11001101</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>11000010</td> <td>11000110</td> <td>11001110</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>11000000</td> <td>11000001</td> <td>11000011</td> <td>11000111</td> <td>11001111</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>11010010</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>11010000</td> <td>11010001</td> <td>11010011</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>11010100</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>01010100</td> <td>01010101</td> <td>11010101</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>01010010</td> <td>01010110</td> <td>11010110</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>01010000</td> <td>01010001</td> <td>01010011</td> <td>01010111</td> <td>11010111</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>11011000</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>01011000</td> <td>01011001</td> <td>11011001</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>01001010</td> <td>01011010</td> <td>11011010</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>01001000</td> <td>01001001</td> <td>01001011</td> <td>01011011</td> <td>11011011</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>01001100</td> <td>01011100</td> <td>11011100</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>01000100</td> <td>01000101</td> <td>01001101</td> <td>01011101</td> <td>11011101</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>01000010</td> <td>01000110</td> <td>01001110</td> <td>01011110</td> <td>11011110</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>01000000</td> <td>01000001</td> <td>01000011</td> <td>01000111</td> <td>01001111</td> <td>01011111</td> <td>11011111</td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>11100010</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>11100000</td> <td>11100001</td> <td>11100011</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>11100100</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>01100100</td> <td>01100101</td> <td>11100101</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>01100010</td> <td>01100110</td> <td>11100110</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>01100000</td> <td>01100001</td> <td>01100011</td> <td>01100111</td> <td>11100111</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>11101000</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>01101000</td> <td>01101001</td> <td>11101001</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>00101010</td> <td>01101010</td> <td>11101010</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>00101000</td> <td>00101001</td> <td>00101011</td> <td>01101011</td> <td>11101011</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>00101100</td> <td>01101100</td> <td>11101100</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>00100100</td> <td>00100101</td> <td>00101101</td> <td>01101101</td> <td>11101101</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>00100010</td> <td>00100110</td> <td>00101110</td> <td>01101110</td> <td>11101110</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>00100000</td> <td>00100001</td> <td>00100011</td> <td>00100111</td> <td>00101111</td> <td>01101111</td> <td>11101111</td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>        </td> <td>11110000</td> <td>        </td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>01110000</td> <td>01110001</td> <td>11110001</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>00110010</td> <td>01110010</td> <td>11110010</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>00110000</td> <td>00110001</td> <td>00110011</td> <td>01110011</td> <td>11110011</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>00110100</td> <td>01110100</td> <td>11110100</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>00010100</td> <td>00010101</td> <td>00110101</td> <td>01110101</td> <td>11110101</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>00010010</td> <td>00010110</td> <td>00110110</td> <td>01110110</td> <td>11110110</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>00010000</td> <td>00010001</td> <td>00010011</td> <td>00010111</td> <td>00110111</td> <td>01110111</td> <td>11110111</td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>        </td> <td>00111000</td> <td>01111000</td> <td>11111000</td> <td>        </td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>00011000</td> <td>00011001</td> <td>00111001</td> <td>01111001</td> <td>11111001</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>00001010</td> <td>00011010</td> <td>00111010</td> <td>01111010</td> <td>11111010</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>00001000</td> <td>00001001</td> <td>00001011</td> <td>00011011</td> <td>00111011</td> <td>01111011</td> <td>11111011</td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>        </td> <td>00001100</td> <td>00011100</td> <td>00111100</td> <td>01111100</td> <td>11111100</td> <td>        </td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>00000100</td> <td>00000101</td> <td>00001101</td> <td>00011101</td> <td>00111101</td> <td>01111101</td> <td>11111101</td> <td>        </td></tr>
+                  <tr> <td>        </td> <td>00000010</td> <td>00000110</td> <td>00001110</td> <td>00011110</td> <td>00111110</td> <td>01111110</td> <td>11111110</td> <td>        </td></tr>
+                  <tr> <td>00000000</td> <td>00000001</td> <td>00000011</td> <td>00000111</td> <td>00001111</td> <td>00011111</td> <td>00111111</td> <td>01111111</td> <td>11111111</td></tr>
+    %script(src="js/jquery.min.js")
+    %script(src="js/jquery-ui.min.js")
+    %script(src="js/blog.js")
