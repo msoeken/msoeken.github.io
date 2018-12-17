@@ -142,36 +142,33 @@
               :preserve
                 // First in tuple is value in GrayCode sequence
                 // Second in tuple is position to change in current value to get next one
-                //   Ex: GrayCode(2) = [(0, 1);(1, 0);(3, 1);(2, 0)]
+                //   Ex: GrayCode(2) = [(0, 0);(1, 1);(3, 0);(2, 1)]
                 function GrayCode(n : Int) : (Int, Int)[] {
                   // ...
                 }
 
-                operation OracleSynthesis(func : Int, vars : Int) : Int[] {
+                operation Oracle(func : Int, controls : Qubit[], target : Qubit) : Unit {
+                  let vars = Length(controls);
                   let table = Encode(TruthTable(func, vars));
                   let spectrum = Extend(FastHadamardTransform(table));
 
-                  using (qubits = Qubit[vars + 1]) {
-                    H(qubits[vars]);
+                  let qubits = controls + [target];
 
-                    for (i in 0..vars) {
-                      let start = 1 <<< i;
-                      RFrac(PauliZ, spectrum[start], vars + 2, qubits[i]);
+                  H(target);
 
-                      if (i > 0) {
-                        let code = GrayCode(i);
-                        for (j in 1..Length(code)) {
-                          let (offset, ctrl) = code[j % Length(code)];
-                          CNOT(qubits[ctrl], qubits[i]);
-                          if (j != Length(code)) {
-                            RFrac(PauliZ, spectrum[start + offset], vars + 2, qubits[i]);
-                          }
-                        }
+                  for (i in 0..vars) {
+                    let start = 1 <<< i;
+                    let code = GrayCode(i);
+                    for (j in 0..Length(code) - 1) {
+                      let (offset, ctrl) = code[j];
+                      RFrac(PauliZ, spectrum[start + offset], vars + 2, qubits[i]);
+                      if ( i != 0 ) {
+                        CNOT(qubits[ctrl], qubits[i]);
                       }
                     }
-
-                    H(qubits[vars]);
                   }
+
+                  H(target);
                 }
 
           %h4 Coloring the Christmas Tree

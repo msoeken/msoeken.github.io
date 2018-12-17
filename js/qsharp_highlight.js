@@ -2,7 +2,7 @@ hljs.registerLanguage("qsharp", function(hljs) {
   return {
       keywords: {
           keyword: 'operation function let using for if in',
-          type: 'Int Qubit Bool',
+          type: 'Int Qubit Bool Unit',
           built_in: 'H RFrac CNOT PauliZ'
       },
       contains: [
