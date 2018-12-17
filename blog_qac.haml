@@ -16,7 +16,7 @@
         .col-md-9.block
           %h1 Quantum Oracle Circuits and the Christmas Tree Pattern
           %p
-            %b Blog entry by Mathias Soeken from December 19, 2018, written for the
+            %b Blog article by Mathias Soeken from December 19, 2018, written for the
             %a(href="https://blogs.msdn.microsoft.com/visualstudio/2018/11/15/q-advent-calendar-2018/" target="_blank") Q# Advent Calendar
             %br
             %i.fa.fa-creative-commons(aria-hidden="true")
@@ -54,8 +54,9 @@
             Knuth describes many interesting properties of this pattern in his book.
             But one of the most apparent ones is that the pattern of order \(n\) contains all \(2^n\) bitstrings
             of length \(n\), grouped into \(n+1\) columns according to the number of \(1\)&rsquo;s in the bitstring.
-            For now the Christmas tree pattern is visualized in green, but because it's Christmas, we should decorate
-            the tree!  In this blog article, I will use the implementation complexity of quantum oracles to decide which decoration to put.
+            For now the Christmas tree pattern is visualized in green, but because it's Christmas,
+            %a#toggle-ctp4 we should decorate the tree!
+            In this blog article, I will use the implementation complexity of quantum oracles to decide which decoration to put.
           %p
             The Christmas tree pattern of order \(n\) can be used to visualize all the input combinations of an \(n\)-variable Boolean function.
             Moreover, the Christmas tree pattern of order \(2^n\) can be used to either visualize all the input combinations of an \(2^n\)-variable
@@ -76,7 +77,7 @@
             %center
               %img(src="images/blog_qac_stg2.png" border="0" style="height: 96px")
           %p
-            The striking property about this construction is that it can be used to find a circuit for each of the 16 possible functions \(f\),
+            The nice property about this construction is that it can be used to find a circuit for each of the 16 possible functions \(f\),
             by only changing the values for the rotation angles \(\theta_0, \dots, \theta_3\).
             Before we discuss how to determine these values, I'd like to point out the recursive structure of the construction:
             If we leave out the surrounding Hadamard gate \(H\) and
@@ -87,14 +88,14 @@
             The first compartment does not need a CNOT gate, since it has \(x_1\) on the first qubit.
             The second compartment computes \(x_2 \oplus x_1\), and then applies the CNOT gate again to revert the state of the second qubit back to \(x_2\).
             Finally, CNOT gates in the third compartment are used to compute \(x_3 \oplus x_1\), \(x_3 \oplus x_2 \oplus x_1\), and \(x_3 \oplus x_2\).
-            The controls of the CNOT gates are chose such that the control patterns are generated using
+            The controls of the CNOT gates are chosen such that the control patterns are generated using
             a Gray code sequence&mdash;that minimizes the number of CNOT gates!
-            If we like to extend this circuit for a 4-qubit quantum circuit implementing oracles with 3 input variables, one just needs to add a fourth
-            compartment with 8 CNOT gates that adds all linear functions that include \(x_4\).
+            Extending this circuit to a 4-qubit quantum circuit implementing oracles with 3 input variables is easy: one just needs to add a fourth
+            compartment with 8 CNOT gates that add all linear functions that include \(x_4\).
           %p
-            That explains the CNOT gates, but how do we determine the angles \(\theta_j\)?
-            It turns out that these can be computed from the spectral coefficients \(s_j\) of the oracle function \(f(x_1, x_2)\).
-            We obtain the spectral coefficients by applying the Hadamard transform \(H_2 = \left(\begin{smallmatrix} 1 & 1 \\ 1 & -1 \end{smallmatrix}\right) \otimes \left(\begin{smallmatrix} 1 & 1 \\ 1 & -1 \end{smallmatrix}\right)\)
+            That explains the CNOT gates, but what about the angles \(\theta_j\)?
+            These can be computed from the spectral coefficients \(s_j\) of the oracle function \(f(x_1, x_2)\).
+            We obtain the spectral coefficients by applying the Hadamard transform \(H_2 = \left(\begin{smallmatrix} 1 & \hfil 1 \\ 1 & -1 \end{smallmatrix}\right) \otimes \left(\begin{smallmatrix} 1 & \hfil 1 \\ 1 & -1 \end{smallmatrix}\right)\)
             to the truth table of \(f(x_1, x_2)\) in \(\{-1,1\}\)-encoding.  This encoding simply replaces every 0 with a 1, and every 1 with a -1.
             In other words, we have \(f_{x_2x_1} = (-1)^{f(x_1, x_2)}\).
           %p
@@ -127,12 +128,16 @@
                 \right]
               $$
           %p
-            Now, it turns out that by setting \(\theta_j = \frac{\pi s_i}{2^3}\), the above circuit implements
+            By setting \(\theta_j = \frac{\pi s_i}{2^3}\), the above circuit implements
             the oracle function.
             For example, if \(f(x_1, x_2) = x_1 \land x_2\), then \(s_0 = s_1 = s_2 = 2\),
             and \(s_3 = -2\), and therefore \(\theta_0 = \theta_1 = \theta_2 = \frac{\pi}{4}\)
             and \(\theta_3 = -\frac{\pi}{4}\), hence,
             resulting in the well-known circuit construction with 7 \(T\) and \(T^\dagger\) gates.
+            (Side remark: If \(|y\rangle = |0\rangle\), then the circuit can be simplified
+            by removing all but the last compartment.  This generalizes
+            %a(href="https://arxiv.org/abs/1709.06648" target="_blank") Gidney's construction
+            for the Toffoli gate.)
           %h4 Implementation in Q#
           %p
             I have implemented the above algorithm for oracle synthesis in Q#.
@@ -178,6 +183,12 @@
 
                   H(target);
                 }
+          %p
+            The
+            %code RFrac
+            operation implements the rotation gates, and the
+            %code CNOT
+            operation implements the CNOT gate, which does not need to be applied in the first compartment.
 
           %h4 Coloring the Christmas Tree
           %p
@@ -267,6 +278,7 @@
                   <tr> <td>        </td> <td>00000100</td> <td>00000101</td> <td>00001101</td> <td>00011101</td> <td>00111101</td> <td>01111101</td> <td>11111101</td> <td>        </td></tr>
                   <tr> <td>        </td> <td>00000010</td> <td>00000110</td> <td>00001110</td> <td>00011110</td> <td>00111110</td> <td>01111110</td> <td>11111110</td> <td>        </td></tr>
                   <tr> <td>00000000</td> <td>00000001</td> <td>00000011</td> <td>00000111</td> <td>00001111</td> <td>00011111</td> <td>00111111</td> <td>01111111</td> <td>11111111</td></tr>
+
     %script(src="js/jquery.min.js")
     %script(src="js/jquery-ui.min.js")
     %script(src="js/blog.js")
