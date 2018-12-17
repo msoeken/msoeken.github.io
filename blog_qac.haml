@@ -18,18 +18,24 @@
           %p
             %b Blog entry by Mathias Soeken from December 19, 2018, written for the
             %a(href="https://blogs.msdn.microsoft.com/visualstudio/2018/11/15/q-advent-calendar-2018/" target="_blank") Q# Advent Calendar
+            %br
+            %i.fa.fa-creative-commons(aria-hidden="true")
+            licensed under
+            %a(href="https://creativecommons.org/licenses/by/4.0/" target="_blanl") CC-BY 4.0
           %p
             Donald E. Knuth introduced the
             %i Christmas tree pattern
-            sixteen years ago in his ninth annual
-            %i Christmas tree lecture
+            sixteen years ago in his
+            %a(href="https://www.youtube.com/watch?v=zyWe3lcfaYw&index=68&list=PLtbnfr9TpMH2FILSgYZif3eN9sEuJoVNa" target="_blank")
+              ninth annual
+              %i Christmas tree lecture
             at Stanford University, and he has made it part of
-            Section 7.2.1.6 of his famous multi-volume work
+            Section 7.2.1.6 in his famous multi-volume work
             %i The Art of Computer Programming.
             The recursive definition of the Christmas tree pattern goes as follows.
-            The Christmas tree pattern of order \(1\) is a single row \(0 \; 1\).
+            The Christmas tree pattern of order \(1\) is a single row &lsquo;\(0 \; 1\)&rsquo;.
             One obtains the Christmas tree pattern of order \(n+1\) by taking each
-            row \(\sigma_1\; \sigma_2\; \ldots \sigma_s\) in the pattern of order \(n\)
+            row &lsquo;\(\sigma_1\; \sigma_2\; \ldots \sigma_s\)&rsquo; in the pattern of order \(n\)
             and replace it by the following two rows:
             $$ \begin{array}{ccccc} & \sigma_20 & \ldots & \sigma_s0 & \\ \sigma_10 & \sigma_11 & \ldots & \sigma_{s-1}1 & \sigma_s1\end{array}  $$
             The first row is omitted when \(s = 1\).  The Christmas tree pattern of orders \(2\) to \(4\) are:
@@ -48,8 +54,8 @@
             Knuth describes many interesting properties of this pattern in his book.
             But one of the most apparent ones is that the pattern of order \(n\) contains all \(2^n\) bitstrings
             of length \(n\), grouped into \(n+1\) columns according to the number of \(1\)&rsquo;s in the bitstring.
-            For now the Christmas tree pattern is visualized in green, but because it's Christmas, we would like to decorate
-            the tree!  We will use the implementation complexity of quantum oracles to decide which decoration to put.
+            For now the Christmas tree pattern is visualized in green, but because it's Christmas, we should decorate
+            the tree!  In this blog article, I will use the implementation complexity of quantum oracles to decide which decoration to put.
           %p
             The Christmas tree pattern of order \(n\) can be used to visualize all the input combinations of an \(n\)-variable Boolean function.
             Moreover, the Christmas tree pattern of order \(2^n\) can be used to either visualize all the input combinations of an \(2^n\)-variable
@@ -57,23 +63,25 @@
             For example, the Christmas tree pattern of order \(4\) contains all 16 2-variable Boolean functions.
           %h4 Quantum oracles
           %p
-            In this blog entry, we consider the implementation of
+            The central quantum operations in this blog article are
             %a(href="https://docs.microsoft.com/en-us/quantum/concepts/oracles?view=qsharp-preview" target="_blank") quantum oracle funtions
             $$ U_f : |x_1x_2\ldots x_n\rangle|y\rangle \mapsto |x_1x_2\ldots x_n\rangle|y \oplus f(x_1, x_2, \dots, x_n)\rangle $$
-            in terms of quantum circuits using the Hadamard gate, CNOT gates, and arbitrary Z-rotation gates.
-            There exists a very nice recursive circuit construction, presented by
+            implemented in terms of quantum circuits using the Hadamard gate, CNOT gates, and arbitrary Z-rotation gates.
+            The following general circuit construction is based on the work by
             %a(href="https://arxiv.org/abs/quant-ph/0303063v2" target="_blank") Schuch and Siewert
             and
             %a(href="https://arxiv.org/abs/1306.3991" target="_blank") Welch et al,
-            which we illustrate for a generic 2-variable Boolean oracle \(f(x_1, x_2)\).
+            and here illustrated for a generic 2-variable Boolean oracle function \(f(x_1, x_2)\).
           %p
             %center
-              %img(src="images/blog_qac_stg2.png" border="0" style="height: 94px")
+              %img(src="images/blog_qac_stg2.png" border="0" style="height: 96px")
           %p
             The striking property about this construction is that it can be used to find a circuit for each of the 16 possible functions \(f\),
-            by only changing the values for the rotation angles \(\theta_1, \dots, \theta_7\).
+            by only changing the values for the rotation angles \(\theta_0, \dots, \theta_3\).
             Before we discuss how to determine these values, I'd like to point out the recursive structure of the construction:
-            If we leave out the surrounding Hadamard gates, there are three compartments \(1, 2, 3\), separated by barrier lines, one compartment for each qubit.
+            If we leave out the surrounding Hadamard gate \(H\) and
+            %a(href="https://docs.microsoft.com/en-us/qsharp/api/canon/microsoft.quantum.canon.hy?view=qsharp-preview" target="_blank") \(Y\)-Hadamard
+            gate \(H_Y = SH\), there are three compartments \(1, 2, 3\), separated by barrier lines, one compartment for each qubit.
             Let's for simplicity define \(x_3 = y\).  Then, the CNOT gates in compartment \(i\) prepare all linear functions that include \(x_i\) but do not include a variable
             with a larger index.  All CNOT gates in compartment \(i\) have the target on qubit \(i\) and controls on qubits with a smaller index.
             The first compartment does not need a CNOT gate, since it has \(x_1\) on the first qubit.
@@ -124,7 +132,7 @@
             For example, if \(f(x_1, x_2) = x_1 \land x_2\), then \(s_0 = s_1 = s_2 = 2\),
             and \(s_3 = -2\), and therefore \(\theta_0 = \theta_1 = \theta_2 = \frac{\pi}{4}\)
             and \(\theta_3 = -\frac{\pi}{4}\), hence,
-            resulting in the well-known circuit construction with 4 \(T\) gates and 3 \(T^\dagger\) gates.
+            resulting in the well-known circuit construction with 7 \(T\) and \(T^\dagger\) gates.
           %h4 Implementation in Q#
           %p
             I have implemented the above algorithm for oracle synthesis in Q#.
@@ -154,14 +162,14 @@
 
                   let qubits = controls + [target];
 
-                  H(target);
+                  HY(target);
 
                   for (i in 0..vars) {
                     let start = 1 <<< i;
                     let code = GrayCode(i);
                     for (j in 0..Length(code) - 1) {
                       let (offset, ctrl) = code[j];
-                      RFrac(PauliZ, spectrum[start + offset], vars + 2, qubits[i]);
+                      RFrac(PauliZ, -spectrum[start + offset], vars + 2, qubits[i]);
                       if (i != 0) {
                         CNOT(qubits[ctrl], qubits[i]);
                       }

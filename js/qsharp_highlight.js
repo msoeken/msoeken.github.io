@@ -3,7 +3,7 @@ hljs.registerLanguage("qsharp", function(hljs) {
       keywords: {
           keyword: 'operation function let using for if in',
           type: 'Int Qubit Bool Unit',
-          built_in: 'H RFrac CNOT PauliZ'
+          built_in: 'H HY RFrac CNOT PauliZ'
       },
       contains: [
           hljs.C_LINE_COMMENT_MODE,

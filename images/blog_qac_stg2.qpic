@@ -6,7 +6,7 @@ a W |x_1\rangle |x_1\rangle
 b W |x_2\rangle |x_2\rangle
 c W |y\rangle {|y \oplus f(x_1, x_2)\rangle}
 
-c H
+c G {$H_Y$} width=17
 a b c BARRIER
 a G {$R_z(\theta_1)$} width=25
 a b c BARRIER
@@ -15,7 +15,7 @@ a +b
 b G {$R_z(\theta_3)$} width=25
 a +b
 a b c BARRIER
-c G {$R_z(\frac{\pi}{2}-\theta_0)$} width=45
+c G {$R_z^\dagger(\theta_0)$} width=25
 a +c
 c G {$R_z^\dagger(\theta_1)$} width=25
 b +c
