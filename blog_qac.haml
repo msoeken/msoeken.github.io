@@ -130,7 +130,7 @@
             I have implemented the above algorithm for oracle synthesis in Q#.
             The complete source code is on Github, but the main operation is printed below.
             The first two lines in the operation
-            %code OracleSynthesis
+            %code Oracle
             compute the \(\{1,-1\}\) value vector for the oracle function,
             as well as the spectral coefficients by applying the Hadamard transform in
             an efficient way using Yates's method.
@@ -162,7 +162,7 @@
                     for (j in 0..Length(code) - 1) {
                       let (offset, ctrl) = code[j];
                       RFrac(PauliZ, spectrum[start + offset], vars + 2, qubits[i]);
-                      if ( i != 0 ) {
+                      if (i != 0) {
                         CNOT(qubits[ctrl], qubits[i]);
                       }
                     }
