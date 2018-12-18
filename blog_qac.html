@@ -142,7 +142,7 @@ $$ \begin{array}{ccc} & 100 & 101 & \\ & 010 & 110 & \\ 000 & 001 & 011 & 111 \e
 $$ \begin{array}{ccc} & & 1010 & & \\ & 1000 & 1001 & 1011 & \\ & & 1100 & & \\ & 0100 & 0101 & 1101 & \\ & 0010 & 0110 & 1110 & \\ 0000 & 0001 & 0011 & 0111 & 1111 \end{array} $$
 </div>
 <div id='ctp4on' style='display:none'>
-$$ \begin{array}{ccc} & & 1010 & & \\ & \color{red}{1000} & 1001 & \color{red}{1011} & \\ & & 1100 & & \\ & \color{red}{0100} & 0101 & \color{red}{1101} & \\ & \color{red}{0010} & 0110 & \color{red}{1110} & \\ 0000 & \color{red}{0001} & 0011 & \color{red}{0111} & 1111 \end{array} $$
+$$ \begin{array}{ccc} & & 1010 & & \\ & \color{orange}{1000} & 1001 & \color{orange}{1011} & \\ & & 1100 & & \\ & \color{red}{0100} & 0101 & \color{red}{1101} & \\ & \color{red}{0010} & 0110 & \color{red}{1110} & \\ 0000 & \color{red}{0001} & 0011 & \color{red}{0111} & 1111 \end{array} $$
 </div>
 </td>
 </tr>
@@ -245,7 +245,9 @@ for the Toffoli gate.)
 </p>
 <h4>Implementation in Q#</h4>
 <p>
-I have implemented the above algorithm for oracle synthesis in Q#.
+I have
+<a href='https://github.com/msoeken/Quantum/tree/advent/Samples/src/OracleSynthesis' target='_blank'>implemented the above algorithm for oracle synthesis</a>
+in Q#.
 The complete source code is on Github, but the main operation is printed below.
 The first two lines in the operation
 <code>Oracle</code>
