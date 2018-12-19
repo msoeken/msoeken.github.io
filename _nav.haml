@@ -20,6 +20,11 @@
         %i.fa.fa-users(aria-hidden="true")
         .text
           Publications
+    %li(role="presentation"){:class => ("active" if page == "blog" )}
+      %a(href="blog.html")
+        %i.fa.fa-rss(aria-hidden="true")
+        .text
+          Blog
     %li(role="presentation"){:class => ("active" if page == "talks" )}
       %a(href="talks.html")
         %i.fa.fa-microphone(aria-hidden="true")
