@@ -969,8 +969,8 @@ article_data = [
     ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         37,  "7",      2018, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '1937-4151',  'https://doi.org/10.1109/TCAD.2017.2750064' ),
     ( ['ok', 'ms', 'rd'],                         'ipl',         139,  "",       2018, 'The complexity of error metric',                                                                                                         '1--7',       'https://doi.org/10.1016/j.ipl.2018.06.010' ),
     ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004' ),
+    ( ['et', 'ms', 'la', 'gdm'],                  'procieee',    107,  "1",      2019, 'Logic synthesis for established and emerging computing',                                                                                 '1558--2256', 'https://doi.org/10.1109/JPROC.2018.2869760' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '',           'https://doi.org/10.1109/TCAD.2018.2859251' ),
-    ( ['et', 'ms', 'la', 'gdm'],                  'procieee',     -1,  "",          0, 'Logic synthesis for established and emerging computing',                                                                                 '',           'https://doi.org/10.1109/JPROC.2018.2869760' ),
     ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           -1,  "",          0, 'Mapping monotone Boolean functions into majority',                                                                                       '',           'https://doi.org/10.1109/TC.2018.2881245' )
 ]
 
@@ -996,7 +996,7 @@ news_data = [
     ( 'tutorial', 'Majority logic synthesis', 'https://iccad.com/event_details?id=263-6-E', 'I am organizing the tutorial', ['la', 'et', 'mc', 'oz'], ('iccad', 2018) ),
     ( 'icecs', 2018 ),
     ( 'aspdac', 2019 ),
-    ( 'procieee', -1 ),
+    ( 'procieee', 107 ),
     ( 'date', 2019 ),
     ( 'tc', -1 )
 ]
