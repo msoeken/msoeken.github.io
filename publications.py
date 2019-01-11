@@ -971,7 +971,8 @@ article_data = [
     ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004' ),
     ( ['et', 'ms', 'la', 'gdm'],                  'procieee',    107,  "1",      2019, 'Logic synthesis for established and emerging computing',                                                                                 '1558--2256', 'https://doi.org/10.1109/JPROC.2018.2869760' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '',           'https://doi.org/10.1109/TCAD.2018.2859251' ),
-    ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           -1,  "",          0, 'Mapping monotone Boolean functions into majority',                                                                                       '',           'https://doi.org/10.1109/TC.2018.2881245' )
+    ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           -1,  "",          0, 'Mapping monotone Boolean functions into majority',                                                                                       '',           'https://doi.org/10.1109/TC.2018.2881245' ),
+    ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         -1,  "",          0, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '',           '' )
 ]
 
 preprint_data = [
@@ -985,20 +986,21 @@ preprint_data = [
     ( ['ms', 'mr', 'nw', 'gdm'],       '1706.02721', 'Logic synthesis for quantum computing',                                               '15 pages, 10 figures',                                                                '',     ['quant-ph', 'cs.ET'] ),
     ( ['ms', 'th', 'mr'],              '1803.01022', 'Programming quantum computers using design automation',                               '10 pages, 10 figures',                                                                'c94',  ['quant-ph', 'cs.ET'] ),
     ( ['ms', 'hr', 'wh', 'gdm'],       '1805.05121', 'The EPFL logic synthesis libraries',                                                  "8 pages, accepted at Int'l Workshop on Logic & Synthesis 2018",                       '',     ['cs.LO', 'cs.MS'] ),
-    ( ['th', 'ms', 'mr', 'kms'],       '1807.02023', 'Quantum circuits for floating-point arithmetic',                                      '13 pages, 2 tables, 6 figures. To appear in: Proc. Reversible Computation (RC 2018)', 'c101', ['quant-ph', 'cs.ET'] )
+    ( ['th', 'ms', 'mr', 'kms'],       '1807.02023', 'Quantum circuits for floating-point arithmetic',                                      '13 pages, 2 tables, 6 figures. To appear in: Proc. Reversible Computation (RC 2018)', 'c101', ['quant-ph', 'cs.ET'] ),
+    ( ['ms'],                          '1901.02406', 'Using ZDDs in the mapping of quantum circuits',                                       '5 pages, QIP 2019 extended poster abstract',                                          '',     ['quant-ph', 'cs.ET'] )
 ]
 
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 
 news_data = [
     ( 'ipl', 139 ),
-    ( 'tcad', -1 ),
     ( 'tutorial', 'Majority logic synthesis', 'https://iccad.com/event_details?id=263-6-E', 'I am organizing the tutorial', ['la', 'et', 'mc', 'oz'], ('iccad', 2018) ),
     ( 'icecs', 2018 ),
     ( 'aspdac', 2019 ),
     ( 'procieee', 107 ),
     ( 'date', 2019 ),
-    ( 'tc', -1 )
+    ( 'tc', -1 ),
+    ( 'tcad', -1 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
