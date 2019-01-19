@@ -136,7 +136,7 @@
             resulting in the well-known circuit construction with 7 \(T\) and \(T^\dagger\) gates.
             (Side remark: If \(|y\rangle = |0\rangle\), then the circuit can be simplified
             by removing all but the last compartment.  This generalizes
-            %a(href="https://arxiv.org/abs/1709.06648" target="_blank") Gidney's construction
+            %a(href="https://arxiv.org/abs/1709.06648" target="_blank") Craig Gidney's construction
             for the Toffoli gate.)
           %h4 Implementation in Q#
           %p
@@ -280,7 +280,70 @@
                   <tr> <td>        </td> <td>00000100</td> <td>00000101</td> <td>00001101</td> <td>00011101</td> <td>00111101</td> <td>01111101</td> <td>11111101</td> <td>        </td></tr>
                   <tr> <td>        </td> <td>00000010</td> <td>00000110</td> <td>00001110</td> <td>00011110</td> <td>00111110</td> <td>01111110</td> <td>11111110</td> <td>        </td></tr>
                   <tr> <td>00000000</td> <td>00000001</td> <td>00000011</td> <td>00000111</td> <td>00001111</td> <td>00011111</td> <td>00111111</td> <td>01111111</td> <td>11111111</td></tr>
+          %h4 Appendix
+          %p
+            Above, it is mentioned that the technique generalizes to
+            %a(href="https://arxiv.org/abs/1709.06648" target="_blank") Craig Gidney's construction
+            for the Toffoli gate.
+            The technique applies to all Boolean functions with \(n\) variables, but is illustrated for simplicity for \(n = 2\).
+            If the target qubit is initialized to \(|0\rangle\), one only needs the last compartment, and can omit all other ones:
+          %p
+            %center
+              %img(src="images/blog_qac_stg2_anc.png" border="0" style="height: 96px")
+          %p
+            When
+            %i uncomputing
+            the oracle function, i.e., we expect that the ancilla qubit is restored to 0, one can use the following circuit
+            which uses all but the last compartments from the circuit.  Also, all angles are multiplied by two:
+          %p
+            %center
+              %img(src="images/blog_qac_stg2_unc.png" border="0" style="height: 96px")
+          %p
+            Both circuits can be implemented inside a single Q# operation using the
+            %code adjoint
+            keyword:
+          %pre
+            %code.qsharp
+              :preserve
+                operation OracleAncilla(func : Int, controls : Qubit[], target : Qubit) : Unit {
+                  body (...) {
+                    let vars = Length(controls);
+                    let table = Encode(TruthTable(func, vars));
+                    let spectrum = Extend(FastHadamardTransform(table));
 
+                    HY(target);
+
+                    let code = GrayCode(vars);
+                    for (j in 0..Length(code) - 1) {
+                      let (offset, ctrl) = code[j];
+                      RFrac(PauliZ, spectrum[offset], vars + 2, target);
+                      CNOT(controls[ctrl], target);
+                    }
+
+                    H(target);
+                  }
+                  adjoint (...) {
+                    let vars = Length(controls);
+                    let table = Encode(TruthTable(func, vars));
+                    let spectrum = Extend(FastHadamardTransform(table));
+
+                    H(target);
+                    if (IsResultOne(M(target))) {
+                      for (i in 0..vars - 1) {
+                        let start = 1 <<< i;
+                        let code = GrayCode(i);
+                        for (j in 0..Length(code) - 1) {
+                          let (offset, ctrl) = code[j];
+                          RFrac(PauliZ, -spectrum[start + offset], vars + 1, controls[i]);
+                          if (i != 0) {
+                            CNOT(controls[ctrl], controls[i]);
+                          }
+                        }
+                      }
+                      Reset(target);
+                    }
+                  }
+                }
     %script(src="js/jquery.min.js")
     %script(src="js/jquery-ui.min.js")
     %script(src="js/blog.js")

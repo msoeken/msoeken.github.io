@@ -248,7 +248,7 @@ and \(\theta_3 = -\frac{\pi}{4}\), hence,
 resulting in the well-known circuit construction with 7 \(T\) and \(T^\dagger\) gates.
 (Side remark: If \(|y\rangle = |0\rangle\), then the circuit can be simplified
 by removing all but the last compartment.  This generalizes
-<a href='https://arxiv.org/abs/1709.06648' target='_blank'>Gidney's construction</a>
+<a href='https://arxiv.org/abs/1709.06648' target='_blank'>Craig Gidney's construction</a>
 for the Toffoli gate.)
 </p>
 <h4>Implementation in Q#</h4>
@@ -367,6 +367,36 @@ Merry Christmas!
 </table>
 </center>
 </p>
+<h4>Appendix</h4>
+<p>
+Above, it is mentioned that the technique generalizes to
+<a href='https://arxiv.org/abs/1709.06648' target='_blank'>Craig Gidney's construction</a>
+for the Toffoli gate.
+The technique applies to all Boolean functions with \(n\) variables, but is illustrated for simplicity for \(n = 2\).
+If the target qubit is initialized to \(|0\rangle\), one only needs the last compartment, and can omit all other ones:
+</p>
+<p>
+<center>
+<img border='0' src='images/blog_qac_stg2_anc.png' style='height: 96px'>
+</center>
+</p>
+<p>
+When
+<i>uncomputing</i>
+the oracle function, i.e., we expect that the ancilla qubit is restored to 0, one can use the following circuit
+which uses all but the last compartments from the circuit.  Also, all angles are multiplied by two:
+</p>
+<p>
+<center>
+<img border='0' src='images/blog_qac_stg2_unc.png' style='height: 96px'>
+</center>
+</p>
+<p>
+Both circuits can be implemented inside a single Q# operation using the
+<code>adjoint</code>
+keyword:
+</p>
+<pre><code class='qsharp'>operation OracleAncilla(func : Int, controls : Qubit[], target : Qubit) : Unit {&#x000A;  body (...) {&#x000A;    let vars = Length(controls);&#x000A;    let table = Encode(TruthTable(func, vars));&#x000A;    let spectrum = Extend(FastHadamardTransform(table));&#x000A;&#x000A;    HY(target);&#x000A;&#x000A;    let code = GrayCode(vars);&#x000A;    for (j in 0..Length(code) - 1) {&#x000A;      let (offset, ctrl) = code[j];&#x000A;      RFrac(PauliZ, spectrum[offset], vars + 2, target);&#x000A;      CNOT(controls[ctrl], target);&#x000A;    }&#x000A;&#x000A;    H(target);&#x000A;  }&#x000A;  adjoint (...) {&#x000A;    let vars = Length(controls);&#x000A;    let table = Encode(TruthTable(func, vars));&#x000A;    let spectrum = Extend(FastHadamardTransform(table));&#x000A;&#x000A;    H(target);&#x000A;    if (IsResultOne(M(target))) {&#x000A;      for (i in 0..vars - 1) {&#x000A;        let start = 1 <<< i;&#x000A;        let code = GrayCode(i);&#x000A;        for (j in 0..Length(code) - 1) {&#x000A;          let (offset, ctrl) = code[j];&#x000A;          RFrac(PauliZ, -spectrum[start + offset], vars + 1, controls[i]);&#x000A;          if (i != 0) {&#x000A;            CNOT(controls[ctrl], controls[i]);&#x000A;          }&#x000A;        }&#x000A;      }&#x000A;      Reset(target);&#x000A;    }&#x000A;  }&#x000A;}</code></pre>
 </div>
 </div>
 </div>

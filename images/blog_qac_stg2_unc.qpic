@@ -1,0 +1,17 @@
+BGCOLOR
+DEPTHPAD 3
+PRETIKZ \footnotesize
+
+a W |x_1\rangle |x_1\rangle
+b W |x_2\rangle |x_2\rangle
+c W {|f(x_1, x_2)\rangle} {}
+
+c H
+a TOUCH
+b TOUCH
+a G {$R_z(2\theta_1)$} width=30
+b G {$R_z(2\theta_2)$} width=30
+a +b
+b G {$R_z(2\theta_3)$} c:cwire width=30
+a +b
+a b @ 1 4 color=black style=draw

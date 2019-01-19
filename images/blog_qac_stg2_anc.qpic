@@ -1,0 +1,20 @@
+BGCOLOR
+DEPTHPAD 3
+PRETIKZ \footnotesize
+
+a W |x_1\rangle |x_1\rangle
+b W |x_2\rangle |x_2\rangle
+c W |0\rangle {|f(x_1, x_2)\rangle}
+
+c G {$H_Y$} width=17
+a b c BARRIER
+c G {$R_z^\dagger(\theta_0)$} width=25
+a +c
+c G {$R_z^\dagger(\theta_1)$} width=25
+b +c
+c G {$R_z^\dagger(\theta_3)$} width=25
+a +c
+c G {$R_z^\dagger(\theta_2)$} width=25
+b +c
+a b c BARRIER
+c H
