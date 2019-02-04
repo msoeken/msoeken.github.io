@@ -489,7 +489,8 @@ conferences_data = [
         ( 2010, 'jun', 'Anaheim, CA', 'USA' ),
         ( 2016, 'jun', 'Austin, TX', 'USA' ),
         ( 2017, 'jun', 'Austin, TX', 'USA' ),
-        ( 2018, 'jun', 'San Francisco, CA', 'USA' )
+        ( 2018, 'jun', 'San Francisco, CA', 'USA' ),
+        ( 2019, 'jun', 'Las Vegas, NV', 'USA' )
     ] ),
     ( 'date', 'DATE', 'Design, Automation and Test in Europe', 'IEEE', [
         ( 2010, 'mar', 'Dresden', 'Germany' ),
@@ -571,7 +572,8 @@ conferences_data = [
     ( 'iscas', 'ISCAS', 'International Symposium on Circuits and Systems', 'IEEE', [
         ( 2016, 'may', 'Montreal, QC', 'Canada' ),
         ( 2017, 'may', 'Baltimore, MD', 'USA' ),
-        ( 2018, 'may', 'Florence', 'Italy' )
+        ( 2018, 'may', 'Florence', 'Italy' ),
+        ( 2019, 'may', 'Sapporo', 'Japan' )
     ] ),
     ( 'ismvl', 'ISMVL', 'International Symposium on Multiple-Valued Logic', 'IEEE', [
         ( 2011, 'may', 'Tuusula', 'Finland' ),
@@ -907,7 +909,10 @@ confpapers_data = [
     ( ['hr', 'wh', 'am', 'gdm', 'ms'],                                  'date',     2019, 'On-the-fly and DAG-aware: Rewriting Boolean networks with exact synthesis', 'XXXX', '' ),
     ( ['et', 'la', 'ms', 'am', 'pv', 'jl', 'cc', 'peg', 'gdm'],         'date',     2019, 'Scalable Boolean methods in a modern synthesis flow', 'XXXX', '' ),
     ( ['gm', 'ms', 'mr', 'nb', 'gdm'],                                  'date',     2019, 'Reversible pebbling game for quantum memory management', 'XXXX', '' ),
-    ( ['ms', 'fm', 'bs3', 'gdm'],                                       'date',     2019, 'Compiling permutations for superconducting QPUs', 'XXXX', '' )
+    ( ['ms', 'fm', 'bs3', 'gdm'],                                       'date',     2019, 'Compiling permutations for superconducting QPUs', 'XXXX', '' ),
+    ( ['zc', 'wh', 'ms', 'lw', 'yx', 'gdm'],                            'iscas',    2019, 'Exact synthesis of Boolean functions in majority-of-five forms', 'XXXX', '' ),
+    ( ['hr', 'et', 'wh', 'am', 'la', 'gdm', 'ms'],                      'dac',      2019, 'Scalable generic logic synthesis: one approach to rule them all', 'XXXX', '' ),
+    ( ['et', 'ms', 'la', 'gdm'],                                        'dac',      2019, 'Reducing the multiplicative complexity in logic networks for cryptography and security applications', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -1000,7 +1005,9 @@ news_data = [
     ( 'procieee', 107 ),
     ( 'date', 2019 ),
     ( 'tc', -1 ),
-    ( 'tcad', -1 )
+    ( 'tcad', -1 ),
+    ( 'iscas', 2019 ),
+    ( 'dac', 2019 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
