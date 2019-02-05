@@ -582,7 +582,8 @@ conferences_data = [
         ( 2015, 'may', 'Waterloo, ON', 'Canada' ),
         ( 2016, 'may', 'Sapporo', 'Japan' ),
         ( 2017, 'may', 'Novi Sad', 'Serbia' ),
-        ( 2018, 'may', 'Linz', 'Austria' )
+        ( 2018, 'may', 'Linz', 'Austria' ),
+        ( 2019, 'may', 'Fredericton', 'Canada' )
     ] ),
     ( 'isvlsi', 'ISVLSI', 'IEEE Computer Society Annual Symposium on VLSI', 'IEEE', [
         ( 2008, 'apr', 'Montpellier', 'France' ),
@@ -713,6 +714,7 @@ authors_data = [
     ( 'co',  'Christian', 'Otterstedt' ),
     ( 'cr',  'Christopher D.', 'Rosebrock' ),
     ( 'cw',  'Clemens', 'Werther' ),
+    ( 'db',  'Debjyoti', 'Bhattacharjee' ),
     ( 'df',  'Daniel', 'Florez' ),
     ( 'dg',  'Daniel', 'Große' ),
     ( 'dmm', 'D. Michael', 'Miller' ),
@@ -783,6 +785,7 @@ authors_data = [
     ( 'rp',  'Romain', 'Péchoux' ),
     ( 'rw',  'Robert', 'Wille' ),
     ( 'rxf', 'Reinhard X.', 'Fischer' ),
+    ( 'sd',  'Srijit', 'Dutta' ),
     ( 'sf',  'Stefan', 'Frehse' ),
     ( 'sim', 'Shin-ichi', 'Minato' ),
     ( 'sr',  'Sandip', 'Ray' ),
@@ -911,6 +914,8 @@ confpapers_data = [
     ( ['gm', 'ms', 'mr', 'nb', 'gdm'],                                  'date',     2019, 'Reversible pebbling game for quantum memory management', 'XXXX', '' ),
     ( ['ms', 'fm', 'bs3', 'gdm'],                                       'date',     2019, 'Compiling permutations for superconducting QPUs', 'XXXX', '' ),
     ( ['zc', 'wh', 'ms', 'lw', 'yx', 'gdm'],                            'iscas',    2019, 'Exact synthesis of Boolean functions in majority-of-five forms', 'XXXX', '' ),
+    ( ['db', 'ms', 'sd', 'ac', 'gdm'],                                  'ismvl',    2019, 'Reversible pebble games for reducing qubits in hierarchical quantum circuit synthesis', 'XXXX', '' ),
+    ( ['bs3', 'ms', 'am', 'gdm'],                                       'ismvl',    2019, 'Scaling-up ESOP synthesis for quantum compilation', 'XXXX', '' ),
     ( ['hr', 'et', 'wh', 'am', 'la', 'gdm', 'ms'],                      'dac',      2019, 'Scalable generic logic synthesis: one approach to rule them all', 'XXXX', '' ),
     ( ['et', 'ms', 'la', 'gdm'],                                        'dac',      2019, 'Reducing the multiplicative complexity in logic networks for cryptography and security applications', 'XXXX', '' )
 ]
@@ -1007,6 +1012,7 @@ news_data = [
     ( 'tc', -1 ),
     ( 'tcad', -1 ),
     ( 'iscas', 2019 ),
+    ( 'ismvl', 2019 ),
     ( 'dac', 2019 )
 ]
 
