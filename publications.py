@@ -982,7 +982,7 @@ article_data = [
     ( ['et', 'ms', 'la', 'gdm'],                  'procieee',    107,  "1",      2019, 'Logic synthesis for established and emerging computing',                                                                                 '1558--2256', 'https://doi.org/10.1109/JPROC.2018.2869760' ),
     ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '',           'https://doi.org/10.1109/TCAD.2018.2859251' ),
     ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           -1,  "",          0, 'Mapping monotone Boolean functions into majority',                                                                                       '',           'https://doi.org/10.1109/TC.2018.2881245' ),
-    ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         -1,  "",          0, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '',           '' )
+    ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         -1,  "",          0, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '',           'https://doi.org/10.1109/TCAD.2019.2897703' )
 ]
 
 preprint_data = [
