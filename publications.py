@@ -997,7 +997,8 @@ preprint_data = [
     ( ['ms', 'th', 'mr'],              '1803.01022', 'Programming quantum computers using design automation',                               '10 pages, 10 figures',                                                                'c94',  ['quant-ph', 'cs.ET'] ),
     ( ['ms', 'hr', 'wh', 'gdm'],       '1805.05121', 'The EPFL logic synthesis libraries',                                                  "8 pages, accepted at Int'l Workshop on Logic & Synthesis 2018",                       '',     ['cs.LO', 'cs.MS'] ),
     ( ['th', 'ms', 'mr', 'kms'],       '1807.02023', 'Quantum circuits for floating-point arithmetic',                                      '13 pages, 2 tables, 6 figures. To appear in: Proc. Reversible Computation (RC 2018)', 'c101', ['quant-ph', 'cs.ET'] ),
-    ( ['ms'],                          '1901.02406', 'Using ZDDs in the mapping of quantum circuits',                                       '5 pages, QIP 2019 extended poster abstract',                                          '',     ['quant-ph', 'cs.ET'] )
+    ( ['ms'],                          '1901.02406', 'Using ZDDs in the mapping of quantum circuits',                                       '5 pages, QIP 2019 extended poster abstract',                                          '',     ['quant-ph', 'cs.ET'] ),
+    ( ['gm', 'ms', 'mr', 'nb', 'gdm'], '1904.02121', 'Reversible pebbling game for quantum memory management',                              'In Proc. Design Automation and Test in Europe (DATE 2019)',                           'c111', ['quant-ph', 'cs.ET'] )
 ]
 
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
