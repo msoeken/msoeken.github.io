@@ -628,6 +628,9 @@ conferences_data = [
     ( 'newcas', 'NEWCAS', 'International NEWCAS Conference', 'IEEE', [
         ( 2017, 'jun', 'Strasbourg', 'France' )
     ] ),
+    ( 'qpl', 'QPL', 'Quantum Physics and Logic', 'ENTCS', [
+        ( 2019, 'jun', 'Orange, CA', 'USA' )
+    ] ),
     ( 'rc', 'RC', 'Conference on Reversible Computation', 'Springer', [
         ( 2011, 'jul', 'Ghent', 'Belgium' ),
         ( 2012, 'jul', 'Copenhagen', 'Denmark' ),
@@ -747,6 +750,7 @@ authors_data = [
     ( 'js2', 'Johanna', 'Sepulveda' ),
     ( 'kdt', 'Klaus-Dieter', 'Thoben' ),
     ( 'kms', 'Krysta M.', 'Svore' ),
+    ( 'ks',  'Kaitlin', 'Smith' ),
     ( 'la',  'Luca Gaetano', 'Amarù' ),
     ( 'lm',  'Lutz', 'Mädler' ),
     ( 'lt',  'Laura', 'Tague' ),
@@ -765,6 +769,7 @@ authors_data = [
     ( 'mr',  'Martin', 'Roetteler' ),
     ( 'ms',  'Mathias', 'Soeken' ),
     ( 'ms2', 'Matthias', 'Sauer' ),
+    ( 'mt',  'Mitchell A.', 'Thornton' ),
     ( 'na',  'Nabila', 'Abdessaied' ),
     ( 'nb',  'Nikolaj', 'Bjorner' ),
     ( 'np',  'Nils', 'Przigoda' ),
@@ -917,7 +922,9 @@ confpapers_data = [
     ( ['db', 'ms', 'sd', 'ac', 'gdm'],                                  'ismvl',    2019, 'Reversible pebble games for reducing qubits in hierarchical quantum circuit synthesis', 'XXXX', '' ),
     ( ['bs3', 'ms', 'am', 'gdm'],                                       'ismvl',    2019, 'Scaling-up ESOP synthesis for quantum compilation', 'XXXX', '' ),
     ( ['hr', 'et', 'wh', 'am', 'la', 'gdm', 'ms'],                      'dac',      2019, 'Scalable generic logic synthesis: one approach to rule them all', 'XXXX', '' ),
-    ( ['et', 'ms', 'la', 'gdm'],                                        'dac',      2019, 'Reducing the multiplicative complexity in logic networks for cryptography and security applications', 'XXXX', '' )
+    ( ['et', 'ms', 'la', 'gdm'],                                        'dac',      2019, 'Reducing the multiplicative complexity in logic networks for cryptography and security applications', 'XXXX', '' ),
+    ( ['gm', 'ms', 'mr', 'gdm'],                                        'qpl',      2019, 'ROS: Resource-constrained oracle synthesis for quantum computers', 'XXXX', '' ),
+    ( ['ks', 'ms', 'bs3', 'gdm', 'mt'],                                 'qpl',      2019, 'Using ZDDs in the mapping of quantum circuits', 'XXXX', '' )
 ]
 
 workpapers_data = [
@@ -1014,7 +1021,8 @@ news_data = [
     ( 'tcad', -1 ),
     ( 'iscas', 2019 ),
     ( 'ismvl', 2019 ),
-    ( 'dac', 2019 )
+    ( 'dac', 2019 ),
+    ( 'qpl', 2019 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
