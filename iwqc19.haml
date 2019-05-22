@@ -1,0 +1,112 @@
+!!! 5
+%html
+  %head
+    = Haml::Engine.new(File.read('_header.haml')).render(Object.new, :title => 'International Workshop on Quantum Compilation')
+  %body
+    .container#main-container
+      .row#main-row
+        .col-md-3#left-column
+          %ul.nav.nav-pills.nav-stacked
+            %li(role="presentation")
+              %a(href="#about")
+                %i.fa.fa-info(aria-hidden="true")
+                .text
+                  About the workshop
+            %li(role="presentation")
+              %a(href="#program")
+                %i.fa.fa-list(aria-hidden="true")
+                .text
+                  Program
+            %li(role="presentation")
+              %a(href="#dates")
+                %i.fa.fa-calendar(aria-hidden="true")
+                .text
+                  Important dates
+            %li(role="presentation")
+              %a(href="#instructions")
+                %i.fa.fa-file(aria-hidden="true")
+                .text
+                  Instructions for authors
+            %li(role="presentation")
+              %a(href="#instructions")
+                %i.fa.fa-user(aria-hidden="true")
+                .text
+                  Organizers
+            %li(role="presentation")
+              %a(href="#previous")
+                %i.fa.fa-clock-o(aria-hidden="true")
+                .text
+                  Previous editions
+        .col-md-9
+          %h1
+            %span(style="color: #505050") 3rd International Workshop on
+            %br
+            %span(style="color: #990000") Quantum Compilation
+          %h4
+            November 7, 2019 &middot; The Westin Westminster &middot; Westminster, CO, USA &middot; co-located with
+            %a(href="http://www.iccad.com" target="_blank") ICCAD
+          .alert.alert-info(role="alert")
+            Submit your papers with
+            %a(href="https://easychair.org/conferences/?conf=iwqc19" target="_blank") EasyChair
+
+          %h3#about About the workshop
+          %p(style="text-align: justify") The workshop aims to bring together researchers from quantum computing, electronic design automation, and compiler construction. Open questions that we anticipate this group to tackle include new methods for circuit synthesis and optimization, optimizations and rewriting, techniques for verifying the correctness of quantum programs, and new techniques for compiling efficient circuits and protocols regarding fault-tolerant and architecture constraints.
+          %p(style="text-align: justify") The scope of the workshop includes, but is not limited to, current hot topics in quantum circuit design such as
+          %ul
+            %li space-optimizing compilers for reversible circuits
+            %li design-space exploration for automatic code generation from classical HDL specification
+            %li quantum programming languages
+            %li reversible logic synthesis
+            %li technology-aware mapping
+            %li error correction
+            %li optimized libraries (e.g., for arithmetic and Hamiltonian simulation)
+            %li benchmarking of circuits for small and medium scale quantum computers
+            %li quantum and reversible circuit peep-holing and (re)synthesis
+            %li software and tools for all above mentioned topics
+            %li quantum outreach: coding contests, tutorials, education
+          %h3#program Program
+          %p
+            %i TBA
+          %h3#dates Important dates
+          %table.table.table-striped.table-bordered
+            %tbody
+              %tr
+                %td
+                  September 1, 2019 (anywhere-on-earth)
+                %td Submission of abstract
+              %tr
+                %td
+                  September 8, 2019
+                %td Notification of decisions
+              %tr
+                %td November 8, 2019
+                %td Workshop
+          %h3#instructions Instructions for authors
+          %p(style="text-align: justify")
+            The main purpose of the workshop is to exchange recent ideas and reserch in the area of quantum compilation.
+            The workshop has no formal proceedings.
+            Authors are invited to submit an abstract or a paper, with no restrictions on the format.
+            Submission of tool and case-study papers are highly encouraged.
+            In case of a positive evaluation, submissions are accepted either as oral or poster presentation to be part of the workshop program.
+            All abstracts and papers are distributed only among the participants.  Please submit your papers through EasyChair:
+            %a(href="https://easychair.org/conferences/?conf=iwqc19" target="_blank") https://easychair.org/conferences/?conf=iwqc18
+          %h3#organizers Organizers
+          %ul
+            %li
+              Mathias Soeken,
+              %i EPFL, Switzerland,
+              %a(href="mailto:mathias.soeken@epfl.ch") mathias.soeken@epfl.ch
+            %li
+              Thomas H&auml;ner,
+              %i Microsoft, Redmond, WA, USA,
+              %a(href="mailto:thomas.haner@microsoft.com") thomas.haner@microsoft.com
+          %h3#previous Previous editions
+          %ul
+            %li
+              %b 2018
+              2nd International Workshop on Quantum Compilation
+              %i San Diego, CA, USA
+            %li
+              %b 2017
+              First Workshop on Design Automation for Quantum Computing
+              %i Irvine, CA, USA
