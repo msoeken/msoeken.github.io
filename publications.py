@@ -995,7 +995,8 @@ article_data = [
     ( ['et', 'ms', 'la', 'gdm'],                  'procieee',    107,  "1",      2019, 'Logic synthesis for established and emerging computing',                                                                                 '1558--2256', 'https://doi.org/10.1109/JPROC.2018.2869760', [] ),
     ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           68,  "5",      2019, 'Mapping monotone Boolean functions into majority',                                                                                       '791--797',   'https://doi.org/10.1109/TC.2018.2881245', [] ),
     ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '',           'https://doi.org/10.1109/TCAD.2018.2859251', ['caterpillar', 'revkit'] ),
-    ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         -1,  "",          0, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '',           'https://doi.org/10.1109/TCAD.2019.2897703', ['percy'] )
+    ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         -1,  "",          0, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '',           'https://doi.org/10.1109/TCAD.2019.2897703', ['percy'] ),
+    ( ['zc', 'ms', 'yx', 'lw', 'gdm'],            'tcad',         -1,  "",          0, 'Advanced functional decomposition using majority and its applications',                                                                  '',           '', [] )
 ]
 
 preprint_data = [
