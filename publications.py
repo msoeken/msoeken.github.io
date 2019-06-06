@@ -557,7 +557,8 @@ conferences_data = [
         ( 2014, 'nov', 'San Jose, CA', 'USA' ),
         ( 2016, 'nov', 'Austin, TX', 'USA' ),
         ( 2017, 'nov', 'Irvine, CA', 'USA' ),
-        ( 2018, 'nov', 'San Diego, CA', 'USA' )
+        ( 2018, 'nov', 'San Diego, CA', 'USA' ),
+        ( 2019, 'nov', 'Westminster, CO', 'USA' )
     ] ),
     ( 'icecs', 'ICECS', 'International Conference on Electronics, Circuits and Systems', 'IEEE', [
         ( 2018, 'dec', 'Bordeaux', 'France' )
@@ -724,6 +725,7 @@ authors_data = [
     ( 'dg',  'Daniel', 'Große' ),
     ( 'dmm', 'D. Michael', 'Miller' ),
     ( 'ec',  'Edo', 'Collins' ),
+    ( 'ec2', 'Earl', 'Campbell' ),
     ( 'eg',  'Esther', 'Guerra' ),
     ( 'ek',  'Eugen', 'Kuksa' ),
     ( 'el',  'Erkko', 'Lehtonen' ),
@@ -926,7 +928,8 @@ confpapers_data = [
     ( ['hr', 'et', 'wh', 'am', 'la', 'gdm', 'ms'],                      'dac',      2019, 'Scalable generic logic synthesis: one approach to rule them all', 'XXXX', '', ['mockturtle'] ),
     ( ['et', 'ms', 'la', 'gdm'],                                        'dac',      2019, 'Reducing the multiplicative complexity in logic networks for cryptography and security applications', 'XXXX', '', ['mockturtle'] ),
     ( ['gm', 'ms', 'mr', 'gdm'],                                        'qpl',      2019, 'ROS: Resource-constrained oracle synthesis for quantum computers', 'XXXX', '', ['caterpillar'] ),
-    ( ['ks', 'ms', 'bs3', 'gdm', 'mt'],                                 'qpl',      2019, 'Using ZDDs in the mapping of quantum circuits', 'XXXX', '', ['tweedledum'] )
+    ( ['ks', 'ms', 'bs3', 'gdm', 'mt'],                                 'qpl',      2019, 'Using ZDDs in the mapping of quantum circuits', 'XXXX', '', ['tweedledum'] ),
+    ( ['gm', 'ms', 'ec2', 'mr', 'gdm'],                                 'iccad',    2019, 'The role of multiplicative complexity in compiling low T-count oracle circuits', 'XXXX', '', ['caterpillar'] )
 ]
 
 workpapers_data = [
@@ -1029,7 +1032,8 @@ news_data = [
     ( 'iscas', 2019 ),
     ( 'ismvl', 2019 ),
     ( 'dac', 2019 ),
-    ( 'qpl', 2019 )
+    ( 'qpl', 2019 ),
+    ( 'iccad', 2019 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
