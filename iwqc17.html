@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<title>Design Automation for Quantum Computers</title>
+<link href='css/bootstrap.min.css' rel='stylesheet'>
+<link href='css/custom.css' rel='stylesheet'>
+<script src='https://use.fontawesome.com/02858a71b6.js'></script>
+
+</head>
+<body>
+<div class='container' id='main-container'>
+<div class='row' id='main-row'>
+<div class='col-md-3' id='left-column'>
+<ul class='nav nav-pills nav-stacked'>
+<li role='presentation'>
+<a href='#about'>
+<i aria-hidden='true' class='fa fa-info'></i>
+<div class='text'>
+About the workshop
+</div>
+</a>
+</li>
+<li role='presentation'>
+<a href='#program'>
+<i aria-hidden='true' class='fa fa-list'></i>
+<div class='text'>
+Program
+</div>
+</a>
+</li>
+<li role='presentation'>
+<a href='#posters'>
+<i aria-hidden='true' class='fa fa-list'></i>
+<div class='text'>
+Posters
+</div>
+</a>
+</li>
+<li role='presentation'>
+<a href='#organizers'>
+<i aria-hidden='true' class='fa fa-user'></i>
+<div class='text'>
+Organizers
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class='col-md-9'>
+<h1>
+<span style='color: #505050'>Design Automation for</span>
+<br>
+<span style='color: #990000'>Quantum Computers</span>
+</h1>
+<h4>
+November 16, 2017 &middot; Irvine Mariott &middot; Irvine, CA, USA &middot; co-located with
+<a href='http://www.iccad.com' target='_blank'>ICCAD</a>
+</h4>
+<h3 id='about'>About the workshop</h3>
+<p style='text-align: justify'>
+The workshop aims to bring together researchers from quantum computing, electronic design automation, and compiler construction. Open questions that we anticipate this group to tackle include new methods for circuit synthesis and optimization, optimizations and rewriting, techniques for verifying the correctness of quantum programs, and new techniques for compiling efficient circuits and protocols regarding fault-tolerant and architecture constraints. Currently, only very few opportunities exist to bring together experts from the fields of quantum computing and design automation; to give them the opportunity to engage in exchange of ideas; and to report on progress for both theoretical and implementation aspects. We also expect a vibrant open problems session as well as exchange of benchmarks, i.e., for the best known circuits for some classes of transformations that are important for the synthesis of large quantum algorithms. The invited speakers cover the whole design flow of quantum computing, starting from the design of quantum algorithms to the actual physical devices. The range further covers, quantum programming languages, reversible logic synthesis, quantum circuit optimization, aspects of fault-tolerant quantum computing, and verification of quantum circuits. The talks introduce the state-of-the-art of each field, describe present challenges, and outline opportunities for design automation.
+</p>
+<h3 id='program'>Program (Room: Salons B2 &amp; C)</h3>
+<table class='table table-bordered'>
+<colgroup>
+<col width='120'>
+<col>
+</colgroup>
+<tbody>
+<tr class='warning'>
+<td>08:00 &ndash; 08:30</td>
+<td>
+Welcome and Introduction
+<br>
+<i>Martin Roetteler (Microsoft), Mathias Soeken (EPFL)</i>
+</td>
+</tr>
+<tr>
+<td>08:30 &ndash; 09:05</td>
+<td>
+Scaling Superconducting Qubits: Toward a Demonstration of Quantum Supremacy
+<br>
+<i>Matthew Neely (Google)</i>
+</td>
+</tr>
+<tr>
+<td>09:05 &ndash; 09:40</td>
+<td>
+Empowering the quantum revolution
+<br>
+<i>Krysta M. Svore (Microsoft)</i>
+</td>
+</tr>
+<tr>
+<td>09:40 &ndash; 10:15</td>
+<td>
+Technology Mapping with Choices, Priority Cuts, and Placement-Aware Heuristics
+<br>
+<i>Alan Mishchenko (UC Berkeley)</i>
+</td>
+</tr>
+<tr class='warning'>
+<td>10:15 &ndash; 10:45</td>
+<td>
+<i>Coffee + Posters</i>
+</td>
+</tr>
+<tr>
+<td>10:45 &ndash; 11:20</td>
+<td>
+The IBM Q experience and open- source quantum computing software
+<br>
+<i>Andrew W. Cross (IBM)</i>
+</td>
+</tr>
+<tr>
+<td>11:20 &ndash; 11:55</td>
+<td>
+Toward automatic verification of quantum programs
+<br>
+<i>Mingsheng Ying (University of Technology, Sydney)</i>
+</td>
+</tr>
+<tr>
+<td>11:55 &ndash; 12:30</td>
+<td>
+Verifying Quantum Circuits in QWIRE
+<br>
+<i>Jennifer Paykin (Univ. of Pennsylvania)</i>
+</td>
+</tr>
+<tr class='warning'>
+<td>12:30 &ndash; 13:50</td>
+<td>
+<i>Lunch</i>
+</td>
+</tr>
+<tr>
+<td>13:50 &ndash; 14:25</td>
+<td>
+Design considerations for Trapped Ion Quantum Computer
+<br>
+<i>Jungsang Kim (Duke University, IonQ)</i>
+</td>
+</tr>
+<tr>
+<td>14:25 &ndash; 15:00</td>
+<td>
+Parallelizing quantum circuit synthesis
+<br>
+<i>Olivia Di Matteo (University of Waterloo, Institute for Quantum Computing)</i>
+</td>
+</tr>
+<tr>
+<td>15:00 &ndash; 15:35</td>
+<td>
+Quantum compilation: from high- level to intermediate representation
+<br>
+<i>Benoit Valiron (Université Paris-Sud)</i>
+</td>
+</tr>
+<tr class='warning'>
+<td>15:35 &ndash; 16:05</td>
+<td>
+<i>Coffee + Posters</i>
+</td>
+</tr>
+<tr>
+<td>16:05 &ndash; 16:40</td>
+<td>
+Tricks and trivialities in compiling to superconducting quantum processors
+<br>
+<i>Will Zeng (Rigetti)</i>
+</td>
+</tr>
+<tr>
+<td>16:40 &ndash; 17:15</td>
+<td>
+Large-scale quantum computing using NV-diamond - Quantum hardware and software engineering
+<br>
+<i>Simon Devitt (Riken, Turing Inc.)</i>
+</td>
+</tr>
+<tr>
+<td>17:15 &ndash; 17:50</td>
+<td>
+Verification in quantum computing
+<br>
+<i>Matthew Amy (University of Waterloo, Institute for Quantum Computing)</i>
+</td>
+</tr>
+<tr class='warning'>
+<td>17:50 &ndash; 18:00</td>
+<td>
+<i>Closing</i>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id='posters'>Posters</h3>
+<ul>
+<li>
+Quantum Computing Performance Analysis System
+<i>(Byung-Soo Choi)</i>
+</li>
+<li>
+Compiling Boolean Satisfiability Problem: A Lesson from FPGA CAD Tool (Juexiao Su)
+<li>
+A Computational Design Framework for Silicon Donor Qubits
+<i>(Fahd A. Mohiyaddin, Jacek Jakowski, Jingsong Huang, Yousif W. Almulla, M. Nance Ericson, Charles Britton, Franklin G. Curtis, Eugene F. Dumitrescu, Bobby G. Sumpter, and Travis S. Humble)</i>
+</li>
+<li>
+Simulation of Quantum Computations Using Decision Diagrams
+<i>(Alwin Zulehner and Robert Wille)</i>
+</li>
+<li>
+Technology Dependent Quantum Logic Synthesis and Compilation
+<i>(Kaitlin Smith and Mitch Thornton)</i>
+</li>
+<li>
+LUT-based logic synthesis for quantum computing
+<i>(Giulia Meuli, Mathias Soeken, Martin Roetteler, Nathan Wiebe, and Giovanni De Micheli)</i>
+</li>
+<li>
+Design of quantum circuits with a reversible functional language
+<i>(Michael Kirkedal Thomsen)</i>
+</li>
+<li>
+Towards uniform approaches to create quantum Grover oracles for practical problems
+<i>(Marek Perkowski)</i>
+</li>
+<li>
+Identifying the synthesis approach of a reversible circuit
+<i>(Samah Saeed)</i>
+</li>
+</li>
+</ul>
+<h3 id='organizers'>Organizers</h3>
+<ul>
+<li>
+Martin Roetteler,
+<i>Microsoft, US</i>
+</li>
+<li>
+Mathias Soeken,
+<i>EPFL, Switzerland,</i>
+<a href='mailto:mathias.soeken@epfl.ch'>mathias.soeken@epfl.ch</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
