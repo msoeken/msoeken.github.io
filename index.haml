@@ -11,23 +11,23 @@
           .starter-template
             %img#nav-picture(src="images/nav-picture2.jpg" align="right")
             %h1 Dr. Mathias Soeken
-            %p.lead Researcher, EPFL, Lausanne, Switzerland
+            %p.lead Researcher, Lausanne, Switzerland
           .row
             .col-md-8
               %p(style="text-align: justify")
-                Mathias Soeken works as a researcher at the
-                %a(href="http://lsi.epfl.ch" target="_blank") Integrated Systems Laboratory
-                at
-                %b EPFL, Lausanne, Switzerland
-                in the group of Giovanni De Micheli.
+                Mathias Soeken works as a research design engineer at
+                %b Microsoft
+                and as a researcher at the
+                %b
+                  %a(href="http://lsi.epfl.ch" target="_blank") EPFL
+                in Lausanne, Switzerland.
                 From 2009 to 2015 he worked at the
                 %b University of Bremen, Germany
-                in the group of Rolf Drechsler.
-                Since 2014, he is a regularly visiting post doc at
+                and has been a regularly visiting post doc at
                 %b UC Berkeley, CA, USA
                 in the group of Robert K. Brayton.
                 He holds a Ph.D. degree (Dr.-Ing.) in Computer Science from University of Bremen, Germany (2013).
-                His research interests are logic synthesis, quantum computing, reversible logic, reverse engineering, and formal verification.
+                His research interests are logic synthesis, quantum computing, reversible logic, and formal verification.
                 Mathias Soeken is member of the IEEE and of the ACM.
               #box
                 %a(href="https://github.com/msoeken/alice" target="_blank")
@@ -53,36 +53,21 @@
               %h3 News
               %ul.list-group
                 = Haml::Engine.new(File.read('_news.haml')).render(Object.new)
+              %p
+                %i Disclaimer: Any opinions expressed on this blog are mine, not those of my employer.
             .col-md-4
               %h4(style="margin-top: 0px") Contact
-              EPFL IC ISIM LSI1
-              %br
-              %a(href="http://plan.epfl.ch/?lang=en&room=INF339" target="_blank")> INF 339
-              , Station 14
-              %br
-              CH-1015 Lausanne
-              %br
-              Switzerland
-              %br
-              %i.fa.fa-phone(aria-hidden="true")
-              +41 21 693 09 16
+              %i.fa.fa-envelope(aria-hidden="true")
+              %a(href="mailto:mathias.soeken@outlook.com") mathias.soeken@outlook.com
               %br
               %i.fa.fa-envelope(aria-hidden="true")
               %a(href="mailto:mathias.soeken@epfl.ch") mathias.soeken@epfl.ch
-              %br
-              %i.fa.fa-globe(aria-hidden="true")
-              %a(href="http://lsi.epfl.ch" target="_blank") lsi.epfl.ch
               %br
               %i.fa.fa-linkedin(aria-hidden="true")
               %a(href="https://www.linkedin.com/in/mathias-soeken-90280a122/" target="_blank") LinkedIn
               %br
               %i.fa.fa-github(aria-hidden="true")
               %a(href="https://github.com/msoeken" target="_blank") GitHub
-              %br
-              %br
-              %h4 Latest commits
-              %ul.list-group#commits
-              %a#showcommits(href="https://github.com/msoeken/cirkit/commits/master" target="_blank") show all commits
     %script(src="js/jquery.min.js")
     %script(src="js/jquery.timeago.js")
     %script(src="js/github.js")
