@@ -1001,7 +1001,7 @@ article_data = [
     ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004', [] ),
     ( ['et', 'ms', 'la', 'gdm'],                  'procieee',    107,  "1",      2019, 'Logic synthesis for established and emerging computing',                                                                                 '1558--2256', 'https://doi.org/10.1109/JPROC.2018.2869760', [] ),
     ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           68,  "5",      2019, 'Mapping monotone Boolean functions into majority',                                                                                       '791--797',   'https://doi.org/10.1109/TC.2018.2881245', [] ),
-    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         -1,  "",          0, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '',           'https://doi.org/10.1109/TCAD.2018.2859251', ['caterpillar', 'revkit'] ),
+    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         38,  "9",      2019, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '1675--1688', 'https://doi.org/10.1109/TCAD.2018.2859251', ['caterpillar', 'revkit'] ),
     ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         -1,  "",          0, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '',           'https://doi.org/10.1109/TCAD.2019.2897703', ['percy'] ),
     ( ['zc', 'ms', 'yx', 'lw', 'gdm'],            'tcad',         -1,  "",          0, 'Advanced functional decomposition using majority and its applications',                                                                  '',           'https://doi.org/10.1109/TCAD.2019.2925392', [] )
 ]
@@ -1030,6 +1030,7 @@ news_data = [
     ( 'date', 2019 ),
     ( 'tc', 68 ),
     ( 'tcad', -1 ),
+    ( 'tcad', 38 ),
     ( 'iscas', 2019 ),
     ( 'ismvl', 2019 ),
     ( 'dac', 2019 ),
