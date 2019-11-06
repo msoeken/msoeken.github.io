@@ -498,11 +498,12 @@ conferences_data = [
         ( 2012, 'mar', 'Dresden', 'Germany' ),
         ( 2013, 'mar', 'Grenoble', 'France' ),
         ( 2014, 'mar', 'Dresden', 'Germany' ),
-        ( 2015, 'mar', 'Grenoble', 'Germany' ),
+        ( 2015, 'mar', 'Grenoble', 'France' ),
         ( 2016, 'mar', 'Dresden', 'Germany' ),
         ( 2017, 'mar', 'Lausanne', 'Switzerland' ),
         ( 2018, 'mar', 'Dresden', 'Germany' ),
-        ( 2019, 'mar', 'Florence', 'Italy' )
+        ( 2019, 'mar', 'Florence', 'Italy' ),
+        ( 2020, 'mar', 'Grenoble', 'France' )
     ] ),
     ( 'ddecs', 'DDECS', 'IEEE International Symposium on Design and Diagnostics of Electronic Circuits and Systems', 'IEEE', [
         ( 2010, 'apr', 'Vienna', 'Austria' ),
@@ -933,7 +934,8 @@ confpapers_data = [
     ( ['gm', 'ms', 'mr', 'gdm'],                                        'qpl',      2019, 'ROS: Resource-constrained oracle synthesis for quantum computers', 'XXXX', '', ['caterpillar'] ),
     ( ['ks', 'ms', 'bs3', 'gdm', 'mt'],                                 'qpl',      2019, 'Using ZDDs in the mapping of quantum circuits', 'XXXX', '', ['tweedledum'] ),
     ( ['gm', 'ms', 'ec2', 'mr', 'gdm'],                                 'iccad',    2019, 'The role of multiplicative complexity in compiling low T-count oracle circuits', 'XXXX', '', ['caterpillar'] ),
-    ( ['ms', 'et', 'dmm'],                                              'pacrim',   2019, 'A hybrid spectral method for checking Boolean function equivalence', 'XXXX', '', [] )
+    ( ['ms', 'et', 'dmm'],                                              'pacrim',   2019, 'A hybrid spectral method for checking Boolean function equivalence', 'XXXX', '', [] ),
+    ( ['et', 'ms', 'hr', 'la', 'gdm'],                                  'date',     2020, 'A logic synthesis toolbox for reducing the multiplicative complexity in logic networks', 'XXXX', '', [] )
 ]
 
 workpapers_data = [
@@ -1025,18 +1027,15 @@ preprint_data = [
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 
 news_data = [
-    ( 'aspdac', 2019 ),
     ( 'procieee', 107 ),
-    ( 'date', 2019 ),
     ( 'tc', 68 ),
     ( 'tcad', -1 ),
     ( 'tcad', 38 ),
-    ( 'iscas', 2019 ),
-    ( 'ismvl', 2019 ),
     ( 'dac', 2019 ),
     ( 'qpl', 2019 ),
     ( 'iccad', 2019 ),
-    ( 'pacrim', 2019 )
+    ( 'pacrim', 2019 ),
+    ( 'date', 2020 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
