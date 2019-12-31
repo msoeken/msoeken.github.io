@@ -694,6 +694,7 @@ journals_data = [
     ( 'mvl', 'Multiple-Valued Logic and Soft Computing', 'Old City Publishing', 'http://www.oldcitypublishing.com/journals/mvlsc-home/' ),
     ( 'pra', 'Physical Review A', 'American Physical Society', 'http://journals.aps.org/pra/' ),
     ( 'procieee', 'Proceedings of the IEEE', 'IEEE', 'http://proceedingsoftheieee.ieee.org' ),
+    ( 'rsta', 'Philosophical Transactions of the Royal Society A', 'The Royal Society Publishing', 'https://royalsocietypublishing.org/journal/rsta' ),
     ( 'sosym', 'Software and System Modeling', 'Springer', 'http://www.sosym.org/' ),
     ( 'sttt', 'Journal on Software Tools for Technology Transfer', 'Springer', 'http://www.springer.com/computer/swe/journal/10009' ),
     ( 'tcad', 'IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems', 'IEEE', 'http://ieee-ceda.org/publication/tcad-publication' ),
@@ -1004,29 +1005,32 @@ article_data = [
     ( ['et', 'ms', 'la', 'gdm'],                  'procieee',    107,  "1",      2019, 'Logic synthesis for established and emerging computing',                                                                                 '1558--2256', 'https://doi.org/10.1109/JPROC.2018.2869760', [] ),
     ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           68,  "5",      2019, 'Mapping monotone Boolean functions into majority',                                                                                       '791--797',   'https://doi.org/10.1109/TC.2018.2881245', [] ),
     ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         38,  "9",      2019, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '1675--1688', 'https://doi.org/10.1109/TCAD.2018.2859251', ['caterpillar', 'revkit'] ),
+    ( ['ms', 'gm', 'bs3', 'fm', 'hr', 'gdm'],     'rsta',        378,  "2164",   2020, 'Boolean satisfiability in quantum compilation',                                                                                          '',           'http://dx.doi.org/10.1098/rsta.2019.0161', ['tweedledum', 'caterpillar'] ),
     ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         -1,  "",          0, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '',           'https://doi.org/10.1109/TCAD.2019.2897703', ['percy'] ),
     ( ['zc', 'ms', 'yx', 'lw', 'gdm'],            'tcad',         -1,  "",          0, 'Advanced functional decomposition using majority and its applications',                                                                  '',           'https://doi.org/10.1109/TCAD.2019.2925392', [] )
 ]
 
 preprint_data = [
-    ( ['ms', 'dmm', 'rd'],              '1308.2493',  'On quantum circuits employing roots of the Pauli matrices',                           '7 pages, 1 figure',                                                                   'j3',   ['quant-ph', 'cs.ET'] ),
-    ( ['ms', 'na', 'rd'],               '1407.5878',  'A framework for reversible circuit complexity',                                       "6 pages, 4 figures, accepted for Int'l Workshop on Boolean Problems 2014",            '',     ['cs.ET', 'quant-ph'] ),
-    ( ['ms', 'rw', 'ok', 'dmm', 'rd'],  '1408.3586',  'Embedding of large Boolean functions for reversible logic',                           '13 pages, 10 figures',                                                                'j7',   ['cs.ET'] ),
-    ( ['ms', 'lt', 'gwd', 'rd'],        '1408.3955',  'Ancilla-free synthesis of large reversible functions using binary decision diagrams', '25 pages, 15 figures',                                                                'j8',   ['cs.ET', 'quant-ph'] ),
-    ( ['ms', 'mkt', 'gwd', 'dmm'],      '1502.05825', 'Self-inverse functions and palindromic circuits',                                     '6 pages, 3 figures',                                                                  '',     ['cs.ET', 'math.GR', 'quant-ph'] ),
-    ( ['wc', 'jd', 'adv', 'ok', 'ms'],  '1503.08579', 'Translating between the roots of identity in quantum circuits',                       '7 pages',                                                                             '',     ['quant-ph', 'math.GR'] ),
-    ( ['ms', 'mr', 'nw', 'gdm'],        '1612.00631', 'Design automation and design space exploration for quantum computers',                '6 pages, 1 figure',                                                                   'c81',  ['quant-ph', 'cs.ET'] ),
-    ( ['ms', 'mr', 'nw', 'gdm'],        '1706.02721', 'Logic synthesis for quantum computing',                                               '15 pages, 10 figures',                                                                '',     ['quant-ph', 'cs.ET'] ),
-    ( ['ms', 'th', 'mr'],               '1803.01022', 'Programming quantum computers using design automation',                               '10 pages, 10 figures',                                                                'c94',  ['quant-ph', 'cs.ET'] ),
-    ( ['ms', 'hr', 'wh', 'gdm'],        '1805.05121', 'The EPFL logic synthesis libraries',                                                  "8 pages, accepted at Int'l Workshop on Logic & Synthesis 2018",                       '',     ['cs.LO', 'cs.MS'] ),
-    ( ['th', 'ms', 'mr', 'kms'],        '1807.02023', 'Quantum circuits for floating-point arithmetic',                                      '13 pages, 2 tables, 6 figures. To appear in: Proc. Reversible Computation (RC 2018)', 'c101', ['quant-ph', 'cs.ET'] ),
-    ( ['ks', 'ms', 'bs3', 'gdm', 'mt'], '1901.02406', 'Using ZDDs in the mapping of quantum circuits',                                       '13 pages, accepted at QPL 2019',                                                      'c116', ['quant-ph', 'cs.ET'] ),
-    ( ['gm', 'ms', 'mr', 'nb', 'gdm'],  '1904.02121', 'Reversible pebbling game for quantum memory management',                              'In Proc. Design Automation and Test in Europe (DATE 2019)',                           'c111', ['quant-ph', 'cs.ET'] )
+    ( ['ms', 'dmm', 'rd'],              '1308.2493',  'On quantum circuits employing roots of the Pauli matrices',                           '7 pages, 1 figure',                                                                                    'j3',   ['quant-ph', 'cs.ET'] ),
+    ( ['ms', 'na', 'rd'],               '1407.5878',  'A framework for reversible circuit complexity',                                       "6 pages, 4 figures, accepted for Int'l Workshop on Boolean Problems 2014",                             '',     ['cs.ET', 'quant-ph'] ),
+    ( ['ms', 'rw', 'ok', 'dmm', 'rd'],  '1408.3586',  'Embedding of large Boolean functions for reversible logic',                           '13 pages, 10 figures',                                                                                 'j7',   ['cs.ET'] ),
+    ( ['ms', 'lt', 'gwd', 'rd'],        '1408.3955',  'Ancilla-free synthesis of large reversible functions using binary decision diagrams', '25 pages, 15 figures',                                                                                 'j8',   ['cs.ET', 'quant-ph'] ),
+    ( ['ms', 'mkt', 'gwd', 'dmm'],      '1502.05825', 'Self-inverse functions and palindromic circuits',                                     '6 pages, 3 figures',                                                                                   '',     ['cs.ET', 'math.GR', 'quant-ph'] ),
+    ( ['wc', 'jd', 'adv', 'ok', 'ms'],  '1503.08579', 'Translating between the roots of identity in quantum circuits',                       '7 pages',                                                                                              '',     ['quant-ph', 'math.GR'] ),
+    ( ['ms', 'mr', 'nw', 'gdm'],        '1612.00631', 'Design automation and design space exploration for quantum computers',                '6 pages, 1 figure',                                                                                    'c81',  ['quant-ph', 'cs.ET'] ),
+    ( ['ms', 'mr', 'nw', 'gdm'],        '1706.02721', 'Logic synthesis for quantum computing',                                               '15 pages, 10 figures',                                                                                 '',     ['quant-ph', 'cs.ET'] ),
+    ( ['ms', 'th', 'mr'],               '1803.01022', 'Programming quantum computers using design automation',                               '10 pages, 10 figures',                                                                                 'c94',  ['quant-ph', 'cs.ET'] ),
+    ( ['ms', 'hr', 'wh', 'gdm'],        '1805.05121', 'The EPFL logic synthesis libraries',                                                  "8 pages, accepted at Int'l Workshop on Logic & Synthesis 2018",                                        '',     ['cs.LO', 'cs.MS'] ),
+    ( ['th', 'ms', 'mr', 'kms'],        '1807.02023', 'Quantum circuits for floating-point arithmetic',                                      '13 pages, 2 tables, 6 figures. To appear in: Proc. Reversible Computation (RC 2018)',                  'c101', ['quant-ph', 'cs.ET'] ),
+    ( ['ks', 'ms', 'bs3', 'gdm', 'mt'], '1901.02406', 'Using ZDDs in the mapping of quantum circuits',                                       '13 pages, accepted at QPL 2019',                                                                       'c116', ['quant-ph', 'cs.ET'] ),
+    ( ['gm', 'ms', 'mr', 'nb', 'gdm'],  '1904.02121', 'Reversible pebbling game for quantum memory management',                              'In Proc. Design Automation and Test in Europe (DATE 2019)',                                            'c111', ['quant-ph', 'cs.ET'] ),
+    ( ['gm', 'ms', 'ec2', 'mr', 'gdm'], '1908.01609', 'The role of multiplicative complexity in compiling low T-count oracle circuits',      "13 pages, 2 tables, 6 figures, To appear in: Proc. Int'l Conf. on Computer-Aided Design (ICCAD 2019)", 'c117', ['quant-ph', 'cs.ET'] )
 ]
 
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 
 news_data = [
+    ( 'rsta', 378 ),
     ( 'procieee', 107 ),
     ( 'tc', 68 ),
     ( 'tcad', -1 ),
