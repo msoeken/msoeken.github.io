@@ -5,7 +5,7 @@ haml:
 	./publications.py haml_news > _news.haml
 
 %.html : %.haml
-	/usr/local/opt/ruby/bin/ruby /usr/local/lib/ruby/gems/2.6.0/gems/haml-5.1.2/bin/haml $< > $@
+	/usr/local/lib/ruby/gems/2.6.0/gems/haml-5.1.2/bin/haml $< > $@
 
 html_files := $(wildcard *.html)
 

@@ -585,7 +585,8 @@ conferences_data = [
         ( 2016, 'may', 'Sapporo', 'Japan' ),
         ( 2017, 'may', 'Novi Sad', 'Serbia' ),
         ( 2018, 'may', 'Linz', 'Austria' ),
-        ( 2019, 'may', 'Fredericton', 'Canada' )
+        ( 2019, 'may', 'Fredericton', 'Canada' ),
+        ( 2020, 'nov', 'Miyazaki', 'Japan' )
     ] ),
     ( 'isvlsi', 'ISVLSI', 'IEEE Computer Society Annual Symposium on VLSI', 'IEEE', [
         ( 2008, 'apr', 'Montpellier', 'France' ),
@@ -633,6 +634,9 @@ conferences_data = [
     ] ),
     ( 'pacrim', 'PACRIM', 'Pacific Rim Conference on Communications, Computers and Signal Processing', '', [
         ( 2019, 'aug', 'Victoria, BC', 'Canada' )
+    ] ),
+    ( 'pqcrypto', 'PQCrypto', 'International Conference on Post-Quantum Cryptography', 'Springer', [
+        ( 2020, 'apr', 'Paris', 'France' )
     ] ),
     ( 'qpl', 'QPL', 'Quantum Physics and Logic', 'ENTCS', [
         ( 2019, 'jun', 'Orange, CA', 'USA' )
@@ -775,6 +779,7 @@ authors_data = [
     ( 'mm2', 'Mauricio', 'Manfrini' ),
     ( 'mmr', 'Md. Mazder', 'Rahman' ),
     ( 'mn',  'Max', 'Nitze' ),
+    ( 'mn2', 'Michael', 'Naehrig' ),
     ( 'mr',  'Martin', 'Roetteler' ),
     ( 'ms',  'Mathias', 'Soeken' ),
     ( 'ms2', 'Matthias', 'Sauer' ),
@@ -802,6 +807,7 @@ authors_data = [
     ( 'sd',  'Srijit', 'Dutta' ),
     ( 'sf',  'Stefan', 'Frehse' ),
     ( 'sim', 'Shin-ichi', 'Minato' ),
+    ( 'sj',  'Samuel', 'Jaques' ),
     ( 'sr',  'Sandip', 'Ray' ),
     ( 'ss',  'Saeideh', 'Shirinzadeh' ),
     ( 'ss2', 'Sabine', 'Süsstrunk' ),
@@ -936,7 +942,10 @@ confpapers_data = [
     ( ['ks', 'ms', 'bs3', 'gdm', 'mt'],                                 'qpl',      2019, 'Using ZDDs in the mapping of quantum circuits', 'XXXX', '', ['tweedledum'] ),
     ( ['gm', 'ms', 'ec2', 'mr', 'gdm'],                                 'iccad',    2019, 'The role of multiplicative complexity in compiling low T-count oracle circuits', 'XXXX', '', ['caterpillar'] ),
     ( ['ms', 'et', 'dmm'],                                              'pacrim',   2019, 'A hybrid spectral method for checking Boolean function equivalence', 'XXXX', '', [] ),
-    ( ['et', 'ms', 'hr', 'la', 'gdm'],                                  'date',     2020, 'A logic synthesis toolbox for reducing the multiplicative complexity in logic networks', 'XXXX', '', [] )
+    ( ['et', 'ms', 'hr', 'la', 'gdm'],                                  'date',     2020, 'A logic synthesis toolbox for reducing the multiplicative complexity in logic networks', 'XXXX', '', [] ),
+    ( ['th', 'sj', 'mn2', 'mr', 'ms'],                                  'pqcrypto', 2020, 'Improved quantum circuits for elliptic curve discrete logarithms', 'XXXX', '', [] ),
+    ( ['fm', 'ms', 'hr', 'gdm'],                                        'ismvl',    2020, 'Automatic uniform quantum state preparation using decision diagrams', 'XXXX', '', ['angel'] ),
+    ( ['bs3', 'ms', 'gdm'],                                             'ismvl',    2020, 'Symbolic algorithms for token swapping', 'XXXX', '', ['tweedledum', 'easy'] )
 ]
 
 workpapers_data = [
@@ -1030,6 +1039,8 @@ preprint_data = [
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 
 news_data = [
+    ( 'pqcrypto', 2020 ),
+    ( 'ismvl', 2020 ),
     ( 'rsta', 378 ),
     ( 'procieee', 107 ),
     ( 'tc', 68 ),
@@ -1039,7 +1050,8 @@ news_data = [
     ( 'qpl', 2019 ),
     ( 'iccad', 2019 ),
     ( 'pacrim', 2019 ),
-    ( 'date', 2020 )
+    ( 'date', 2020 ),
+    ( 'pqcrypto', 2020 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
