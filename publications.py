@@ -1015,7 +1015,7 @@ article_data = [
     ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           68,  "5",      2019, 'Mapping monotone Boolean functions into majority',                                                                                       '791--797',   'https://doi.org/10.1109/TC.2018.2881245', [] ),
     ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         38,  "9",      2019, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '1675--1688', 'https://doi.org/10.1109/TCAD.2018.2859251', ['caterpillar', 'revkit'] ),
     ( ['ms', 'gm', 'bs3', 'fm', 'hr', 'gdm'],     'rsta',        378,  "2164",   2020, 'Boolean satisfiability in quantum compilation',                                                                                          '',           'http://dx.doi.org/10.1098/rsta.2019.0161', ['tweedledum', 'caterpillar'] ),
-    ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         -1,  "",          0, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '',           'https://doi.org/10.1109/TCAD.2019.2897703', ['percy'] ),
+    ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         39,  "4",      2020, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '871--884',   'https://doi.org/10.1109/TCAD.2019.2897703', ['percy'] ),
     ( ['zc', 'ms', 'yx', 'lw', 'gdm'],            'tcad',         -1,  "",          0, 'Advanced functional decomposition using majority and its applications',                                                                  '',           'https://doi.org/10.1109/TCAD.2019.2925392', [] )
 ]
 
@@ -1044,6 +1044,7 @@ news_data = [
     ( 'rsta', 378 ),
     ( 'procieee', 107 ),
     ( 'tc', 68 ),
+    ( 'tcad', 39 ),
     ( 'tcad', -1 ),
     ( 'tcad', 38 ),
     ( 'dac', 2019 ),
