@@ -11,16 +11,15 @@
           .starter-template
             %img#nav-picture(src="images/nav-picture2.jpg" align="right")
             %h1 Dr. Mathias Soeken
-            %p.lead Researcher, Lausanne, Switzerland
+            %p.lead Researcher, Switzerland
           .row
             .col-md-8
               %p(style="text-align: justify")
-                Mathias Soeken works as a research design engineer at
-                %b Microsoft
-                and as a researcher at the
-                %b
-                  %a(href="http://lsi.epfl.ch" target="_blank") EPFL
-                in Lausanne, Switzerland.
+                Mathias Soeken works at the Quantum team at
+                %b Microsoft.
+                From 2015 to 2020, he has been with
+                &Eacute;cole Polytechnique F&eacute;d&ecaute;rale Lausanne (EPFL), Switzerland
+                as postdoctoral scientist.
                 From 2009 to 2015 he worked at the
                 %b University of Bremen, Germany
                 and has been a regularly visiting post doc at
@@ -29,39 +28,15 @@
                 He holds a Ph.D. degree (Dr.-Ing.) in Computer Science from University of Bremen, Germany (2013).
                 His research interests are logic synthesis, quantum computing, reversible logic, and formal verification.
                 Mathias Soeken is member of the IEEE and of the ACM.
-              #box
-                %a(href="https://github.com/msoeken/alice" target="_blank")
-                  %img#alice(src="https://cdn.rawgit.com/msoeken/alice/master/alice.svg")
-                %a(href="https://github.com/hriener/easy" target="_blank")
-                  %img#easy(src="https://cdn.rawgit.com/hriener/easy/master/easy.svg")
-                %a(href="https://github.com/msoeken/kitty" target="_blank")
-                  %img#kitty(src="https://cdn.rawgit.com/msoeken/kitty/master/kitty.svg")
-                %a(href="https://github.com/hriener/lorina" target="_blank")
-                  %img#lorina(src="https://cdn.rawgit.com/hriener/lorina/master/lorina.svg")
-                %a(href="https://github.com/lsils/mockturtle" target="_blank")
-                  %img#mockturtle(src="https://cdn.rawgit.com/lsils/mockturtle/master/mockturtle.svg")
-                %a(href="https://github.com/whaaswijk/percy" target="_blank")
-                  %img#percy(src="https://cdn.rawgit.com/whaaswijk/percy/master/percy.svg")
-                %a(href="https://github.com/boschmitt/tweedledum" target="_blank")
-                  %img#tweedledum(src="https://cdn.rawgit.com/boschmitt/tweedledum/master/tweedledum.svg")
-                %img#epfl(src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Logo_EPFL.svg")
-                #header
-                  %a(href="https://github.com/lsils/lstools-showcase" target="_blank")
-                    The EPFL
-                    %br
-                    Logic Synthesis Libraries
               %h3 News
               %ul.list-group
                 = Haml::Engine.new(File.read('_news.haml')).render(Object.new)
               %p
-                %i Disclaimer: Any opinions expressed on this blog are mine, not those of my employer.
+                %i Disclaimer: Any opinions expressed on this page and blog are mine, not those of my employer.
             .col-md-4
               %h4(style="margin-top: 0px") Contact
               %i.fa.fa-envelope(aria-hidden="true")
               %a(href="mailto:mathias.soeken@outlook.com") mathias.soeken@outlook.com
-              %br
-              %i.fa.fa-envelope(aria-hidden="true")
-              %a(href="mailto:mathias.soeken@epfl.ch") mathias.soeken@epfl.ch
               %br
               %i.fa.fa-linkedin(aria-hidden="true")
               %a(href="https://www.linkedin.com/in/mathias-soeken-90280a122/" target="_blank") LinkedIn

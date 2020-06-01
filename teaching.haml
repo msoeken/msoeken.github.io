@@ -8,14 +8,16 @@
         = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "teaching")
         .col-md-9
           %h1 Teaching
-          %h3 Current Courses
+          %h3 Past Courses
           %ul.list-group
+            %li.list-group-item
+              %b Spring 2020
+              Advanced Logic Synthesis and Quantum Computing (EPFL, Switzerland)
+              %span.badge lecture
             %li.list-group-item
               %b Spring 2019
               Advanced Logic Synthesis and Quantum Computing (EPFL, Switzerland)
               %span.badge lecture
-          %h3 Past Courses
-          %ul.list-group
             %li.list-group-item
               %b Summer 2015
               Computer Architecture (University of Freiburg, Germany)
