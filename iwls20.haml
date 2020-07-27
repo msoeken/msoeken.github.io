@@ -8,3 +8,12 @@
         = Haml::Engine.new(File.read('_nav.haml')).render(Object.new, :page => "research")
         .col-md-9.block
           %h1 Determining the multiplicative complexity of Boolean functions using SAT
+          %ul
+            %li
+              %a(href="http://arxiv.org/pdf/2005.01778" target="_blank") Link to paper on arXiv
+            %li
+              %a(href="https://github.com/lsils/mockturtle/blob/master/include/mockturtle/algorithms/exact_mc_synthesis.hpp" target="_blank") Link to SAT-based MC algorithm in mockturtle on Github
+            %li
+              %a(href="https://github.com/lsils/mockturtle/blob/master/include/mockturtle/networks/abstract_xag.hpp" target="_blank") Link to abstract XAG data structure in mockturtle on Github
+            %li
+              %a(href="https://github.com/lsils/mockturtle/blob/master/experiments/exact_mc_synthesis.cpp" target="_blank") Link to experimental evaluation script in mockturtle on Github
