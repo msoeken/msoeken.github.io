@@ -1,8 +1,8 @@
 haml:
-	./publications.py haml > _conferences.haml
-	./publications.py haml_article > _journals.haml
-	./publications.py haml_preprint > _preprints.haml
-	./publications.py haml_news > _news.haml
+	/usr/local/opt/python@3.8/bin/python3 ./publications.py haml > _conferences.haml
+	/usr/local/opt/python@3.8/bin/python3 ./publications.py haml_article > _journals.haml
+	/usr/local/opt/python@3.8/bin/python3 ./publications.py haml_preprint > _preprints.haml
+	/usr/local/opt/python@3.8/bin/python3 ./publications.py haml_news > _news.haml
 
 %.html : %.haml
 	/usr/local/lib/ruby/gems/2.7.0/bin/haml $< > $@
