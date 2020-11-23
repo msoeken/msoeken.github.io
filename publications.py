@@ -598,7 +598,8 @@ conferences_data = [
         ( 2016, 'jun', 'Austin, TX', 'USA' ),
         ( 2017, 'jun', 'Austin, TX', 'USA' ),
         ( 2018, 'jun', 'San Francisco, CA', 'USA' ),
-        ( 2019, 'jun', 'Lausanne', 'Switzerland' )
+        ( 2019, 'jun', 'Lausanne', 'Switzerland' ),
+        ( 2020, 'jun', 'Salt Lake City, UT', 'USA' )
     ] ),
     ( 'iwsbp', 'IWSBP', 'International Workshop on Boolean Problems', '', [
         ( 2012, 'sep', 'Freiberg', 'Germany' ),
@@ -632,12 +633,18 @@ conferences_data = [
     ( 'newcas', 'NEWCAS', 'International NEWCAS Conference', 'IEEE', [
         ( 2017, 'jun', 'Strasbourg', 'France' )
     ] ),
+    ( 'oopsla', 'OOPSLA', 'ACM SIGPLAN International Conference on Object-Oriented Programming, Systems, Languages, and Applications', 'ACM', [
+        ( 2020, 'nov', 'Chicao, IL', 'USA' )
+    ] ),
     ( 'pacrim', 'PACRIM', 'Pacific Rim Conference on Communications, Computers and Signal Processing', '', [
         ( 2019, 'aug', 'Victoria, BC', 'Canada' )
     ] ),
     ( 'pqcrypto', 'PQCrypto', 'International Conference on Post-Quantum Cryptography', 'Springer', [
         ( 2020, 'apr', 'Paris', 'France' )
     ] ),
+    ( 'qce', 'QCE', 'IEEE Quantum Week', 'IEEE', [
+        ( 2020, 'oct', 'Boulder, CO', 'USA' )
+    ]),
     ( 'qpl', 'QPL', 'Quantum Physics and Logic', 'ENTCS', [
         ( 2019, 'jun', 'Orange, CA', 'USA' )
     ] ),
@@ -696,6 +703,7 @@ journals_data = [
     ( 'jetc', 'Journal on Emerging Technologies in Computing Systems', 'ACM', 'http://jetc.acm.org/' ),
     ( 'jsc', 'Journal of Symbolic Computation', 'Elsevier', 'http://www.journals.elsevier.com/journal-of-symbolic-computation/' ),
     ( 'mvl', 'Multiple-Valued Logic and Soft Computing', 'Old City Publishing', 'http://www.oldcitypublishing.com/journals/mvlsc-home/' ),
+    ( 'nrp', 'Nature Reviews Physics', 'Springer Nature', 'https://www.nature.com/natrevphys/' ),
     ( 'pra', 'Physical Review A', 'American Physical Society', 'http://journals.aps.org/pra/' ),
     ( 'procieee', 'Proceedings of the IEEE', 'IEEE', 'http://proceedingsoftheieee.ieee.org' ),
     ( 'rsta', 'Philosophical Transactions of the Royal Society A', 'The Royal Society Publishing', 'https://royalsocietypublishing.org/journal/rsta' ),
@@ -714,17 +722,21 @@ authors_data = [
     ( 'ad',  'Antun', 'Domic' ),
     ( 'adm', 'Anton', 'De Meester' ),
     ( 'adv', 'Alexis', 'De Vos' ),
+    ( 'ag',  'Alan', 'Geller' ),
     ( 'am',  'Alan', 'Mishchenko' ),
+    ( 'an', 'Azad', 'Naeemi' ),
     ( 'ap',  'Ana', 'Petkovska' ),
     ( 'asa', 'Amr', 'Sayed Ahmed' ),
     ( 'av',  'Adrien', 'Vaysset' ),
     ( 'bb',  'Bernd', 'Becker' ),
+    ( 'bh',  'Bettina', 'Heim' ),
     ( 'bs',  'Baruch', 'Sterin' ),
     ( 'bs2', 'Benoit', 'Seguin' ),
     ( 'bs3', 'Bruno', 'Schmitt' ),
     ( 'cbh', 'Christopher B.', 'Harris' ),
     ( 'cc',  'Christopher', 'Casares' ),
     ( 'cg',  'Christian', 'Gorldt' ),
+    ( 'cg2', 'Christopher', 'Granade' ),
     ( 'ch',  'Christoph', 'Hilken' ),
     ( 'co',  'Christian', 'Otterstedt' ),
     ( 'cr',  'Christopher D.', 'Rosebrock' ),
@@ -732,6 +744,7 @@ authors_data = [
     ( 'db',  'Debjyoti', 'Bhattacharjee' ),
     ( 'df',  'Daniel', 'Florez' ),
     ( 'dg',  'Daniel', 'Große' ),
+    ( 'dm',  'Dewmini Sudara', 'Marakkalage' ),
     ( 'dmm', 'D. Michael', 'Miller' ),
     ( 'ec',  'Edo', 'Collins' ),
     ( 'ec2', 'Earl', 'Campbell' ),
@@ -784,6 +797,7 @@ authors_data = [
     ( 'ms',  'Mathias', 'Soeken' ),
     ( 'ms2', 'Matthias', 'Sauer' ),
     ( 'mt',  'Mitchell A.', 'Thornton' ),
+    ( 'mt2', 'Matthias', 'Troyer' ),
     ( 'na',  'Nabila', 'Abdessaied' ),
     ( 'nb',  'Nikolaj', 'Bjorner' ),
     ( 'np',  'Nils', 'Przigoda' ),
@@ -808,6 +822,8 @@ authors_data = [
     ( 'sf',  'Stefan', 'Frehse' ),
     ( 'sim', 'Shin-ichi', 'Minato' ),
     ( 'sj',  'Samuel', 'Jaques' ),
+    ( 'sln', 'Samantha Lubaba', 'Noor' ),
+    ( 'sm',  'Sarah', 'Marshall' ),
     ( 'sr',  'Sandip', 'Ray' ),
     ( 'ss',  'Saeideh', 'Shirinzadeh' ),
     ( 'ss2', 'Sabine', 'Süsstrunk' ),
@@ -942,10 +958,14 @@ confpapers_data = [
     ( ['ks', 'ms', 'bs3', 'gdm', 'mt'],                                 'qpl',      2019, 'Using ZDDs in the mapping of quantum circuits', 'XXXX', '', ['tweedledum'] ),
     ( ['gm', 'ms', 'ec2', 'mr', 'gdm'],                                 'iccad',    2019, 'The role of multiplicative complexity in compiling low T-count oracle circuits', '1--8', 'https://doi.org/10.1109/ICCAD45719.2019.8942093', ['caterpillar'] ),
     ( ['ms', 'et', 'dmm'],                                              'pacrim',   2019, 'A hybrid spectral method for checking Boolean function equivalence', '1--6', 'https://doi.org/10.1109/PACRIM47961.2019.8985048', [] ),
-    ( ['et', 'ms', 'hr', 'la', 'gdm'],                                  'date',     2020, 'A logic synthesis toolbox for reducing the multiplicative complexity in logic networks', 'XXXX', '', [] ),
+    ( ['et', 'ms', 'hr', 'la', 'gdm'],                                  'date',     2020, 'A logic synthesis toolbox for reducing the multiplicative complexity in logic networks', '568-573', 'https://doi.org/10.23919/DATE48585.2020.9116467', ['mockturtle'] ),
+    ( ['hr', 'ms', 'am'],                                               'date',     2020, 'Exact DAG-aware rewriting', '732-737', 'https://doi.org/10.23919/DATE48585.2020.9116379', ['mockturtle'] ),
+    ( ['et', 'sln', 'oz', 'ms', 'fc', 'an', 'gdm'],                     'date',     2020, 'Multiplier architectures: challenges and opportunities with plasmonic-based logic (special session)', '133-138', 'https://doi.org/10.23919/DATE48585.2020.9116490', [] ),
     ( ['th', 'sj', 'mn2', 'mr', 'ms'],                                  'pqcrypto', 2020, 'Improved quantum circuits for elliptic curve discrete logarithms', '425--444', 'https://doi.org/10.1007/978-3-030-44223-1_23', [] ),
     ( ['fm', 'ms', 'hr', 'gdm'],                                        'ismvl',    2020, 'Automatic uniform quantum state preparation using decision diagrams', 'XXXX', '', ['angel'] ),
-    ( ['bs3', 'ms', 'gdm'],                                             'ismvl',    2020, 'Symbolic algorithms for token swapping', 'XXXX', '', ['tweedledum', 'easy'] )
+    ( ['bs3', 'ms', 'gdm'],                                             'ismvl',    2020, 'Symbolic algorithms for token swapping', 'XXXX', '', ['tweedledum', 'easy'] ),
+    ( ['ms', 'mr'],                                                     'qce',      2020, 'Quantum circuits for functionally controlled NOT gates', 'XXXX', '', []),
+    ( ['gm', 'ms', 'mr', 'th'],                                         'oopsla',   2020, 'Enabling Accuracy-Aware Quantum Compilers using Symbolic Resource Estimation', 'XXXX', '', [] )
 ]
 
 workpapers_data = [
@@ -988,35 +1008,39 @@ workpapers_data = [
     ( ['ms', 'et', 'dmm'],                           'rm',         2019, 'A hybrid spectral method for checking Boolean function equivalence', 'XXXX', '', [] ),
     ( ['et', 'wh', 'ms', 'gdm'],                     'iwls',       2019, 'The complexity of self-dual monotone 7-input functions', 'XXXX', '', ['kitty', 'percy'] ),
     ( ['gm', 'ms', 'mr', 'gdm'],                     'iwls',       2019, 'ROS: Resource constrained oracle synthesis for quantum computers', 'XXXX', '', ['caterpillar'] ),
-    ( ['fm', 'ms', 'gdm'],                           'iwls',       2019, 'Automatic Preparation of Uniform Quantum States Utilizing Boolean Functions', 'XXXX', '', ['tweedledum'] )
+    ( ['fm', 'ms', 'gdm'],                           'iwls',       2019, 'Automatic rreparation of uniform quantum states utilizing Boolean functions', 'XXXX', '', ['tweedledum'] ),
+    ( ['ms'],                                        'iwls',       2020, 'Determining the multiplicative complexity of Boolean functions using SAT', 'XXXX', '', ['mockturtle'] )
 ]
 
 article_data = [
-    ( ['ms', 'sf', 'rw', 'rd'],                   'mvl',          18,  "1",      2012, 'RevKit: A toolkit for reversible circuit design',                                                                                        '55--65',     'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC18.1abstracts/MVLSCv18n1p55-65Soeken.html', ['revkit'] ),
-    ( ['rw', 'ms', 'np', 'rd'],                   'mvl',          21,  "5--6",   2013, 'Effect of negative control lines on the exact synthesis of reversible circuits',                                                         '627--640',   'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC21.5-6abstracts/MVLSCv21n5-6p627-640Wille.html', ['revkit'] ),
-    ( ['ms', 'dmm', 'rd'],                        'pra',          88,  "042322", 2013, 'Quantum circuits employing roots of the Pauli matrices',                                                                                 '042322',     'http://dx.doi.org/10.1103/PhysRevA.88.042322', [] ),
-    ( ['rw', 'ms', 'dmm', 'rd'],                  'integration',  47,  "2",      2014, 'Trading off circuit lines and gate costs in the synthesis of reversible logic',                                                          '284--294',   'http://dx.doi.org/10.1016/j.vlsi.2013.08.002', ['revkit'] ),
-    ( ['na', 'ms', 'mkt', 'rd'],                  'ipl',         114,  "6",      2014, 'Upper bounds for reversible circuits based on Young subgroups',                                                                          '282--286',   'http://dx.doi.org/10.1016/j.ipl.2014.01.003', [] ),
-    ( ['eg', 'ms'],                               'sosym',        14,  "2",      2015, 'Specification-driven model transformation testing',                                                                                      '623--644',   'http://dx.doi.org/10.1007/s10270-013-0369-x', [] ),
-    ( ['ms', 'rw', 'ok', 'dmm', 'rd'],            'jetc',         12,  "4",      2015, 'Embedding of large Boolean functions for reversible logic',                                                                              '41',         'http://dx.doi.org/10.1145/2786982', ['revkit'] ),
-    ( ['ms', 'lt', 'gwd', 'rd'],                  'jsc',          73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',                                                    '1--26',      'http://dx.doi.org/10.1016/j.jsc.2015.03.002', ['revkit'] ),
-    ( ['rw', 'es', 'ms', 'rd'],                   'integration',  53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits',                                      '39--53',     'http://dx.doi.org/10.1016/j.vlsi.2015.10.001', [] ),
-    ( ['ms', 'rd', 'rxf'],                        'zk',          231,  "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',                                                 '107--111',   'http://dx.doi.org/10.1515/zkri-2015-1887', [] ),
-    ( ['na', 'ma', 'rd', 'ms'],                   'tcs',         618,  "",       2016, 'Complexity of reversible circuits and their quantum implementations',                                                                    '85--106',    'http://dx.doi.org/10.1016/j.tcs.2016.01.011', [] ),
-    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'], 'cnf',         168,  "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',    'http://dx.doi.org/10.1016/j.combustflame.2016.03.007', [] ),
-    ( ['np', 'ms', 'rw', 'rd'],                   'cps',           1,  "1",      2016, 'Verifying the structure and behavior in UML/OCL models using satisfiability solvers',                                                    '49--59',     'http://digital-library.theiet.org/content/journals/10.1049/iet-cps.2016.0022', [] ),
-    ( ['ms', 'peg', 'ss', 'rd', 'gdm'],           'computer',     50,  "6",      2017, 'A PLiM computer for the Internet of Things',                                                                                             '35--40',     'https://doi.org/10.1109/MC.2017.173', ['cirkit'] ),
-    ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'], 'sttt',         19,  "5",      2017, 'metaSMT: Focus on your application and not on solver integration',                                                                       '605--621',   'http://link.springer.com/article/10.1007/s10009-016-0426-1', [] ),
-    ( ['ms', 'la', 'peg', 'gdm'],                 'tcad',         36,  "11",     2017, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '1842--1855', 'https://doi.org/10.1109/TCAD.2017.2664059', ['cirkit'] ),
-    ( ['ss', 'ms', 'peg', 'rd'],                  'tcad',         37,  "7",      2018, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '1937-4151',  'https://doi.org/10.1109/TCAD.2017.2750064', ['cirkit'] ),
-    ( ['ok', 'ms', 'rd'],                         'ipl',         139,  "",       2018, 'The complexity of error metric',                                                                                                         '1--7',       'https://doi.org/10.1016/j.ipl.2018.06.010', [] ),
-    ( ['ms', 'et', 'am', 'gdm'],                  'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004', [] ),
-    ( ['et', 'ms', 'la', 'gdm'],                  'procieee',    107,  "1",      2019, 'Logic synthesis for established and emerging computing',                                                                                 '1558--2256', 'https://doi.org/10.1109/JPROC.2018.2869760', [] ),
-    ( ['et', 'ms', 'la', 'wh', 'gdm'],            'tc',           68,  "5",      2019, 'Mapping monotone Boolean functions into majority',                                                                                       '791--797',   'https://doi.org/10.1109/TC.2018.2881245', [] ),
-    ( ['ms', 'mr', 'nw', 'gdm'],                  'tcad',         38,  "9",      2019, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '1675--1688', 'https://doi.org/10.1109/TCAD.2018.2859251', ['caterpillar', 'revkit'] ),
-    ( ['ms', 'gm', 'bs3', 'fm', 'hr', 'gdm'],     'rsta',        378,  "2164",   2020, 'Boolean satisfiability in quantum compilation',                                                                                          '',           'http://dx.doi.org/10.1098/rsta.2019.0161', ['tweedledum', 'caterpillar'] ),
-    ( ['wh', 'ms', 'am', 'gdm'],                  'tcad',         39,  "4",      2020, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '871--884',   'https://doi.org/10.1109/TCAD.2019.2897703', ['percy'] ),
-    ( ['zc', 'ms', 'yx', 'lw', 'gdm'],            'tcad',         -1,  "",          0, 'Advanced functional decomposition using majority and its applications',                                                                  '',           'https://doi.org/10.1109/TCAD.2019.2925392', [] )
+    ( ['ms', 'sf', 'rw', 'rd'],                            'mvl',          18,  "1",      2012, 'RevKit: A toolkit for reversible circuit design',                                                                                        '55--65',     'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC18.1abstracts/MVLSCv18n1p55-65Soeken.html', ['revkit'] ),
+    ( ['rw', 'ms', 'np', 'rd'],                            'mvl',          21,  "5--6",   2013, 'Effect of negative control lines on the exact synthesis of reversible circuits',                                                         '627--640',   'http://www.oldcitypublishing.com/MVLSC/MVLSCabstracts/MVLSC21.5-6abstracts/MVLSCv21n5-6p627-640Wille.html', ['revkit'] ),
+    ( ['ms', 'dmm', 'rd'],                                 'pra',          88,  "042322", 2013, 'Quantum circuits employing roots of the Pauli matrices',                                                                                 '042322',     'http://dx.doi.org/10.1103/PhysRevA.88.042322', [] ),
+    ( ['rw', 'ms', 'dmm', 'rd'],                           'integration',  47,  "2",      2014, 'Trading off circuit lines and gate costs in the synthesis of reversible logic',                                                          '284--294',   'http://dx.doi.org/10.1016/j.vlsi.2013.08.002', ['revkit'] ),
+    ( ['na', 'ms', 'mkt', 'rd'],                           'ipl',         114,  "6",      2014, 'Upper bounds for reversible circuits based on Young subgroups',                                                                          '282--286',   'http://dx.doi.org/10.1016/j.ipl.2014.01.003', [] ),
+    ( ['eg', 'ms'],                                        'sosym',        14,  "2",      2015, 'Specification-driven model transformation testing',                                                                                      '623--644',   'http://dx.doi.org/10.1007/s10270-013-0369-x', [] ),
+    ( ['ms', 'rw', 'ok', 'dmm', 'rd'],                     'jetc',         12,  "4",      2015, 'Embedding of large Boolean functions for reversible logic',                                                                              '41',         'http://dx.doi.org/10.1145/2786982', ['revkit'] ),
+    ( ['ms', 'lt', 'gwd', 'rd'],                           'jsc',          73,  "",       2016, 'Ancilla-free synthesis of large reversible functions using binary decision diagrams',                                                    '1--26',      'http://dx.doi.org/10.1016/j.jsc.2015.03.002', ['revkit'] ),
+    ( ['rw', 'es', 'ms', 'rd'],                            'integration',  53,  "",       2016, 'SyReC: A hardware description language for the specification and synthesis of reversible circuits',                                      '39--53',     'http://dx.doi.org/10.1016/j.vlsi.2015.10.001', [] ),
+    ( ['ms', 'rd', 'rxf'],                                 'zk',          231,  "2",      2016, 'Atomic distributions in crystal structures solved by Boolean satisfiability techniques',                                                 '107--111',   'http://dx.doi.org/10.1515/zkri-2015-1887', [] ),
+    ( ['na', 'ma', 'rd', 'ms'],                            'tcs',         618,  "",       2016, 'Complexity of reversible circuits and their quantum implementations',                                                                    '85--106',    'http://dx.doi.org/10.1016/j.tcs.2016.01.011', [] ),
+    ( ['cr', 'ss', 'ms', 'nr', 'tw', 'rd', 'lm'],          'cnf',         168,  "",       2016, 'Time-resolved detection of diffusion limited temperature gradients inside single isolated burning droplets using rainbow refractometry', '255-269',    'http://dx.doi.org/10.1016/j.combustflame.2016.03.007', [] ),
+    ( ['np', 'ms', 'rw', 'rd'],                            'cps',           1,  "1",      2016, 'Verifying the structure and behavior in UML/OCL models using satisfiability solvers',                                                    '49--59',     'http://digital-library.theiet.org/content/journals/10.1049/iet-cps.2016.0022', [] ),
+    ( ['ms', 'peg', 'ss', 'rd', 'gdm'],                    'computer',     50,  "6",      2017, 'A PLiM computer for the Internet of Things',                                                                                             '35--40',     'https://doi.org/10.1109/MC.2017.173', ['cirkit'] ),
+    ( ['hr', 'fh', 'sf', 'ms', 'dg', 'rd', 'gf'],          'sttt',         19,  "5",      2017, 'metaSMT: Focus on your application and not on solver integration',                                                                       '605--621',   'http://link.springer.com/article/10.1007/s10009-016-0426-1', [] ),
+    ( ['ms', 'la', 'peg', 'gdm'],                          'tcad',         36,  "11",     2017, 'Exact synthesis of majority-inverter graphs and its applications',                                                                       '1842--1855', 'https://doi.org/10.1109/TCAD.2017.2664059', ['cirkit'] ),
+    ( ['ss', 'ms', 'peg', 'rd'],                           'tcad',         37,  "7",      2018, 'Logic synthesis for RRAM-based in-memory computing',                                                                                     '1937-4151',  'https://doi.org/10.1109/TCAD.2017.2750064', ['cirkit'] ),
+    ( ['ok', 'ms', 'rd'],                                  'ipl',         139,  "",       2018, 'The complexity of error metric',                                                                                                         '1--7',       'https://doi.org/10.1016/j.ipl.2018.06.010', [] ),
+    ( ['ms', 'et', 'am', 'gdm'],                           'ipl',         139,  "",       2018, 'Pairs of majority-decomposing functions',                                                                                                '35-38',      'https://doi.org/10.1016/j.ipl.2018.07.004', [] ),
+    ( ['et', 'ms', 'la', 'gdm'],                           'procieee',    107,  "1",      2019, 'Logic synthesis for established and emerging computing',                                                                                 '1558--2256', 'https://doi.org/10.1109/JPROC.2018.2869760', [] ),
+    ( ['et', 'ms', 'la', 'wh', 'gdm'],                     'tc',           68,  "5",      2019, 'Mapping monotone Boolean functions into majority',                                                                                       '791--797',   'https://doi.org/10.1109/TC.2018.2881245', [] ),
+    ( ['ms', 'mr', 'nw', 'gdm'],                           'tcad',         38,  "9",      2019, 'LUT-based hierarchical reversible logic synthesis',                                                                                      '1675--1688', 'https://doi.org/10.1109/TCAD.2018.2859251', ['caterpillar', 'revkit'] ),
+    ( ['ms', 'gm', 'bs3', 'fm', 'hr', 'gdm'],              'rsta',        378,  "2164",   2020, 'Boolean satisfiability in quantum compilation',                                                                                          '',           'http://dx.doi.org/10.1098/rsta.2019.0161', ['tweedledum', 'caterpillar'] ),
+    ( ['wh', 'ms', 'am', 'gdm'],                           'tcad',         39,  "4",      2020, 'SAT-based exact synthesis: encodings, topology families, and parallelism',                                                               '871--884',   'https://doi.org/10.1109/TCAD.2019.2897703', ['percy'] ),
+    ( ['zc', 'ms', 'yx', 'lw', 'gdm'],                     'tcad',         39,  "8",      2020, 'Advanced functional decomposition using majority and its applications',                                                                  '1621-1634',  'https://doi.org/10.1109/TCAD.2019.2925392', [] ),
+    ( ['dmm', 'ms'],                                       'mvl',          34,  "3-4",    2020, 'A spectral algorithm for 3-valued function equivalence classification',                                                                  '203-221',    'https://www.oldcitypublishing.com/journals/mvlsc-home/mvlsc-issue-contents/mvlsc-volume-34-number-3-4-2020/mvlsc-34-3-4-p-203-221/', [] ),
+    ( ['dm', 'et', 'hr', 'am', 'ms', 'gdm'],               'tcad',         -1,  "",          0, 'Three-input gates for logic synthesis',                                                                                                  'XXXX',       'https://doi.org/10.1109/TCAD.2020.3032625', ['mockturtle'] ),
+    ( ['bh', 'ms', 'sm', 'cg2', 'mr', 'ag', 'mt2', 'kms'], 'nrp',          -1,  "",          0, 'Quantum programming languages',                                                                                                          'XXXX',       'https://doi.org/10.1038/s42254-020-00245-7', [] )
 ]
 
 preprint_data = [
@@ -1044,11 +1068,13 @@ preprint_data = [
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
 
 news_data = [
-    ( 'rsta', 378 ),
     ( 'procieee', 107 ),
     ( 'ismvl', 2020 ),
     ( 'tcad', 39 ),
     ( 'pqcrypto', 2020 ),
+    ( 'date', 2020 ),
+    ( 'tcad', -1 ),
+    ( 'nrp', -1 )
 ]
 
 authors = make_dict( 'key', authors_data, make_author )
