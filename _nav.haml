@@ -5,6 +5,11 @@
         %i.fa.fa-user(aria-hidden="true")
         .text
           About me
+    %li(role="presentation"){:class => ("active" if page == "publications" )}
+      %a(href="publications.html")
+        %i.fa.fa-users(aria-hidden="true")
+        .text
+          Publications
     %li(role="presentation"){:class => ("active" if page == "research" )}
       %a(href="research.html")
         %i.fa.fa-graduation-cap(aria-hidden="true")
@@ -15,11 +20,6 @@
         %i.fa.fa-users(aria-hidden="true")
         .text
           Teaching
-    %li(role="presentation"){:class => ("active" if page == "publications" )}
-      %a(href="publications.html")
-        %i.fa.fa-users(aria-hidden="true")
-        .text
-          Publications
     %li(role="presentation"){:class => ("active" if page == "blog" )}
       %a(href="blog.html")
         %i.fa.fa-rss(aria-hidden="true")

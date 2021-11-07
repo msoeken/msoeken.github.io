@@ -6,7 +6,7 @@ haml:
 	/usr/local/opt/python@3.8/bin/python3 ./publications.py haml_news > _news.haml
 
 %.html : %.haml
-	/usr/local/lib/ruby/gems/2.7.0/bin/haml $< > $@
+	/usr/local/lib/ruby/gems/3.0.0/bin/haml $< > $@
 
 html_files := $(wildcard *.html)
 
