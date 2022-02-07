@@ -705,6 +705,7 @@ journals_data = [
     ( 'jetc', 'Journal on Emerging Technologies in Computing Systems', 'ACM', 'http://jetc.acm.org/' ),
     ( 'jsc', 'Journal of Symbolic Computation', 'Elsevier', 'http://www.journals.elsevier.com/journal-of-symbolic-computation/' ),
     ( 'mvl', 'Multiple-Valued Logic and Soft Computing', 'Old City Publishing', 'http://www.oldcitypublishing.com/journals/mvlsc-home/' ),
+    ( 'npjqi', 'npj Quantum Information', 'Springer Nature', 'https://www.nature.com/npjqi/' ),
     ( 'nrp', 'Nature Reviews Physics', 'Springer Nature', 'https://www.nature.com/natrevphys/' ),
     ( 'pra', 'Physical Review A', 'American Physical Society', 'http://journals.aps.org/pra/' ),
     ( 'procieee', 'Proceedings of the IEEE', 'IEEE', 'http://proceedingsoftheieee.ieee.org' ),
@@ -1046,7 +1047,8 @@ article_data = [
     ( ['bh', 'ms', 'sm', 'cg2', 'mr', 'ag', 'mt2', 'kms'], 'nrp',           2,  "",       2020, 'Quantum programming languages',                                                                                                          '709-722',       'https://doi.org/10.1038/s42254-020-00245-7', [] ),
     ( ['et', 'la', 'ms', 'am', 'pv', 'peg', 'gdm'],        'access',        8,  "",       2020, 'Extending Boolean methods for scalable logic synthesis',                                                                                 '226828-226844', 'https://doi.org/10.1109/ACCESS.2020.3045014', ['mockturtle']),
     ( ['dm', 'et', 'hr', 'am', 'ms', 'gdm'],               'tcad',         40,  "10",     2021, 'Three-input gates for logic synthesis',                                                                                                  '2184-2188',     'https://doi.org/10.1109/TCAD.2020.3032625', ['mockturtle'] ),
-    ( ['fm', 'hr', 'ms', 'gdm'],                           'tqe',           2,  "",       2021, 'Efficient Boolean methods for preparing uniform quantum states',                                                                         '3103112',       'https://doi.org/10.1109/TQE.2021.3101663', ['angel'] )
+    ( ['fm', 'hr', 'ms', 'gdm'],                           'tqe',           2,  "",       2021, 'Efficient Boolean methods for preparing uniform quantum states',                                                                         '3103112',       'https://doi.org/10.1109/TQE.2021.3101663', ['angel'] ),
+    ( ['gm', 'ms', 'gdm'],                                 'npjqi',         8,  "",       2022, 'Xor-And-Inverter graphs for quantum compilation',                                                                                        '7',             'https://doi.org/10.1038/s41534-021-00514-y', ['caterpillar'] )
 ]
 
 preprint_data = [
@@ -1069,7 +1071,8 @@ preprint_data = [
     ( ['gm', 'ms', 'mr', 'gdm'],        '2005.00211', 'ROS: resource-constrained oracle synthesis for quantum computers',                                'In Proceedings QPL 2019, arXiv:2004.14750',                                                            'c115', ['cs.ET', 'cs.LO', 'quant-ph'] ),
     ( ['ms'],                           '2005.01778', 'Determining the multiplicative complexity of Boolean functions using SAT',                        '8 pages, 2 tables, comments welcome',                                                                  '',     ['cs.DS', 'cs.LO', 'quant-ph'] ),
     ( ['ms', 'mr'],                     '2005.12310', 'Quantum circuits for functionally controlled NOT gates',                                          '6 pages, 7 figures',                                                                                   '',     ['quant-ph', 'cs.ET'] ),
-    ( ['th', 'ms'],                     '2006.03845', 'Lowering the T-depth of quantum circuits by reducing the multiplicative depth of logic networks', '8 pages, 3 figures',                                                                                   '',     ['quant-ph', 'cs.CR', 'cs.ET'] )
+    ( ['th', 'ms'],                     '2006.03845', 'Lowering the T-depth of quantum circuits by reducing the multiplicative depth of logic networks', '8 pages, 3 figures',                                                                                   '',     ['quant-ph', 'cs.CR', 'cs.ET'] ),
+    ( ['th', 'ms'],                     '2201.10200', 'The multiplicative complexity of interval checking',                                              '7 pages',                                                                                              '',     ['quant-ph', 'cs.CR', 'cs.LO'] )
 ]
 
 best_paper_data = [ ( '2016_date_1', 'c' ), ( '2016_sat', 'c' ) ]
