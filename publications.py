@@ -715,6 +715,7 @@ journals_data = [
     ( 'tcad', 'IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems', 'IEEE', 'http://ieee-ceda.org/publication/tcad-publication' ),
     ( 'tc', 'IEEE Transactions on Computer', 'IEEE', 'https://www.computer.org/csdl/journal/tc' ),
     ( 'tcs', 'Theoretical Computer Science', 'Elsevier', 'http://www.journals.elsevier.com/theoretical-computer-science/' ),
+    ( 'tqc', 'ACM Transactions on Quantum Computing', 'ACM', 'https://dl.acm.org/journal/tqc' ),
     ( 'tqe', 'IEEE Transactions on Quantum Engineering', 'IEEE', 'https://tqe.ieee.org' ),
     ( 'zk', 'Zeitschrift für Kristallographie - Crystalline Materials', 'De Gruyter', 'http://www.degruyter.com/view/j/zkri' )
 ]
@@ -1048,7 +1049,8 @@ article_data = [
     ( ['et', 'la', 'ms', 'am', 'pv', 'peg', 'gdm'],        'access',        8,  "",       2020, 'Extending Boolean methods for scalable logic synthesis',                                                                                 '226828-226844', 'https://doi.org/10.1109/ACCESS.2020.3045014', ['mockturtle']),
     ( ['dm', 'et', 'hr', 'am', 'ms', 'gdm'],               'tcad',         40,  "10",     2021, 'Three-input gates for logic synthesis',                                                                                                  '2184-2188',     'https://doi.org/10.1109/TCAD.2020.3032625', ['mockturtle'] ),
     ( ['fm', 'hr', 'ms', 'gdm'],                           'tqe',           2,  "",       2021, 'Efficient Boolean methods for preparing uniform quantum states',                                                                         '3103112',       'https://doi.org/10.1109/TQE.2021.3101663', ['angel'] ),
-    ( ['gm', 'ms', 'gdm'],                                 'npjqi',         8,  "",       2022, 'Xor-And-Inverter graphs for quantum compilation',                                                                                        '7',             'https://doi.org/10.1038/s41534-021-00514-y', ['caterpillar'] )
+    ( ['gm', 'ms', 'gdm'],                                 'npjqi',         8,  "",       2022, 'Xor-And-Inverter graphs for quantum compilation',                                                                                        '7',             'https://doi.org/10.1038/s41534-021-00514-y', ['caterpillar'] ),
+    ( ['th', 'ms'],                                        'tqc',           3,  "2",      2022, 'Lowering the T-depth of quantum circuits via logic network optimization',                                                                '6',             'https://doi.org/10.1145/3501334', ['mockturtle'])
 ]
 
 preprint_data = [
@@ -1067,11 +1069,11 @@ preprint_data = [
     ( ['gm', 'ms', 'mr', 'nb', 'gdm'],  '1904.02121', 'Reversible pebbling game for quantum memory management',                                          'In Proc. Design Automation and Test in Europe (DATE 2019)',                                            'c111', ['quant-ph', 'cs.ET'] ),
     ( ['gm', 'ms', 'ec2', 'mr', 'gdm'], '1908.01609', 'The role of multiplicative complexity in compiling low T-count oracle circuits',                  "13 pages, 2 tables, 6 figures, To appear in: Proc. Int'l Conf. on Computer-Aided Design (ICCAD 2019)", 'c117', ['quant-ph', 'cs.ET'] ),
     ( ['th', 'sj', 'mn2', 'mr', 'ms'],  '2001.09580', 'Improved quantum circuits for elliptic curve discrete logarithms',                                "22 pages, to appear in: Int'l Conf. on Post-Quantum Cryptography (PQCrypto 2020)",                     'c120', ['quant-ph', 'cs.ET'] ),
-    ( ['gm', 'ms', 'mr', 'th'],         '2003.08408', 'Automatic accuracy management of quantum programs via (near-)symbolic resource estimation',       '15 pages',                                                                                             '',     ['quant-ph', 'cs.ET', 'cs.PL'] ),
+    ( ['gm', 'ms', 'mr', 'th'],         '2003.08408', 'Automatic accuracy management of quantum programs via (near-)symbolic resource estimation',       '15 pages',                                                                                             'c127', ['quant-ph', 'cs.ET', 'cs.PL'] ),
     ( ['gm', 'ms', 'mr', 'gdm'],        '2005.00211', 'ROS: resource-constrained oracle synthesis for quantum computers',                                'In Proceedings QPL 2019, arXiv:2004.14750',                                                            'c115', ['cs.ET', 'cs.LO', 'quant-ph'] ),
     ( ['ms'],                           '2005.01778', 'Determining the multiplicative complexity of Boolean functions using SAT',                        '8 pages, 2 tables, comments welcome',                                                                  '',     ['cs.DS', 'cs.LO', 'quant-ph'] ),
-    ( ['ms', 'mr'],                     '2005.12310', 'Quantum circuits for functionally controlled NOT gates',                                          '6 pages, 7 figures',                                                                                   '',     ['quant-ph', 'cs.ET'] ),
-    ( ['th', 'ms'],                     '2006.03845', 'Lowering the T-depth of quantum circuits by reducing the multiplicative depth of logic networks', '8 pages, 3 figures',                                                                                   '',     ['quant-ph', 'cs.CR', 'cs.ET'] ),
+    ( ['ms', 'mr'],                     '2005.12310', 'Quantum circuits for functionally controlled NOT gates',                                          '6 pages, 7 figures',                                                                                   'c126', ['quant-ph', 'cs.ET'] ),
+    ( ['th', 'ms'],                     '2006.03845', 'Lowering the T-depth of quantum circuits by reducing the multiplicative depth of logic networks', '8 pages, 3 figures',                                                                                   'j32',  ['quant-ph', 'cs.CR', 'cs.ET'] ),
     ( ['th', 'ms'],                     '2201.10200', 'The multiplicative complexity of interval checking',                                              '7 pages',                                                                                              '',     ['quant-ph', 'cs.CR', 'cs.LO'] )
 ]
 
